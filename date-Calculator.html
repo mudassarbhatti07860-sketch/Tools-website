@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Date Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--gold:#c9a84c;--gold2:#f0d080;--dark:#0d0d14;--darker:#07070e;--panel:rgba(20,20,35,0.95);--border:rgba(201,168,76,0.3);--text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--accent:rgba(201,168,76,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Amiri',serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
+  repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+  repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),var(--darker);}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;padding:.55rem 1.2rem;background:rgba(7,7,14,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;text-decoration:none;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
+.nav-link.active{background:rgba(201,168,76,0.1);}
+.lang-sep{width:1px;height:18px;background:var(--border);margin:0 .2rem;}
+.hero{position:relative;z-index:1;padding:5.5rem 1rem 2.5rem;text-align:center;}
+.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold2);direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;}
+.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.85rem,2vw,1.05rem);color:var(--gold);opacity:.85;display:block;margin-top:.2rem;}
+.hero-icon{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:.5rem;animation:spin 14s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 55%,#7a5c10 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:.4rem 0;}
+.hero-sub{color:var(--muted);font-size:clamp(.9rem,2vw,1.05rem);}
+.gold-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0;}
+.wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:1.8rem;}
+.ad{background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;letter-spacing:.1em;font-family:'Cinzel',serif;text-transform:uppercase;}
+.ad-top{height:90px;}.ad-mid{height:90px;}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:1.8rem;backdrop-filter:blur(8px);}
+.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--gold);letter-spacing:.1em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+.tabs{display:flex;gap:.45rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.tab{background:transparent;border:1px solid var(--border);border-radius:8px;padding:.4rem 1rem;color:var(--muted);font-family:'Amiri',serif;font-size:.93rem;cursor:pointer;transition:all .2s;}
+.tab:hover{border-color:var(--gold);color:var(--gold2);}
+.tab.active{background:var(--gold);border-color:var(--gold);color:#000;font-weight:700;}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+.fg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+@media(max-width:580px){.fg2,.fg3{grid-template-columns:1fr 1fr;}}
+@media(max-width:380px){.fg2,.fg3{grid-template-columns:1fr;}}
+.field label{display:block;font-size:.75rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:.4rem;}
+.field input[type="date"],.field input[type="number"],.field select{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;color:var(--text);font-family:'Amiri',serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;color-scheme:dark;-webkit-appearance:none;appearance:none;}
+.field select option{background:#0a0a0f;}
+.field input:focus,.field select:focus{border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,0.18);}
+.mini-lbl{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem;}
+.btn{background:linear-gradient(135deg,var(--gold) 0%,#9a7020 100%);border:none;border-radius:8px;padding:.7rem 1.5rem;color:#000;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:.9rem;width:100%;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(201,168,76,0.3);}
+.res{display:none;margin-top:1.5rem;}
+.res.show{display:block;animation:fadeUp .4s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.big-box{text-align:center;background:var(--accent);border:1px solid rgba(201,168,76,0.25);border-radius:14px;padding:1.7rem 1rem;margin-bottom:1.1rem;animation:countUp .5s ease both;}
+.big-num{font-family:'Cinzel',serif;font-size:clamp(2.4rem,7vw,3.8rem);font-weight:900;color:var(--gold2);line-height:1;}
+.big-unit{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold);letter-spacing:.15em;margin-top:.35rem;}
+.big-sub{font-size:.88rem;color:var(--muted);margin-top:.4rem;}
+.bk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:.7rem;margin-bottom:1.1rem;}
+.bk{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.85rem .5rem;text-align:center;animation:countUp .4s ease both;}
+.bk:nth-child(2){animation-delay:.05s}.bk:nth-child(3){animation-delay:.1s}.bk:nth-child(4){animation-delay:.15s}
+.bk-num{font-family:'Cinzel',serif;font-size:clamp(1.1rem,3.5vw,1.6rem);font-weight:900;color:var(--gold2);}
+.bk-unit{font-size:.68rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-top:.22rem;}
+.summary{background:var(--accent);border:1px solid rgba(201,168,76,0.18);border-radius:10px;padding:.9rem 1.1rem;line-height:1.9;font-size:1rem;color:var(--text);margin-bottom:.9rem;}
+.summary b{color:var(--gold2);}
+.info-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(201,168,76,0.08);padding:.5rem 0;font-size:.9rem;}
+.info-row:last-child{border-bottom:none;}
+.ir-lbl{color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;}
+.ir-val{color:var(--gold2);font-weight:700;text-align:right;}
+.addresult{text-align:center;padding:1.5rem 1rem;background:var(--accent);border:1px solid rgba(201,168,76,0.25);border-radius:14px;margin-bottom:.9rem;animation:countUp .5s ease both;}
+.ar-date{font-family:'Cinzel',serif;font-size:clamp(1.3rem,4vw,2rem);font-weight:900;color:var(--gold2);}
+.ar-day{font-size:.95rem;color:var(--gold);margin-top:.3rem;}
+.ar-sub{font-size:.85rem;color:var(--muted);margin-top:.3rem;}
+.badge{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:.18rem .8rem;font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold2);letter-spacing:.06em;margin:.4rem .2rem 0;}
+.ql-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;}
+.ql{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.ql:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(201,168,76,0.18);border-color:var(--gold);}
+.ql-icon{font-size:1.5rem;}.ql-name{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase;}.ql-desc{font-size:.78rem;color:var(--muted);}
+.hadith-sec{position:relative;z-index:1;margin-top:2rem;background:rgba(7,7,14,0.98);border-top:1px solid var(--border);}
+.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
+.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;text-shadow:0 0 20px rgba(201,168,76,0.5);}
+.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.15rem,3vw,1.65rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
+.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
+.h-urdu{font-family:'Amiri',serif;font-size:clamp(.92rem,2.2vw,1.08rem);color:var(--text);line-height:2;direction:rtl;margin-bottom:.5rem;}
+.h-en{font-family:'Amiri',serif;font-size:.93rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
+.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
+.noor-footer{text-align:center;padding:1.4rem .5rem;background:rgba(5,5,10,0.99);border-top:1px solid var(--border);}
+.noor-text{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold2);direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.4);letter-spacing:.04em;}
+.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.35rem;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <div class="nav-right">
+    <a href="age-calculator.html"  class="nav-link" data-en="🎂 Age" data-ur="🎂 عمر" data-ar="🎂 العمر">🎂 Age</a>
+    <a href="date-calculator.html" class="nav-link active" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
+    <a href="time-calculator.html" class="nav-link" data-en="⏱ Time" data-ur="⏱ وقت" data-ar="⏱ الوقت">⏱ Time</a>
+    <a href="index.html" class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم" data-ar="🏠 الرئيسية">🏠 Home</a>
+    <div class="lang-sep"></div>
+    <button class="nav-link active" id="lb-en" onclick="setLang('en')">EN</button>
+    <button class="nav-link" id="lb-ur" onclick="setLang('ur')">اردو</button>
+    <button class="nav-link" id="lb-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="hero-icon">📅</span>
+  <div style="margin-bottom:1rem;">
+    <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+  </div>
+  <h1 class="hero-title" id="heroTitle">Date Calculator</h1>
+  <p  class="hero-sub"   id="heroSub">Days Between Dates · Add / Subtract · Day of Week · Business Days</p>
+  <div class="gold-line"></div>
+</section>
+
+<div class="wrap">
+  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="sw('between')"><span data-en="📅 Between Dates" data-ur="📅 دو تاریخوں کا فرق" data-ar="📅 بين تاريخين">📅 Between Dates</span></button>
+      <button class="tab"        onclick="sw('addsubt')"><span data-en="➕ Add / Subtract" data-ur="➕ جوڑیں / گھٹائیں" data-ar="➕ جمع / طرح">➕ Add / Subtract</span></button>
+      <button class="tab"        onclick="sw('dow')"><span data-en="📆 Day of Week" data-ur="📆 ہفتے کا دن" data-ar="📆 يوم الأسبوع">📆 Day of Week</span></button>
+    </div>
+
+    <!-- BETWEEN -->
+    <div id="pBetween">
+      <div class="card-title" id="ctBetween">📅 Days Between Two Dates</div>
+      <div class="fg2">
+        <div class="field"><label id="lStart">Start Date</label><input type="date" id="startDate"/></div>
+        <div class="field"><label id="lEnd">End Date</label><input type="date" id="endDate"/></div>
+      </div>
+      <button class="btn" id="btnBetween" onclick="calcBetween()">📅 Calculate Difference</button>
+      <div class="res" id="resBetween">
+        <div class="big-box"><div class="big-num" id="bigDays">0</div><div class="big-unit" id="bigUnit">DAYS BETWEEN</div><div class="big-sub" id="bigSub"></div></div>
+        <div class="bk-grid" id="bkGrid"></div>
+        <div class="summary"  id="btSummary"></div>
+        <div id="btInfoRows"></div>
+      </div>
+    </div>
+
+    <!-- ADD/SUBTRACT -->
+    <div id="pAddsubt" style="display:none">
+      <div class="card-title" id="ctAdd">➕ Add or Subtract from a Date</div>
+      <div class="fg2">
+        <div class="field"><label id="lAsDate">Start Date</label><input type="date" id="asDate"/></div>
+        <div class="field"><label id="lAsOp">Operation</label>
+          <select id="asOp"><option value="add" data-en="➕ Add" data-ur="➕ جوڑیں" data-ar="➕ أضف">➕ Add</option><option value="sub" data-en="➖ Subtract" data-ur="➖ گھٹائیں" data-ar="➖ اطرح">➖ Subtract</option></select>
+        </div>
+      </div>
+      <div class="fg3" style="margin-top:.8rem">
+        <div class="field"><label id="lAsY">Years</label><input type="number" id="asY" placeholder="0" min="0"/></div>
+        <div class="field"><label id="lAsM">Months</label><input type="number" id="asM" placeholder="0" min="0"/></div>
+        <div class="field"><label id="lAsD">Days</label><input type="number" id="asD" placeholder="0" min="0"/></div>
+      </div>
+      <button class="btn" id="btnAdd" onclick="calcAdd()">✨ Calculate Result Date</button>
+      <div class="res" id="resAdd">
+        <div class="addresult"><div class="ar-date" id="arDate">—</div><div class="ar-day" id="arDay"></div><div class="ar-sub" id="arSub"></div></div>
+        <div id="addInfoRows"></div>
+      </div>
+    </div>
+
+    <!-- DAY OF WEEK -->
+    <div id="pDow" style="display:none">
+      <div class="card-title" id="ctDow">📆 What Day of the Week?</div>
+      <div class="fg2">
+        <div class="field"><label id="lDowDate">Enter Any Date</label><input type="date" id="dowDate"/></div>
+        <div class="field" style="display:flex;align-items:flex-end"><button class="btn" style="margin-top:0" id="btnDow" onclick="calcDow()">🔍 Find Day</button></div>
+      </div>
+      <div class="res" id="resDow">
+        <div class="big-box"><div class="big-num" id="dowDay" style="font-size:clamp(1.8rem,5vw,3rem)">—</div><div class="big-unit" id="dowFull"></div><div class="big-sub" id="dowSub"></div></div>
+        <div class="bk-grid" id="dowGrid"></div>
+        <div class="summary" id="dowSummary"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+
+  <div class="card">
+    <div class="card-title" id="ctLinks">🔗 Related Tools</div>
+    <div class="ql-grid">
+      <a href="age-calculator.html"  class="ql"><span class="ql-icon">🎂</span><span class="ql-name" data-en="Age Calculator" data-ur="عمر کیلکولیٹر" data-ar="حاسبة العمر">Age Calculator</span><span class="ql-desc" data-en="Years, months, days" data-ur="سال، مہینے، دن" data-ar="السنوات والأشهر">Years, months, days</span></a>
+      <a href="time-calculator.html" class="ql"><span class="ql-icon">⏱️</span><span class="ql-name" data-en="Time Calculator" data-ur="وقت کیلکولیٹر" data-ar="حاسبة الوقت">Time Calculator</span><span class="ql-desc" data-en="Add or subtract time" data-ur="وقت جوڑیں / گھٹائیں" data-ar="جمع أو طرح الوقت">Add or subtract time</span></a>
+      <a href="index.html" class="ql"><span class="ql-icon">🛠️</span><span class="ql-name" data-en="All Tools" data-ur="تمام ٹولز" data-ar="جميع الأدوات">All Tools</span><span class="ql-desc" data-en="40+ free tools" data-ur="40+ مفت ٹولز" data-ar="أكثر من 40 أداة">40+ free tools</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="hadith-sec">
+  <div class="hadith-inner">
+    <span class="h-ornament">❁ ☽ ❁</span>
+    <p class="h-arabic">«إِنَّ مَعَ الْعُسْرِ يُسْرًا · فَإِنَّ مَعَ الْعُسْرِ يُسْرًا»</p>
+    <div class="h-line"></div>
+    <p class="h-urdu" id="hUrdu">بیشک ہر تکلیف کے ساتھ آسانی ہے۔ بیشک ہر تکلیف کے ساتھ آسانی ہے۔</p>
+    <p class="h-en"   id="hEn">"Indeed, with every hardship comes ease. Indeed, with every hardship comes ease."</p>
+    <p class="h-source">— القرآن الكريم | Surah Ash-Sharh 94:5-6</p>
+  </div>
+</div>
+<div class="noor-footer">
+  <div class="noor-text">نُور الہدیٰ</div>
+  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED</div>
+</div>
+
+<script>
+const DAYS_EN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const DAYS_UR=['اتوار','پیر','منگل','بدھ','جمعرات','جمعہ','ہفتہ'];
+const DAYS_AR=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+let lang='en';
+const todStr=new Date().toISOString().split('T')[0];
+document.getElementById('startDate').value=todStr;
+document.getElementById('endDate').value=todStr;
+document.getElementById('asDate').value=todStr;
+document.getElementById('dowDate').value=todStr;
+
+const TL={
+  en:{dir:'ltr',l:'en',bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
+    heroTitle:'Date Calculator',heroSub:'Days Between Dates · Add / Subtract · Day of Week · Business Days',
+    ctBetween:'📅 Days Between Two Dates',ctAdd:'➕ Add or Subtract from a Date',ctDow:'📆 What Day of the Week?',ctLinks:'🔗 Related Tools',
+    lStart:'Start Date',lEnd:'End Date',lAsDate:'Start Date',lAsOp:'Operation',lAsY:'Years',lAsM:'Months',lAsD:'Days',lDowDate:'Enter Any Date',
+    btnBetween:'📅 Calculate Difference',btnAdd:'✨ Calculate Result Date',btnDow:'🔍 Find Day',
+    bigUnit:'DAYS BETWEEN',adTxt1:'Advertisement — 728×90',adTxt2:'Advertisement — 468×60',
+    hUrdu:'',hEn:'"Indeed, with every hardship comes ease. Indeed, with every hardship comes ease."',
+    days:DAYS_EN,biz:'Business Days',wkd:'Weekend Days',wks:'Weeks',hrs:'Total Hours',mins:'Total Minutes',
+    startDay:'Start Day',endDay:'End Day',overnight:'Overnight?',yes:'✅ Yes',no:'❌ No',leapY:'Leap Year?',wkNum:'Week Number',daysInMo:'Days in Month'},
+  ur:{dir:'rtl',l:'ur',bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
+    heroTitle:'تاریخ کیلکولیٹر',heroSub:'دو تاریخوں کا فرق · جوڑیں / گھٹائیں · ہفتے کا دن · کاروباری دن',
+    ctBetween:'📅 دو تاریخوں کا فرق',ctAdd:'➕ تاریخ میں جوڑیں یا گھٹائیں',ctDow:'📆 ہفتے کا دن کیا ہے؟',ctLinks:'🔗 متعلقہ ٹولز',
+    lStart:'شروع کی تاریخ',lEnd:'آخری تاریخ',lAsDate:'شروع کی تاریخ',lAsOp:'آپریشن',lAsY:'سال',lAsM:'مہینے',lAsD:'دن',lDowDate:'کوئی بھی تاریخ',
+    btnBetween:'📅 فرق معلوم کریں',btnAdd:'✨ نتیجہ تاریخ',btnDow:'🔍 دن معلوم کریں',
+    bigUnit:'دنوں کا فرق',adTxt1:'اشتہار — 728×90',adTxt2:'اشتہار — 468×60',
+    hUrdu:'بیشک ہر تکلیف کے ساتھ آسانی ہے۔ بیشک ہر تکلیف کے ساتھ آسانی ہے۔',hEn:'',
+    days:DAYS_UR,biz:'کاروباری دن',wkd:'چھٹی کے دن',wks:'ہفتے',hrs:'کل گھنٹے',mins:'کل منٹ',
+    startDay:'شروع کا دن',endDay:'آخری دن',overnight:'اگلے دن تک؟',yes:'✅ ہاں',no:'❌ نہیں',leapY:'کبیسہ سال؟',wkNum:'ہفتہ نمبر',daysInMo:'مہینے کے دن'},
+  ar:{dir:'rtl',l:'ar',bisml:'بسم الله الرحمن الرحيم',
+    heroTitle:'حاسبة التاريخ',heroSub:'الأيام بين تاريخين · الجمع / الطرح · يوم الأسبوع',
+    ctBetween:'📅 الأيام بين تاريخين',ctAdd:'➕ جمع أو طرح من تاريخ',ctDow:'📆 ما هو يوم الأسبوع؟',ctLinks:'🔗 أدوات ذات صلة',
+    lStart:'تاريخ البداية',lEnd:'تاريخ النهاية',lAsDate:'تاريخ البداية',lAsOp:'العملية',lAsY:'سنوات',lAsM:'أشهر',lAsD:'أيام',lDowDate:'أدخل أي تاريخ',
+    btnBetween:'📅 احسب الفرق',btnAdd:'✨ احسب تاريخ النتيجة',btnDow:'🔍 اكتشف اليوم',
+    bigUnit:'الأيام بينهما',adTxt1:'إعلان — 728×90',adTxt2:'إعلان — 468×60',
+    hUrdu:'',hEn:'«إِنَّ مَعَ الْعُسْرِ يُسْرًا · فَإِنَّ مَعَ الْعُسْرِ يُسْرًا»',
+    days:DAYS_AR,biz:'أيام العمل',wkd:'أيام العطل',wks:'أسابيع',hrs:'إجمالي الساعات',mins:'إجمالي الدقائق',
+    startDay:'يوم البداية',endDay:'يوم النهاية',overnight:'ليلي؟',yes:'✅ نعم',no:'❌ لا',leapY:'سنة كبيسة؟',wkNum:'رقم الأسبوع',daysInMo:'أيام الشهر'}
+};
+
+function setLang(l){
+  lang=l;const t=TL[l];
+  document.documentElement.lang=t.l;document.documentElement.dir=t.dir;
+  document.body.classList.toggle('rtl',t.dir==='rtl');
+  ['lb-en','lb-ur','lb-ar'].forEach(id=>{const el=document.getElementById(id);el.classList.remove('active');});
+  document.getElementById('lb-'+l).classList.add('active');
+  document.getElementById('bismlTr').textContent=t.bisml;
+  ['heroTitle','heroSub','ctBetween','ctAdd','ctDow','ctLinks','lStart','lEnd','lAsDate','lAsOp','lAsY','lAsM','lAsD','lDowDate','btnBetween','btnAdd','btnDow','bigUnit','adTxt1','adTxt2'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t[id];});
+  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
+  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
+  document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[l]||el.dataset.en;});
+}
+
+function sw(tab){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.closest('.tab').classList.add('active');
+  ['Between','Addsubt','Dow'].forEach(t=>document.getElementById('p'+t).style.display=(t.toLowerCase()===tab)?'block':'none');
+}
+
+function fmtDate(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
+function fmtShort(d){return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}
+function weekNum(d){const j=new Date(d.getFullYear(),0,1);return Math.ceil((((d-j)/86400000)+j.getDay()+1)/7);}
+function isLeap(y){return(y%4===0&&y%100!==0)||y%400===0;}
+function daysInMonth(y,m){return new Date(y,m+1,0).getDate();}
+function bizDays(from,to){let c=0,cur=new Date(from);while(cur<=to){if(cur.getDay()!==0&&cur.getDay()!==6)c++;cur.setDate(cur.getDate()+1);}return c;}
+
+function calcBetween(){
+  const sv=document.getElementById('startDate').value,ev=document.getElementById('endDate').value;
+  if(!sv||!ev){alert('Please enter both dates!');return;}
+  let s=new Date(sv),e=new Date(ev),swp=false;
+  if(s>e){[s,e]=[e,s];swp=true;}
+  const ms=e-s,td=Math.floor(ms/86400000),tw=Math.floor(td/7);
+  let y=e.getFullYear()-s.getFullYear(),m=e.getMonth()-s.getMonth(),d=e.getDate()-s.getDate();
+  if(d<0){m--;d+=new Date(e.getFullYear(),e.getMonth(),0).getDate();}if(m<0){y--;m+=12;}
+  const th=Math.floor(ms/3600000),tm=Math.floor(ms/60000),biz=bizDays(s,e),wkd=td-biz;
+  const t=TL[lang];
+  document.getElementById('bigDays').textContent=td.toLocaleString();
+  document.getElementById('bigUnit').textContent=t.bigUnit;
+  document.getElementById('bigSub').textContent=(swp?'(swapped) ':'')+fmtShort(s)+' → '+fmtShort(e);
+  document.getElementById('bkGrid').innerHTML=[
+    {n:y,u:'Years'},{n:m,u:'Months'},{n:d,u:'Days'},{n:tw,u:t.wks},{n:th.toLocaleString(),u:t.hrs},{n:tm.toLocaleString(),u:t.mins}
+  ].map(b=>`<div class="bk"><div class="bk-num">${b.n}</div><div class="bk-unit">${b.u}</div></div>`).join('');
+  document.getElementById('btSummary').innerHTML=`From <b>${fmtDate(s)}</b> to <b>${fmtDate(e)}</b> is <b>${td.toLocaleString()} days</b> — that is <b>${y}y ${m}m ${d}d</b>.`;
+  document.getElementById('btInfoRows').innerHTML=`
+    <div class="info-row"><span class="ir-lbl">${t.biz}</span><span class="ir-val">${biz.toLocaleString()}</span></div>
+    <div class="info-row"><span class="ir-lbl">${t.wkd}</span><span class="ir-val">${wkd.toLocaleString()}</span></div>
+    <div class="info-row"><span class="ir-lbl">${t.startDay}</span><span class="ir-val">${t.days[s.getDay()]}</span></div>
+    <div class="info-row"><span class="ir-lbl">${t.endDay}</span><span class="ir-val">${t.days[e.getDay()]}</span></div>
+    <div class="info-row"><span class="ir-lbl">${t.hrs}</span><span class="ir-val">${th.toLocaleString()}</span></div>
+    <div class="info-row"><span class="ir-lbl">${t.mins}</span><span class="ir-val">${tm.toLocaleString()}</span></div>`;
+  document.getElementById('resBetween').classList.add('show');
+}
+
+function calcAdd(){
+  const dv=document.getElementById('asDate').value;if(!dv){alert('Please enter a date!');return;}
+  const op=document.getElementById('asOp').value,y=parseInt(document.getElementById('asY').value)||0,m=parseInt(document.getElementById('asM').value)||0,d=parseInt(document.getElementById('asD').value)||0;
+  if(!y&&!m&&!d){alert('Enter at least one value!');return;}
+  const base=new Date(dv),res=new Date(base);
+  if(op==='add'){res.setFullYear(res.getFullYear()+y);res.setMonth(res.getMonth()+m);res.setDate(res.getDate()+d);}
+  else{res.setFullYear(res.getFullYear()-y);res.setMonth(res.getMonth()-m);res.setDate(res.getDate()-d);}
+  const t=TL[lang];
+  document.getElementById('arDate').textContent=fmtDate(res);
+  document.getElementById('arDay').textContent=t.days[res.getDay()];
+  document.getElementById('arSub').textContent=(op==='add'?'Adding':'Subtracting')+' '+[y?y+'y':'',m?m+'m':'',d?d+'d':''].filter(Boolean).join(' ')+' '+(op==='add'?'after':'before')+' '+fmtShort(base);
+  document.getElementById('addInfoRows').innerHTML=`
+    <div class="info-row"><span class="ir-lbl">Result Date</span><span class="ir-val">${fmtDate(res)}</span></div>
+    <div class="info-row"><span class="ir-lbl">${t.days[res.getDay()]}</span><span class="ir-val">${t.wkNum} ${weekNum(res)}</span></div>
+    <div class="info-row"><span class="ir-lbl">${t.leapY}</span><span class="ir-val">${isLeap(res.getFullYear())?t.yes:t.no}</span></div>
+    <div class="info-row"><span class="ir-lbl">${t.daysInMo}</span><span class="ir-val">${daysInMonth(res.getFullYear(),res.getMonth())}</span></div>`;
+  document.getElementById('resAdd').classList.add('show');
+}
+
+function calcDow(){
+  const dv=document.getElementById('dowDate').value;if(!dv){alert('Please enter a date!');return;}
+  const d=new Date(dv),t=TL[lang],now=new Date();
+  const dl=Math.abs(Math.floor((d-now)/86400000)),isToday=d.toDateString()===now.toDateString(),isFut=d>now;
+  document.getElementById('dowDay').textContent=t.days[d.getDay()];
+  document.getElementById('dowFull').textContent=fmtDate(d).toUpperCase();
+  document.getElementById('dowSub').textContent=isToday?'📍 Today':isFut?`${dl} days from now`:`${dl} days ago`;
+  document.getElementById('dowGrid').innerHTML=[
+    {n:d.getDate(),u:'Day'},{n:d.getMonth()+1,u:'Month'},{n:d.getFullYear(),u:'Year'},{n:weekNum(d),u:t.wkNum}
+  ].map(b=>`<div class="bk"><div class="bk-num">${b.n}</div><div class="bk-unit">${b.u}</div></div>`).join('');
+  const badges=[d.getDay()===5?'🕌 Jumu\'ah':'',d.getDay()===0||d.getDay()===6?'🏖️ Weekend':'',isToday?'📍 Today':'',isLeap(d.getFullYear())?'🔄 Leap Year':''].filter(Boolean).map(b=>`<span class="badge">${b}</span>`).join('');
+  document.getElementById('dowSummary').innerHTML=`<b>${fmtDate(d)}</b> is a <b style="color:var(--gold2)">${t.days[d.getDay()]}</b>. Week ${weekNum(d)} of ${d.getFullYear()}. ${badges}`;
+  document.getElementById('resDow').classList.add('show');
+}
+</script>
+</body>
+</html>
