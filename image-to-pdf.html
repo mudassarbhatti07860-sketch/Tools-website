@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image to PDF</title>
+<title>Image to PDF Pro</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
 
@@ -16,10 +16,8 @@
   --panel:rgba(20,20,35,0.95);
   --text:#e8dfc8;
   --muted:#9a8860;
-  --input-bg:rgba(255,255,255,0.04);
 }
 
-/* BACKGROUND SAME STYLE */
 body{
   margin:0;
   font-family:'Amiri',serif;
@@ -28,135 +26,153 @@ body{
   text-align:center;
 }
 
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 0%,rgba(201,168,76,0.08),transparent 65%);
-}
-
-/* HEADER */
+/* HEADER STYLE SAME AS YOUR SITE */
 h1{
   font-family:'Cinzel',serif;
   color:var(--gold2);
-  margin:30px 0 10px;
+  margin:25px 0;
   letter-spacing:2px;
 }
 
-/* CARD */
 .box{
-  max-width:650px;
-  margin:20px auto;
+  max-width:700px;
+  margin:auto;
   background:var(--panel);
   border:1px solid var(--border);
   border-radius:14px;
-  padding:25px;
+  padding:20px;
   backdrop-filter:blur(10px);
 }
 
-/* INPUT */
+/* INPUT BUTTONS */
 input{
-  margin:15px 0;
-  padding:10px;
-  border-radius:8px;
-  border:1px solid var(--border);
-  background:var(--input-bg);
+  margin:10px 0;
   color:var(--text);
-  width:90%;
 }
 
-/* BUTTON */
-button{
+.btn{
   background:linear-gradient(135deg,var(--gold2),var(--gold));
   border:none;
-  padding:12px 18px;
+  padding:10px 15px;
   border-radius:25px;
   cursor:pointer;
   font-weight:bold;
+  margin:5px;
   font-family:'Cinzel',serif;
-  margin-top:10px;
-  transition:.3s;
 }
 
-button:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 20px rgba(201,168,76,0.3);
-}
-
-/* PREVIEW */
-.preview{
+/* PREVIEW GRID */
+.grid{
   display:flex;
   flex-wrap:wrap;
-  justify-content:center;
   gap:10px;
+  justify-content:center;
   margin-top:15px;
 }
 
-.preview img{
-  width:100px;
-  height:100px;
+.item{
+  position:relative;
+}
+
+.item img{
+  width:110px;
+  height:110px;
   object-fit:cover;
   border-radius:10px;
   border:1px solid var(--border);
-  box-shadow:0 0 10px rgba(201,168,76,0.15);
+}
+
+/* DELETE BTN */
+.del{
+  position:absolute;
+  top:2px;
+  right:2px;
+  background:red;
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  width:20px;
+  height:20px;
+  font-size:12px;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🖼️ Image to PDF</h1>
+<h1>🖼️ Image to PDF PRO</h1>
 
 <div class="box">
 
-  <input type="file" id="images" multiple accept="image/*">
+  <!-- IMAGE SELECT -->
+  <input type="file" id="file" accept="image/*" multiple>
 
-  <div class="preview" id="preview"></div>
+  <!-- CAMERA SUPPORT -->
+  <input type="file" id="cam" accept="image/*" capture="environment">
 
-  <button onclick="convertPDF()">Convert to PDF</button>
+  <br>
+
+  <button class="btn" onclick="convert()">Convert PDF</button>
+
+  <div class="grid" id="grid"></div>
 
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script>
-const input = document.getElementById("images");
-const preview = document.getElementById("preview");
-let imgs = [];
+let images=[];
 
-input.addEventListener("change", function(){
-  preview.innerHTML="";
-  imgs=[];
+const file=document.getElementById('file');
+const cam=document.getElementById('cam');
+const grid=document.getElementById('grid');
 
-  Array.from(this.files).forEach(file=>{
-    const reader=new FileReader();
+file.onchange=e=>handle(e.target.files);
+cam.onchange=e=>handle(e.target.files);
 
-    reader.onload=e=>{
-      imgs.push(e.target.result);
-
-      let img=document.createElement("img");
-      img.src=e.target.result;
-      preview.appendChild(img);
+function handle(files){
+  for(let f of files){
+    let r=new FileReader();
+    r.onload=e=>{
+      images.push(e.target.result);
+      render();
     }
+    r.readAsDataURL(f);
+  }
+}
 
-    reader.readAsDataURL(file);
+function render(){
+  grid.innerHTML="";
+  images.forEach((img,i)=>{
+    let div=document.createElement('div');
+    div.className="item";
+
+    div.innerHTML=`
+      <img src="${img}">
+      <button class="del" onclick="removeImg(${i})">×</button>
+    `;
+    grid.appendChild(div);
   });
-});
+}
 
-function convertPDF(){
-  if(imgs.length===0){
+function removeImg(i){
+  images.splice(i,1);
+  render();
+}
+
+function convert(){
+  if(images.length==0){
     alert("Select images first");
     return;
   }
 
-  const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF();
+  const { jsPDF }=window.jspdf;
+  const pdf=new jsPDF();
 
-  let loaded=0;
+  let done=0;
 
-  imgs.forEach((src,i)=>{
+  images.forEach((src,i)=>{
     let img=new Image();
     img.src=src;
 
@@ -164,12 +180,12 @@ function convertPDF(){
       const w=pdf.internal.pageSize.getWidth();
       const h=(img.height*w)/img.width;
 
-      if(i!==0) pdf.addPage();
-      pdf.addImage(img,"JPEG",0,0,w,h);
+      if(i!=0) pdf.addPage();
+      pdf.addImage(img,'JPEG',0,0,w,h);
 
-      loaded++;
-      if(loaded===imgs.length){
-        pdf.save("image-to-pdf.pdf");
+      done++;
+      if(done==images.length){
+        pdf.save("images.pdf");
       }
     }
   });
