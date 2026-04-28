@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Time Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--gold:#c9a84c;--gold2:#f0d080;--dark:#0d0d14;--darker:#07070e;--panel:rgba(20,20,35,0.95);--border:rgba(201,168,76,0.3);--text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--accent:rgba(201,168,76,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Amiri',serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
+  repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+  repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),var(--darker);}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;padding:.55rem 1.2rem;background:rgba(7,7,14,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;text-decoration:none;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
+.nav-link.active{background:rgba(201,168,76,0.1);}
+.lang-sep{width:1px;height:18px;background:var(--border);margin:0 .2rem;}
+.hero{position:relative;z-index:1;padding:5.5rem 1rem 2.5rem;text-align:center;}
+.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold2);direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;}
+.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.85rem,2vw,1.05rem);color:var(--gold);opacity:.85;display:block;margin-top:.2rem;}
+.hero-icon{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:.5rem;animation:spin 14s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 55%,#7a5c10 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:.4rem 0;}
+.hero-sub{color:var(--muted);font-size:clamp(.9rem,2vw,1.05rem);}
+.hero-clock{font-family:'Cinzel',serif;font-size:clamp(1.4rem,4vw,2.4rem);color:var(--gold);letter-spacing:.1em;margin-top:.8rem;text-shadow:0 0 20px rgba(201,168,76,0.35);}
+.hero-date{font-size:.82rem;color:var(--muted);letter-spacing:.08em;margin-top:.2rem;}
+.gold-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto 0;}
+.wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:1.8rem;}
+.ad{background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;letter-spacing:.1em;font-family:'Cinzel',serif;text-transform:uppercase;}
+.ad-top{height:90px;}.ad-mid{height:90px;}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:1.8rem;backdrop-filter:blur(8px);}
+.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--gold);letter-spacing:.1em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+.tabs{display:flex;gap:.45rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.tab{background:transparent;border:1px solid var(--border);border-radius:8px;padding:.4rem 1rem;color:var(--muted);font-family:'Amiri',serif;font-size:.93rem;cursor:pointer;transition:all .2s;}
+.tab:hover{border-color:var(--gold);color:var(--gold2);}
+.tab.active{background:var(--gold);border-color:var(--gold);color:#000;font-weight:700;}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+.fg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+.fg4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:.9rem;}
+@media(max-width:600px){.fg3,.fg4{grid-template-columns:1fr 1fr;}.fg2{grid-template-columns:1fr 1fr;}}
+@media(max-width:380px){.fg2,.fg3,.fg4{grid-template-columns:1fr;}}
+.field label{display:block;font-size:.75rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:.4rem;}
+.field input[type="time"],.field input[type="number"],.field select{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;color:var(--text);font-family:'Amiri',serif;font-size:1rem;outline:none;transition:border-color .2s,box-shadow .2s;color-scheme:dark;-webkit-appearance:none;appearance:none;}
+.field select option{background:#0a0a0f;}
+.field input:focus,.field select:focus{border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,0.18);}
+.btn{background:linear-gradient(135deg,var(--gold) 0%,#9a7020 100%);border:none;border-radius:8px;padding:.7rem 1.5rem;color:#000;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:.9rem;width:100%;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(201,168,76,0.3);}
+.res{display:none;margin-top:1.5rem;}
+.res.show{display:block;animation:fadeUp .4s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.big-box{text-align:center;background:var(--accent);border:1px solid rgba(201,168,76,0.25);border-radius:14px;padding:1.6rem 1rem;margin-bottom:1.1rem;animation:countUp .5s ease both;}
+.big-num{font-family:'Cinzel',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:900;color:var(--gold2);line-height:1;letter-spacing:.05em;}
+.big-unit{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);letter-spacing:.15em;margin-top:.35rem;}
+.big-sub{font-size:.85rem;color:var(--muted);margin-top:.35rem;}
+.bk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:.7rem;margin-bottom:1.1rem;}
+.bk{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.85rem .5rem;text-align:center;animation:countUp .4s ease both;}
+.bk:nth-child(2){animation-delay:.05s}.bk:nth-child(3){animation-delay:.1s}.bk:nth-child(4){animation-delay:.15s}
+.bk-num{font-family:'Cinzel',serif;font-size:clamp(1.1rem,3.5vw,1.5rem);font-weight:900;color:var(--gold2);}
+.bk-unit{font-size:.68rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-top:.22rem;}
+.summary{background:var(--accent);border:1px solid rgba(201,168,76,0.18);border-radius:10px;padding:.9rem 1.1rem;line-height:1.9;font-size:1rem;color:var(--text);margin-bottom:.9rem;}
+.summary b{color:var(--gold2);}
+.info-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(201,168,76,0.08);padding:.5rem 0;font-size:.9rem;}
+.info-row:last-child{border-bottom:none;}
+.ir-lbl{color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;}
+.ir-val{color:var(--gold2);font-weight:700;text-align:right;}
+
+/* ── PRAYER TIMES ── */
+.prayer-status{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.loc-badge{background:var(--accent);border:1px solid var(--border);border-radius:20px;padding:.25rem .8rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.06em;}
+.loc-btn{background:transparent;border:1px solid var(--border);border-radius:20px;padding:.25rem .8rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);cursor:pointer;transition:all .2s;letter-spacing:.06em;}
+.loc-btn:hover{border-color:var(--gold);color:var(--gold2);}
+
+.prayer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;}
+.prayer-box{background:var(--accent);border:1px solid var(--border);border-radius:12px;padding:1rem .8rem;text-align:center;transition:all .3s;position:relative;overflow:hidden;}
+.prayer-box.next{border-color:var(--gold);background:rgba(201,168,76,0.14);box-shadow:0 0 20px rgba(201,168,76,0.2);}
+.prayer-box.next::before{content:'▶ NEXT';position:absolute;top:0;left:0;right:0;background:var(--gold);color:#000;font-family:'Cinzel',serif;font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:.18rem 0;}
+.prayer-box.passed{opacity:.55;}
+.prayer-name{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem;}
+.prayer-arabic{font-family:'Amiri',serif;font-size:1.05rem;color:var(--gold2);direction:rtl;}
+.prayer-time{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:var(--text);margin-top:.3rem;}
+.prayer-remain{font-size:.72rem;color:var(--green);margin-top:.2rem;font-family:'Cinzel',serif;}
+.prayer-loading{text-align:center;padding:2rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.08em;}
+
+/* stopwatch */
+.sw-display{text-align:center;background:var(--accent);border:1px solid rgba(201,168,76,0.25);border-radius:14px;padding:1.8rem 1rem;margin-bottom:1rem;}
+.sw-time{font-family:'Cinzel',serif;font-size:clamp(2.2rem,7vw,4rem);font-weight:900;color:var(--gold2);letter-spacing:.08em;line-height:1;}
+.sw-ms{font-size:clamp(.9rem,3vw,1.5rem);color:var(--gold);}
+.sw-btns{display:flex;gap:.6rem;justify-content:center;margin-top:1.1rem;flex-wrap:wrap;}
+.sw-btn{border:none;border-radius:8px;padding:.55rem 1.2rem;font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.05em;}
+.swb-start{background:var(--green);color:#000;}.swb-pause{background:#d4952a;color:#000;}.swb-reset{background:rgba(201,168,76,0.15);color:var(--gold2);border:1px solid var(--border);}.swb-lap{background:rgba(201,168,76,0.1);color:var(--gold2);border:1px solid var(--border);}
+.sw-btn:hover{transform:translateY(-2px);}
+.lap-list{list-style:none;max-height:180px;overflow-y:auto;margin-top:.9rem;}
+.lap-list li{display:flex;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.08);padding:.38rem .2rem;font-size:.85rem;}
+.lap-n{color:var(--muted);font-family:'Cinzel',serif;font-size:.72rem;}.lap-t{color:var(--gold2);font-family:'Cinzel',serif;font-weight:700;}.lap-s{color:var(--muted);font-size:.75rem;}
+
+.ql-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;}
+.ql{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.ql:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(201,168,76,0.18);border-color:var(--gold);}
+.ql-icon{font-size:1.5rem;}.ql-name{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase;}.ql-desc{font-size:.78rem;color:var(--muted);}
+
+.hadith-sec{position:relative;z-index:1;margin-top:2rem;background:rgba(7,7,14,0.98);border-top:1px solid var(--border);}
+.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
+.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;text-shadow:0 0 20px rgba(201,168,76,0.5);}
+.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.6rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
+.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
+.h-urdu{font-family:'Amiri',serif;font-size:clamp(.92rem,2.2vw,1.08rem);color:var(--text);line-height:2;direction:rtl;margin-bottom:.5rem;}
+.h-en{font-family:'Amiri',serif;font-size:.93rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
+.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
+.noor-footer{text-align:center;padding:1.4rem .5rem;background:rgba(5,5,10,0.99);border-top:1px solid var(--border);}
+.noor-text{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold2);direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.4);letter-spacing:.04em;}
+.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.35rem;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <div class="nav-right">
+    <a href="age-calculator.html"  class="nav-link" data-en="🎂 Age" data-ur="🎂 عمر" data-ar="🎂 العمر">🎂 Age</a>
+    <a href="date-calculator.html" class="nav-link" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
+    <a href="time-calculator.html" class="nav-link active" data-en="⏱ Time" data-ur="⏱ وقت" data-ar="⏱ الوقت">⏱ Time</a>
+    <a href="index.html" class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم" data-ar="🏠 الرئيسية">🏠 Home</a>
+    <div class="lang-sep"></div>
+    <button class="nav-link active" id="lb-en" onclick="setLang('en')">EN</button>
+    <button class="nav-link" id="lb-ur" onclick="setLang('ur')">اردو</button>
+    <button class="nav-link" id="lb-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="hero-icon">⏱</span>
+  <div style="margin-bottom:1rem;">
+    <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+  </div>
+  <h1 class="hero-title" id="heroTitle">Time Calculator</h1>
+  <p  class="hero-sub"   id="heroSub">Add · Subtract · Convert · Stopwatch · Prayer Times</p>
+  <div class="hero-clock" id="heroClock">00:00:00</div>
+  <div class="hero-date"  id="heroDate"></div>
+  <div class="gold-line"></div>
+</section>
+
+<div class="wrap">
+  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
+
+  <!-- PRAYER TIMES CARD — always on top -->
+  <div class="card">
+    <div class="card-title" id="ctPrayer">🕌 Prayer Times</div>
+    <div class="prayer-status">
+      <span class="loc-badge" id="locBadge">📍 Detecting location…</span>
+      <button class="loc-btn" onclick="getPrayer()">🔄 <span id="refreshTxt">Refresh</span></button>
+    </div>
+    <div id="prayerGrid" class="prayer-loading">
+      Fetching prayer times for your location…
+    </div>
+  </div>
+
+  <!-- CALCULATOR CARD -->
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="sw('addsubt')"><span data-en="➕ Add/Subtract" data-ur="➕ جوڑیں/گھٹائیں" data-ar="➕ جمع/طرح">➕ Add/Subtract</span></button>
+      <button class="tab"        onclick="sw('between')"><span data-en="⏱ Between Times" data-ur="⏱ دو وقتوں کا فرق" data-ar="⏱ بين وقتين">⏱ Between Times</span></button>
+      <button class="tab"        onclick="sw('convert')"><span data-en="🔄 Convert" data-ur="🔄 تبدیل کریں" data-ar="🔄 تحويل">🔄 Convert</span></button>
+      <button class="tab"        onclick="sw('stopwatch')"><span data-en="⏸ Stopwatch" data-ur="⏸ اسٹاپ واچ" data-ar="⏸ ساعة إيقاف">⏸ Stopwatch</span></button>
+    </div>
+
+    <!-- ADD/SUBTRACT -->
+    <div id="pAddsubt">
+      <div class="card-title" id="ctAdd">➕ Add or Subtract Time</div>
+      <div class="fg2" style="margin-bottom:1rem;">
+        <div class="field"><label id="lBaseTime">Starting Time</label><input type="time" id="asBase" value="12:00"/></div>
+        <div class="field"><label id="lOp">Operation</label>
+          <select id="asOp"><option value="add">➕ Add</option><option value="sub">➖ Subtract</option></select>
+        </div>
+      </div>
+      <div class="fg4">
+        <div class="field"><label id="lDays">Days</label><input type="number" id="asDays" placeholder="0" min="0"/></div>
+        <div class="field"><label id="lHours">Hours</label><input type="number" id="asHrs" placeholder="0" min="0"/></div>
+        <div class="field"><label id="lMins">Minutes</label><input type="number" id="asMin" placeholder="0" min="0"/></div>
+        <div class="field"><label id="lSecs">Seconds</label><input type="number" id="asSec" placeholder="0" min="0"/></div>
+      </div>
+      <button class="btn" id="btnAdd" onclick="calcAdd()">✨ Calculate Result</button>
+      <div class="res" id="resAdd">
+        <div class="big-box"><div class="big-num" id="addResult">—</div><div class="big-unit">RESULT TIME</div><div class="big-sub" id="addSub"></div></div>
+        <div id="addInfo"></div>
+      </div>
+    </div>
+
+    <!-- BETWEEN TIMES -->
+    <div id="pBetween" style="display:none">
+      <div class="card-title" id="ctBetween">⏱ Time Between Two Times</div>
+      <div class="fg2">
+        <div class="field"><label id="lBtStart">Start Time</label><input type="time" id="btStart" value="09:00"/></div>
+        <div class="field"><label id="lBtEnd">End Time</label><input type="time" id="btEnd" value="17:30"/></div>
+      </div>
+      <button class="btn" id="btnBt" onclick="calcBetween()">⏱ Calculate Duration</button>
+      <div class="res" id="resBt">
+        <div class="big-box"><div class="big-num" id="btResult">—</div><div class="big-unit" id="btUnit">TOTAL DURATION</div><div class="big-sub" id="btSub"></div></div>
+        <div class="bk-grid" id="btGrid"></div>
+        <div class="summary"   id="btSummary"></div>
+        <div id="btInfo"></div>
+      </div>
+    </div>
+
+    <!-- CONVERT -->
+    <div id="pConvert" style="display:none">
+      <div class="card-title" id="ctConvert">🔄 Time Unit Converter</div>
+      <div class="fg2">
+        <div class="field"><label id="lCvVal">Value</label><input type="number" id="cvVal" placeholder="e.g. 3600" min="0"/></div>
+        <div class="field"><label id="lCvFrom">From Unit</label>
+          <select id="cvFrom">
+            <option value="ms">Milliseconds</option>
+            <option value="sec">Seconds</option>
+            <option value="min" selected>Minutes</option>
+            <option value="hr">Hours</option>
+            <option value="day">Days</option>
+            <option value="wk">Weeks</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn" id="btnCv" onclick="calcConvert()">🔄 Convert All Units</button>
+      <div class="res" id="resCv">
+        <div class="bk-grid" id="cvGrid"></div>
+        <div class="summary"   id="cvSummary"></div>
+      </div>
+    </div>
+
+    <!-- STOPWATCH -->
+    <div id="pStopwatch" style="display:none">
+      <div class="card-title" id="ctSw">⏸ Stopwatch</div>
+      <div class="sw-display">
+        <div class="sw-time"><span id="swH">00</span>:<span id="swM">00</span>:<span id="swS">00</span><span class="sw-ms">.<span id="swMs">00</span></span></div>
+        <div class="sw-btns">
+          <button class="sw-btn swb-start" id="swBtn" onclick="swToggle()">▶ Start</button>
+          <button class="sw-btn swb-lap"   onclick="swLap()">🚩 Lap</button>
+          <button class="sw-btn swb-reset" onclick="swReset()">↺ Reset</button>
+        </div>
+      </div>
+      <ul class="lap-list" id="lapList"></ul>
+    </div>
+  </div>
+
+  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+
+  <div class="card">
+    <div class="card-title" id="ctLinks">🔗 Related Tools</div>
+    <div class="ql-grid">
+      <a href="age-calculator.html"  class="ql"><span class="ql-icon">🎂</span><span class="ql-name" data-en="Age Calculator" data-ur="عمر کیلکولیٹر" data-ar="حاسبة العمر">Age Calculator</span><span class="ql-desc" data-en="Years months days" data-ur="سال مہینے دن" data-ar="السنوات والأشهر">Years months days</span></a>
+      <a href="date-calculator.html" class="ql"><span class="ql-icon">📅</span><span class="ql-name" data-en="Date Calculator" data-ur="تاریخ کیلکولیٹر" data-ar="حاسبة التاريخ">Date Calculator</span><span class="ql-desc" data-en="Days between dates" data-ur="تاریخوں کا فرق" data-ar="الفرق بين التواريخ">Days between dates</span></a>
+      <a href="index.html" class="ql"><span class="ql-icon">🛠️</span><span class="ql-name" data-en="All Tools" data-ur="تمام ٹولز" data-ar="جميع الأدوات">All Tools</span><span class="ql-desc" data-en="40+ free tools" data-ur="40+ مفت ٹولز" data-ar="40+ أداة مجانية">40+ free tools</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="hadith-sec">
+  <div class="hadith-inner">
+    <span class="h-ornament">❁ ☽ ❁</span>
+    <p class="h-arabic">«اغْتَنِمْ خَمْسًا قَبْلَ خَمْسٍ: شَبَابَكَ قَبْلَ هَرَمِكَ، وَصِحَّتَكَ قَبْلَ سَقَمِكَ، وَغِنَاكَ قَبْلَ فَقْرِكَ، وَفَرَاغَكَ قَبْلَ شُغُلِكَ، وَحَيَاتَكَ قَبْلَ مَوْتِكَ»</p>
+    <div class="h-line"></div>
+    <p class="h-urdu" id="hUrdu">پانچ چیزوں کو پانچ سے پہلے غنیمت جانو: جوانی کو بڑھاپے سے، صحت کو بیماری سے، مالداری کو غربت سے، فراغت کو مشغولیت سے، اور زندگی کو موت سے پہلے۔</p>
+    <p class="h-en"   id="hEn">"Take benefit of five before five: your youth before old age, your health before sickness, your wealth before poverty, your free time before busyness, and your life before death."</p>
+    <p class="h-source">— مستدرک الحاکم | Al-Hakim · Sahih</p>
+  </div>
+</div>
+<div class="noor-footer">
+  <div class="noor-text">نُور الہدیٰ</div>
+  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED</div>
+</div>
+
+<script>
+/* ── LIVE CLOCK ── */
+function tickClock(){
+  const n=new Date();
+  const h=String(n.getHours()).padStart(2,'0'),m=String(n.getMinutes()).padStart(2,'0'),s=String(n.getSeconds()).padStart(2,'0');
+  document.getElementById('heroClock').textContent=`${h}:${m}:${s}`;
+  document.getElementById('heroDate').textContent=n.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  updateNextBadges();
+}
+tickClock();setInterval(tickClock,1000);
+
+/* ── LANG ── */
+const TL={
+  en:{dir:'ltr',l:'en',bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
+    heroTitle:'Time Calculator',heroSub:'Add · Subtract · Convert · Stopwatch · Prayer Times',
+    ctPrayer:'🕌 Prayer Times',ctAdd:'➕ Add or Subtract Time',ctBetween:'⏱ Time Between Two Times',
+    ctConvert:'🔄 Time Unit Converter',ctSw:'⏸ Stopwatch',ctLinks:'🔗 Related Tools',
+    lBaseTime:'Starting Time',lOp:'Operation',lDays:'Days',lHours:'Hours',lMins:'Minutes',lSecs:'Seconds',
+    lBtStart:'Start Time',lBtEnd:'End Time',lCvVal:'Value',lCvFrom:'From Unit',
+    btnAdd:'✨ Calculate Result',btnBt:'⏱ Calculate Duration',btnCv:'🔄 Convert All Units',
+    refreshTxt:'Refresh',adTxt1:'Advertisement — 728×90',adTxt2:'Advertisement — 468×60',
+    hUrdu:'',hEn:'"Take benefit of five before five: your youth before old age, your health before sickness, your wealth before poverty, your free time before busyness, and your life before death."',
+    prayers:[{name:'Fajr',ar:'الفَجْر'},{name:'Sunrise',ar:'الشُّرُوق'},{name:'Dhuhr',ar:'الظُّهْر'},{name:'Asr',ar:'العَصْر'},{name:'Maghrib',ar:'المَغْرِب'},{name:'Isha',ar:'العِشَاء'}]},
+  ur:{dir:'rtl',l:'ur',bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
+    heroTitle:'وقت کیلکولیٹر',heroSub:'جوڑیں · گھٹائیں · تبدیل · اسٹاپ واچ · نماز کے اوقات',
+    ctPrayer:'🕌 نماز کے اوقات',ctAdd:'➕ وقت جوڑیں یا گھٹائیں',ctBetween:'⏱ دو وقتوں کا فرق',
+    ctConvert:'🔄 وقت تبدیل کریں',ctSw:'⏸ اسٹاپ واچ',ctLinks:'🔗 متعلقہ ٹولز',
+    lBaseTime:'شروع کا وقت',lOp:'آپریشن',lDays:'دن',lHours:'گھنٹے',lMins:'منٹ',lSecs:'سیکنڈ',
+    lBtStart:'شروع کا وقت',lBtEnd:'آخری وقت',lCvVal:'قدر',lCvFrom:'یونٹ',
+    btnAdd:'✨ نتیجہ معلوم کریں',btnBt:'⏱ مدت معلوم کریں',btnCv:'🔄 تمام یونٹ',
+    refreshTxt:'تازہ کریں',adTxt1:'اشتہار — 728×90',adTxt2:'اشتہار — 468×60',
+    hUrdu:'پانچ چیزوں کو پانچ سے پہلے غنیمت جانو: جوانی کو بڑھاپے سے، صحت کو بیماری سے، مالداری کو غربت سے، فراغت کو مشغولیت سے، اور زندگی کو موت سے پہلے۔',hEn:'',
+    prayers:[{name:'فجر',ar:'الفَجْر'},{name:'طلوعِ آفتاب',ar:'الشُّرُوق'},{name:'ظہر',ar:'الظُّهْر'},{name:'عصر',ar:'العَصْر'},{name:'مغرب',ar:'المَغْرِب'},{name:'عشاء',ar:'العِشَاء'}]},
+  ar:{dir:'rtl',l:'ar',bisml:'بسم الله الرحمن الرحيم',
+    heroTitle:'حاسبة الوقت',heroSub:'جمع · طرح · تحويل · ساعة إيقاف · أوقات الصلاة',
+    ctPrayer:'🕌 أوقات الصلاة',ctAdd:'➕ جمع أو طرح الوقت',ctBetween:'⏱ الوقت بين وقتين',
+    ctConvert:'🔄 محول وحدات الوقت',ctSw:'⏸ ساعة الإيقاف',ctLinks:'🔗 أدوات ذات صلة',
+    lBaseTime:'وقت البداية',lOp:'العملية',lDays:'أيام',lHours:'ساعات',lMins:'دقائق',lSecs:'ثواني',
+    lBtStart:'وقت البداية',lBtEnd:'وقت النهاية',lCvVal:'القيمة',lCvFrom:'الوحدة',
+    btnAdd:'✨ احسب النتيجة',btnBt:'⏱ احسب المدة',btnCv:'🔄 حوّل جميع الوحدات',
+    refreshTxt:'تحديث',adTxt1:'إعلان — 728×90',adTxt2:'إعلان — 468×60',
+    hUrdu:'',hEn:'«اغْتَنِمْ خَمْسًا قَبْلَ خَمْسٍ: شَبَابَكَ قَبْلَ هَرَمِكَ، وَصِحَّتَكَ قَبْلَ سَقَمِكَ...»',
+    prayers:[{name:'الفجر',ar:'الفَجْر'},{name:'الشروق',ar:'الشُّرُوق'},{name:'الظهر',ar:'الظُّهْر'},{name:'العصر',ar:'العَصْر'},{name:'المغرب',ar:'المَغْرِب'},{name:'العشاء',ar:'العِشَاء'}]}
+};
+let lang='en';
+function setLang(l){
+  lang=l;const t=TL[l];
+  document.documentElement.lang=t.l;document.documentElement.dir=t.dir;
+  document.body.classList.toggle('rtl',t.dir==='rtl');
+  ['lb-en','lb-ur','lb-ar'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('lb-'+l).classList.add('active');
+  document.getElementById('bismlTr').textContent=t.bisml;
+  ['heroTitle','heroSub','ctPrayer','ctAdd','ctBetween','ctConvert','ctSw','ctLinks','lBaseTime','lOp','lDays','lHours','lMins','lSecs','lBtStart','lBtEnd','lCvVal','lCvFrom','btnAdd','btnBt','btnCv','refreshTxt','adTxt1','adTxt2'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t[id];});
+  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
+  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
+  document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=el.dataset[l]||el.dataset.en;});
+  renderPrayers();
+}
+
+/* ── TABS ── */
+function sw(tab){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.closest('.tab').classList.add('active');
+  ['Addsubt','Between','Convert','Stopwatch'].forEach(t=>document.getElementById('p'+t).style.display=(t.toLowerCase()===tab)?'block':'none');
+}
+
+/* ── PRAYER TIMES ── */
+let prayerData=null,userCity='';
+const prayerKeys=['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
+
+async function getPrayer(){
+  document.getElementById('prayerGrid').innerHTML=`<div class="prayer-loading">📍 Getting your location…</div>`;
+  try{
+    const pos=await new Promise((res,rej)=>navigator.geolocation.getCurrentPosition(res,rej,{timeout:8000}));
+    const {latitude:lat,longitude:lng}=pos.coords;
+    // Reverse geocode city
+    try{
+      const gr=await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
+      const gd=await gr.json();
+      userCity=gd.address?.city||gd.address?.town||gd.address?.village||gd.address?.county||'Your Location';
+    }catch{userCity='Your Location';}
+    document.getElementById('locBadge').textContent='📍 '+userCity;
+    // Aladhan API
+    const today=new Date(),d=String(today.getDate()).padStart(2,'0'),m=String(today.getMonth()+1).padStart(2,'0'),y=today.getFullYear();
+    const r=await fetch(`https://api.aladhan.com/v1/timings/${d}-${m}-${y}?latitude=${lat}&longitude=${lng}&method=2`);
+    const data=await r.json();
+    if(data.code===200){prayerData=data.data.timings;renderPrayers();}
+    else throw new Error('API error');
+  }catch(e){
+    if(e.code===1){document.getElementById('prayerGrid').innerHTML=`<div class="prayer-loading">❌ Location permission denied.<br>Please allow location access and try again.</div>`;}
+    else document.getElementById('prayerGrid').innerHTML=`<div class="prayer-loading">⚠️ Could not fetch prayer times. Please check your connection.</div>`;
+  }
+}
+
+function parseTime(t){const[h,m]=t.split(':').map(Number);return h*60+m;}
+function fmtTime12(t){const[h,m]=t.split(':').map(Number);const ap=h>=12?'PM':'AM',h12=h%12||12;return`${h12}:${String(m).padStart(2,'0')} ${ap}`;}
+
+function renderPrayers(){
+  if(!prayerData){document.getElementById('prayerGrid').innerHTML=`<div class="prayer-loading">📍 Click Refresh to load prayer times for your location.</div>`;return;}
+  const now=new Date(),nowMin=now.getHours()*60+now.getMinutes();
+  const t=TL[lang];
+  // find next prayer index
+  let nextIdx=-1;
+  for(let i=0;i<prayerKeys.length;i++){
+    if(parseTime(prayerData[prayerKeys[i]])>nowMin){nextIdx=i;break;}
+  }
+  const html=prayerKeys.map((key,i)=>{
+    const raw=prayerData[key],pMin=parseTime(raw);
+    const isNext=i===nextIdx,isPassed=pMin<nowMin&&i!==nextIdx;
+    let remain='';
+    if(isNext){const diff=pMin-nowMin;remain=`in ${Math.floor(diff/60)}h ${diff%60}m`;}
+    return`<div class="prayer-box${isNext?' next':''}${isPassed?' passed':''}">
+      <div class="prayer-name">${t.prayers[i].name}</div>
+      <div class="prayer-arabic">${t.prayers[i].ar}</div>
+      <div class="prayer-time">${fmtTime12(raw)}</div>
+      ${remain?`<div class="prayer-remain">⏰ ${remain}</div>`:''}
+    </div>`;
+  }).join('');
+  document.getElementById('prayerGrid').innerHTML=`<div class="prayer-grid">${html}</div>`;
+}
+
+function updateNextBadges(){if(prayerData)renderPrayers();}
+
+// Auto-load on page open
+window.addEventListener('load',()=>getPrayer());
+
+/* ── HELPERS ── */
+function pad(n){return String(Math.floor(n)).padStart(2,'0');}
+function t2s(t){const[h,m]=t.split(':').map(Number);return h*3600+m*60;}
+function s2display(s){s=((s%86400)+86400)%86400;const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=Math.floor(s%60),ap=h>=12?'PM':'AM',h12=h%12||12;return`${h12}:${pad(m)}:${pad(sec)} ${ap}`;}
+
+/* ADD/SUBTRACT */
+function calcAdd(){
+  const base=document.getElementById('asBase').value;if(!base){alert('Enter starting time!');return;}
+  const op=document.getElementById('asOp').value,d=(parseInt(document.getElementById('asDays').value)||0)*86400,h=(parseInt(document.getElementById('asHrs').value)||0)*3600,m=(parseInt(document.getElementById('asMin').value)||0)*60,s=parseInt(document.getElementById('asSec').value)||0;
+  const dur=d+h+m+s;if(!dur){alert('Enter a duration!');return;}
+  const res=op==='add'?t2s(base)+dur:t2s(base)-dur;
+  document.getElementById('addResult').textContent=s2display(res);
+  document.getElementById('addSub').textContent=(op==='add'?'Added ':'Subtracted ')+Math.floor(dur/3600)+'h '+Math.floor((dur%3600)/60)+'m '+dur%60+'s';
+  document.getElementById('addInfo').innerHTML=`
+    <div class="info-row"><span class="ir-lbl">Start</span><span class="ir-val">${base}</span></div>
+    <div class="info-row"><span class="ir-lbl">Duration</span><span class="ir-val">${Math.floor(dur/3600)}h ${Math.floor((dur%3600)/60)}m ${dur%60}s</span></div>
+    <div class="info-row"><span class="ir-lbl">Result (24h)</span><span class="ir-val">${pad(Math.floor(((res%86400)+86400)%86400/3600))}:${pad(Math.floor((((res%86400)+86400)%86400%3600)/60))}:${pad(((res%86400)+86400)%86400%60)}</span></div>
+    <div class="info-row"><span class="ir-lbl">Day Change</span><span class="ir-val">${res<0?'Previous day':res>=86400?'+'+Math.floor(res/86400)+' day(s)':'Same day'}</span></div>`;
+  document.getElementById('resAdd').classList.add('show');
+}
+
+/* BETWEEN */
+function calcBetween(){
+  const sv=document.getElementById('btStart').value,ev=document.getElementById('btEnd').value;
+  if(!sv||!ev){alert('Enter both times!');return;}
+  let ss=t2s(sv),es=t2s(ev),over=false;
+  if(es<ss){es+=86400;over=true;}
+  const diff=es-ss,h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=diff%60;
+  document.getElementById('btResult').textContent=`${pad(h)}:${pad(m)}:${pad(s)}`;
+  document.getElementById('btSub').textContent=`${sv} → ${ev}${over?' (next day)':''}`;
+  document.getElementById('btGrid').innerHTML=[
+    {n:h,u:'Hours'},{n:Math.floor(diff/60),u:'Total Minutes'},{n:diff,u:'Total Seconds'},{n:(diff/3600).toFixed(2),u:'Decimal Hrs'}
+  ].map(b=>`<div class="bk"><div class="bk-num">${b.n}</div><div class="bk-unit">${b.u}</div></div>`).join('');
+  document.getElementById('btSummary').innerHTML=`From <b>${sv}</b> to <b>${ev}</b>${over?' (overnight)':''} is <b>${h}h ${m}m ${s}s</b> (${diff.toLocaleString()} seconds).`;
+  document.getElementById('btInfo').innerHTML=`<div class="info-row"><span class="ir-lbl">Overnight?</span><span class="ir-val">${over?'✅ Yes':'❌ No'}</span></div><div class="info-row"><span class="ir-lbl">Total Seconds</span><span class="ir-val">${diff.toLocaleString()}</span></div>`;
+  document.getElementById('resBt').classList.add('show');
+}
+
+/* CONVERT */
+const uToS={ms:.001,sec:1,min:60,hr:3600,day:86400,wk:604800};
+const uLbl={ms:'Milliseconds',sec:'Seconds',min:'Minutes',hr:'Hours',day:'Days',wk:'Weeks'};
+function calcConvert(){
+  const v=parseFloat(document.getElementById('cvVal').value),f=document.getElementById('cvFrom').value;
+  if(!v||v<0){alert('Enter a valid number!');return;}
+  const ts=v*uToS[f];
+  document.getElementById('cvGrid').innerHTML=Object.entries(uToS).map(([k,s])=>{
+    const val=ts/s;return`<div class="bk"><div class="bk-num" style="font-size:clamp(.9rem,2.5vw,1.2rem)">${val>=1e6?val.toExponential(2):val.toFixed(val<1?5:2)}</div><div class="bk-unit">${uLbl[k]}</div></div>`;}).join('');
+  document.getElementById('cvSummary').innerHTML=`<b>${v} ${uLbl[f]}</b> = <b>${(ts/3600).toFixed(4)} hrs</b> = <b>${(ts/60).toFixed(2)} min</b> = <b>${ts.toLocaleString()} sec</b>`;
+  document.getElementById('resCv').classList.add('show');
+}
+
+/* STOPWATCH */
+let swRun=false,swStart=0,swEl=0,swInt=null,swLaps=[],swLL=0;
+function swToggle(){
+  if(!swRun){swStart=Date.now()-swEl;swInt=setInterval(swTick,10);swRun=true;document.getElementById('swBtn').textContent='⏸ Pause';document.getElementById('swBtn').className='sw-btn swb-pause';}
+  else{clearInterval(swInt);swEl=Date.now()-swStart;swRun=false;document.getElementById('swBtn').textContent='▶ Resume';document.getElementById('swBtn').className='sw-btn swb-start';}
+}
+function swTick(){swEl=Date.now()-swStart;const ms=swEl,h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),s=Math.floor((ms%60000)/1000),cs=Math.floor((ms%1000)/10);['swH','swM','swS'].forEach((id,i)=>document.getElementById(id).textContent=pad([h,m,s][i]));document.getElementById('swMs').textContent=pad(cs);}
+function swReset(){clearInterval(swInt);swRun=false;swEl=0;swStart=0;swLaps=[];swLL=0;['swH','swM','swS'].forEach(id=>document.getElementById(id).textContent='00');document.getElementById('swMs').textContent='00';document.getElementById('swBtn').textContent='▶ Start';document.getElementById('swBtn').className='sw-btn swb-start';document.getElementById('lapList').innerHTML='';}
+function swLap(){if(!swRun&&!swEl)return;swLaps.push(swEl);const sp=swEl-swLL;swLL=swEl;const fmt=ms=>{const h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),s=Math.floor((ms%60000)/1000),cs=Math.floor((ms%1000)/10);return`${pad(h)}:${pad(m)}:${pad(s)}.${pad(cs)}`;};const li=document.createElement('li');li.innerHTML=`<span class="lap-n">Lap ${swLaps.length}</span><span class="lap-t">${fmt(swEl)}</span><span class="lap-s">+${fmt(sp)}</span>`;document.getElementById('lapList').prepend(li);}
+</script>
+</body>
+</html>
