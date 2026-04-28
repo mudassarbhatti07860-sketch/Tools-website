@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>نُور الہدیٰ – Free Online Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+<style>
+/* ══ THEME VARIABLES ══ */
+[data-theme="dark"]{
+  --bg:#07070e;--bg2:#0d0d14;--panel:rgba(20,20,35,0.95);
+  --border:rgba(201,168,76,0.3);--text:#e8dfc8;--muted:#9a8860;
+  --card-bg:rgba(20,20,35,0.95);--nav-bg:rgba(7,7,14,0.96);
+  --hadith-bg:rgba(7,7,14,0.98);--footer-bg:rgba(5,5,10,0.99);
+  --geo1:rgba(201,168,76,0.07);--geo2:rgba(201,168,76,0.025);
+  --search-bg:rgba(255,255,255,0.04);--ad-bg:rgba(201,168,76,0.03);
+}
+[data-theme="light"]{
+  --bg:#f5f0e8;--bg2:#ede6d6;--panel:rgba(255,252,245,0.97);
+  --border:rgba(160,110,30,0.3);--text:#2a1f0a;--muted:#7a6040;
+  --card-bg:rgba(255,252,245,0.97);--nav-bg:rgba(255,250,240,0.97);
+  --hadith-bg:rgba(245,240,228,0.99);--footer-bg:rgba(235,228,210,0.99);
+  --geo1:rgba(201,168,76,0.08);--geo2:rgba(201,168,76,0.03);
+  --search-bg:rgba(0,0,0,0.04);--ad-bg:rgba(201,168,76,0.05);
+}
+
+:root{--gold:#c9a84c;--gold2:#f0d080;--green:#4caf77;--accent:rgba(201,168,76,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Amiri',serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .35s,color .35s;}
+
+/* GEOMETRIC BG */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 0%,var(--geo1) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 90%,var(--geo1) 0%,transparent 60%),
+    repeating-linear-gradient(60deg,transparent,transparent 80px,var(--geo2) 80px,var(--geo2) 81px),
+    repeating-linear-gradient(-60deg,transparent,transparent 80px,var(--geo2) 80px,var(--geo2) 81px);}
+
+/* ══ NAV ══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;
+  padding:.55rem 1.2rem;
+  background:var(--nav-bg);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);transition:background .35s;}
+.nav-logo{font-family:'Cinzel',serif;font-size:1rem;font-weight:900;text-decoration:none;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
+  padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;
+  cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
+.nav-link.active{background:rgba(201,168,76,0.1);}
+.lang-sep{width:1px;height:18px;background:var(--border);margin:0 .15rem;}
+
+/* THEME TOGGLE */
+.theme-toggle{background:transparent;border:1px solid var(--border);border-radius:20px;
+  padding:.22rem .7rem;color:var(--muted);font-size:.82rem;cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;gap:.3rem;white-space:nowrap;}
+.theme-toggle:hover{border-color:var(--gold);color:var(--gold2);}
+
+/* ══ HERO ══ */
+.hero{position:relative;z-index:1;padding:5.2rem 1rem 2.5rem;text-align:center;}
+.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.6rem,4.5vw,2.8rem);color:var(--gold2);
+  direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;
+  animation:fadeDown .9s ease both;}
+.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.85rem,2vw,1.05rem);
+  color:var(--gold);opacity:.85;display:block;margin-top:.2rem;
+  animation:fadeDown .9s .1s ease both;}
+.hero-icon{font-size:2rem;color:var(--gold);display:block;margin-bottom:.6rem;animation:spin 14s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin:.5rem 0 .3rem;animation:fadeDown .9s .15s ease both;}
+.hero-sub{color:var(--muted);font-size:clamp(.9rem,2.2vw,1.1rem);animation:fadeDown .9s .25s ease both;}
+.gold-line{width:140px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:1rem auto .6rem;animation:fadeIn .9s .4s ease both;}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* SEARCH */
+.search-wrap{display:flex;justify-content:center;margin-bottom:.5rem;animation:fadeUp .8s .5s ease both;}
+.search-box{background:var(--search-bg);border:1px solid var(--border);border-radius:30px;
+  padding:.65rem 1.3rem;color:var(--text);font-family:'Amiri',serif;font-size:1rem;
+  width:min(440px,100%);outline:none;transition:border-color .2s,box-shadow .2s;}
+.search-box::placeholder{color:var(--muted);}
+.search-box:focus{border-color:var(--gold);box-shadow:0 0 18px rgba(201,168,76,0.2);}
+
+/* ══ WRAP ══ */
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:1.5rem 1rem 3rem;
+  display:flex;flex-direction:column;gap:1.8rem;}
+
+/* ══ AD ══ */
+.ad{background:var(--ad-bg);border:1px dashed rgba(201,168,76,0.2);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:.75rem;letter-spacing:.1em;font-family:'Cinzel',serif;text-transform:uppercase;}
+.ad-top{height:90px;}.ad-mid{height:90px;}
+
+/* ══ CARD ══ */
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+  padding:1.8rem;backdrop-filter:blur(8px);transition:background .35s,border-color .2s;}
+.card-title{font-family:'Cinzel',serif;font-size:.92rem;font-weight:600;color:var(--gold);
+  letter-spacing:.12em;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem;text-transform:uppercase;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+
+/* ══ CATEGORY LABEL ══ */
+.cat-label{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:.7rem;margin:1.8rem 0 1rem;}
+.cat-label::before{content:'';width:3px;height:16px;background:var(--gold);border-radius:2px;flex-shrink:0;}
+.cat-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+
+/* ══ TOOLS GRID ══ */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.85rem;}
+@media(max-width:480px){.tools-grid{grid-template-columns:repeat(2,1fr);}}
+
+.tool-card{background:var(--card-bg);border:1px solid var(--border);border-radius:11px;
+  padding:1.1rem .9rem;text-align:center;cursor:pointer;text-decoration:none;
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  transition:transform .22s,box-shadow .22s,border-color .22s,background .22s;
+  opacity:0;transform:translateY(20px);}
+.tool-card.visible{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease,box-shadow .22s,border-color .22s,background .22s;}
+.tool-card:hover{transform:translateY(-5px) scale(1.025);box-shadow:0 8px 28px rgba(201,168,76,0.2);border-color:var(--gold);background:rgba(201,168,76,0.08);}
+.tool-icon{font-size:1.6rem;filter:drop-shadow(0 0 5px rgba(201,168,76,0.35));}
+.tool-name{font-family:'Amiri',serif;font-size:.88rem;color:var(--text);line-height:1.35;transition:color .2s;}
+.tool-card:hover .tool-name{color:var(--gold2);}
+
+/* ══ STATS ══ */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.8rem;margin-bottom:1rem;}
+.stat-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;
+  padding:.9rem .5rem;text-align:center;animation:countUp .5s ease both;}
+.stat-num{font-family:'Cinzel',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:900;color:var(--gold2);}
+.stat-lbl{font-size:.68rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-top:.2rem;}
+
+/* ══ HADITH ══ */
+.hadith-sec{position:relative;z-index:1;margin-top:2rem;
+  background:var(--hadith-bg);border-top:1px solid var(--border);transition:background .35s;}
+.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
+.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;text-shadow:0 0 20px rgba(201,168,76,0.5);}
+.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.15rem,3vw,1.7rem);color:var(--gold2);
+  line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
+.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
+.h-urdu{font-family:'Amiri',serif;font-size:clamp(.92rem,2.2vw,1.1rem);color:var(--text);
+  line-height:2;direction:rtl;margin-bottom:.5rem;}
+.h-en{font-family:'Amiri',serif;font-size:.93rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
+.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
+
+/* ══ NOOR FOOTER ══ */
+.noor-footer{text-align:center;padding:1.6rem .5rem;
+  background:var(--footer-bg);border-top:1px solid var(--border);transition:background .35s;}
+.noor-text{font-family:'Amiri',serif;font-size:clamp(1.2rem,3.5vw,1.8rem);color:var(--gold2);
+  direction:rtl;text-shadow:0 0 24px rgba(201,168,76,0.5);letter-spacing:.04em;}
+.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.4rem;}
+
+/* RTL */
+body.rtl .cat-label::before{order:1;} body.rtl .cat-label::after{order:-1;}
+body.rtl .card-title::after{background:linear-gradient(270deg,var(--border),transparent);}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <div class="nav-right">
+    <a href="age-calculator.html"  class="nav-link" data-en="🎂 Age"  data-ur="🎂 عمر"  data-ar="🎂 العمر">🎂 Age</a>
+    <a href="date-calculator.html" class="nav-link" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
+    <a href="time-calculator.html" class="nav-link" data-en="⏱ Time" data-ur="⏱ وقت"  data-ar="⏱ الوقت">⏱ Time</a>
+    <div class="lang-sep"></div>
+    <button class="nav-link active" id="lb-en" onclick="setLang('en')">EN</button>
+    <button class="nav-link"        id="lb-ur" onclick="setLang('ur')">اردو</button>
+    <button class="nav-link"        id="lb-ar" onclick="setLang('ar')">عربي</button>
+    <div class="lang-sep"></div>
+    <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <span class="hero-icon">☽</span>
+  <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+  <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+  <h1 class="hero-title" id="heroTitle">نُور الہدیٰ</h1>
+  <p  class="hero-sub"   id="heroSub">40+ Free Online Tools — Calculators, Converters, Generators & More</p>
+  <div class="gold-line"></div>
+  <div class="search-wrap">
+    <input class="search-box" id="searchBox" type="text" placeholder="🔍 Search a tool…" oninput="filterTools()"/>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- AD TOP -->
+  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
+
+  <!-- STATS -->
+  <div class="card">
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num">40+</div><div class="stat-lbl" id="sLbl1">Free Tools</div></div>
+      <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl"  id="sLbl2">Languages</div></div>
+      <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl" id="sLbl3">Free Forever</div></div>
+      <div class="stat-box"><div class="stat-num">0</div><div class="stat-lbl"   id="sLbl4">Registration</div></div>
+    </div>
+  </div>
+
+  <!-- TOOLS SECTION -->
+  <div class="card" id="toolsCard">
+
+    <!-- CALCULATORS -->
+    <div class="cat-label" id="cat1">📐 Calculators</div>
+    <div class="tools-grid">
+      <a href="age-calculator.html"        class="tool-card"><span class="tool-icon">🎂</span><span class="tool-name" data-en="Age Calculator"         data-ur="عمر کیلکولیٹر"           data-ar="حاسبة العمر">Age Calculator</span></a>
+      <a href="date-calculator.html"       class="tool-card"><span class="tool-icon">📅</span><span class="tool-name" data-en="Date Calculator"        data-ur="تاریخ کیلکولیٹر"         data-ar="حاسبة التاريخ">Date Calculator</span></a>
+      <a href="time-calculator.html"       class="tool-card"><span class="tool-icon">⏱️</span><span class="tool-name" data-en="Time Calculator"        data-ur="وقت کیلکولیٹر"           data-ar="حاسبة الوقت">Time Calculator</span></a>
+      <a href="bmi-calculator.html"        class="tool-card"><span class="tool-icon">⚖️</span><span class="tool-name" data-en="BMI Calculator"         data-ur="BMI کیلکولیٹر"           data-ar="حاسبة BMI">BMI Calculator</span></a>
+      <a href="loan-calculator.html"       class="tool-card"><span class="tool-icon">🏦</span><span class="tool-name" data-en="Loan Calculator"        data-ur="لون کیلکولیٹر"           data-ar="حاسبة القرض">Loan Calculator</span></a>
+      <a href="interest-calculator.html"   class="tool-card"><span class="tool-icon">💹</span><span class="tool-name" data-en="Interest Calculator"    data-ur="سود کیلکولیٹر"           data-ar="حاسبة الفائدة">Interest Calculator</span></a>
+      <a href="percentage-calculator.html" class="tool-card"><span class="tool-icon">%</span> <span class="tool-name" data-en="Percentage Calculator"  data-ur="فیصد کیلکولیٹر"          data-ar="حاسبة النسبة">Percentage Calculator</span></a>
+      <a href="tip-calculator.html"        class="tool-card"><span class="tool-icon">🧾</span><span class="tool-name" data-en="Tip Calculator"         data-ur="ٹپ کیلکولیٹر"            data-ar="حاسبة البقشيش">Tip Calculator</span></a>
+      <a href="discount-calculator.html"   class="tool-card"><span class="tool-icon">🏷️</span><span class="tool-name" data-en="Discount Calculator"   data-ur="ڈسکاؤنٹ کیلکولیٹر"      data-ar="حاسبة الخصم">Discount Calculator</span></a>
+    </div>
+
+    <!-- CONVERTERS -->
+    <div class="cat-label" id="cat2">🔄 Converters</div>
+    <div class="tools-grid">
+      <a href="currency-converter.html" class="tool-card"><span class="tool-icon">💱</span><span class="tool-name" data-en="Currency Converter"    data-ur="کرنسی کنورٹر"           data-ar="محول العملات">Currency Converter</span></a>
+      <a href="unit-converter.html"     class="tool-card"><span class="tool-icon">📏</span><span class="tool-name" data-en="Unit Converter"         data-ur="یونٹ کنورٹر"            data-ar="محول الوحدات">Unit Converter</span></a>
+      <a href="pdf-to-word.html"        class="tool-card"><span class="tool-icon">📄</span><span class="tool-name" data-en="PDF to Word"            data-ur="PDF سے Word"            data-ar="PDF إلى Word">PDF to Word</span></a>
+      <a href="word-to-pdf.html"        class="tool-card"><span class="tool-icon">📝</span><span class="tool-name" data-en="Word to PDF"            data-ur="Word سے PDF"            data-ar="Word إلى PDF">Word to PDF</span></a>
+      <a href="image-to-pdf.html"       class="tool-card"><span class="tool-icon">🖼️</span><span class="tool-name" data-en="Image to PDF"          data-ur="تصویر سے PDF"           data-ar="صورة إلى PDF">Image to PDF</span></a>
+      <a href="base64.html"             class="tool-card"><span class="tool-icon">🔢</span><span class="tool-name" data-en="Base64 Encoder"         data-ur="Base64 انکوڈر"          data-ar="مشفر Base64">Base64 Encoder</span></a>
+    </div>
+
+    <!-- TEXT TOOLS -->
+    <div class="cat-label" id="cat3">✍️ Text Tools</div>
+    <div class="tools-grid">
+      <a href="word-counter.html"       class="tool-card"><span class="tool-icon">🔤</span><span class="tool-name" data-en="Word Counter"           data-ur="الفاظ گنتی"             data-ar="عداد الكلمات">Word Counter</span></a>
+      <a href="character-counter.html"  class="tool-card"><span class="tool-icon">🔡</span><span class="tool-name" data-en="Character Counter"      data-ur="حروف گنتی"              data-ar="عداد الأحرف">Character Counter</span></a>
+      <a href="grammar-checker.html"    class="tool-card"><span class="tool-icon">✅</span><span class="tool-name" data-en="Grammar Checker"        data-ur="گرامر چیکر"             data-ar="مدقق القواعد">Grammar Checker</span></a>
+      <a href="plagiarism-checker.html" class="tool-card"><span class="tool-icon">🕵️</span><span class="tool-name" data-en="Plagiarism Checker"    data-ur="چوری چیکر"              data-ar="كاشف الانتحال">Plagiarism Checker</span></a>
+      <a href="text-to-speech.html"     class="tool-card"><span class="tool-icon">🔊</span><span class="tool-name" data-en="Text to Speech"         data-ur="متن سے آواز"            data-ar="نص إلى كلام">Text to Speech</span></a>
+      <a href="speech-to-text.html"     class="tool-card"><span class="tool-icon">🎙️</span><span class="tool-name" data-en="Speech to Text"        data-ur="آواز سے متن"            data-ar="كلام إلى نص">Speech to Text</span></a>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="cat-label" id="cat4">🔐 Security & Random</div>
+    <div class="tools-grid">
+      <a href="password-generator.html" class="tool-card"><span class="tool-icon">🔑</span><span class="tool-name" data-en="Password Generator"     data-ur="پاس ورڈ جنریٹر"          data-ar="منشئ كلمات المرور">Password Generator</span></a>
+      <a href="random-password.html"    class="tool-card"><span class="tool-icon">🛡️</span><span class="tool-name" data-en="Random Password"        data-ur="بے ترتیب پاس ورڈ"        data-ar="كلمة مرور عشوائية">Random Password</span></a>
+      <a href="random-number.html"      class="tool-card"><span class="tool-icon">🎲</span><span class="tool-name" data-en="Random Number"           data-ur="بے ترتیب نمبر"           data-ar="رقم عشوائي">Random Number</span></a>
+      <a href="hash-generator.html"     class="tool-card"><span class="tool-icon">#️⃣</span><span class="tool-name" data-en="Hash Generator"        data-ur="ہیش جنریٹر"              data-ar="منشئ التجزئة">Hash Generator</span></a>
+    </div>
+
+    <!-- GENERATORS -->
+    <div class="cat-label" id="cat5">⚙️ Generators</div>
+    <div class="tools-grid">
+      <a href="qr-code.html"    class="tool-card"><span class="tool-icon">📲</span><span class="tool-name" data-en="QR Code Generator"    data-ur="QR کوڈ جنریٹر"          data-ar="منشئ رمز QR">QR Code Generator</span></a>
+      <a href="barcode.html"    class="tool-card"><span class="tool-icon">|||</span><span class="tool-name" data-en="Barcode Generator"    data-ur="بارکوڈ جنریٹر"          data-ar="منشئ الباركود">Barcode Generator</span></a>
+      <a href="meta-tag.html"   class="tool-card"><span class="tool-icon">🏷️</span><span class="tool-name" data-en="Meta Tag Generator"   data-ur="میٹا ٹیگ جنریٹر"        data-ar="منشئ وسوم Meta">Meta Tag Generator</span></a>
+      <a href="gradient.html"   class="tool-card"><span class="tool-icon">🌈</span><span class="tool-name" data-en="Gradient Generator"   data-ur="گریڈیئنٹ جنریٹر"        data-ar="منشئ التدرج">Gradient Generator</span></a>
+      <a href="color-picker.html" class="tool-card"><span class="tool-icon">🎨</span><span class="tool-name" data-en="Color Picker"        data-ur="رنگ منتخب کریں"         data-ar="منتقي الألوان">Color Picker</span></a>
+    </div>
+
+    <!-- DEVELOPER -->
+    <div class="cat-label" id="cat6">💻 Developer Tools</div>
+    <div class="tools-grid">
+      <a href="html-minifier.html"    class="tool-card"><span class="tool-icon">&lt;/&gt;</span><span class="tool-name" data-en="HTML Minifier"    data-ur="HTML مصغر"          data-ar="مصغر HTML">HTML Minifier</span></a>
+      <a href="css-minifier.html"     class="tool-card"><span class="tool-icon">🎨</span><span class="tool-name" data-en="CSS Minifier"             data-ur="CSS مصغر"           data-ar="مصغر CSS">CSS Minifier</span></a>
+      <a href="js-minifier.html"      class="tool-card"><span class="tool-icon">⚡</span><span class="tool-name" data-en="JS Minifier"              data-ur="JS مصغر"            data-ar="مصغر JS">JS Minifier</span></a>
+      <a href="json-formatter.html"   class="tool-card"><span class="tool-icon">{}</span><span class="tool-name" data-en="JSON Formatter"           data-ur="JSON فارمیٹر"       data-ar="منسق JSON">JSON Formatter</span></a>
+      <a href="image-compressor.html" class="tool-card"><span class="tool-icon">🗜️</span><span class="tool-name" data-en="Image Compressor"        data-ur="تصویر کمپریسر"      data-ar="ضاغط الصور">Image Compressor</span></a>
+    </div>
+
+    <!-- SEO & WEB -->
+    <div class="cat-label" id="cat7">🌐 SEO & Web</div>
+    <div class="tools-grid">
+      <a href="seo-checker.html"   class="tool-card"><span class="tool-icon">🔍</span><span class="tool-name" data-en="SEO Checker"          data-ur="SEO چیکر"            data-ar="مدقق السيو">SEO Checker</span></a>
+      <a href="website-speed.html" class="tool-card"><span class="tool-icon">⚡</span><span class="tool-name" data-en="Website Speed Test"   data-ur="ویب سپیڈ ٹیسٹ"       data-ar="اختبار السرعة">Website Speed Test</span></a>
+      <a href="ip-finder.html"     class="tool-card"><span class="tool-icon">🌍</span><span class="tool-name" data-en="IP Address Finder"    data-ur="IP ایڈریس"           data-ar="كاشف IP">IP Address Finder</span></a>
+      <a href="weather.html"       class="tool-card"><span class="tool-icon">🌤️</span><span class="tool-name" data-en="Weather Checker"     data-ur="موسم چیکر"           data-ar="مدقق الطقس">Weather Checker</span></a>
+      <a href="todo.html"          class="tool-card"><span class="tool-icon">✔️</span><span class="tool-name" data-en="To-Do List"           data-ur="کام کی فہرست"        data-ar="قائمة المهام">To-Do List</span></a>
+    </div>
+
+    <!-- No results -->
+    <div id="noResults" style="display:none;text-align:center;padding:2rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.08em;">
+      No tools found. Try a different keyword.
+    </div>
+  </div>
+
+  <!-- AD MID -->
+  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+
+</div><!-- /wrap -->
+
+<!-- ══ HADITH ══ -->
+<div class="hadith-sec">
+  <div class="hadith-inner">
+    <span class="h-ornament">❁ ☽ ❁</span>
+    <p class="h-arabic">«خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»</p>
+    <div class="h-line"></div>
+    <p class="h-urdu" id="hUrdu">تم میں سے بہترین وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔</p>
+    <p class="h-en"   id="hEn">"The best among you are those who learn the Quran and teach it."</p>
+    <p class="h-source">— صحیح البخاري | Sahih Al-Bukhari · 5027</p>
+  </div>
+</div>
+
+<!-- ══ NOOR FOOTER ══ -->
+<div class="noor-footer">
+  <div class="noor-text">نُورُ الہُدیٰ</div>
+  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+</div>
+
+<script>
+/* ══ TRANSLATIONS ══ */
+const TL={
+  en:{dir:'ltr',l:'en',
+    bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
+    heroTitle:'نُور الہدیٰ',heroSub:'40+ Free Online Tools — Calculators, Converters, Generators & More',
+    search:'🔍 Search a tool…',
+    cats:['📐 Calculators','🔄 Converters','✍️ Text Tools','🔐 Security & Random','⚙️ Generators','💻 Developer Tools','🌐 SEO & Web'],
+    stats:['Free Tools','Languages','Free Forever','Registration'],
+    adTxt1:'Advertisement — 728×90',adTxt2:'Advertisement — 468×60',
+    hUrdu:'',hEn:'"The best among you are those who learn the Quran and teach it."',
+    theme:{dark:'🌙 Dark',light:'☀️ Light'}},
+  ur:{dir:'rtl',l:'ur',
+    bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
+    heroTitle:'نُور الہدیٰ',heroSub:'40+ مفت آن لائن ٹولز — کیلکولیٹر، کنورٹر، جنریٹر اور بھی بہت کچھ',
+    search:'🔍 ٹول تلاش کریں…',
+    cats:['📐 کیلکولیٹرز','🔄 کنورٹرز','✍️ متن ٹولز','🔐 سیکیورٹی و رینڈم','⚙️ جنریٹرز','💻 ڈویلپر ٹولز','🌐 SEO اور ویب'],
+    stats:['مفت ٹولز','زبانیں','ہمیشہ مفت','رجسٹریشن نہیں'],
+    adTxt1:'اشتہار — 728×90',adTxt2:'اشتہار — 468×60',
+    hUrdu:'تم میں سے بہترین وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔',hEn:'',
+    theme:{dark:'🌙 تاریک','light':'☀️ روشن'}},
+  ar:{dir:'rtl',l:'ar',
+    bisml:'بسم الله الرحمن الرحيم',
+    heroTitle:'نُور الہدیٰ',heroSub:'أكثر من 40 أداة مجانية — حاسبات ومحولات ومنشئات والمزيد',
+    search:'🔍 ابحث عن أداة…',
+    cats:['📐 الحاسبات','🔄 المحولات','✍️ أدوات النص','🔐 الأمان والعشوائي','⚙️ المنشئات','💻 أدوات المطور','🌐 SEO والويب'],
+    stats:['أداة مجانية','لغات','مجاني دائماً','تسجيل'],
+    adTxt1:'إعلان — 728×90',adTxt2:'إعلان — 468×60',
+    hUrdu:'',hEn:'«خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»',
+    theme:{dark:'🌙 داكن',light:'☀️ فاتح'}}
+};
+
+let lang='en';
+function setLang(l){
+  lang=l;const t=TL[l];
+  document.documentElement.lang=t.l;document.documentElement.dir=t.dir;
+  document.body.classList.toggle('rtl',t.dir==='rtl');
+  ['lb-en','lb-ur','lb-ar'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('lb-'+l).classList.add('active');
+  document.getElementById('bismlTr').textContent=t.bisml;
+  document.getElementById('heroTitle').textContent=t.heroTitle;
+  document.getElementById('heroSub').textContent=t.heroSub;
+  document.getElementById('searchBox').placeholder=t.search;
+  document.getElementById('adTxt1').textContent=t.adTxt1;
+  document.getElementById('adTxt2').textContent=t.adTxt2;
+  // categories
+  for(let i=1;i<=7;i++)document.getElementById('cat'+i).childNodes[0].textContent=' '+t.cats[i-1];
+  // stats
+  ['sLbl1','sLbl2','sLbl3','sLbl4'].forEach((id,i)=>document.getElementById(id).textContent=t.stats[i]);
+  // tool names
+  document.querySelectorAll('.tool-name').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
+  // nav links
+  document.querySelectorAll('.nav-link[data-en]').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
+  // hadith
+  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
+  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
+  // theme btn label
+  const cur=document.documentElement.dataset.theme||'dark';
+  document.getElementById('themeBtn').textContent=t.theme[cur];
+  // search dir
+  document.getElementById('searchBox').dir=t.dir;
+}
+
+/* ══ THEME TOGGLE ══ */
+let theme='dark';
+function toggleTheme(){
+  theme=theme==='dark'?'light':'dark';
+  document.documentElement.dataset.theme=theme;
+  const t=TL[lang];
+  document.getElementById('themeBtn').textContent=t.theme[theme];
+}
+
+/* ══ SEARCH ══ */
+function filterTools(){
+  const q=document.getElementById('searchBox').value.toLowerCase().trim();
+  let anyVisible=false;
+  document.querySelectorAll('.tool-card').forEach(card=>{
+    const nm=card.querySelector('.tool-name');
+    const all=[nm.dataset.en,nm.dataset.ur,nm.dataset.ar].join(' ').toLowerCase();
+    const show=!q||all.includes(q);
+    card.style.display=show?'':'none';
+    if(show)anyVisible=true;
+  });
+  // hide/show cat labels
+  document.querySelectorAll('.cat-label').forEach(lbl=>{
+    const grid=lbl.nextElementSibling;
+    const visible=[...grid.querySelectorAll('.tool-card')].some(c=>c.style.display!=='none');
+    lbl.style.display=visible?'':'none';
+  });
+  document.getElementById('noResults').style.display=anyVisible?'none':'block';
+}
+
+/* ══ SCROLL ANIMATION ══ */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.tool-card').forEach((card,i)=>{
+  card.style.transitionDelay=`${(i%8)*0.04}s`;
+  io.observe(card);
+});
+</script>
+</body>
+</html>
