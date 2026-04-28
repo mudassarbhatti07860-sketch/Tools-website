@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Age Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--gold:#c9a84c;--gold2:#f0d080;--dark:#0d0d14;--darker:#07070e;--panel:rgba(20,20,35,0.95);--border:rgba(201,168,76,0.3);--text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--accent:rgba(201,168,76,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Amiri',serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+/* GEOMETRIC BACKGROUND */
+body::before{content:'';position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 80%,rgba(201,168,76,0.04) 0%,transparent 60%),
+    var(--darker);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
+    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+    var(--darker);
+  pointer-events:none;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;
+  padding:.55rem 1.2rem;
+  background:rgba(7,7,14,0.96);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;text-decoration:none;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
+  padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;
+  cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
+.nav-link.active{background:rgba(201,168,76,0.1);}
+.lang-sep{width:1px;height:18px;background:var(--border);margin:0 .2rem;}
+
+/* HERO */
+.hero{position:relative;z-index:1;padding:5.5rem 1rem 2.5rem;text-align:center;}
+.bismillah-block{margin-bottom:1rem;}
+.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold2);
+  direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;}
+.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.85rem,2vw,1.05rem);
+  color:var(--gold);opacity:.85;display:block;margin-top:.2rem;}
+.hero-icon{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:.5rem;animation:spin 14s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 55%,#7a5c10 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin:.4rem 0;}
+.hero-sub{color:var(--muted);font-size:clamp(.9rem,2vw,1.05rem);}
+.gold-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0;}
+
+/* WRAP */
+.wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:1.8rem;}
+
+/* AD */
+.ad{background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:.75rem;letter-spacing:.1em;font-family:'Cinzel',serif;text-transform:uppercase;}
+.ad-top{height:90px;}
+.ad-mid{height:90px;}
+
+/* CARD */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:1.8rem;backdrop-filter:blur(8px);}
+.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--gold);
+  letter-spacing:.1em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+
+/* TABS */
+.tabs{display:flex;gap:.45rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.tab{background:transparent;border:1px solid var(--border);border-radius:8px;padding:.4rem 1rem;
+  color:var(--muted);font-family:'Amiri',serif;font-size:.93rem;cursor:pointer;transition:all .2s;}
+.tab:hover{border-color:var(--gold);color:var(--gold2);}
+.tab.active{background:var(--gold);border-color:var(--gold);color:#000;font-weight:700;}
+
+/* FORM */
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+@media(max-width:560px){.fg2{grid-template-columns:1fr;}}
+.field label{display:block;font-size:.75rem;letter-spacing:.08em;color:var(--muted);
+  text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:.4rem;}
+.field input[type="date"],.field input[type="text"]{
+  width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;
+  padding:.65rem .9rem;color:var(--text);font-family:'Amiri',serif;font-size:1rem;
+  outline:none;transition:border-color .2s,box-shadow .2s;color-scheme:dark;}
+.field input:focus{border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,0.18);}
+.person-block{border:1px solid var(--border);border-radius:10px;padding:1.1rem;margin-bottom:.9rem;}
+.person-lbl{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem;}
+
+/* BUTTON */
+.btn{background:linear-gradient(135deg,var(--gold) 0%,#9a7020 100%);border:none;border-radius:8px;
+  padding:.7rem 1.5rem;color:#000;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;
+  letter-spacing:.08em;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:.9rem;width:100%;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(201,168,76,0.3);}
+.btn:active{transform:none;}
+
+/* RESULT */
+.res{display:none;margin-top:1.5rem;}
+.res.show{display:block;animation:fadeUp .4s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.7rem;margin-bottom:1.1rem;}
+.rb{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.9rem .5rem;text-align:center;animation:countUp .4s ease both;}
+.rb:nth-child(2){animation-delay:.04s}.rb:nth-child(3){animation-delay:.08s}
+.rb:nth-child(4){animation-delay:.12s}.rb:nth-child(5){animation-delay:.16s}
+.rb:nth-child(6){animation-delay:.20s}.rb:nth-child(7){animation-delay:.24s}
+.rb-num{font-family:'Cinzel',serif;font-size:clamp(1.3rem,4vw,1.9rem);font-weight:900;color:var(--gold2);line-height:1;}
+.rb-unit{font-size:.68rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-top:.25rem;}
+
+.summary{background:var(--accent);border:1px solid rgba(201,168,76,0.18);border-radius:10px;
+  padding:.9rem 1.1rem;line-height:1.9;font-size:1rem;color:var(--text);margin-bottom:.9rem;}
+.summary b{color:var(--gold2);}
+
+.next-bday{background:rgba(76,175,119,0.08);border:1px solid rgba(76,175,119,0.25);border-radius:10px;
+  padding:.8rem 1.1rem;font-size:.95rem;margin-bottom:.8rem;}
+.next-bday span{color:var(--green);font-weight:700;}
+
+.live-clk{text-align:center;font-family:'Cinzel',serif;font-size:.82rem;color:var(--muted);margin-top:.6rem;}
+.live-clk span{color:var(--gold);}
+
+.info-row{display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid rgba(201,168,76,0.08);padding:.5rem 0;font-size:.9rem;}
+.info-row:last-child{border-bottom:none;}
+.ir-lbl{color:var(--muted);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;}
+.ir-val{color:var(--gold2);font-weight:700;text-align:right;}
+
+/* compare */
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:480px){.cmp-grid{grid-template-columns:1fr;}}
+.p-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:1.1rem;text-align:center;}
+.p-name{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;}
+.p-age{font-family:'Cinzel',serif;font-size:2rem;font-weight:900;color:var(--gold2);line-height:1;}
+.p-det{font-size:.82rem;color:var(--muted);margin-top:.3rem;}
+.older-badge{display:inline-block;background:var(--gold);color:#000;border-radius:20px;
+  padding:.15rem .7rem;font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;margin-top:.35rem;}
+.diff-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;
+  padding:1.1rem;text-align:center;margin-top:.9rem;}
+.diff-val{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;color:var(--gold2);margin:.25rem 0;}
+.diff-det{font-size:.88rem;color:var(--text);}
+
+/* quick links */
+.ql-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;}
+.ql{background:var(--panel);border:1px solid var(--border);border-radius:10px;
+  padding:1rem;text-align:center;text-decoration:none;
+  display:flex;flex-direction:column;align-items:center;gap:.35rem;
+  transition:transform .2s,box-shadow .2s,border-color .2s;}
+.ql:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(201,168,76,0.18);border-color:var(--gold);}
+.ql-icon{font-size:1.5rem;}
+.ql-name{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase;}
+.ql-desc{font-size:.78rem;color:var(--muted);}
+
+/* HADITH */
+.hadith-sec{position:relative;z-index:1;margin-top:2rem;background:rgba(7,7,14,0.98);
+  border-top:1px solid var(--border);}
+.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
+.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;text-shadow:0 0 20px rgba(201,168,76,0.5);}
+.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.15rem,3vw,1.65rem);color:var(--gold2);
+  line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
+.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
+.h-urdu{font-family:'Amiri',serif;font-size:clamp(.92rem,2.2vw,1.08rem);color:var(--text);
+  line-height:2;direction:rtl;margin-bottom:.5rem;}
+.h-en{font-family:'Amiri',serif;font-size:.93rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
+.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
+
+/* NOOR FOOTER */
+.noor-footer{text-align:center;padding:1.4rem .5rem;background:rgba(5,5,10,0.99);
+  border-top:1px solid var(--border);}
+.noor-text{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold2);
+  direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.4);letter-spacing:.04em;}
+.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.35rem;}
+
+/* RTL tweaks */
+body.rtl .card-title::after{background:linear-gradient(270deg,var(--border),transparent);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <div class="nav-right">
+    <a href="age-calculator.html"  class="nav-link active" data-en="🎂 Age" data-ur="🎂 عمر" data-ar="🎂 العمر">🎂 Age</a>
+    <a href="date-calculator.html" class="nav-link" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
+    <a href="time-calculator.html" class="nav-link" data-en="⏱ Time" data-ur="⏱ وقت" data-ar="⏱ الوقت">⏱ Time</a>
+    <a href="index.html"           class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم" data-ar="🏠 الرئيسية">🏠 Home</a>
+    <div class="lang-sep"></div>
+    <button class="nav-link active-lang" id="lb-en" onclick="setLang('en')">EN</button>
+    <button class="nav-link" id="lb-ur" onclick="setLang('ur')">اردو</button>
+    <button class="nav-link" id="lb-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-icon">☽</span>
+  <div class="bismillah-block">
+    <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+  </div>
+  <h1 class="hero-title" id="heroTitle">Age Calculator</h1>
+  <p  class="hero-sub"   id="heroSub">Calculate exact age in Years · Months · Days · Hours · Minutes · Seconds</p>
+  <div class="gold-line"></div>
+</section>
+
+<div class="wrap">
+
+  <!-- AD TOP -->
+  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
+
+  <!-- MAIN CARD -->
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" id="tab1" onclick="switchTab('single')">🎂 <span data-en="Single Age" data-ur="ایک عمر" data-ar="عمر واحدة">Single Age</span></button>
+      <button class="tab"        id="tab2" onclick="switchTab('compare')">👥 <span data-en="Compare 2 Persons" data-ur="دو افراد موازنہ" data-ar="مقارنة شخصين">Compare 2 Persons</span></button>
+    </div>
+
+    <!-- SINGLE -->
+    <div id="pSingle">
+      <div class="card-title" id="ctSingle">🎂 Calculate Your Age</div>
+      <div class="fg2">
+        <div class="field"><label id="lDob">Date of Birth</label><input type="date" id="dob"/></div>
+        <div class="field"><label id="lAt">Age At Date</label><input type="date" id="ageAt"/></div>
+      </div>
+      <button class="btn" id="btnCalc" onclick="calcAge()">✨ Calculate Age</button>
+      <div class="res" id="singleRes">
+        <div class="result-grid" id="resBoxes"></div>
+        <div class="summary"     id="resSummary"></div>
+        <div class="next-bday"   id="resNextBday"></div>
+        <div class="live-clk">Live: <span id="liveClock">—</span></div>
+      </div>
+    </div>
+
+    <!-- COMPARE -->
+    <div id="pCompare" style="display:none">
+      <div class="card-title" id="ctCompare">👥 Compare Ages</div>
+      <div class="person-block">
+        <div class="person-lbl" id="lP1">👤 Person 1</div>
+        <div class="fg2">
+          <div class="field"><label id="lP1n">Name</label><input type="text" id="p1name" placeholder="Ahmed"/></div>
+          <div class="field"><label id="lP1d">Date of Birth</label><input type="date" id="p1dob"/></div>
+        </div>
+      </div>
+      <div class="person-block">
+        <div class="person-lbl" id="lP2">👤 Person 2</div>
+        <div class="fg2">
+          <div class="field"><label id="lP2n">Name</label><input type="text" id="p2name" placeholder="Sara"/></div>
+          <div class="field"><label id="lP2d">Date of Birth</label><input type="date" id="p2dob"/></div>
+        </div>
+      </div>
+      <button class="btn" id="btnCmp" onclick="compareAge()">⚖️ Compare Ages</button>
+      <div class="res" id="cmpRes">
+        <div class="cmp-grid" id="cmpGrid"></div>
+        <div class="diff-box" id="diffBox"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD MID -->
+  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+
+  <!-- QUICK LINKS -->
+  <div class="card">
+    <div class="card-title" id="ctLinks">🔗 Related Tools</div>
+    <div class="ql-grid">
+      <a href="date-calculator.html" class="ql"><span class="ql-icon">📅</span><span class="ql-name" data-en="Date Calculator" data-ur="تاریخ کیلکولیٹر" data-ar="حاسبة التاريخ">Date Calculator</span><span class="ql-desc" data-en="Days between dates" data-ur="تاریخوں کا فرق" data-ar="الفرق بين التواريخ">Days between dates</span></a>
+      <a href="time-calculator.html" class="ql"><span class="ql-icon">⏱️</span><span class="ql-name" data-en="Time Calculator" data-ur="وقت کیلکولیٹر" data-ar="حاسبة الوقت">Time Calculator</span><span class="ql-desc" data-en="Add or subtract time" data-ur="وقت جوڑیں یا گھٹائیں" data-ar="جمع أو طرح الوقت">Add or subtract time</span></a>
+      <a href="index.html" class="ql"><span class="ql-icon">🛠️</span><span class="ql-name" data-en="All Tools" data-ur="تمام ٹولز" data-ar="جميع الأدوات">All Tools</span><span class="ql-desc" data-en="40+ free tools" data-ur="40+ مفت ٹولز" data-ar="أكثر من 40 أداة">40+ free tools</span></a>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- HADITH -->
+<div class="hadith-sec">
+  <div class="hadith-inner">
+    <span class="h-ornament">❁ ☽ ❁</span>
+    <p class="h-arabic">«مَنْ أَرَادَ الدُّنْيَا فَعَلَيْهِ بِالْعِلْمِ، وَمَنْ أَرَادَ الآخِرَةَ فَعَلَيْهِ بِالْعِلْمِ، وَمَنْ أَرَادَهُمَا فَعَلَيْهِ بِالْعِلْمِ»</p>
+    <div class="h-line"></div>
+    <p class="h-urdu" id="hUrdu">جو دنیا چاہتا ہے اسے علم حاصل کرنا چاہیے، جو آخرت چاہتا ہے اسے علم حاصل کرنا چاہیے، اور جو دونوں چاہتا ہے اسے بھی علم حاصل کرنا چاہیے۔</p>
+    <p class="h-en"   id="hEn">"Whoever desires the world, let him seek knowledge; whoever desires the Hereafter, let him seek knowledge; and whoever desires both, let him seek knowledge."</p>
+    <p class="h-source">— الإمام الشافعي | Imam Al-Shafi'i</p>
+  </div>
+</div>
+
+<!-- NOOR FOOTER -->
+<div class="noor-footer">
+  <div class="noor-text">نُور الہدیٰ</div>
+  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED</div>
+</div>
+
+<script>
+/* ── TRANSLATIONS ── */
+const T={
+  en:{dir:'ltr',lang:'en',
+    bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
+    heroTitle:'Age Calculator',heroSub:'Calculate exact age in Years · Months · Days · Hours · Minutes · Seconds',
+    ctSingle:'🎂 Calculate Your Age',ctCompare:'👥 Compare Ages',ctLinks:'🔗 Related Tools',
+    lDob:'Date of Birth',lAt:'Age At Date (optional)',
+    lP1:'👤 Person 1',lP2:'👤 Person 2',lP1n:'Name',lP1d:'Date of Birth',lP2n:'Name',lP2d:'Date of Birth',
+    btnCalc:'✨ Calculate Age',btnCmp:'⚖️ Compare Ages',
+    hUrdu:'',hEn:'"Whoever desires the world, let him seek knowledge; whoever desires the Hereafter, let him seek knowledge; and whoever desires both, let him seek knowledge."',
+    adTxt1:'Advertisement — 728×90',adTxt2:'Advertisement — 468×60',
+    units:['Years','Months','Days','Weeks','Hours','Minutes','Seconds'],
+    older:'OLDER',nextBdayTxt:(ord,dt,days)=>`🎂 Your ${ord} birthday is on <b style="color:var(--gold2)">${dt}</b> — <span>${days} days</span> to go!`,
+    summaryTxt:(dob,at,y,m,d,wks,days)=>`You were born on <b>${dob}</b>. Your age on <b>${at}</b> is <b>${y} years, ${m} months, ${d} days</b> — about <b>${wks.toLocaleString()} weeks</b> or <b>${days.toLocaleString()} days</b>.`,
+    diffTxt:(name,y,m,d,days,wks)=>`<b style="color:var(--gold2)">${name}</b> is older by <b style="color:var(--gold2)">${y}y ${m}m ${d}d</b> (≈${days.toLocaleString()} days / ${wks.toLocaleString()} weeks)`,
+  },
+  ur:{dir:'rtl',lang:'ur',
+    bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
+    heroTitle:'عمر کیلکولیٹر',heroSub:'سال · مہینے · دن · گھنٹے · منٹ · سیکنڈ میں عمر معلوم کریں',
+    ctSingle:'🎂 اپنی عمر معلوم کریں',ctCompare:'👥 دو افراد کا موازنہ',ctLinks:'🔗 متعلقہ ٹولز',
+    lDob:'تاریخ پیدائش',lAt:'اس تاریخ پر عمر',
+    lP1:'👤 پہلا شخص',lP2:'👤 دوسرا شخص',lP1n:'نام',lP1d:'تاریخ پیدائش',lP2n:'نام',lP2d:'تاریخ پیدائش',
+    btnCalc:'✨ عمر معلوم کریں',btnCmp:'⚖️ موازنہ کریں',
+    hUrdu:'جو دنیا چاہتا ہے اسے علم حاصل کرنا چاہیے، جو آخرت چاہتا ہے اسے علم حاصل کرنا چاہیے، اور جو دونوں چاہتا ہے اسے بھی علم حاصل کرنا چاہیے۔',hEn:'',
+    adTxt1:'اشتہار — 728×90',adTxt2:'اشتہار — 468×60',
+    units:['سال','مہینے','دن','ہفتے','گھنٹے','منٹ','سیکنڈ'],
+    older:'بڑا',nextBdayTxt:(ord,dt,days)=>`🎂 آپ کی ${ord} سالگرہ <b style="color:var(--gold2)">${dt}</b> کو ہے — <span>${days} دن</span> باقی!`,
+    summaryTxt:(dob,at,y,m,d,wks,days)=>`آپ <b>${dob}</b> کو پیدا ہوئے۔ <b>${at}</b> کو آپ کی عمر <b>${y} سال، ${m} مہینے، ${d} دن</b> ہے — تقریباً <b>${wks.toLocaleString()} ہفتے</b> یا <b>${days.toLocaleString()} دن</b>۔`,
+    diffTxt:(name,y,m,d,days,wks)=>`<b style="color:var(--gold2)">${name}</b> ${y} سال ${m} مہینے ${d} دن بڑے ہیں (≈${days.toLocaleString()} دن)`,
+  },
+  ar:{dir:'rtl',lang:'ar',
+    bisml:'بسم الله الرحمن الرحيم',
+    heroTitle:'حاسبة العمر',heroSub:'احسب عمرك بالسنوات · الأشهر · الأيام · الساعات · الدقائق · الثواني',
+    ctSingle:'🎂 احسب عمرك',ctCompare:'👥 قارن بين شخصين',ctLinks:'🔗 أدوات ذات صلة',
+    lDob:'تاريخ الميلاد',lAt:'العمر في تاريخ',
+    lP1:'👤 الشخص الأول',lP2:'👤 الشخص الثاني',lP1n:'الاسم',lP1d:'تاريخ الميلاد',lP2n:'الاسم',lP2d:'تاريخ الميلاد',
+    btnCalc:'✨ احسب العمر',btnCmp:'⚖️ قارن الأعمار',
+    hUrdu:'',hEn:'من أراد الدنيا فعليه بالعلم، ومن أراد الآخرة فعليه بالعلم، ومن أرادهما فعليه بالعلم.',
+    adTxt1:'إعلان — 728×90',adTxt2:'إعلان — 468×60',
+    units:['سنوات','أشهر','أيام','أسابيع','ساعات','دقائق','ثواني'],
+    older:'أكبر',nextBdayTxt:(ord,dt,days)=>`🎂 عيد ميلادك القادم في <b style="color:var(--gold2)">${dt}</b> — بعد <span>${days} يوم</span>!`,
+    summaryTxt:(dob,at,y,m,d,wks,days)=>`وُلدت في <b>${dob}</b>. عمرك في <b>${at}</b> هو <b>${y} سنة، ${m} شهر، ${d} يوم</b> — أي <b>${wks.toLocaleString()} أسبوع</b> أو <b>${days.toLocaleString()} يوم</b>.`,
+    diffTxt:(name,y,m,d,days,wks)=>`<b style="color:var(--gold2)">${name}</b> أكبر بـ <b style="color:var(--gold2)">${y}y ${m}m ${d}d</b> (≈${days.toLocaleString()} يوم)`,
+  }
+};
+let lang='en';
+function setLang(l){
+  lang=l;const t=T[l];
+  document.documentElement.lang=t.lang;document.documentElement.dir=t.dir;
+  document.body.classList.toggle('rtl',t.dir==='rtl');
+  ['lb-en','lb-ur','lb-ar'].forEach(id=>document.getElementById(id).classList.remove('active-lang','active'));
+  document.getElementById('lb-'+l).classList.add('active-lang','active');
+  document.getElementById('bismlTr').textContent=t.bisml;
+  document.getElementById('heroTitle').textContent=t.heroTitle;
+  document.getElementById('heroSub').textContent=t.heroSub;
+  ['ctSingle','ctCompare','ctLinks','lDob','lAt','lP1','lP2','lP1n','lP1d','lP2n','lP2d','btnCalc','btnCmp','adTxt1','adTxt2'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.textContent=t[id]||el.textContent;
+  });
+  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
+  else if(t.hEn){document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
+  else{document.getElementById('hUrdu').style.display='block';document.getElementById('hEn').style.display='block';}
+  // nav links
+  document.querySelectorAll('.nav-link[data-en]').forEach(el=>{el.textContent=el.dataset[l]||el.dataset.en;});
+  // ql spans
+  document.querySelectorAll('[data-en]').forEach(el=>{if(!el.classList.contains('nav-link'))el.textContent=el.dataset[l]||el.dataset.en;});
+}
+
+/* TABS */
+function switchTab(t){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.closest('.tab').classList.add('active');
+  document.getElementById('pSingle').style.display=t==='single'?'block':'none';
+  document.getElementById('pCompare').style.display=t==='compare'?'block':'none';
+}
+
+/* HELPERS */
+const todayStr=new Date().toISOString().split('T')[0];
+document.getElementById('dob').max=todayStr;
+document.getElementById('ageAt').value=todayStr;
+document.getElementById('p1dob').max=todayStr;
+document.getElementById('p2dob').max=todayStr;
+
+function diff(from,to){
+  let y=to.getFullYear()-from.getFullYear(),m=to.getMonth()-from.getMonth(),d=to.getDate()-from.getDate();
+  if(d<0){m--;d+=new Date(to.getFullYear(),to.getMonth(),0).getDate();}
+  if(m<0){y--;m+=12;}
+  const ms=to-from,td=Math.floor(ms/86400000);
+  return{y,m,d,td,tw:Math.floor(td/7),th:Math.floor(ms/3600000),tm:Math.floor(ms/60000),ts:Math.floor(ms/1000)};
+}
+function ordinal(n){const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
+function fmtDate(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
+
+/* SINGLE */
+let ckInt=null;
+function calcAge(){
+  const dv=document.getElementById('dob').value,av=document.getElementById('ageAt').value||todayStr;
+  if(!dv){alert('Please enter Date of Birth!');return;}
+  const dob=new Date(dv),at=new Date(av);
+  if(dob>=at){alert('Date of Birth must be before target date!');return;}
+  const r=diff(dob,at),t=T[lang];
+  const vals=[r.y,r.m,r.d,r.tw,r.th.toLocaleString(),r.tm.toLocaleString(),r.ts.toLocaleString()];
+  document.getElementById('resBoxes').innerHTML=t.units.map((u,i)=>`<div class="rb"><div class="rb-num">${vals[i]}</div><div class="rb-unit">${u}</div></div>`).join('');
+  document.getElementById('resSummary').innerHTML=t.summaryTxt(fmtDate(dob),fmtDate(at),r.y,r.m,r.d,r.tw,r.td);
+  const now=new Date(),nb=new Date(now.getFullYear(),dob.getMonth(),dob.getDate());
+  if(nb<=now)nb.setFullYear(nb.getFullYear()+1);
+  const dl=Math.ceil((nb-now)/86400000),age=nb.getFullYear()-dob.getFullYear();
+  document.getElementById('resNextBday').innerHTML=t.nextBdayTxt(ordinal(age),fmtDate(nb),dl);
+  document.getElementById('singleRes').classList.add('show');
+  if(ckInt)clearInterval(ckInt);
+  function upd(){const n=new Date(),rr=diff(dob,n);document.getElementById('liveClock').textContent=`${rr.y}y ${rr.m}m ${rr.d}d — ${rr.ts.toLocaleString()} sec`;}
+  upd();ckInt=setInterval(upd,1000);
+}
+
+/* COMPARE */
+function compareAge(){
+  const n1=document.getElementById('p1name').value||'Person 1',n2=document.getElementById('p2name').value||'Person 2';
+  const v1=document.getElementById('p1dob').value,v2=document.getElementById('p2dob').value;
+  if(!v1||!v2){alert('Please enter both dates!');return;}
+  const now=new Date(),d1=new Date(v1),d2=new Date(v2);
+  const r1=diff(d1,now),r2=diff(d2,now),older=d1<d2?n1:n2;
+  const df=d1<d2?diff(d1,d2):diff(d2,d1),t=T[lang];
+  document.getElementById('cmpGrid').innerHTML=`
+    <div class="p-box"><div class="p-name">${n1}</div><div class="p-age">${r1.y}</div>
+    <div class="p-det">${r1.m}m ${r1.d}d · ${r1.td.toLocaleString()} days</div>
+    ${d1<d2?`<div class="older-badge">${t.older}</div>`:''}</div>
+    <div class="p-box"><div class="p-name">${n2}</div><div class="p-age">${r2.y}</div>
+    <div class="p-det">${r2.m}m ${r2.d}d · ${r2.td.toLocaleString()} days</div>
+    ${d2<d1?`<div class="older-badge">${t.older}</div>`:''}</div>`;
+  document.getElementById('diffBox').innerHTML=`<div class="rb-unit" style="margin-bottom:.3rem">Age Difference</div>
+    <div class="diff-val">${df.y}y ${df.m}m ${df.d}d</div>
+    <div class="diff-det">${t.diffTxt(older,df.y,df.m,df.d,df.td,df.tw)}</div>`;
+  document.getElementById('cmpRes').classList.add('show');
+}
+</script>
+</body>
+</html>
