@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PDF to Word – نُور الہدیٰ</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+<!-- PDF.js for text extraction -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+:root{--gold:#c9a84c;--gold2:#f0d080;--dark:#0d0d14;--darker:#07070e;--panel:rgba(20,20,35,0.95);--border:rgba(201,168,76,0.3);--text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;--accent:rgba(201,168,76,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Amiri',serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
+  repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+  repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),var(--darker);}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;padding:.55rem 1.2rem;background:rgba(7,7,14,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;text-decoration:none;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
+.nav-link.active{background:rgba(201,168,76,0.1);}
+.lang-sep{width:1px;height:18px;background:var(--border);margin:0 .15rem;}
+
+/* HERO */
+.hero{position:relative;z-index:1;padding:5.2rem 1rem 2.5rem;text-align:center;}
+.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold2);direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;animation:fadeDown .9s ease both;}
+.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.85rem,2vw,1.05rem);color:var(--gold);opacity:.85;display:block;margin-top:.2rem;animation:fadeDown .9s .1s ease both;}
+.hero-icon{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:.5rem;animation:spin 14s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 55%,#7a5c10 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:.4rem 0;}
+.hero-sub{color:var(--muted);font-size:clamp(.9rem,2vw,1.05rem);}
+.gold-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+
+/* WRAP */
+.wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:1.8rem;}
+
+/* AD */
+.ad{background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;letter-spacing:.1em;font-family:'Cinzel',serif;text-transform:uppercase;}
+.ad-top{height:90px;}.ad-mid{height:90px;}
+
+/* CARD */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:1.8rem;backdrop-filter:blur(8px);}
+.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--gold);letter-spacing:.1em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+
+/* DROP ZONE */
+.drop-zone{border:2px dashed rgba(201,168,76,0.35);border-radius:14px;padding:3rem 1rem;text-align:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;background:rgba(201,168,76,0.02);}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--gold);background:rgba(201,168,76,0.07);transform:scale(1.01);}
+.drop-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.dz-icon{font-size:3.5rem;display:block;margin-bottom:.8rem;}
+.dz-title{font-family:'Cinzel',serif;font-size:1.05rem;color:var(--gold2);letter-spacing:.08em;margin-bottom:.4rem;}
+.dz-sub{font-size:.88rem;color:var(--muted);}
+.fmt-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem;}
+.fmt-badge{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:.18rem .8rem;font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.06em;}
+
+/* FILE INFO */
+.file-info{display:none;background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;margin-top:1rem;animation:fadeUp .3s ease both;}
+.file-info.show{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.fi-icon{font-size:2rem;flex-shrink:0;}
+.fi-details{flex:1;}
+.fi-name{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);font-weight:600;margin-bottom:.2rem;word-break:break-all;}
+.fi-size{font-size:.78rem;color:var(--muted);}
+.fi-remove{background:rgba(224,90,90,0.15);border:1px solid rgba(224,90,90,0.3);border-radius:8px;padding:.3rem .8rem;color:var(--red);font-family:'Cinzel',serif;font-size:.72rem;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.fi-remove:hover{background:rgba(224,90,90,0.25);}
+
+/* SETTINGS */
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.1rem;}
+@media(max-width:560px){.settings-grid{grid-template-columns:1fr;}}
+.field label{display:block;font-size:.75rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:.4rem;}
+.field select,.field input[type="text"]{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;color:var(--text);font-family:'Amiri',serif;font-size:.95rem;outline:none;transition:border-color .2s,box-shadow .2s;color-scheme:dark;-webkit-appearance:none;appearance:none;}
+.field select option{background:#0a0a0f;}
+.field select:focus,.field input:focus{border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,0.18);}
+
+/* BUTTON */
+.btn{border:none;border-radius:8px;padding:.72rem 1.4rem;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;letter-spacing:.07em;cursor:pointer;transition:transform .2s,box-shadow .2s;width:100%;}
+.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,#9a7020 100%);color:#000;}
+.btn-secondary{background:rgba(201,168,76,0.1);color:var(--gold2);border:1px solid var(--border);margin-top:.6rem;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,0.3);}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none !important;box-shadow:none !important;}
+
+/* PROGRESS */
+.progress-wrap{display:none;margin-top:1.1rem;animation:fadeUp .3s ease both;}
+.progress-wrap.show{display:block;}
+.prog-steps{display:flex;justify-content:space-between;margin-bottom:.7rem;flex-wrap:wrap;gap:.3rem;}
+.prog-step{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.08em;color:var(--muted);display:flex;align-items:center;gap:.3rem;}
+.prog-step.active{color:var(--gold2);}
+.prog-step.done{color:var(--green);}
+.prog-step .step-dot{width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0;}
+.prog-step.active .step-dot{background:var(--gold);animation:pulse 1s infinite;}
+.prog-step.done .step-dot{background:var(--green);}
+.prog-bar-bg{background:rgba(201,168,76,0.1);border:1px solid var(--border);border-radius:20px;height:10px;overflow:hidden;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:20px;width:0%;transition:width .4s ease;}
+.prog-lbl{font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);letter-spacing:.08em;margin-top:.5rem;text-align:center;}
+
+/* PREVIEW */
+.preview-wrap{display:none;margin-top:1.2rem;animation:fadeUp .4s ease both;}
+.preview-wrap.show{display:block;}
+.preview-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;}
+.preview-title{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+.preview-stats{display:flex;gap:.6rem;flex-wrap:wrap;}
+.stat-pill{background:var(--accent);border:1px solid var(--border);border-radius:20px;padding:.18rem .7rem;font-family:'Cinzel',serif;font-size:.68rem;color:var(--gold2);letter-spacing:.05em;}
+.preview-box{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:1.2rem;max-height:320px;overflow-y:auto;font-size:.92rem;line-height:1.9;color:var(--text);white-space:pre-wrap;word-break:break-word;font-family:'Amiri',serif;}
+.preview-box::-webkit-scrollbar{width:5px;}
+.preview-box::-webkit-scrollbar-track{background:transparent;}
+.preview-box::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+/* SUCCESS */
+.success-box{display:none;margin-top:1rem;background:rgba(76,175,119,0.08);border:1px solid rgba(76,175,119,0.3);border-radius:10px;padding:1.3rem;text-align:center;animation:countUp .4s ease both;}
+.success-box.show{display:block;}
+.success-icon{font-size:2.2rem;display:block;margin-bottom:.5rem;}
+.success-title{font-family:'Cinzel',serif;font-size:.9rem;color:var(--green);letter-spacing:.1em;margin-bottom:.3rem;}
+.success-sub{font-size:.85rem;color:var(--muted);margin-bottom:.8rem;}
+.dl-btn-row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+.dl-btn{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,var(--green),#2e8b57);border:none;border-radius:8px;padding:.6rem 1.3rem;color:#000;font-family:'Cinzel',serif;font-size:.82rem;font-weight:700;letter-spacing:.07em;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.dl-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(76,175,119,0.3);}
+.dl-btn-txt{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,168,76,0.12);border:1px solid var(--border);border-radius:8px;padding:.6rem 1.3rem;color:var(--gold2);font-family:'Cinzel',serif;font-size:.82rem;font-weight:700;letter-spacing:.07em;cursor:pointer;transition:transform .2s;}
+.dl-btn-txt:hover{transform:translateY(-2px);border-color:var(--gold);}
+
+/* INFO GRID */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem;}
+.info-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center;}
+.info-icon{font-size:1.5rem;margin-bottom:.3rem;}
+.info-title{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
+.info-desc{font-size:.8rem;color:var(--muted);line-height:1.5;}
+
+/* PAGE TABS */
+.page-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem;}
+.page-tab{background:transparent;border:1px solid var(--border);border-radius:8px;padding:.3rem .8rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.72rem;cursor:pointer;transition:all .2s;letter-spacing:.06em;}
+.page-tab:hover{border-color:var(--gold);color:var(--gold2);}
+.page-tab.active{background:var(--gold);border-color:var(--gold);color:#000;font-weight:700;}
+
+/* HADITH */
+.hadith-sec{position:relative;z-index:1;margin-top:2rem;background:rgba(7,7,14,0.98);border-top:1px solid var(--border);}
+.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
+.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;}
+.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.15rem,3vw,1.65rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
+.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
+.h-urdu{font-family:'Amiri',serif;font-size:clamp(.92rem,2.2vw,1.08rem);color:var(--text);line-height:2;direction:rtl;margin-bottom:.5rem;}
+.h-en{font-family:'Amiri',serif;font-size:.93rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
+.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
+.noor-footer{text-align:center;padding:1.4rem .5rem;background:rgba(5,5,10,0.99);border-top:1px solid var(--border);}
+.noor-text{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold2);direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.4);}
+.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.35rem;}
+
+/* NOTICE */
+.notice{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:10px;padding:.9rem 1.1rem;font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;}
+.notice b{color:var(--gold2);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <div class="nav-right">
+    <a href="age-calculator.html"  class="nav-link" data-en="🎂 Age"  data-ur="🎂 عمر"  data-ar="🎂 العمر">🎂 Age</a>
+    <a href="date-calculator.html" class="nav-link" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
+    <a href="time-calculator.html" class="nav-link" data-en="⏱ Time" data-ur="⏱ وقت"  data-ar="⏱ الوقت">⏱ Time</a>
+    <a href="index.html"           class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم"  data-ar="🏠 الرئيسية">🏠 Home</a>
+    <div class="lang-sep"></div>
+    <button class="nav-link active" id="lb-en" onclick="setLang('en')">EN</button>
+    <button class="nav-link"        id="lb-ur" onclick="setLang('ur')">اردو</button>
+    <button class="nav-link"        id="lb-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-icon">📄</span>
+  <div style="margin-bottom:.9rem">
+    <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+  </div>
+  <h1 class="hero-title" id="heroTitle">PDF to Word</h1>
+  <p  class="hero-sub"   id="heroSub">Extract text from PDF and download as Word document — Free & Private</p>
+  <div class="gold-line"></div>
+</section>
+
+<div class="wrap">
+
+  <!-- AD TOP -->
+  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
+
+  <!-- UPLOAD CARD -->
+  <div class="card">
+    <div class="card-title" id="ctUpload">📄 Upload PDF File</div>
+
+    <div class="drop-zone" id="dropZone">
+      <input type="file" id="fileInput" accept=".pdf,application/pdf"/>
+      <span class="dz-icon">📥</span>
+      <div class="dz-title" id="dzTitle">Drop your PDF here or Click to Browse</div>
+      <div class="dz-sub"   id="dzSub">Maximum file size: 50 MB</div>
+      <div class="fmt-row"><span class="fmt-badge">PDF</span></div>
+    </div>
+
+    <!-- File Info -->
+    <div class="file-info" id="fileInfo">
+      <span class="fi-icon">📋</span>
+      <div class="fi-details">
+        <div class="fi-name" id="fiName">—</div>
+        <div class="fi-size" id="fiSize">—</div>
+      </div>
+      <button class="fi-remove" id="fiRemove" onclick="removeFile()">✕ Remove</button>
+    </div>
+  </div>
+
+  <!-- SETTINGS + CONVERT CARD -->
+  <div class="card">
+    <div class="card-title" id="ctSettings">⚙️ Settings</div>
+
+    <div class="notice" id="noticeBox">
+      <b>ℹ️ How it works:</b> This tool extracts all text from your PDF pages and packages it into a downloadable <b>.doc</b> file you can open in Microsoft Word, Google Docs, or LibreOffice. Scanned/image-only PDFs may have limited text extraction.
+    </div>
+
+    <div class="settings-grid">
+      <div class="field">
+        <label id="lOutputFormat">Output Format</label>
+        <select id="outputFormat">
+          <option value="doc">Word Document (.doc)</option>
+          <option value="txt">Plain Text (.txt)</option>
+          <option value="html">HTML Document (.html)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lFilename">Output Filename</label>
+        <input type="text" id="outFilename" value="converted-document" placeholder="my-document"/>
+      </div>
+      <div class="field">
+        <label id="lPageRange">Page Range</label>
+        <select id="pageRange">
+          <option value="all">All Pages</option>
+          <option value="custom">Custom Range</option>
+        </select>
+      </div>
+      <div class="field" id="customRangeField" style="display:none">
+        <label id="lCustomRange">e.g. 1-5 or 1,3,5</label>
+        <input type="text" id="customRange" placeholder="1-5"/>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" id="convertBtn" onclick="convertPDF()" disabled>
+      🔄 <span id="convertTxt">Convert to Word</span>
+    </button>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="prog-steps">
+        <div class="prog-step" id="step1"><span class="step-dot"></span><span id="s1txt">Reading PDF</span></div>
+        <div class="prog-step" id="step2"><span class="step-dot"></span><span id="s2txt">Extracting Text</span></div>
+        <div class="prog-step" id="step3"><span class="step-dot"></span><span id="s3txt">Formatting</span></div>
+        <div class="prog-step" id="step4"><span class="step-dot"></span><span id="s4txt">Creating File</span></div>
+      </div>
+      <div class="prog-bar-bg"><div class="prog-bar" id="progBar"></div></div>
+      <div class="prog-lbl"  id="progLbl">Processing…</div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-box" id="successBox">
+      <span class="success-icon">✅</span>
+      <div class="success-title" id="successTitle">Conversion Successful!</div>
+      <div class="success-sub"   id="successSub">Your document is ready to download.</div>
+      <div class="dl-btn-row">
+        <a class="dl-btn" id="dlLink" href="#" download>⬇️ <span id="dlTxt">Download Document</span></a>
+        <button class="dl-btn-txt" onclick="convertAgain()">🔄 <span id="convertAgainTxt">Convert Another</span></button>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-wrap" id="previewWrap">
+      <div class="preview-header">
+        <span class="preview-title" id="previewTitle">📝 Extracted Text Preview</span>
+        <div class="preview-stats" id="previewStats"></div>
+      </div>
+      <div class="page-tabs" id="pageTabs"></div>
+      <div class="preview-box" id="previewBox"></div>
+    </div>
+  </div>
+
+  <!-- AD MID -->
+  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+
+  <!-- FEATURES CARD -->
+  <div class="card">
+    <div class="card-title" id="ctFeatures">✨ Features</div>
+    <div class="info-grid">
+      <div class="info-box"><div class="info-icon">🔒</div><div class="info-title" id="f1t">100% Private</div><div class="info-desc" id="f1d">Your PDF never leaves your device. All conversion done locally in your browser.</div></div>
+      <div class="info-box"><div class="info-icon">📄</div><div class="info-title" id="f2t">Multi-Page</div><div class="info-desc" id="f2d">Extracts text from all pages. Preview each page before downloading.</div></div>
+      <div class="info-box"><div class="info-icon">📝</div><div class="info-title" id="f3t">3 Formats</div><div class="info-desc" id="f3d">Download as Word .doc, plain .txt, or formatted .html file.</div></div>
+      <div class="info-box"><div class="info-icon">⚡</div><div class="info-title" id="f4t">Fast & Free</div><div class="info-desc" id="f4d">No sign-up, no limits, no waiting. Convert instantly for free.</div></div>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="card">
+    <div class="card-title" id="ctLinks">🔗 Related Tools</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;">
+      <a href="word-to-pdf.html"   style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:1.4rem">📝</span><span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-en="Word to PDF" data-ur="Word سے PDF" data-ar="Word إلى PDF">Word to PDF</span>
+      </a>
+      <a href="image-to-pdf.html"  style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:1.4rem">🖼️</span><span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-en="Image to PDF" data-ur="تصویر سے PDF" data-ar="صورة إلى PDF">Image to PDF</span>
+      </a>
+      <a href="image-compressor.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:1.4rem">🗜️</span><span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-en="Image Compressor" data-ur="تصویر کمپریسر" data-ar="ضاغط الصور">Image Compressor</span>
+      </a>
+      <a href="index.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:1.4rem">🛠️</span><span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-en="All Tools" data-ur="تمام ٹولز" data-ar="جميع الأدوات">All Tools</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- HADITH -->
+<div class="hadith-sec">
+  <div class="hadith-inner">
+    <span class="h-ornament">❁ ☽ ❁</span>
+    <p class="h-arabic">«الْقَلَمُ أَحَدُ اللِّسَانَيْنِ»</p>
+    <div class="h-line"></div>
+    <p class="h-urdu" id="hUrdu">قلم دو زبانوں میں سے ایک ہے۔</p>
+    <p class="h-en"   id="hEn">"The pen is one of the two tongues."</p>
+    <p class="h-source">— حكمة عربية | Arabic Proverb · Imam Al-Shafi'i</p>
+  </div>
+</div>
+<div class="noor-footer">
+  <div class="noor-text">نُورُ الہُدیٰ</div>
+  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+</div>
+
+<script>
+/* ══ PDF.js setup ══ */
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+/* ══ LANG ══ */
+const TL={
+  en:{dir:'ltr',l:'en',
+    bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
+    heroTitle:'PDF to Word',heroSub:'Extract text from PDF and download as Word document — Free & Private',
+    ctUpload:'📄 Upload PDF File',dzTitle:'Drop your PDF here or Click to Browse',dzSub:'Maximum file size: 50 MB',
+    ctSettings:'⚙️ Settings',lOutputFormat:'Output Format',lFilename:'Output Filename',lPageRange:'Page Range',lCustomRange:'e.g. 1-5 or 1,3,5',
+    convertTxt:'Convert to Word',ctFeatures:'✨ Features',ctLinks:'🔗 Related Tools',
+    adTxt1:'Advertisement — 728×90',adTxt2:'Advertisement — 468×60',
+    successTitle:'Conversion Successful!',successSub:'Your document is ready to download.',
+    dlTxt:'Download Document',convertAgainTxt:'Convert Another',
+    previewTitle:'📝 Extracted Text Preview',
+    s1:'Reading PDF',s2:'Extracting Text',s3:'Formatting',s4:'Creating File',
+    f1t:'100% Private',f1d:'Your PDF never leaves your device.',
+    f2t:'Multi-Page',f2d:'Extracts text from all pages with preview.',
+    f3t:'3 Formats',f3d:'Download as .doc, .txt, or .html.',
+    f4t:'Fast & Free',f4d:'No sign-up, no limits, no waiting.',
+    hUrdu:'',hEn:'"The pen is one of the two tongues."',
+    notice:'<b>ℹ️ How it works:</b> This tool extracts all text from your PDF pages and packages it into a downloadable <b>.doc</b> file you can open in Microsoft Word, Google Docs, or LibreOffice. Scanned/image-only PDFs may have limited text.',
+    pageLabel:'Page',wordsLabel:'words',charsLabel:'chars',pagesLabel:'pages',fiRemove:'✕ Remove'},
+  ur:{dir:'rtl',l:'ur',
+    bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
+    heroTitle:'PDF سے Word',heroSub:'PDF سے متن نکالیں اور Word دستاویز کے طور پر ڈاؤن لوڈ کریں — مفت اور نجی',
+    ctUpload:'📄 PDF فائل اپلوڈ کریں',dzTitle:'PDF یہاں ڈراپ کریں یا کلک کریں',dzSub:'زیادہ سے زیادہ سائز: 50 MB',
+    ctSettings:'⚙️ ترتیبات',lOutputFormat:'آؤٹ پٹ فارمیٹ',lFilename:'فائل کا نام',lPageRange:'صفحات کی حد',lCustomRange:'مثال: 1-5 یا 1,3,5',
+    convertTxt:'Word میں تبدیل کریں',ctFeatures:'✨ خصوصیات',ctLinks:'🔗 متعلقہ ٹولز',
+    adTxt1:'اشتہار — 728×90',adTxt2:'اشتہار — 468×60',
+    successTitle:'تبدیلی کامیاب!',successSub:'آپ کی دستاویز ڈاؤن لوڈ کے لیے تیار ہے۔',
+    dlTxt:'دستاویز ڈاؤن لوڈ کریں',convertAgainTxt:'دوبارہ تبدیل کریں',
+    previewTitle:'📝 نکالے گئے متن کا پیش نظارہ',
+    s1:'PDF پڑھنا',s2:'متن نکالنا',s3:'فارمیٹنگ',s4:'فائل بنانا',
+    f1t:'100% نجی',f1d:'آپ کی PDF آپ کے ڈیوائس سے باہر نہیں جاتی۔',
+    f2t:'کثیر صفحات',f2d:'تمام صفحات سے متن نکالتا ہے۔',
+    f3t:'3 فارمیٹس',f3d:'.doc، .txt یا .html میں ڈاؤن لوڈ کریں۔',
+    f4t:'تیز اور مفت',f4d:'کوئی رجسٹریشن نہیں، کوئی حد نہیں۔',
+    hUrdu:'قلم دو زبانوں میں سے ایک ہے۔',hEn:'',
+    notice:'<b>ℹ️ یہ ٹول کیسے کام کرتا ہے:</b> یہ آپ کی PDF سے تمام متن نکال کر ایک <b>.doc</b> فائل بناتا ہے جسے Microsoft Word یا Google Docs میں کھولا جا سکتا ہے۔',
+    pageLabel:'صفحہ',wordsLabel:'الفاظ',charsLabel:'حروف',pagesLabel:'صفحات',fiRemove:'✕ ہٹائیں'},
+  ar:{dir:'rtl',l:'ar',
+    bisml:'بسم الله الرحمن الرحيم',
+    heroTitle:'PDF إلى Word',heroSub:'استخرج النص من PDF وحمّله كمستند Word — مجاناً وخاصاً',
+    ctUpload:'📄 رفع ملف PDF',dzTitle:'اسحب ملف PDF هنا أو انقر للاستعراض',dzSub:'الحجم الأقصى: 50 ميغابايت',
+    ctSettings:'⚙️ الإعدادات',lOutputFormat:'صيغة الإخراج',lFilename:'اسم الملف',lPageRange:'نطاق الصفحات',lCustomRange:'مثال: 1-5 أو 1,3,5',
+    convertTxt:'تحويل إلى Word',ctFeatures:'✨ المميزات',ctLinks:'🔗 أدوات ذات صلة',
+    adTxt1:'إعلان — 728×90',adTxt2:'إعلان — 468×60',
+    successTitle:'تم التحويل بنجاح!',successSub:'مستندك جاهز للتنزيل.',
+    dlTxt:'تنزيل المستند',convertAgainTxt:'تحويل ملف آخر',
+    previewTitle:'📝 معاينة النص المستخرج',
+    s1:'قراءة PDF',s2:'استخراج النص',s3:'التنسيق',s4:'إنشاء الملف',
+    f1t:'خصوصية كاملة',f1d:'ملف PDF لا يغادر جهازك.',
+    f2t:'متعدد الصفحات',f2d:'يستخرج النص من جميع الصفحات.',
+    f3t:'3 صيغ',f3d:'حمّل بصيغة .doc أو .txt أو .html.',
+    f4t:'سريع ومجاني',f4d:'لا تسجيل ولا قيود.',
+    hUrdu:'',hEn:'«الْقَلَمُ أَحَدُ اللِّسَانَيْنِ»',
+    notice:'<b>ℹ️ كيف يعمل:</b> يستخرج هذا الأداة جميع النصوص من صفحات PDF ويحزمها في ملف <b>.doc</b> يمكن فتحه في Microsoft Word أو Google Docs.',
+    pageLabel:'صفحة',wordsLabel:'كلمات',charsLabel:'حرفاً',pagesLabel:'صفحات',fiRemove:'✕ إزالة'}
+};
+let lang='en';
+
+function setLang(l){
+  lang=l;const t=TL[l];
+  document.documentElement.lang=t.l;document.documentElement.dir=t.dir;
+  document.body.classList.toggle('rtl',t.dir==='rtl');
+  ['lb-en','lb-ur','lb-ar'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('lb-'+l).classList.add('active');
+  const ids=['bismlTr','heroTitle','heroSub','ctUpload','dzTitle','dzSub','ctSettings','lOutputFormat','lFilename','lPageRange','lCustomRange','convertTxt','ctFeatures','ctLinks','adTxt1','adTxt2','successTitle','successSub','dlTxt','convertAgainTxt','previewTitle','f1t','f1d','f2t','f2d','f3t','f3d','f4t','f4d'];
+  ids.forEach(id=>{const el=document.getElementById(id);if(el&&t[id]!==undefined)el.textContent=t[id];});
+  document.getElementById('s1txt').textContent=t.s1;document.getElementById('s2txt').textContent=t.s2;
+  document.getElementById('s3txt').textContent=t.s3;document.getElementById('s4txt').textContent=t.s4;
+  document.getElementById('noticeBox').innerHTML=t.notice;
+  document.getElementById('fiRemove').textContent=t.fiRemove;
+  document.querySelectorAll('.nav-link[data-en]').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
+  document.querySelectorAll('[data-en]:not(.nav-link)').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
+  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
+  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
+}
+
+/* ══ FILE HANDLING ══ */
+let currentFile=null;
+let extractedPages=[];
+
+const dropZone=document.getElementById('dropZone');
+const fileInput=document.getElementById('fileInput');
+
+dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
+fileInput.addEventListener('change',e=>{if(e.target.files[0])handleFile(e.target.files[0]);fileInput.value='';});
+
+// Page range toggle
+document.getElementById('pageRange').addEventListener('change',function(){
+  document.getElementById('customRangeField').style.display=this.value==='custom'?'block':'none';
+});
+
+function handleFile(file){
+  if(!file.type.includes('pdf')&&!file.name.endsWith('.pdf')){alert('Please select a PDF file!');return;}
+  if(file.size>50*1024*1024){alert('File size exceeds 50 MB limit!');return;}
+  currentFile=file;
+  document.getElementById('fiName').textContent=file.name;
+  document.getElementById('fiSize').textContent=formatSize(file.size);
+  document.getElementById('fileInfo').classList.add('show');
+  document.getElementById('convertBtn').disabled=false;
+  resetOutput();
+}
+
+function removeFile(){
+  currentFile=null;extractedPages=[];
+  document.getElementById('fileInfo').classList.remove('show');
+  document.getElementById('convertBtn').disabled=true;
+  resetOutput();
+}
+
+function resetOutput(){
+  document.getElementById('successBox').classList.remove('show');
+  document.getElementById('progressWrap').classList.remove('show');
+  document.getElementById('previewWrap').classList.remove('show');
+  document.getElementById('progBar').style.width='0%';
+  ['step1','step2','step3','step4'].forEach(id=>document.getElementById(id).className='prog-step');
+}
+
+function formatSize(bytes){
+  if(bytes<1024)return bytes+' B';
+  if(bytes<1048576)return(bytes/1024).toFixed(1)+' KB';
+  return(bytes/1048576).toFixed(1)+' MB';
+}
+
+/* ══ CONVERT ══ */
+async function convertPDF(){
+  if(!currentFile)return;
+  const t=TL[lang];
+  const convertBtn=document.getElementById('convertBtn');
+  convertBtn.disabled=true;
+  resetOutput();
+
+  const progressWrap=document.getElementById('progressWrap');
+  progressWrap.classList.add('show');
+
+  try{
+    // Step 1 — Read PDF
+    setStep(1,'active');setProgress(10,'Loading PDF…');
+    await delay(100);
+    const arrayBuffer=await currentFile.arrayBuffer();
+    const pdfDoc=await pdfjsLib.getDocument({data:arrayBuffer}).promise;
+    const totalPages=pdfDoc.numPages;
+
+    // Parse page range
+    let pagesToProcess=[];
+    const rangeMode=document.getElementById('pageRange').value;
+    if(rangeMode==='all'){
+      for(let i=1;i<=totalPages;i++)pagesToProcess.push(i);
+    } else {
+      const raw=document.getElementById('customRange').value.trim();
+      pagesToProcess=parsePageRange(raw,totalPages);
+      if(!pagesToProcess.length){alert('Invalid page range!');convertBtn.disabled=false;return;}
+    }
+
+    setStep(1,'done');setStep(2,'active');
+
+    // Step 2 — Extract text from each page
+    extractedPages=[];
+    for(let i=0;i<pagesToProcess.length;i++){
+      const pageNum=pagesToProcess[i];
+      const pct=10+Math.round((i/pagesToProcess.length)*50);
+      setProgress(pct,`Extracting page ${pageNum} of ${totalPages}…`);
+      const page=await pdfDoc.getPage(pageNum);
+      const content=await page.getTextContent();
+      const text=content.items.map(item=>item.str).join(' ').replace(/\s+/g,' ').trim();
+      extractedPages.push({page:pageNum,text});
+      await delay(20);
+    }
+
+    setStep(2,'done');setStep(3,'active');setProgress(70,'Formatting document…');
+    await delay(150);
+
+    // Step 3 — Format
+    const format=document.getElementById('outputFormat').value;
+    const filename=(document.getElementById('outFilename').value.trim()||'converted-document')+'.'+format;
+    const fullText=extractedPages.map(p=>`\n--- ${t.pageLabel} ${p.page} ---\n\n${p.text}`).join('\n\n');
+    const wordCount=fullText.split(/\s+/).filter(Boolean).length;
+    const charCount=fullText.length;
+
+    setStep(3,'done');setStep(4,'active');setProgress(85,'Creating file…');
+    await delay(150);
+
+    // Step 4 — Create downloadable file
+    let blob,mimeType;
+    if(format==='doc'){
+      const htmlContent=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>${currentFile.name}</title><style>body{font-family:Arial,sans-serif;font-size:12pt;line-height:1.6;margin:2cm;} h2{color:#8b6914;border-bottom:1px solid #c9a84c;padding-bottom:4px;}</style></head><body>`+
+        extractedPages.map(p=>`<h2>${t.pageLabel} ${p.page}</h2><p>${escapeHtml(p.text)}</p>`).join('<hr/>')+
+        `</body></html>`;
+      blob=new Blob([htmlContent],{type:'application/msword'});
+    } else if(format==='txt'){
+      blob=new Blob([fullText],{type:'text/plain;charset=utf-8'});
+    } else { // html
+      const htmlOut=`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${currentFile.name}</title><style>body{max-width:800px;margin:40px auto;font-family:Georgia,serif;font-size:14px;line-height:1.8;color:#222;}h2{color:#8b6914;border-bottom:2px solid #c9a84c;padding-bottom:6px;}hr{border:none;border-top:1px solid #ddd;margin:24px 0;}</style></head><body>`+
+        `<h1>📄 ${currentFile.name}</h1>`+
+        extractedPages.map(p=>`<h2>${t.pageLabel} ${p.page}</h2><p>${escapeHtml(p.text)}</p><hr/>`).join('')+
+        `</body></html>`;
+      blob=new Blob([htmlOut],{type:'text/html;charset=utf-8'});
+    }
+
+    setStep(4,'done');setProgress(100,'Done!');
+    await delay(200);
+
+    // Download link
+    const url=URL.createObjectURL(blob);
+    const dl=document.getElementById('dlLink');
+    dl.href=url;dl.download=filename;
+    document.getElementById('successTitle').textContent=t.successTitle;
+    document.getElementById('successSub').textContent=t.successSub;
+    document.getElementById('dlTxt').textContent=t.dlTxt;
+    document.getElementById('convertAgainTxt').textContent=t.convertAgainTxt;
+    document.getElementById('successBox').classList.add('show');
+
+    // Preview
+    showPreview(extractedPages,wordCount,charCount,pagesToProcess.length,t);
+    progressWrap.classList.remove('show');
+
+  } catch(err){
+    setProgress(0,'Error: '+err.message);
+    console.error(err);
+  }
+  convertBtn.disabled=false;
+}
+
+/* ══ PREVIEW ══ */
+function showPreview(pages,words,chars,total,t){
+  document.getElementById('previewTitle').textContent=TL[lang].previewTitle;
+  document.getElementById('previewStats').innerHTML=
+    `<span class="stat-pill">${total} ${t.pagesLabel}</span>
+     <span class="stat-pill">${words.toLocaleString()} ${t.wordsLabel}</span>
+     <span class="stat-pill">${chars.toLocaleString()} ${t.charsLabel}</span>`;
+
+  // Page tabs
+  const tabsEl=document.getElementById('pageTabs');
+  tabsEl.innerHTML=pages.map((p,i)=>`<button class="page-tab${i===0?' active':''}" onclick="showPage(${i})">${t.pageLabel} ${p.page}</button>`).join('');
+
+  showPage(0);
+  document.getElementById('previewWrap').classList.add('show');
+}
+
+function showPage(idx){
+  document.querySelectorAll('.page-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  const text=extractedPages[idx]?.text||'(No text found on this page)';
+  document.getElementById('previewBox').textContent=text;
+}
+
+function convertAgain(){removeFile();document.getElementById('fileInput').value='';}
+
+/* ══ HELPERS ══ */
+function parsePageRange(raw,total){
+  const pages=new Set();
+  raw.split(',').forEach(part=>{
+    part=part.trim();
+    if(part.includes('-')){
+      const [a,b]=part.split('-').map(Number);
+      for(let i=Math.max(1,a);i<=Math.min(total,b);i++)pages.add(i);
+    } else {
+      const n=parseInt(part);
+      if(n>=1&&n<=total)pages.add(n);
+    }
+  });
+  return [...pages].sort((a,b)=>a-b);
+}
+
+function setStep(n,state){
+  const el=document.getElementById('step'+n);
+  el.className='prog-step '+state;
+}
+function setProgress(pct,lbl){
+  document.getElementById('progBar').style.width=pct+'%';
+  document.getElementById('progLbl').textContent=lbl;
+}
+function delay(ms){return new Promise(r=>setTimeout(r,ms));}
+function escapeHtml(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+</script>
+</body>
+</html>
