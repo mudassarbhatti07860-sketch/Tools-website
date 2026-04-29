@@ -1,196 +1,626 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image to PDF Pro</title>
-
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Image to PDF – نُور الہدیٰ</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
-
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
-:root{
-  --gold:#c9a84c;
-  --gold2:#f0d080;
-  --border:rgba(201,168,76,0.3);
-  --bg:#07070e;
-  --panel:rgba(20,20,35,0.95);
-  --text:#e8dfc8;
-  --muted:#9a8860;
-}
+:root{--gold:#c9a84c;--gold2:#f0d080;--dark:#0d0d14;--darker:#07070e;--panel:rgba(20,20,35,0.95);--border:rgba(201,168,76,0.3);--text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;--accent:rgba(201,168,76,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'Amiri',serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
+  repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+  repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),var(--darker);}
 
-body{
-  margin:0;
-  font-family:'Amiri',serif;
-  background:var(--bg);
-  color:var(--text);
-  text-align:center;
-}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;padding:.55rem 1.2rem;background:rgba(7,7,14,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;text-decoration:none;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
+.nav-link.active{background:rgba(201,168,76,0.1);}
+.lang-sep{width:1px;height:18px;background:var(--border);margin:0 .15rem;}
 
-/* HEADER STYLE SAME AS YOUR SITE */
-h1{
-  font-family:'Cinzel',serif;
-  color:var(--gold2);
-  margin:25px 0;
-  letter-spacing:2px;
-}
+/* HERO */
+.hero{position:relative;z-index:1;padding:5.2rem 1rem 2.5rem;text-align:center;}
+.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold2);direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;animation:fadeDown .9s ease both;}
+.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.85rem,2vw,1.05rem);color:var(--gold);opacity:.85;display:block;margin-top:.2rem;animation:fadeDown .9s .1s ease both;}
+.hero-icon{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:.5rem;animation:spin 14s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 55%,#7a5c10 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:.4rem 0;}
+.hero-sub{color:var(--muted);font-size:clamp(.9rem,2vw,1.05rem);}
+.gold-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
 
-.box{
-  max-width:700px;
-  margin:auto;
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:20px;
-  backdrop-filter:blur(10px);
-}
+/* WRAP */
+.wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:1.8rem;}
 
-/* INPUT BUTTONS */
-input{
-  margin:10px 0;
-  color:var(--text);
-}
+/* AD */
+.ad{background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;letter-spacing:.1em;font-family:'Cinzel',serif;text-transform:uppercase;}
+.ad-top{height:90px;}.ad-mid{height:90px;}
 
-.btn{
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  border:none;
-  padding:10px 15px;
-  border-radius:25px;
-  cursor:pointer;
-  font-weight:bold;
-  margin:5px;
-  font-family:'Cinzel',serif;
-}
+/* CARD */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:1.8rem;backdrop-filter:blur(8px);}
+.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--gold);letter-spacing:.1em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
 
-/* PREVIEW GRID */
-.grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:center;
-  margin-top:15px;
-}
+/* DROP ZONE */
+.drop-zone{border:2px dashed rgba(201,168,76,0.35);border-radius:14px;padding:3rem 1rem;text-align:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--gold);background:rgba(201,168,76,0.06);transform:scale(1.01);}
+.drop-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.dz-icon{font-size:3rem;display:block;margin-bottom:.8rem;filter:drop-shadow(0 0 8px rgba(201,168,76,0.4));}
+.dz-title{font-family:'Cinzel',serif;font-size:1rem;color:var(--gold2);letter-spacing:.08em;margin-bottom:.4rem;}
+.dz-sub{font-size:.88rem;color:var(--muted);}
+.dz-formats{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.8rem;}
+.fmt-badge{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:.18rem .7rem;font-family:'Cinzel',serif;font-size:.68rem;color:var(--gold);letter-spacing:.06em;}
 
-.item{
-  position:relative;
-}
+/* IMAGE GRID */
+.img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.8rem;margin-top:1.2rem;}
+.img-item{position:relative;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:rgba(0,0,0,0.3);cursor:grab;transition:transform .2s,box-shadow .2s;animation:countUp .3s ease both;}
+.img-item:active{cursor:grabbing;}
+.img-item.dragging{opacity:.4;transform:scale(.97);}
+.img-item.drag-target{border-color:var(--gold);box-shadow:0 0 16px rgba(201,168,76,0.3);}
+.img-thumb{width:100%;aspect-ratio:1;object-fit:cover;display:block;}
+.img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 50%);opacity:0;transition:opacity .2s;}
+.img-item:hover .img-overlay{opacity:1;}
+.img-del{position:absolute;top:.35rem;right:.35rem;background:rgba(224,90,90,0.9);border:none;border-radius:50%;width:24px;height:24px;color:#fff;font-size:.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;}
+.img-item:hover .img-del{opacity:1;}
+.img-num{position:absolute;bottom:.35rem;left:.35rem;background:rgba(201,168,76,0.9);color:#000;border-radius:20px;padding:.1rem .55rem;font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;}
+.img-name{position:absolute;bottom:.35rem;right:.35rem;font-size:.62rem;color:rgba(255,255,255,.7);max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
-.item img{
-  width:110px;
-  height:110px;
-  object-fit:cover;
-  border-radius:10px;
-  border:1px solid var(--border);
-}
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:2.5rem 1rem;color:var(--muted);font-size:.85rem;font-family:'Cinzel',serif;letter-spacing:.08em;}
 
-/* DELETE BTN */
-.del{
-  position:absolute;
-  top:2px;
-  right:2px;
-  background:red;
-  color:#fff;
-  border:none;
-  border-radius:50%;
-  width:20px;
-  height:20px;
-  font-size:12px;
-  cursor:pointer;
-}
+/* SETTINGS */
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+@media(max-width:560px){.settings-grid{grid-template-columns:1fr;}}
+.field label{display:block;font-size:.75rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:.4rem;}
+.field select,.field input[type="text"],.field input[type="number"]{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;color:var(--text);font-family:'Amiri',serif;font-size:.95rem;outline:none;transition:border-color .2s,box-shadow .2s;color-scheme:dark;-webkit-appearance:none;appearance:none;}
+.field select option{background:#0a0a0f;}
+.field select:focus,.field input:focus{border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,0.18);}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);border-radius:8px;padding:.6rem .9rem;background:rgba(255,255,255,0.03);}
+.toggle-lbl{font-size:.8rem;color:var(--text);font-family:'Cinzel',serif;letter-spacing:.06em;}
+.toggle{position:relative;width:42px;height:22px;cursor:pointer;}
+.toggle input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;inset:0;background:rgba(201,168,76,0.2);border:1px solid var(--border);border-radius:20px;transition:.3s;}
+.toggle-slider::before{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:var(--muted);left:2px;top:2px;transition:.3s;}
+.toggle input:checked + .toggle-slider{background:var(--gold);border-color:var(--gold);}
+.toggle input:checked + .toggle-slider::before{transform:translateX(20px);background:#000;}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:.7rem;flex-wrap:wrap;}
+.btn{border:none;border-radius:8px;padding:.7rem 1.4rem;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;letter-spacing:.07em;cursor:pointer;transition:transform .2s,box-shadow .2s;flex:1;min-width:130px;}
+.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,#9a7020 100%);color:#000;}
+.btn-secondary{background:rgba(201,168,76,0.12);color:var(--gold2);border:1px solid var(--border);}
+.btn-danger{background:rgba(224,90,90,0.15);color:var(--red);border:1px solid rgba(224,90,90,0.3);}
+.btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(0,0,0,0.3);}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+
+/* PROGRESS */
+.progress-wrap{display:none;margin-top:1rem;}
+.progress-wrap.show{display:block;animation:fadeUp .3s ease both;}
+.progress-bar-bg{background:rgba(201,168,76,0.1);border:1px solid var(--border);border-radius:20px;height:10px;overflow:hidden;}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:20px;width:0%;transition:width .3s ease;}
+.progress-lbl{font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);letter-spacing:.08em;margin-top:.5rem;text-align:center;}
+
+/* SUCCESS BOX */
+.success-box{display:none;margin-top:1rem;background:rgba(76,175,119,0.08);border:1px solid rgba(76,175,119,0.3);border-radius:10px;padding:1.1rem;text-align:center;animation:countUp .4s ease both;}
+.success-box.show{display:block;}
+.success-icon{font-size:2rem;display:block;margin-bottom:.4rem;}
+.success-title{font-family:'Cinzel',serif;font-size:.88rem;color:var(--green);letter-spacing:.1em;margin-bottom:.3rem;}
+.success-sub{font-size:.85rem;color:var(--muted);}
+.download-btn{display:inline-block;margin-top:.8rem;background:linear-gradient(135deg,var(--green),#2e8b57);border:none;border-radius:8px;padding:.6rem 1.4rem;color:#000;font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;letter-spacing:.07em;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.download-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(76,175,119,0.3);}
+
+/* INFO CARDS */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem;}
+.info-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center;}
+.info-icon{font-size:1.5rem;margin-bottom:.3rem;}
+.info-title{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
+.info-desc{font-size:.8rem;color:var(--muted);line-height:1.5;}
+
+/* HADITH */
+.hadith-sec{position:relative;z-index:1;margin-top:2rem;background:rgba(7,7,14,0.98);border-top:1px solid var(--border);}
+.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
+.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;}
+.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.15rem,3vw,1.65rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
+.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
+.h-urdu{font-family:'Amiri',serif;font-size:clamp(.92rem,2.2vw,1.08rem);color:var(--text);line-height:2;direction:rtl;margin-bottom:.5rem;}
+.h-en{font-family:'Amiri',serif;font-size:.93rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
+.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
+.noor-footer{text-align:center;padding:1.4rem .5rem;background:rgba(5,5,10,0.99);border-top:1px solid var(--border);}
+.noor-text{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold2);direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.4);}
+.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.35rem;}
 </style>
 </head>
-
 <body>
 
-<h1>🖼️ Image to PDF PRO</h1>
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <div class="nav-right">
+    <a href="age-calculator.html"  class="nav-link" data-en="🎂 Age"  data-ur="🎂 عمر"  data-ar="🎂 العمر">🎂 Age</a>
+    <a href="date-calculator.html" class="nav-link" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
+    <a href="time-calculator.html" class="nav-link" data-en="⏱ Time" data-ur="⏱ وقت"  data-ar="⏱ الوقت">⏱ Time</a>
+    <a href="index.html"           class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم"  data-ar="🏠 الرئيسية">🏠 Home</a>
+    <div class="lang-sep"></div>
+    <button class="nav-link active" id="lb-en" onclick="setLang('en')">EN</button>
+    <button class="nav-link"        id="lb-ur" onclick="setLang('ur')">اردو</button>
+    <button class="nav-link"        id="lb-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
 
-<div class="box">
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-icon">🖼️</span>
+  <div style="margin-bottom:.9rem">
+    <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+  </div>
+  <h1 class="hero-title" id="heroTitle">Image to PDF</h1>
+  <p  class="hero-sub"   id="heroSub">Convert JPG, PNG, WebP & more into PDF — Free, Fast, Private</p>
+  <div class="gold-line"></div>
+</section>
 
-  <!-- IMAGE SELECT -->
-  <input type="file" id="file" accept="image/*" multiple>
+<div class="wrap">
 
-  <!-- CAMERA SUPPORT -->
-  <input type="file" id="cam" accept="image/*" capture="environment">
+  <!-- AD TOP -->
+  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
 
-  <br>
+  <!-- DROP ZONE CARD -->
+  <div class="card">
+    <div class="card-title" id="ctUpload">🖼️ Upload Images</div>
 
-  <button class="btn" onclick="convert()">Convert PDF</button>
+    <div class="drop-zone" id="dropZone">
+      <input type="file" id="fileInput" accept="image/*" multiple/>
+      <span class="dz-icon">📁</span>
+      <div class="dz-title" id="dzTitle">Drop Images Here or Click to Browse</div>
+      <div class="dz-sub"   id="dzSub">You can select multiple images at once</div>
+      <div class="dz-formats">
+        <span class="fmt-badge">JPG</span><span class="fmt-badge">PNG</span>
+        <span class="fmt-badge">WebP</span><span class="fmt-badge">GIF</span>
+        <span class="fmt-badge">BMP</span><span class="fmt-badge">TIFF</span>
+      </div>
+    </div>
 
-  <div class="grid" id="grid"></div>
+    <!-- IMAGE PREVIEW GRID -->
+    <div id="imgGrid" class="img-grid"></div>
 
+    <!-- EMPTY STATE -->
+    <div class="empty-state" id="emptyState">
+      <span style="font-size:2rem;display:block;margin-bottom:.5rem;opacity:.4">📂</span>
+      <span id="emptyTxt">No images added yet. Upload images above to get started.</span>
+    </div>
+
+    <!-- COUNTER -->
+    <div id="imgCounter" style="display:none;text-align:center;margin-top:.8rem;font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold);letter-spacing:.1em;"></div>
+
+    <!-- ADD MORE BUTTON -->
+    <div style="display:flex;gap:.6rem;margin-top:1rem;" id="addMoreRow" style="display:none">
+      <button class="btn btn-secondary" id="btnAddMore" onclick="document.getElementById('fileInput2').click()" style="display:none">➕ <span id="addMoreTxt">Add More Images</span></button>
+      <input type="file" id="fileInput2" accept="image/*" multiple style="display:none"/>
+      <button class="btn btn-danger"    id="btnClearAll" onclick="clearAll()" style="display:none">🗑️ <span id="clearTxt">Clear All</span></button>
+    </div>
+
+    <!-- DRAG HINT -->
+    <div id="dragHint" style="display:none;text-align:center;margin-top:.5rem;font-size:.75rem;color:var(--muted);font-family:'Cinzel',serif;letter-spacing:.06em;">
+      ↕️ <span id="dragHintTxt">Drag cards to reorder pages</span>
+    </div>
+  </div>
+
+  <!-- SETTINGS CARD -->
+  <div class="card">
+    <div class="card-title" id="ctSettings">⚙️ PDF Settings</div>
+    <div class="settings-grid">
+      <div class="field">
+        <label id="lPageSize">Page Size</label>
+        <select id="pageSize">
+          <option value="a4">A4 (210 × 297 mm)</option>
+          <option value="letter">Letter (8.5 × 11 in)</option>
+          <option value="a3">A3 (297 × 420 mm)</option>
+          <option value="a5">A5 (148 × 210 mm)</option>
+          <option value="legal">Legal (8.5 × 14 in)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lOrientation">Orientation</label>
+        <select id="orientation">
+          <option value="portrait">Portrait ↕</option>
+          <option value="landscape">Landscape ↔</option>
+          <option value="auto">Auto (per image)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lMargin">Margin</label>
+        <select id="margin">
+          <option value="0">No Margin</option>
+          <option value="10" selected>Small (10px)</option>
+          <option value="20">Medium (20px)</option>
+          <option value="40">Large (40px)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lQuality">Image Quality</label>
+        <select id="quality">
+          <option value="0.95" selected>High (95%)</option>
+          <option value="0.80">Medium (80%)</option>
+          <option value="0.60">Low (60%)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lFit">Image Fit</label>
+        <select id="imgFit">
+          <option value="fit" selected>Fit to Page</option>
+          <option value="fill">Fill Page</option>
+          <option value="original">Original Size</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lFilename">PDF Filename</label>
+        <input type="text" id="pdfFilename" value="images-to-pdf" placeholder="my-document"/>
+      </div>
+    </div>
+
+    <!-- Toggles -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.3rem;">
+      <div class="toggle-row">
+        <span class="toggle-lbl" id="lOnePerPage">One image per page</span>
+        <label class="toggle"><input type="checkbox" id="onePerPage" checked/><span class="toggle-slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-lbl" id="lGrayscale">Grayscale PDF</span>
+        <label class="toggle"><input type="checkbox" id="grayscale"/><span class="toggle-slider"></span></label>
+      </div>
+    </div>
+
+    <!-- CONVERT BUTTON -->
+    <div class="btn-row" style="margin-top:1.2rem;">
+      <button class="btn btn-primary" id="convertBtn" onclick="convertToPDF()" disabled>
+        🔄 <span id="convertTxt">Convert to PDF</span>
+      </button>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar-bg"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="progress-lbl"  id="progressLbl">Processing…</div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-box" id="successBox">
+      <span class="success-icon">✅</span>
+      <div class="success-title" id="successTitle">PDF Created Successfully!</div>
+      <div class="success-sub"   id="successSub">Your PDF is ready to download.</div>
+      <a  class="download-btn"   id="downloadLink" href="#" download>⬇️ Download PDF</a>
+    </div>
+  </div>
+
+  <!-- AD MID -->
+  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+
+  <!-- INFO CARD -->
+  <div class="card">
+    <div class="card-title" id="ctFeatures">✨ Features</div>
+    <div class="info-grid">
+      <div class="info-box"><div class="info-icon">🔒</div><div class="info-title" id="f1t">100% Private</div><div class="info-desc" id="f1d">Images never leave your device. All processing done locally in browser.</div></div>
+      <div class="info-box"><div class="info-icon">⚡</div><div class="info-title" id="f2t">Instant</div><div class="info-desc" id="f2d">No upload wait time. Convert dozens of images in seconds.</div></div>
+      <div class="info-box"><div class="info-icon">🖱️</div><div class="info-title" id="f3t">Drag & Reorder</div><div class="info-desc" id="f3d">Drag image cards to change page order in your PDF.</div></div>
+      <div class="info-box"><div class="info-icon">📐</div><div class="info-title" id="f4t">Custom Settings</div><div class="info-desc" id="f4d">Choose page size, orientation, margins and image quality.</div></div>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="card">
+    <div class="card-title" id="ctLinks">🔗 Related Tools</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;">
+      <a href="age-calculator.html"  style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;">
+        <span style="font-size:1.4rem">🎂</span><span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-en="Age Calculator" data-ur="عمر کیلکولیٹر" data-ar="حاسبة العمر">Age Calculator</span>
+      </a>
+      <a href="pdf-to-word.html"     style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;">
+        <span style="font-size:1.4rem">📄</span><span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-en="PDF to Word" data-ur="PDF سے Word" data-ar="PDF إلى Word">PDF to Word</span>
+      </a>
+      <a href="word-to-pdf.html"     style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;">
+        <span style="font-size:1.4rem">📝</span><span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-en="Word to PDF" data-ur="Word سے PDF" data-ar="Word إلى PDF">Word to PDF</span>
+      </a>
+      <a href="image-compressor.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;">
+        <span style="font-size:1.4rem">🗜️</span><span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em" data-en="Image Compressor" data-ur="تصویر کمپریسر" data-ar="ضاغط الصور">Image Compressor</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- HADITH -->
+<div class="hadith-sec">
+  <div class="hadith-inner">
+    <span class="h-ornament">❁ ☽ ❁</span>
+    <p class="h-arabic">«إِنَّ اللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلاً أَنْ يُتْقِنَهُ»</p>
+    <div class="h-line"></div>
+    <p class="h-urdu" id="hUrdu">اللہ تعالیٰ پسند کرتا ہے کہ جب تم میں سے کوئی کام کرے تو اسے اچھی طرح اور مکمل طریقے سے کرے۔</p>
+    <p class="h-en"   id="hEn">"Allah loves that when one of you does a task, he does it with excellence and perfection."</p>
+    <p class="h-source">— الطبراني | Al-Tabarani · Sahih</p>
+  </div>
+</div>
+<div class="noor-footer">
+  <div class="noor-text">نُورُ الہُدیٰ</div>
+  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED · MADE WITH ♥</div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 <script>
-let images=[];
+/* ══ LANGUAGE ══ */
+const TL={
+  en:{dir:'ltr',l:'en',bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
+    heroTitle:'Image to PDF',heroSub:'Convert JPG, PNG, WebP & more into PDF — Free, Fast, Private',
+    ctUpload:'🖼️ Upload Images',dzTitle:'Drop Images Here or Click to Browse',dzSub:'You can select multiple images at once',
+    emptyTxt:'No images added yet. Upload images above to get started.',
+    addMoreTxt:'Add More',clearTxt:'Clear All',dragHintTxt:'Drag cards to reorder pages',
+    ctSettings:'⚙️ PDF Settings',lPageSize:'Page Size',lOrientation:'Orientation',lMargin:'Margin',lQuality:'Image Quality',lFit:'Image Fit',lFilename:'PDF Filename',
+    lOnePerPage:'One image per page',lGrayscale:'Grayscale PDF',
+    convertTxt:'Convert to PDF',ctFeatures:'✨ Features',ctLinks:'🔗 Related Tools',
+    adTxt1:'Advertisement — 728×90',adTxt2:'Advertisement — 468×60',
+    successTitle:'PDF Created Successfully!',successSub:'Your PDF is ready to download.',
+    f1t:'100% Private',f1d:'Images never leave your device. All processing done locally.',
+    f2t:'Instant',f2d:'No upload wait time. Convert dozens of images in seconds.',
+    f3t:'Drag & Reorder',f3d:'Drag image cards to change page order.',
+    f4t:'Custom Settings',f4d:'Choose page size, orientation, margins and quality.',
+    hUrdu:'',hEn:'"Allah loves that when one of you does a task, he does it with excellence and perfection."'},
+  ur:{dir:'rtl',l:'ur',bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
+    heroTitle:'تصویر سے PDF',heroSub:'JPG، PNG، WebP اور دیگر تصاویر کو PDF میں تبدیل کریں — مفت، تیز، نجی',
+    ctUpload:'🖼️ تصاویر اپلوڈ کریں',dzTitle:'یہاں تصاویر ڈراپ کریں یا کلک کریں',dzSub:'آپ ایک ساتھ کئی تصاویر منتخب کر سکتے ہیں',
+    emptyTxt:'ابھی کوئی تصویر نہیں ہے۔ اوپر سے تصاویر اپلوڈ کریں۔',
+    addMoreTxt:'مزید شامل کریں',clearTxt:'سب ہٹائیں',dragHintTxt:'صفحات کی ترتیب بدلنے کے لیے کارڈ گھسیٹیں',
+    ctSettings:'⚙️ PDF ترتیبات',lPageSize:'صفحے کا سائز',lOrientation:'سمت',lMargin:'حاشیہ',lQuality:'تصویر کا معیار',lFit:'تصویر فٹ',lFilename:'PDF فائل کا نام',
+    lOnePerPage:'ہر صفحے پر ایک تصویر',lGrayscale:'سیاہ و سفید PDF',
+    convertTxt:'PDF بنائیں',ctFeatures:'✨ خصوصیات',ctLinks:'🔗 متعلقہ ٹولز',
+    adTxt1:'اشتہار — 728×90',adTxt2:'اشتہار — 468×60',
+    successTitle:'PDF کامیابی سے بن گئی!',successSub:'آپ کی PDF ڈاؤن لوڈ کے لیے تیار ہے۔',
+    f1t:'100% نجی',f1d:'تصاویر آپ کے ڈیوائس سے باہر نہیں جاتیں۔',
+    f2t:'فوری',f2d:'کوئی انتظار نہیں۔ سیکنڈوں میں تبدیل کریں۔',
+    f3t:'گھسیٹ کر ترتیب دیں',f3d:'کارڈز گھسیٹ کر صفحات کی ترتیب بدلیں۔',
+    f4t:'اپنی مرضی کی ترتیب',f4d:'صفحے کا سائز، سمت، حاشیہ اور معیار منتخب کریں۔',
+    hUrdu:'اللہ تعالیٰ پسند کرتا ہے کہ جب تم میں سے کوئی کام کرے تو اسے اچھی طرح اور مکمل طریقے سے کرے۔',hEn:''},
+  ar:{dir:'rtl',l:'ar',bisml:'بسم الله الرحمن الرحيم',
+    heroTitle:'تحويل الصور إلى PDF',heroSub:'حوّل JPG وPNG وWebP وغيرها إلى PDF — مجاناً وسريعاً وخاصاً',
+    ctUpload:'🖼️ رفع الصور',dzTitle:'اسحب الصور هنا أو انقر للاستعراض',dzSub:'يمكنك اختيار صور متعددة دفعة واحدة',
+    emptyTxt:'لم تتم إضافة صور بعد. ارفع الصور أعلاه للبدء.',
+    addMoreTxt:'إضافة المزيد',clearTxt:'مسح الكل',dragHintTxt:'اسحب البطاقات لإعادة ترتيب الصفحات',
+    ctSettings:'⚙️ إعدادات PDF',lPageSize:'حجم الصفحة',lOrientation:'الاتجاه',lMargin:'الهامش',lQuality:'جودة الصورة',lFit:'ملاءمة الصورة',lFilename:'اسم ملف PDF',
+    lOnePerPage:'صورة واحدة لكل صفحة',lGrayscale:'PDF بالأبيض والأسود',
+    convertTxt:'تحويل إلى PDF',ctFeatures:'✨ المميزات',ctLinks:'🔗 أدوات ذات صلة',
+    adTxt1:'إعلان — 728×90',adTxt2:'إعلان — 468×60',
+    successTitle:'تم إنشاء PDF بنجاح!',successSub:'ملف PDF جاهز للتنزيل.',
+    f1t:'خصوصية كاملة',f1d:'الصور لا تغادر جهازك. كل المعالجة تتم محلياً.',
+    f2t:'فوري',f2d:'لا وقت انتظار. حوّل عشرات الصور في ثوانٍ.',
+    f3t:'سحب وإعادة ترتيب',f3d:'اسحب البطاقات لتغيير ترتيب الصفحات.',
+    f4t:'إعدادات مخصصة',f4d:'اختر حجم الصفحة والاتجاه والهوامش والجودة.',
+    hUrdu:'',hEn:'«إِنَّ اللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلاً أَنْ يُتْقِنَهُ»'}
+};
+let lang='en';
 
-const file=document.getElementById('file');
-const cam=document.getElementById('cam');
-const grid=document.getElementById('grid');
-
-file.onchange=e=>handle(e.target.files);
-cam.onchange=e=>handle(e.target.files);
-
-function handle(files){
-  for(let f of files){
-    let r=new FileReader();
-    r.onload=e=>{
-      images.push(e.target.result);
-      render();
-    }
-    r.readAsDataURL(f);
-  }
+function setLang(l){
+  lang=l;const t=TL[l];
+  document.documentElement.lang=t.l;document.documentElement.dir=t.dir;
+  document.body.classList.toggle('rtl',t.dir==='rtl');
+  ['lb-en','lb-ur','lb-ar'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('lb-'+l).classList.add('active');
+  const ids=['bismlTr','heroTitle','heroSub','ctUpload','dzTitle','dzSub','emptyTxt','addMoreTxt','clearTxt','dragHintTxt','ctSettings','lPageSize','lOrientation','lMargin','lQuality','lFit','lFilename','lOnePerPage','lGrayscale','convertTxt','ctFeatures','ctLinks','adTxt1','adTxt2','successTitle','successSub','f1t','f1d','f2t','f2d','f3t','f3d','f4t','f4d'];
+  ids.forEach(id=>{const el=document.getElementById(id);if(el&&t[id]!==undefined)el.textContent=t[id];});
+  document.querySelectorAll('.nav-link[data-en]').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
+  document.querySelectorAll('[data-en]:not(.nav-link)').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
+  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
+  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
 }
 
-function render(){
-  grid.innerHTML="";
-  images.forEach((img,i)=>{
-    let div=document.createElement('div');
-    div.className="item";
+/* ══ IMAGE MANAGEMENT ══ */
+let images=[]; // [{file, dataURL, id}]
+let dragSrcIdx=null;
 
-    div.innerHTML=`
-      <img src="${img}">
-      <button class="del" onclick="removeImg(${i})">×</button>
-    `;
-    grid.appendChild(div);
+const dropZone=document.getElementById('dropZone');
+const fileInput=document.getElementById('fileInput');
+const fileInput2=document.getElementById('fileInput2');
+
+// Drop zone events
+dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');handleFiles(e.dataTransfer.files);});
+fileInput.addEventListener('change',e=>{handleFiles(e.target.files);fileInput.value='';});
+fileInput2.addEventListener('change',e=>{handleFiles(e.target.files);fileInput2.value='';});
+
+function handleFiles(files){
+  const allowed=['image/jpeg','image/png','image/webp','image/gif','image/bmp','image/tiff'];
+  [...files].forEach(file=>{
+    if(!allowed.includes(file.type)&&!file.type.startsWith('image/')){return;}
+    const id=Date.now()+Math.random();
+    const reader=new FileReader();
+    reader.onload=e=>{ images.push({file,dataURL:e.target.result,id}); renderGrid(); };
+    reader.readAsDataURL(file);
   });
 }
 
-function removeImg(i){
-  images.splice(i,1);
-  render();
-}
+function renderGrid(){
+  const grid=document.getElementById('imgGrid');
+  const empty=document.getElementById('emptyState');
+  const counter=document.getElementById('imgCounter');
+  const btnAddMore=document.getElementById('btnAddMore');
+  const btnClear=document.getElementById('btnClearAll');
+  const dragHint=document.getElementById('dragHint');
+  const convertBtn=document.getElementById('convertBtn');
 
-function convert(){
-  if(images.length==0){
-    alert("Select images first");
+  if(images.length===0){
+    grid.innerHTML='';
+    empty.style.display='block';
+    counter.style.display='none';
+    btnAddMore.style.display='none';
+    btnClear.style.display='none';
+    dragHint.style.display='none';
+    convertBtn.disabled=true;
     return;
   }
 
-  const { jsPDF }=window.jspdf;
-  const pdf=new jsPDF();
+  empty.style.display='none';
+  counter.style.display='block';
+  counter.textContent=`${images.length} image${images.length!==1?'s':''} selected`;
+  btnAddMore.style.display='inline-block';
+  btnClear.style.display='inline-block';
+  dragHint.style.display='block';
+  convertBtn.disabled=false;
 
-  let done=0;
+  // Reset success
+  document.getElementById('successBox').classList.remove('show');
+  document.getElementById('progressWrap').classList.remove('show');
 
-  images.forEach((src,i)=>{
-    let img=new Image();
-    img.src=src;
+  grid.innerHTML=images.map((img,i)=>`
+    <div class="img-item" draggable="true" data-idx="${i}"
+      ondragstart="dsDragStart(event,${i})"
+      ondragover="dsDragOver(event,${i})"
+      ondrop="dsDrop(event,${i})"
+      ondragend="dsDragEnd()">
+      <img class="img-thumb" src="${img.dataURL}" alt="img${i+1}" loading="lazy"/>
+      <div class="img-overlay"></div>
+      <button class="img-del" onclick="removeImg(${i})" title="Remove">✕</button>
+      <span class="img-num">${i+1}</span>
+      <span class="img-name">${img.file.name}</span>
+    </div>`).join('');
+}
 
-    img.onload=()=>{
-      const w=pdf.internal.pageSize.getWidth();
-      const h=(img.height*w)/img.width;
+function removeImg(idx){images.splice(idx,1);renderGrid();}
+function clearAll(){images=[];renderGrid();}
 
-      if(i!=0) pdf.addPage();
-      pdf.addImage(img,'JPEG',0,0,w,h);
+/* DRAG REORDER */
+function dsDragStart(e,idx){dragSrcIdx=idx;e.currentTarget.classList.add('dragging');e.dataTransfer.effectAllowed='move';}
+function dsDragOver(e,idx){e.preventDefault();if(dragSrcIdx===idx)return;document.querySelectorAll('.img-item').forEach(el=>el.classList.remove('drag-target'));e.currentTarget.classList.add('drag-target');}
+function dsDrop(e,idx){e.preventDefault();if(dragSrcIdx===null||dragSrcIdx===idx)return;const moved=images.splice(dragSrcIdx,1)[0];images.splice(idx,0,moved);dragSrcIdx=null;renderGrid();}
+function dsDragEnd(){dragSrcIdx=null;document.querySelectorAll('.img-item').forEach(el=>{el.classList.remove('dragging','drag-target');});}
 
-      done++;
-      if(done==images.length){
-        pdf.save("images.pdf");
+/* ══ CONVERT TO PDF ══ */
+async function convertToPDF(){
+  if(images.length===0)return;
+  const t=TL[lang];
+
+  // Settings
+  const pageSizeKey=document.getElementById('pageSize').value;
+  const orientation=document.getElementById('orientation').value;
+  const margin=parseInt(document.getElementById('margin').value)||0;
+  const quality=parseFloat(document.getElementById('quality').value)||0.95;
+  const fitMode=document.getElementById('imgFit').value;
+  const filename=(document.getElementById('pdfFilename').value.trim()||'images-to-pdf')+'.pdf';
+  const isGray=document.getElementById('grayscale').checked;
+
+  // Page dimensions map (in mm)
+  const pageSizes={a4:[210,297],letter:[215.9,279.4],a3:[297,420],a5:[148,210],legal:[215.9,355.6]};
+  const [pgW,pgH]=pageSizes[pageSizeKey]||pageSizes.a4;
+
+  // Show progress
+  const progressWrap=document.getElementById('progressWrap');
+  const progressBar=document.getElementById('progressBar');
+  const progressLbl=document.getElementById('progressLbl');
+  const convertBtn=document.getElementById('convertBtn');
+  progressWrap.classList.add('show');
+  convertBtn.disabled=true;
+
+  // Small delay for UI render
+  await new Promise(r=>setTimeout(r,80));
+
+  try{
+    const {jsPDF}=window.jspdf;
+    let pdf=null;
+
+    for(let i=0;i<images.length;i++){
+      // Progress
+      const pct=Math.round(((i+1)/images.length)*100);
+      progressBar.style.width=pct+'%';
+      progressLbl.textContent=`Processing image ${i+1} of ${images.length}…`;
+      await new Promise(r=>setTimeout(r,10));
+
+      // Load image to get dimensions
+      const imgData=await loadImageData(images[i].dataURL,isGray);
+      const imgW=imgData.width,imgH=imgData.height;
+
+      // Determine orientation per page
+      let pageOrient=orientation;
+      if(orientation==='auto'){pageOrient=imgW>imgH?'landscape':'portrait';}
+
+      // Page actual dims
+      const [pW,pH]=pageOrient==='landscape'?[pgH,pgW]:[pgW,pgH];
+
+      if(!pdf){
+        pdf=new jsPDF({orientation:pageOrient==='landscape'?'l':'p',unit:'mm',format:[pW,pH]});
+      } else {
+        pdf.addPage([pW,pH],pageOrient==='landscape'?'l':'p');
       }
+
+      // Margins in mm (convert px to mm at 96dpi: 1px = 0.264583mm)
+      const mMm=margin*0.264583;
+      const contentW=pW-2*mMm;
+      const contentH=pH-2*mMm;
+
+      // Calculate draw dimensions
+      let drawW,drawH,drawX,drawY;
+      if(fitMode==='fit'||fitMode==='original'){
+        const ratio=Math.min(contentW/imgW,contentH/imgH);
+        drawW=imgW*ratio;drawH=imgH*ratio;
+        drawX=mMm+(contentW-drawW)/2;drawY=mMm+(contentH-drawH)/2;
+      } else { // fill
+        const ratio=Math.max(contentW/imgW,contentH/imgH);
+        drawW=imgW*ratio;drawH=imgH*ratio;
+        drawX=mMm+(contentW-drawW)/2;drawY=mMm+(contentH-drawH)/2;
+      }
+
+      // Add image
+      const fmt=images[i].file.type==='image/png'?'PNG':'JPEG';
+      pdf.addImage(imgData.dataURL,fmt,drawX,drawY,drawW,drawH,undefined,'FAST');
     }
+
+    progressBar.style.width='100%';
+    progressLbl.textContent='Finalizing PDF…';
+    await new Promise(r=>setTimeout(r,100));
+
+    // Generate blob & download link
+    const blob=pdf.output('blob');
+    const url=URL.createObjectURL(blob);
+    const dl=document.getElementById('downloadLink');
+    dl.href=url;
+    dl.download=filename;
+
+    // Show success
+    document.getElementById('successTitle').textContent=t.successTitle;
+    document.getElementById('successSub').textContent=t.successSub;
+    document.getElementById('successBox').classList.add('show');
+    progressWrap.classList.remove('show');
+
+  } catch(err){
+    progressLbl.textContent='Error: '+err.message;
+    console.error(err);
+  }
+  convertBtn.disabled=false;
+}
+
+function loadImageData(src,grayscale){
+  return new Promise((resolve)=>{
+    const img=new Image();
+    img.onload=()=>{
+      const canvas=document.createElement('canvas');
+      canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
+      const ctx=canvas.getContext('2d');
+      ctx.drawImage(img,0,0);
+      if(grayscale){
+        const d=ctx.getImageData(0,0,canvas.width,canvas.height);
+        for(let i=0;i<d.data.length;i+=4){const g=d.data[i]*.299+d.data[i+1]*.587+d.data[i+2]*.114;d.data[i]=d.data[i+1]=d.data[i+2]=g;}
+        ctx.putImageData(d,0,0);
+      }
+      resolve({dataURL:canvas.toDataURL('image/jpeg',0.95),width:img.naturalWidth,height:img.naturalHeight});
+    };
+    img.src=src;
   });
 }
-</script>
 
+// Init grid
+renderGrid();
+</script>
 </body>
 </html>
