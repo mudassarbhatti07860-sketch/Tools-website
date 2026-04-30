@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Word to PDF – نُور الہدیٰ</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+<!-- Mammoth.js for DOCX parsing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<!-- jsPDF for PDF generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- html2canvas for rendering -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{
+  --gold:#c9a84c;--gold2:#f0d080;--dark:#0d0d14;--darker:#07070e;
+  --panel:rgba(20,20,35,0.95);--border:rgba(201,168,76,0.3);
+  --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;
+  --accent:rgba(201,168,76,0.08);--blue:#5ab4e0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Amiri',serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 30% at 90% 80%,rgba(201,168,76,0.04) 0%,transparent 60%),
+    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+    var(--darker);}
+
+/* ══ NAV ══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;
+  padding:.55rem 1.2rem;background:rgba(7,7,14,0.97);
+  backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;text-decoration:none;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
+  padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;
+  cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
+.nav-link.active{background:rgba(201,168,76,0.1);}
+.lang-sep{width:1px;height:18px;background:var(--border);margin:0 .15rem;}
+
+/* ══ HERO ══ */
+.hero{position:relative;z-index:1;padding:5.2rem 1rem 2.5rem;text-align:center;}
+.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.6rem,4vw,2.6rem);
+  color:var(--gold2);direction:rtl;line-height:2;
+  text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;
+  animation:fadeDown .9s ease both;}
+.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.85rem,2vw,1.05rem);
+  color:var(--gold);opacity:.85;display:block;margin-top:.2rem;
+  animation:fadeDown .9s .1s ease both;}
+.hero-icon{font-size:2rem;color:var(--gold);display:block;margin-bottom:.5rem;
+  animation:spin 14s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 55%,#7a5c10 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin:.4rem 0;}
+.hero-sub{color:var(--muted);font-size:clamp(.9rem,2vw,1.05rem);}
+.gold-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0;}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+
+/* ══ WRAP ══ */
+.wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;
+  padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:1.8rem;}
+
+/* ══ AD ══ */
+.ad{background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:.75rem;letter-spacing:.1em;font-family:'Cinzel',serif;text-transform:uppercase;}
+.ad-top{height:90px;}.ad-mid{height:90px;}
+
+/* ══ CARD ══ */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;
+  padding:1.8rem;backdrop-filter:blur(8px);}
+.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--gold);
+  letter-spacing:.1em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem;}
+.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+
+/* ══ UPLOAD ZONE ══ */
+.drop-zone{border:2px dashed rgba(201,168,76,0.35);border-radius:14px;
+  padding:3rem 1rem;text-align:center;cursor:pointer;
+  transition:all .25s;position:relative;overflow:hidden;background:rgba(201,168,76,0.02);}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--gold);background:rgba(201,168,76,0.07);transform:scale(1.01);}
+.drop-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.dz-icon{font-size:3.5rem;display:block;margin-bottom:.8rem;filter:drop-shadow(0 0 10px rgba(201,168,76,0.3));}
+.dz-title{font-family:'Cinzel',serif;font-size:1.05rem;color:var(--gold2);letter-spacing:.08em;margin-bottom:.4rem;}
+.dz-sub{font-size:.88rem;color:var(--muted);}
+.fmt-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem;}
+.fmt-badge{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);
+  border-radius:20px;padding:.18rem .8rem;font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);}
+
+/* ══ FILE INFO BAR ══ */
+.file-bar{display:none;background:var(--accent);border:1px solid var(--border);
+  border-radius:10px;padding:1rem 1.2rem;margin-top:1rem;
+  animation:fadeUp .3s ease both;}
+.file-bar.show{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.fb-icon{font-size:2.2rem;flex-shrink:0;}
+.fb-info{flex:1;}
+.fb-name{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);font-weight:600;margin-bottom:.2rem;word-break:break-all;}
+.fb-meta{font-size:.75rem;color:var(--muted);}
+.fb-remove{background:rgba(224,90,90,0.12);border:1px solid rgba(224,90,90,0.3);
+  border-radius:8px;padding:.28rem .8rem;color:var(--red);font-family:'Cinzel',serif;
+  font-size:.72rem;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.fb-remove:hover{background:rgba(224,90,90,0.22);}
+
+/* ══ SETTINGS ══ */
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.settings-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem;}
+@media(max-width:620px){.settings-grid,.settings-grid-3{grid-template-columns:1fr 1fr;}}
+@media(max-width:400px){.settings-grid,.settings-grid-3{grid-template-columns:1fr;}}
+.field label{display:block;font-size:.75rem;letter-spacing:.08em;color:var(--muted);
+  text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:.4rem;}
+.field select,.field input[type="text"],.field input[type="number"],.field input[type="color"]{
+  width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;
+  padding:.65rem .9rem;color:var(--text);font-family:'Amiri',serif;font-size:.95rem;
+  outline:none;transition:border-color .2s,box-shadow .2s;color-scheme:dark;
+  -webkit-appearance:none;appearance:none;}
+.field select option{background:#0a0a0f;}
+.field select:focus,.field input:focus{border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,0.18);}
+.field input[type="color"]{height:42px;padding:.2rem .5rem;cursor:pointer;}
+
+.toggle-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1rem;}
+@media(max-width:480px){.toggle-grid{grid-template-columns:1fr;}}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;
+  border:1px solid var(--border);border-radius:8px;padding:.6rem .9rem;background:rgba(255,255,255,0.02);}
+.tgl-lbl{font-size:.78rem;color:var(--text);font-family:'Cinzel',serif;letter-spacing:.05em;}
+.tgl{position:relative;width:40px;height:20px;cursor:pointer;flex-shrink:0;}
+.tgl input{opacity:0;width:0;height:0;}
+.tgl-sl{position:absolute;inset:0;background:rgba(201,168,76,0.15);border:1px solid var(--border);border-radius:20px;transition:.3s;}
+.tgl-sl::before{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:var(--muted);left:2px;top:2px;transition:.3s;}
+.tgl input:checked+.tgl-sl{background:var(--gold);border-color:var(--gold);}
+.tgl input:checked+.tgl-sl::before{transform:translateX(20px);background:#000;}
+
+/* ══ BUTTONS ══ */
+.btn-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem;}
+.btn{border:none;border-radius:8px;padding:.72rem 1.4rem;font-family:'Cinzel',serif;
+  font-size:.9rem;font-weight:700;letter-spacing:.07em;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;flex:1;min-width:130px;position:relative;overflow:hidden;}
+.btn::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+  animation:shimmer 2.5s infinite;}
+.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,#9a7020 100%);color:#000;}
+.btn-secondary{background:rgba(201,168,76,0.1);color:var(--gold2);border:1px solid var(--border);}
+.btn-danger{background:rgba(224,90,90,0.12);color:var(--red);border:1px solid rgba(224,90,90,0.25);}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.3);}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.btn:disabled::after{display:none;}
+
+/* ══ PROGRESS ══ */
+.progress-wrap{display:none;margin-top:1.2rem;}
+.progress-wrap.show{display:block;animation:fadeUp .3s ease both;}
+.step-track{display:flex;gap:.5rem;margin-bottom:.9rem;flex-wrap:wrap;}
+.step-item{display:flex;align-items:center;gap:.35rem;font-family:'Cinzel',serif;
+  font-size:.68rem;letter-spacing:.07em;color:var(--muted);}
+.step-item.active{color:var(--gold2);}
+.step-item.done{color:var(--green);}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0;transition:.3s;}
+.step-item.active .step-dot{background:var(--gold);animation:pulse 1s infinite;}
+.step-item.done .step-dot{background:var(--green);}
+.prog-track{background:rgba(201,168,76,0.1);border:1px solid var(--border);border-radius:20px;height:12px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:20px;width:0%;transition:width .4s ease;}
+.prog-label{font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);letter-spacing:.08em;margin-top:.5rem;text-align:center;}
+
+/* ══ PREVIEW ══ */
+.preview-wrap{display:none;margin-top:1.3rem;}
+.preview-wrap.show{display:block;animation:fadeUp .4s ease both;}
+.preview-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.5rem;}
+.preview-label{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+.stat-pills{display:flex;gap:.5rem;flex-wrap:wrap;}
+.pill{background:var(--accent);border:1px solid var(--border);border-radius:20px;
+  padding:.15rem .7rem;font-family:'Cinzel',serif;font-size:.68rem;color:var(--gold2);}
+.preview-frame{background:rgba(255,255,255,0.97);border:1px solid var(--border);border-radius:10px;
+  padding:1.5rem 2rem;max-height:420px;overflow-y:auto;color:#1a1a1a;
+  font-family:Georgia,serif;font-size:14px;line-height:1.8;}
+.preview-frame::-webkit-scrollbar{width:5px;}
+.preview-frame::-webkit-scrollbar-track{background:transparent;}
+.preview-frame::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+.preview-frame h1,.preview-frame h2,.preview-frame h3{color:#1a1200;margin:.8rem 0 .4rem;}
+.preview-frame p{margin:.4rem 0;}
+.preview-frame table{width:100%;border-collapse:collapse;margin:.8rem 0;}
+.preview-frame td,.preview-frame th{border:1px solid #ccc;padding:.4rem .6rem;}
+.preview-frame th{background:#f5f0e0;}
+.preview-frame ul,.preview-frame ol{margin:.4rem 0;padding-left:1.5rem;}
+.preview-frame strong{font-weight:700;}
+.preview-frame em{font-style:italic;}
+
+/* ══ SUCCESS ══ */
+.success-box{display:none;margin-top:1.1rem;
+  background:rgba(76,175,119,0.08);border:1px solid rgba(76,175,119,0.3);
+  border-radius:12px;padding:1.4rem;text-align:center;}
+.success-box.show{display:block;animation:countUp .4s ease both;}
+.s-icon{font-size:2.5rem;display:block;margin-bottom:.5rem;}
+.s-title{font-family:'Cinzel',serif;font-size:.95rem;color:var(--green);letter-spacing:.1em;margin-bottom:.3rem;}
+.s-sub{font-size:.85rem;color:var(--muted);margin-bottom:.9rem;}
+.dl-row{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;}
+.dl-btn{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,var(--green),#2a7a50);
+  border:none;border-radius:8px;padding:.6rem 1.3rem;color:#000;
+  font-family:'Cinzel',serif;font-size:.82rem;font-weight:700;letter-spacing:.07em;
+  cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.dl-btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(76,175,119,0.3);}
+.dl-btn-alt{display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(201,168,76,0.1);border:1px solid var(--border);border-radius:8px;
+  padding:.6rem 1.3rem;color:var(--gold2);font-family:'Cinzel',serif;
+  font-size:.82rem;font-weight:700;letter-spacing:.07em;cursor:pointer;transition:all .2s;}
+.dl-btn-alt:hover{border-color:var(--gold);}
+
+/* ══ INFO CARDS ══ */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.8rem;}
+.info-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center;}
+.ib-icon{font-size:1.6rem;margin-bottom:.3rem;}
+.ib-title{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
+.ib-desc{font-size:.78rem;color:var(--muted);line-height:1.5;}
+
+/* ══ QUICK LINKS ══ */
+.ql-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;}
+.ql{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;
+  text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;
+  transition:transform .2s,border-color .2s;}
+.ql:hover{transform:translateY(-4px);border-color:var(--gold);}
+.ql-icon{font-size:1.4rem;}
+.ql-name{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;}
+.ql-desc{font-size:.75rem;color:var(--muted);}
+
+/* ══ HADITH ══ */
+.hadith-sec{position:relative;z-index:1;margin-top:2rem;background:rgba(7,7,14,0.98);border-top:1px solid var(--border);}
+.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
+.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;text-shadow:0 0 20px rgba(201,168,76,0.5);}
+.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.15rem,3vw,1.65rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
+.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
+.h-urdu{font-family:'Amiri',serif;font-size:clamp(.92rem,2.2vw,1.08rem);color:var(--text);line-height:2;direction:rtl;margin-bottom:.5rem;}
+.h-en{font-family:'Amiri',serif;font-size:.93rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
+.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
+.noor-footer{text-align:center;padding:1.4rem .5rem;background:rgba(5,5,10,0.99);border-top:1px solid var(--border);}
+.noor-text{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold2);direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.4);}
+.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.35rem;}
+
+/* hidden render div */
+#renderDiv{position:fixed;left:-9999px;top:0;width:794px;background:#fff;padding:40px;font-family:Georgia,serif;font-size:13px;line-height:1.8;color:#111;z-index:-1;}
+</style>
+</head>
+<body>
+
+<!-- HIDDEN RENDER DIV for html2canvas -->
+<div id="renderDiv"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <div class="nav-right">
+    <a href="age-calculator.html"  class="nav-link" data-en="🎂 Age"  data-ur="🎂 عمر"  data-ar="🎂 العمر">🎂 Age</a>
+    <a href="date-calculator.html" class="nav-link" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
+    <a href="time-calculator.html" class="nav-link" data-en="⏱ Time" data-ur="⏱ وقت"  data-ar="⏱ الوقت">⏱ Time</a>
+    <a href="index.html"           class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم"  data-ar="🏠 الرئيسية">🏠 Home</a>
+    <div class="lang-sep"></div>
+    <button class="nav-link active" id="lb-en" onclick="setLang('en')">EN</button>
+    <button class="nav-link"        id="lb-ur" onclick="setLang('ur')">اردو</button>
+    <button class="nav-link"        id="lb-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-icon">📝</span>
+  <div style="margin-bottom:.9rem">
+    <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+  </div>
+  <h1 class="hero-title" id="heroTitle">Word to PDF</h1>
+  <p  class="hero-sub"   id="heroSub">Convert .docx files to PDF with full formatting — Free, Private, Instant</p>
+  <div class="gold-line"></div>
+</section>
+
+<div class="wrap">
+
+  <!-- AD TOP -->
+  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
+
+  <!-- UPLOAD CARD -->
+  <div class="card">
+    <div class="card-title" id="ctUpload">📂 Upload Word Document</div>
+
+    <div class="drop-zone" id="dropZone">
+      <input type="file" id="fileInput" accept=".docx,.doc,application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+      <span class="dz-icon">📄</span>
+      <div class="dz-title" id="dzTitle">Drop .docx File Here or Click to Browse</div>
+      <div class="dz-sub"   id="dzSub">Supports .docx format · Max 20 MB</div>
+      <div class="fmt-row">
+        <span class="fmt-badge">.DOCX</span>
+        <span class="fmt-badge">.DOC</span>
+      </div>
+    </div>
+
+    <!-- File bar -->
+    <div class="file-bar" id="fileBar">
+      <span class="fb-icon">📋</span>
+      <div class="fb-info">
+        <div class="fb-name" id="fbName">—</div>
+        <div class="fb-meta" id="fbMeta">—</div>
+      </div>
+      <button class="fb-remove" id="fbRemove" onclick="removeFile()">✕ Remove</button>
+    </div>
+  </div>
+
+  <!-- SETTINGS + CONVERT CARD -->
+  <div class="card">
+    <div class="card-title" id="ctSettings">⚙️ PDF Settings</div>
+
+    <!-- Page settings -->
+    <div class="settings-grid">
+      <div class="field">
+        <label id="lPageSize">Page Size</label>
+        <select id="pageSize">
+          <option value="a4">A4 (210×297mm)</option>
+          <option value="letter">Letter (8.5×11in)</option>
+          <option value="a3">A3 (297×420mm)</option>
+          <option value="legal">Legal (8.5×14in)</option>
+          <option value="a5">A5 (148×210mm)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lOrientation">Orientation</label>
+        <select id="orientation">
+          <option value="portrait">Portrait ↕</option>
+          <option value="landscape">Landscape ↔</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lMargin">Margin</label>
+        <select id="margin">
+          <option value="10">Narrow (10mm)</option>
+          <option value="20" selected>Normal (20mm)</option>
+          <option value="30">Wide (30mm)</option>
+          <option value="40">Extra Wide (40mm)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lQuality">PDF Quality</label>
+        <select id="pdfQuality">
+          <option value="3">Ultra High (3x)</option>
+          <option value="2" selected>High (2x)</option>
+          <option value="1.5">Medium (1.5x)</option>
+          <option value="1">Standard (1x)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Typography settings -->
+    <div class="settings-grid-3">
+      <div class="field">
+        <label id="lFontFamily">Font Family</label>
+        <select id="fontFamily">
+          <option value="Georgia,serif">Georgia (Serif)</option>
+          <option value="'Times New Roman',serif">Times New Roman</option>
+          <option value="Arial,sans-serif">Arial (Sans-serif)</option>
+          <option value="'Helvetica Neue',sans-serif">Helvetica Neue</option>
+          <option value="'Calibri',sans-serif">Calibri</option>
+          <option value="'Amiri',serif">Amiri (Arabic)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lFontSize">Base Font Size</label>
+        <select id="fontSize">
+          <option value="11">11pt</option>
+          <option value="12" selected>12pt</option>
+          <option value="13">13pt</option>
+          <option value="14">14pt</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="lLineHeight">Line Height</label>
+        <select id="lineHeight">
+          <option value="1.4">Compact (1.4)</option>
+          <option value="1.6" selected>Normal (1.6)</option>
+          <option value="1.8">Relaxed (1.8)</option>
+          <option value="2">Double (2.0)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Color settings -->
+    <div class="settings-grid">
+      <div class="field">
+        <label id="lTextColor">Text Color</label>
+        <input type="color" id="textColor" value="#111111"/>
+      </div>
+      <div class="field">
+        <label id="lHeadingColor">Heading Color</label>
+        <input type="color" id="headingColor" value="#1a1200"/>
+      </div>
+    </div>
+
+    <!-- Toggles -->
+    <div class="toggle-grid">
+      <div class="toggle-row">
+        <span class="tgl-lbl" id="lPageNumbers">Page Numbers</span>
+        <label class="tgl"><input type="checkbox" id="pageNumbers" checked/><span class="tgl-sl"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span class="tgl-lbl" id="lTableBorders">Table Borders</span>
+        <label class="tgl"><input type="checkbox" id="tableBorders" checked/><span class="tgl-sl"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span class="tgl-lbl" id="lPreserveImages">Preserve Images</span>
+        <label class="tgl"><input type="checkbox" id="preserveImages" checked/><span class="tgl-sl"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span class="tgl-lbl" id="lCompressOutput">Compress Output</span>
+        <label class="tgl"><input type="checkbox" id="compressOutput"/><span class="tgl-sl"></span></label>
+      </div>
+    </div>
+
+    <!-- Filename -->
+    <div class="field" style="margin-bottom:1rem">
+      <label id="lFilename">PDF Filename</label>
+      <input type="text" id="pdfFilename" value="converted-document" placeholder="my-document"/>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="btn-row">
+      <button class="btn btn-primary" id="convertBtn" onclick="startConvert()" disabled>
+        🔄 <span id="convertTxt">Convert to PDF</span>
+      </button>
+      <button class="btn btn-secondary" id="previewBtn" onclick="startPreview()" disabled>
+        👁 <span id="previewTxt">Preview</span>
+      </button>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="step-track">
+        <div class="step-item" id="st1"><span class="step-dot"></span><span id="s1l">Reading File</span></div>
+        <div class="step-item" id="st2"><span class="step-dot"></span><span id="s2l">Parsing Content</span></div>
+        <div class="step-item" id="st3"><span class="step-dot"></span><span id="s3l">Rendering Pages</span></div>
+        <div class="step-item" id="st4"><span class="step-dot"></span><span id="s4l">Generating PDF</span></div>
+        <div class="step-item" id="st5"><span class="step-dot"></span><span id="s5l">Finalizing</span></div>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="prog-label" id="progLabel">Processing…</div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-box" id="successBox">
+      <span class="s-icon">✅</span>
+      <div class="s-title" id="sTitle">PDF Created Successfully!</div>
+      <div class="s-sub"   id="sSub">Your document has been converted and is ready to download.</div>
+      <div class="dl-row">
+        <a class="dl-btn"     id="dlLink"  href="#" download>⬇️ <span id="dlTxt">Download PDF</span></a>
+        <button class="dl-btn-alt" onclick="resetTool()">🔄 <span id="resetTxt">Convert Another</span></button>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="preview-wrap" id="previewWrap">
+      <div class="preview-header">
+        <span class="preview-label" id="previewLabel">📄 Document Preview</span>
+        <div class="stat-pills" id="statPills"></div>
+      </div>
+      <div class="preview-frame" id="previewFrame"></div>
+    </div>
+  </div>
+
+  <!-- AD MID -->
+  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+
+  <!-- FEATURES -->
+  <div class="card">
+    <div class="card-title" id="ctFeatures">✨ Features</div>
+    <div class="info-grid">
+      <div class="info-box"><div class="ib-icon">🎨</div><div class="ib-title" id="f1t">Full Formatting</div><div class="ib-desc" id="f1d">Preserves headings, bold, italic, tables, lists and images from your Word file.</div></div>
+      <div class="info-box"><div class="ib-icon">🔒</div><div class="ib-title" id="f2t">100% Private</div><div class="ib-desc" id="f2d">Your document never leaves your device. All processing is done locally in the browser.</div></div>
+      <div class="info-box"><div class="ib-icon">⚙️</div><div class="ib-title" id="f3t">Custom Settings</div><div class="ib-desc" id="f3d">Choose page size, orientation, font, colors, line height and margins.</div></div>
+      <div class="info-box"><div class="ib-icon">👁</div><div class="ib-title" id="f4t">Live Preview</div><div class="ib-desc" id="f4d">Preview the document content before generating the final PDF.</div></div>
+      <div class="info-box"><div class="ib-icon">📊</div><div class="ib-title" id="f5t">Multi-Page</div><div class="ib-desc" id="f5d">Automatically splits long documents across multiple PDF pages with page numbers.</div></div>
+      <div class="info-box"><div class="ib-icon">🖼️</div><div class="ib-title" id="f6t">Image Support</div><div class="ib-desc" id="f6d">Embedded images in your Word document are preserved in the PDF output.</div></div>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="card">
+    <div class="card-title" id="ctLinks">🔗 Related Tools</div>
+    <div class="ql-grid">
+      <a href="pdf-to-word.html"   class="ql"><span class="ql-icon">📄</span><span class="ql-name" data-en="PDF to Word" data-ur="PDF سے Word" data-ar="PDF إلى Word">PDF to Word</span><span class="ql-desc" data-en="Extract text from PDF" data-ur="PDF سے متن" data-ar="استخرج النص">Extract text</span></a>
+      <a href="image-to-pdf.html"  class="ql"><span class="ql-icon">🖼️</span><span class="ql-name" data-en="Image to PDF" data-ur="تصویر سے PDF" data-ar="صورة إلى PDF">Image to PDF</span><span class="ql-desc" data-en="Convert images" data-ur="تصاویر تبدیل" data-ar="تحويل الصور">Convert images</span></a>
+      <a href="image-compressor.html" class="ql"><span class="ql-icon">🗜️</span><span class="ql-name" data-en="Compressor" data-ur="کمپریسر" data-ar="ضاغط">Compressor</span><span class="ql-desc" data-en="Compress images" data-ur="تصویر چھوٹی کریں" data-ar="اضغط الصور">Compress images</span></a>
+      <a href="index.html"         class="ql"><span class="ql-icon">🛠️</span><span class="ql-name" data-en="All Tools" data-ur="تمام ٹولز" data-ar="جميع الأدوات">All Tools</span><span class="ql-desc" data-en="40+ free tools" data-ur="40+ مفت ٹولز" data-ar="أكثر من 40 أداة">40+ free tools</span></a>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- HADITH -->
+<div class="hadith-sec">
+  <div class="hadith-inner">
+    <span class="h-ornament">❁ ☽ ❁</span>
+    <p class="h-arabic">«اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ · خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ · اقْرَأْ وَرَبُّكَ الْأَكْرَمُ · الَّذِي عَلَّمَ بِالْقَلَمِ»</p>
+    <div class="h-line"></div>
+    <p class="h-urdu" id="hUrdu">پڑھ اپنے رب کے نام سے جس نے پیدا کیا۔ اس نے انسان کو خون کی پھٹکی سے بنایا۔ پڑھ اور تیرا رب بڑا کریم ہے۔ جس نے قلم کے ذریعے علم سکھایا۔</p>
+    <p class="h-en" id="hEn">"Read in the name of your Lord who created. He created man from a clinging substance. Read, and your Lord is the Most Generous — Who taught by the pen."</p>
+    <p class="h-source">— القرآن الكريم | Surah Al-Alaq 96:1-4 (First Revelation)</p>
+  </div>
+</div>
+<div class="noor-footer">
+  <div class="noor-text">نُورُ الہُدیٰ</div>
+  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+</div>
+
+<script>
+/* ══════════════════════════════
+   LANGUAGE SYSTEM
+══════════════════════════════ */
+const TL={
+  en:{dir:'ltr',l:'en',
+    bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
+    heroTitle:'Word to PDF',heroSub:'Convert .docx files to PDF with full formatting — Free, Private, Instant',
+    ctUpload:'📂 Upload Word Document',dzTitle:'Drop .docx File Here or Click to Browse',dzSub:'Supports .docx format · Max 20 MB',
+    ctSettings:'⚙️ PDF Settings',lPageSize:'Page Size',lOrientation:'Orientation',lMargin:'Margin',lQuality:'PDF Quality',
+    lFontFamily:'Font Family',lFontSize:'Font Size',lLineHeight:'Line Height',lTextColor:'Text Color',lHeadingColor:'Heading Color',
+    lPageNumbers:'Page Numbers',lTableBorders:'Table Borders',lPreserveImages:'Preserve Images',lCompressOutput:'Compress Output',
+    lFilename:'PDF Filename',convertTxt:'Convert to PDF',previewTxt:'Preview',
+    ctFeatures:'✨ Features',ctLinks:'🔗 Related Tools',
+    adTxt1:'Advertisement — 728×90',adTxt2:'Advertisement — 468×60',
+    sTitle:'PDF Created Successfully!',sSub:'Your document has been converted and is ready to download.',
+    dlTxt:'Download PDF',resetTxt:'Convert Another',previewLabel:'📄 Document Preview',
+    s1:'Reading File',s2:'Parsing Content',s3:'Rendering Pages',s4:'Generating PDF',s5:'Finalizing',
+    f1t:'Full Formatting',f1d:'Preserves headings, bold, italic, tables, lists and images.',
+    f2t:'100% Private',f2d:'Your document never leaves your device.',
+    f3t:'Custom Settings',f3d:'Choose page size, fonts, colors and margins.',
+    f4t:'Live Preview',f4d:'Preview content before generating PDF.',
+    f5t:'Multi-Page',f5d:'Automatically splits long documents with page numbers.',
+    f6t:'Image Support',f6d:'Embedded images are preserved in the PDF.',
+    fbRemove:'✕ Remove',
+    hUrdu:'',hEn:'"Read in the name of your Lord who created. He created man from a clinging substance. Read, and your Lord is the Most Generous — Who taught by the pen."'},
+  ur:{dir:'rtl',l:'ur',
+    bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
+    heroTitle:'Word سے PDF',heroSub:'.docx فائل کو مکمل فارمیٹنگ کے ساتھ PDF میں تبدیل کریں — مفت، نجی، فوری',
+    ctUpload:'📂 Word دستاویز اپلوڈ کریں',dzTitle:'.docx فائل یہاں ڈراپ کریں یا کلک کریں',dzSub:'.docx فارمیٹ سپورٹ · زیادہ سے زیادہ 20 MB',
+    ctSettings:'⚙️ PDF ترتیبات',lPageSize:'صفحے کا سائز',lOrientation:'سمت',lMargin:'حاشیہ',lQuality:'PDF کا معیار',
+    lFontFamily:'فونٹ',lFontSize:'فونٹ سائز',lLineHeight:'لائن اونچائی',lTextColor:'متن کا رنگ',lHeadingColor:'عنوان کا رنگ',
+    lPageNumbers:'صفحہ نمبر',lTableBorders:'ٹیبل بارڈر',lPreserveImages:'تصاویر محفوظ کریں',lCompressOutput:'آؤٹ پٹ کمپریس',
+    lFilename:'PDF فائل کا نام',convertTxt:'PDF میں تبدیل کریں',previewTxt:'پیش نظارہ',
+    ctFeatures:'✨ خصوصیات',ctLinks:'🔗 متعلقہ ٹولز',
+    adTxt1:'اشتہار — 728×90',adTxt2:'اشتہار — 468×60',
+    sTitle:'PDF کامیابی سے بن گئی!',sSub:'آپ کی دستاویز تبدیل ہو گئی اور ڈاؤن لوڈ کے لیے تیار ہے۔',
+    dlTxt:'PDF ڈاؤن لوڈ کریں',resetTxt:'دوسری فائل تبدیل کریں',previewLabel:'📄 دستاویز کا پیش نظارہ',
+    s1:'فائل پڑھنا',s2:'مواد پارس کرنا',s3:'صفحات رینڈر',s4:'PDF بنانا',s5:'حتمی کاری',
+    f1t:'مکمل فارمیٹنگ',f1d:'عنوانات، بولڈ، ٹیبل اور تصاویر محفوظ رہتی ہیں۔',
+    f2t:'100% نجی',f2d:'آپ کی دستاویز آپ کے ڈیوائس سے باہر نہیں جاتی۔',
+    f3t:'اپنی مرضی کی ترتیب',f3d:'صفحہ سائز، فونٹ، رنگ اور حاشیہ منتخب کریں۔',
+    f4t:'لائیو پیش نظارہ',f4d:'PDF بنانے سے پہلے مواد دیکھیں۔',
+    f5t:'کثیر صفحات',f5d:'طویل دستاویزات خودکار طور پر کئی صفحات میں بٹتی ہیں۔',
+    f6t:'تصاویر سپورٹ',f6d:'Word میں موجود تصاویر PDF میں محفوظ رہتی ہیں۔',
+    fbRemove:'✕ ہٹائیں',
+    hUrdu:'پڑھ اپنے رب کے نام سے جس نے پیدا کیا۔ اس نے انسان کو خون کی پھٹکی سے بنایا۔ پڑھ اور تیرا رب بڑا کریم ہے۔ جس نے قلم کے ذریعے علم سکھایا۔',hEn:''},
+  ar:{dir:'rtl',l:'ar',
+    bisml:'بسم الله الرحمن الرحيم',
+    heroTitle:'Word إلى PDF',heroSub:'حوّل ملفات .docx إلى PDF بالتنسيق الكامل — مجاناً وخاصاً وفورياً',
+    ctUpload:'📂 رفع مستند Word',dzTitle:'اسحب ملف .docx هنا أو انقر للاستعراض',dzSub:'يدعم صيغة .docx · الحد الأقصى 20 ميغابايت',
+    ctSettings:'⚙️ إعدادات PDF',lPageSize:'حجم الصفحة',lOrientation:'الاتجاه',lMargin:'الهامش',lQuality:'جودة PDF',
+    lFontFamily:'الخط',lFontSize:'حجم الخط',lLineHeight:'تباعد الأسطر',lTextColor:'لون النص',lHeadingColor:'لون العنوان',
+    lPageNumbers:'أرقام الصفحات',lTableBorders:'حدود الجداول',lPreserveImages:'حفظ الصور',lCompressOutput:'ضغط الإخراج',
+    lFilename:'اسم ملف PDF',convertTxt:'تحويل إلى PDF',previewTxt:'معاينة',
+    ctFeatures:'✨ المميزات',ctLinks:'🔗 أدوات ذات صلة',
+    adTxt1:'إعلان — 728×90',adTxt2:'إعلان — 468×60',
+    sTitle:'تم إنشاء PDF بنجاح!',sSub:'تم تحويل مستندك وهو جاهز للتنزيل.',
+    dlTxt:'تنزيل PDF',resetTxt:'تحويل ملف آخر',previewLabel:'📄 معاينة المستند',
+    s1:'قراءة الملف',s2:'تحليل المحتوى',s3:'تصيير الصفحات',s4:'إنشاء PDF',s5:'الإنهاء',
+    f1t:'تنسيق كامل',f1d:'يحافظ على العناوين والجداول والصور.',
+    f2t:'خصوصية كاملة',f2d:'مستندك لا يغادر جهازك.',
+    f3t:'إعدادات مخصصة',f3d:'اختر الحجم والخط والألوان والهوامش.',
+    f4t:'معاينة مباشرة',f4d:'اعرض المحتوى قبل إنشاء PDF.',
+    f5t:'متعدد الصفحات',f5d:'يقسم المستندات الطويلة تلقائياً.',
+    f6t:'دعم الصور',f6d:'الصور المضمنة محفوظة في PDF.',
+    fbRemove:'✕ إزالة',
+    hUrdu:'',hEn:'«اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ · الَّذِي عَلَّمَ بِالْقَلَمِ»'}
+};
+let lang='en';
+
+function setLang(l){
+  lang=l;const t=TL[l];
+  document.documentElement.lang=t.l;document.documentElement.dir=t.dir;
+  document.body.classList.toggle('rtl',t.dir==='rtl');
+  ['lb-en','lb-ur','lb-ar'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('lb-'+l).classList.add('active');
+  const ids=['bismlTr','heroTitle','heroSub','ctUpload','dzTitle','dzSub','ctSettings',
+    'lPageSize','lOrientation','lMargin','lQuality','lFontFamily','lFontSize','lLineHeight',
+    'lTextColor','lHeadingColor','lPageNumbers','lTableBorders','lPreserveImages','lCompressOutput',
+    'lFilename','convertTxt','previewTxt','ctFeatures','ctLinks','adTxt1','adTxt2',
+    'sTitle','sSub','dlTxt','resetTxt','previewLabel',
+    's1l','s2l','s3l','s4l','s5l',
+    'f1t','f1d','f2t','f2d','f3t','f3d','f4t','f4d','f5t','f5d','f6t','f6d'];
+  ids.forEach(id=>{const el=document.getElementById(id);if(el&&t[id])el.textContent=t[id];});
+  // step labels
+  ['s1l','s2l','s3l','s4l','s5l'].forEach((id,i)=>{
+    const el=document.getElementById(id);if(el)el.textContent=[t.s1,t.s2,t.s3,t.s4,t.s5][i];
+  });
+  document.getElementById('fbRemove').textContent=t.fbRemove;
+  document.querySelectorAll('.nav-link[data-en]').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
+  document.querySelectorAll('[data-en]:not(.nav-link)').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
+  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
+  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
+}
+
+/* ══════════════════════════════
+   FILE HANDLING
+══════════════════════════════ */
+let currentFile=null;
+let parsedHTML='';
+let wordCount=0,charCount=0,pageEstimate=0;
+
+const dropZone=document.getElementById('dropZone');
+const fileInput=document.getElementById('fileInput');
+
+dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop',e=>{
+  e.preventDefault();dropZone.classList.remove('drag-over');
+  if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change',e=>{if(e.target.files[0])handleFile(e.target.files[0]);fileInput.value='';});
+
+function handleFile(file){
+  const validTypes=['application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/msword'];
+  if(!validTypes.includes(file.type)&&!file.name.match(/\.(docx|doc)$/i)){
+    alert('Please upload a .docx or .doc file!');return;
+  }
+  if(file.size>20*1024*1024){alert('File exceeds 20 MB limit!');return;}
+  currentFile=file;
+  document.getElementById('fbName').textContent=file.name;
+  document.getElementById('fbMeta').textContent=`${fmtSize(file.size)} · ${file.type||'Word Document'}`;
+  document.getElementById('fileBar').classList.add('show');
+  document.getElementById('convertBtn').disabled=false;
+  document.getElementById('previewBtn').disabled=false;
+  // auto-set filename
+  document.getElementById('pdfFilename').value=file.name.replace(/\.(docx?|doc)$/i,'');
+  resetOutput();
+}
+
+function removeFile(){
+  currentFile=null;parsedHTML='';
+  document.getElementById('fileBar').classList.remove('show');
+  document.getElementById('convertBtn').disabled=true;
+  document.getElementById('previewBtn').disabled=true;
+  resetOutput();
+}
+
+function resetOutput(){
+  document.getElementById('progressWrap').classList.remove('show');
+  document.getElementById('successBox').classList.remove('show');
+  document.getElementById('previewWrap').classList.remove('show');
+  document.getElementById('progFill').style.width='0%';
+  for(let i=1;i<=5;i++)document.getElementById('st'+i).className='step-item';
+}
+
+function fmtSize(b){
+  if(b<1024)return b+' B';
+  if(b<1048576)return(b/1024).toFixed(1)+' KB';
+  return(b/1048576).toFixed(1)+' MB';
+}
+
+/* ══════════════════════════════
+   PARSE DOCX WITH MAMMOTH
+══════════════════════════════ */
+async function parseDocx(){
+  if(!currentFile)return null;
+  const ab=await currentFile.arrayBuffer();
+  const opts={
+    convertImage: mammoth.images.imgElement(img=>{
+      return img.read('base64').then(data=>({src:`data:${img.contentType};base64,${data}`}));
+    })
+  };
+  const result=await mammoth.convertToHtml({arrayBuffer:ab},opts);
+  return result.value;
+}
+
+/* ══════════════════════════════
+   PREVIEW
+══════════════════════════════ */
+async function startPreview(){
+  if(!currentFile)return;
+  document.getElementById('previewBtn').disabled=true;
+  try{
+    if(!parsedHTML) parsedHTML=await parseDocx();
+    // Count stats
+    const tmp=document.createElement('div');tmp.innerHTML=parsedHTML;
+    const txt=tmp.textContent||'';
+    wordCount=txt.split(/\s+/).filter(Boolean).length;
+    charCount=txt.length;
+    pageEstimate=Math.max(1,Math.ceil(wordCount/350));
+    document.getElementById('statPills').innerHTML=
+      `<span class="pill">${pageEstimate} page${pageEstimate!==1?'s':''}</span>
+       <span class="pill">${wordCount.toLocaleString()} words</span>
+       <span class="pill">${charCount.toLocaleString()} chars</span>`;
+    document.getElementById('previewFrame').innerHTML=parsedHTML;
+    document.getElementById('previewWrap').classList.add('show');
+  }catch(e){alert('Could not parse document: '+e.message);}
+  document.getElementById('previewBtn').disabled=false;
+}
+
+/* ══════════════════════════════
+   CONVERT TO PDF
+══════════════════════════════ */
+async function startConvert(){
+  if(!currentFile)return;
+  const convertBtn=document.getElementById('convertBtn');
+  convertBtn.disabled=true;
+  resetOutput();
+  document.getElementById('progressWrap').classList.add('show');
+
+  try{
+    // ── Step 1: Read & Parse ──
+    setStep(1,'active');setProgress(5,'Reading document…');
+    await delay(80);
+    if(!parsedHTML) parsedHTML=await parseDocx();
+    setStep(1,'done');setStep(2,'active');setProgress(20,'Parsing content…');
+    await delay(80);
+
+    // Get settings
+    const pageSizeKey=document.getElementById('pageSize').value;
+    const orient=document.getElementById('orientation').value;
+    const marginMm=parseInt(document.getElementById('margin').value)||20;
+    const scale=parseFloat(document.getElementById('pdfQuality').value)||2;
+    const fontFamily=document.getElementById('fontFamily').value;
+    const fontSize=parseInt(document.getElementById('fontSize').value)||12;
+    const lineH=parseFloat(document.getElementById('lineHeight').value)||1.6;
+    const textColor=document.getElementById('textColor').value;
+    const headingColor=document.getElementById('headingColor').value;
+    const showPageNums=document.getElementById('pageNumbers').checked;
+    const tableBorders=document.getElementById('tableBorders').checked;
+    const filename=(document.getElementById('pdfFilename').value.trim()||'converted')+'.pdf';
+
+    // Page sizes mm [w,h]
+    const SIZES={a4:[210,297],letter:[215.9,279.4],a3:[297,420],legal:[215.9,355.6],a5:[148,210]};
+    let [pgW,pgH]=SIZES[pageSizeKey]||SIZES.a4;
+    if(orient==='landscape')[pgW,pgH]=[pgH,pgW];
+
+    // px at 96dpi
+    const mm2px=mm=>mm*(96/25.4);
+    const pxW=mm2px(pgW),pxH=mm2px(pgH),mxPx=mm2px(marginMm);
+    const contentW=pxW-2*mxPx,contentH=pxH-2*mxPx;
+
+    // ── Step 2: Build render div ──
+    setStep(2,'done');setStep(3,'active');setProgress(35,'Building pages…');
+    await delay(80);
+
+    const rd=document.getElementById('renderDiv');
+    rd.style.width=pxW+'px';
+    rd.style.padding=mxPx+'px';
+    rd.style.fontFamily=fontFamily;
+    rd.style.fontSize=fontSize+'px';
+    rd.style.lineHeight=lineH;
+    rd.style.color=textColor;
+
+    // Apply table borders toggle
+    const tbStyle=tableBorders
+      ?`table{width:100%;border-collapse:collapse;margin:.6rem 0;}td,th{border:1px solid #aaa;padding:.35rem .5rem;}th{background:#f5f0e0;}`
+      :`table{width:100%;border-collapse:collapse;margin:.6rem 0;}td,th{padding:.35rem .5rem;}`;
+
+    rd.innerHTML=`<style>
+      *{box-sizing:border-box;}
+      body,div{font-family:${fontFamily};font-size:${fontSize}px;line-height:${lineH};color:${textColor};}
+      h1,h2,h3,h4{color:${headingColor};margin:.7rem 0 .35rem;line-height:1.3;}
+      h1{font-size:${fontSize*1.9}px;}h2{font-size:${fontSize*1.5}px;}h3{font-size:${fontSize*1.25}px;}
+      p{margin:.3rem 0;}ul,ol{margin:.3rem 0;padding-left:1.4rem;}
+      strong{font-weight:700;}em{font-style:italic;}
+      img{max-width:100%;height:auto;margin:.4rem 0;}
+      blockquote{border-left:3px solid ${headingColor};margin:.5rem 0;padding:.3rem .8rem;color:#555;}
+      ${tbStyle}
+    </style>${parsedHTML}`;
+
+    await delay(200);
+
+    // ── Step 3: Render with html2canvas page by page ──
+    setProgress(50,'Rendering pages…');
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF({orientation:orient==='landscape'?'l':'p',unit:'mm',format:[pgW,pgH]});
+
+    // Measure total rendered height
+    const totalH=rd.scrollHeight;
+    const pageHpx=contentH;// one page content height in px
+    const totalPages=Math.max(1,Math.ceil(totalH/pageHpx));
+
+    for(let p=0;p<totalPages;p++){
+      setProgress(50+Math.round((p/totalPages)*35),`Rendering page ${p+1} of ${totalPages}…`);
+
+      const canvas=await html2canvas(rd,{
+        scale:scale,
+        useCORS:true,
+        allowTaint:true,
+        y:p*pageHpx,
+        height:pageHpx,
+        windowWidth:pxW,
+        windowHeight:pxH,
+        scrollY:-(p*pageHpx),
+        backgroundColor:'#ffffff',
+        logging:false
+      });
+
+      if(p>0) pdf.addPage([pgW,pgH],orient==='landscape'?'l':'p');
+      const imgData=canvas.toDataURL('image/jpeg',0.92);
+      pdf.addImage(imgData,'JPEG',marginMm,marginMm,pgW-2*marginMm,pgH-2*marginMm);
+
+      // Page numbers
+      if(showPageNums){
+        pdf.setFontSize(9);pdf.setTextColor(150,130,80);
+        const label=`${p+1} / ${totalPages}`;
+        const tw=pdf.getTextWidth(label);
+        pdf.text(label,pgW/2-tw/2,pgH-marginMm/2);
+        pdf.setTextColor(0,0,0);
+      }
+      await delay(30);
+    }
+
+    // ── Step 4: Generate & save ──
+    setStep(3,'done');setStep(4,'active');setProgress(90,'Generating PDF…');
+    await delay(100);
+
+    const blob=pdf.output('blob');
+    const url=URL.createObjectURL(blob);
+    document.getElementById('dlLink').href=url;
+    document.getElementById('dlLink').download=filename;
+
+    setStep(4,'done');setStep(5,'active');setProgress(100,'Done!');
+    await delay(150);
+    setStep(5,'done');
+
+    // Show success
+    document.getElementById('successBox').classList.add('show');
+    document.getElementById('progressWrap').classList.remove('show');
+
+    // Clear render div
+    rd.innerHTML='';
+
+  }catch(err){
+    document.getElementById('progLabel').textContent='❌ Error: '+err.message;
+    console.error(err);
+  }
+  convertBtn.disabled=false;
+}
+
+function resetTool(){removeFile();document.getElementById('fileInput').value='';}
+
+/* ══ HELPERS ══ */
+function setStep(n,state){document.getElementById('st'+n).className='step-item '+state;}
+function setProgress(pct,lbl){document.getElementById('progFill').style.width=pct+'%';document.getElementById('progLabel').textContent=lbl;}
+function delay(ms){return new Promise(r=>setTimeout(r,ms));}
+</script>
+</body>
+</html>
