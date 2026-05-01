@@ -181,20 +181,29 @@ body.rtl .card-title::after{background:linear-gradient(270deg,var(--border),tran
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ══ NAV ══ -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-icon">🛠️</span>
+    <span class="nav-logo-text">ToolNex</span>
+  </a>
   <div class="nav-right">
-    <a href="age-calculator.html"  class="nav-link active" data-en="🎂 Age" data-ur="🎂 عمر" data-ar="🎂 العمر">🎂 Age</a>
-    <a href="date-calculator.html" class="nav-link" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
-    <a href="time-calculator.html" class="nav-link" data-en="⏱ Time" data-ur="⏱ وقت" data-ar="⏱ الوقت">⏱ Time</a>
-    <a href="index.html"           class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم" data-ar="🏠 الرئيسية">🏠 Home</a>
-    <div class="lang-sep"></div>
-    <button class="nav-link active-lang" id="lb-en" onclick="setLang('en')">EN</button>
-    <button class="nav-link" id="lb-ur" onclick="setLang('ur')">اردو</button>
-    <button class="nav-link" id="lb-ar" onclick="setLang('ar')">عربي</button>
+    <a href="index.html" class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم" data-ar="🏠 الرئيسية">🏠 Home</a>
+    <select class="lang-select" id="langSelect" onchange="setLang(this.value)">
+      <option value="en">🌐 English</option>
+      <option value="ur">🌐 اردو</option>
+      <option value="ar">🌐 عربي</option>
+    </select>
   </div>
 </nav>
+
+  <!-- ══ TOP BANNER AD ══ -->
+<div class="ad-top-banner">
+  <div class="ad-slot">
+    <!-- Google AdSense: <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
+    📢 Top Banner Ad · 728×90 Desktop / 320×100 Mobile
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -209,9 +218,6 @@ body.rtl .card-title::after{background:linear-gradient(270deg,var(--border),tran
 </section>
 
 <div class="wrap">
-
-  <!-- AD TOP -->
-  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
 
   <!-- MAIN CARD -->
   <div class="card">
@@ -261,8 +267,13 @@ body.rtl .card-title::after{background:linear-gradient(270deg,var(--border),tran
     </div>
   </div>
 
-  <!-- AD MID -->
-  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+  <!-<!-- ══ RESPONSIVE MID AD (between tools — best earning spot) ══ -->
+  <div class="ad-mid-responsive">
+    <div class="ad-slot">
+      <!-- Google AdSense: <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+      📢 Responsive Mid Ad · 728×90 → 468×60 → 320×50 (Auto)
+    </div>
+  </div>
 
   <!-- QUICK LINKS -->
   <div class="card">
@@ -288,13 +299,59 @@ body.rtl .card-title::after{background:linear-gradient(270deg,var(--border),tran
   </div>
 </div>
 
-<!-- NOOR FOOTER -->
-<div class="noor-footer">
-  <div class="noor-text">نُور الہدیٰ</div>
-  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED</div>
-</div>
+  
 
-<script>
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <span class="brand-logo">🛠️ ToolNex</span>
+        <p id="footerAboutTxt">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 id="fcQuick">Quick Links</h4>
+        <ul>
+          <li><a href="index.html"               data-en="🏠 Home"             data-ur="🏠 ہوم"           data-ar="🏠 الرئيسية">🏠 Home</a></li>
+          <li><a href="age-calculator.html"       data-en="🎂 Age Calculator"   data-ur="🎂 عمر کیلکولیٹر" data-ar="🎂 حاسبة العمر">🎂 Age Calculator</a></li>
+          <li><a href="image-compressor.html"     data-en="🗜️ Image Compressor" data-ur="🗜️ تصویر کمپریسر" data-ar="🗜️ ضاغط الصور">🗜️ Image Compressor</a></li>
+          <li><a href="qr-code.html"              data-en="📲 QR Generator"     data-ur="📲 QR جنریٹر"     data-ar="📲 منشئ QR">📲 QR Generator</a></li>
+          <li><a href="currency-converter.html"   data-en="💱 Currency"         data-ur="💱 کرنسی"         data-ar="💱 العملات">💱 Currency</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 id="fcTools">Tools</h4>
+        <ul>
+          <li><a href="pdf-to-word.html"    data-en="PDF to Word"     data-ur="PDF سے Word"   data-ar="PDF إلى Word">PDF to Word</a></li>
+          <li><a href="word-to-pdf.html"    data-en="Word to PDF"     data-ur="Word سے PDF"   data-ar="Word إلى PDF">Word to PDF</a></li>
+          <li><a href="image-to-pdf.html"   data-en="Image to PDF"    data-ur="تصویر سے PDF"  data-ar="صورة إلى PDF">Image to PDF</a></li>
+          <li><a href="css-minifier.html"   data-en="CSS Minifier"    data-ur="CSS مصغر"      data-ar="مصغر CSS">CSS Minifier</a></li>
+          <li><a href="json-formatter.html" data-en="JSON Formatter"  data-ur="JSON فارمیٹر"  data-ar="منسق JSON">JSON Formatter</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 id="fcCompany">Company</h4>
+        <ul>
+          <li><a href="about.html"         data-en="📖 About Us"      data-ur="📖 ہمارے بارے میں" data-ar="📖 من نحن">📖 About Us</a></li>
+          <li><a href="contact.html"       data-en="✉️ Contact"       data-ur="✉️ رابطہ کریں"     data-ar="✉️ اتصل بنا">✉️ Contact</a></li>
+          <li><a href="privacy.html"       data-en="🔒 Privacy Policy" data-ur="🔒 رازداری"       data-ar="🔒 سياسة الخصوصية">🔒 Privacy Policy</a></li>
+          <li><a href="terms.html"         data-en="📋 Terms of Use"   data-ur="📋 شرائط استعمال" data-ar="📋 شروط الاستخدام">📋 Terms of Use</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /footer-top -->
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+      <div class="footer-noor">نُورُ الہُدیٰ</div>
+    </div>
+  </div>
+</footer>
+  
 /* ── TRANSLATIONS ── */
 const T={
   en:{dir:'ltr',lang:'en',
