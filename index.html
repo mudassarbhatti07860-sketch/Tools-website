@@ -432,104 +432,128 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   </div>
 
   <!-- ══ CATEGORIES ══ -->
-  <div>
-    <div class="section-head">
-      <div class="section-title" id="catTitle">📂 Browse by Category</div>
+  <di
+  <div id="categories">
+    <div class="sec-header">
+      <div class="sec-title" id="catTitle">📂 Browse by Category</div>
     </div>
-    <div class="cat-grid">
+    <div class="cat-grid" id="catGrid">
 
-      <a href="#" class="cat-card" onclick="filterCat('text')">
-        <div class="cat-icon-wrap">✍️</div>
-        <div>
-          <div class="cat-name" data-en="Text Tools" data-ur="متن ٹولز" data-ar="أدوات النص">Text Tools</div>
-          <div class="cat-desc" data-en="Word counter, grammar checker, text converter" data-ur="الفاظ گنتی، گرامر چیکر" data-ar="عداد الكلمات ومدقق القواعد">Word counter, grammar checker, text converter</div>
-          <div class="cat-count" data-en="6 Tools" data-ur="6 ٹولز" data-ar="6 أدوات">6 Tools</div>
+      <!-- Text Tools -->
+      <a href="index.html#text" class="cat-card" id="cat-text">
+        <div class="cat-card-top">
+          <span class="cat-icon">✍️</span>
+          <span class="cat-count">8 tools</span>
         </div>
-        <div class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</div>
+        <div class="cat-name" data-en="Text Tools" data-ur="متن ٹولز" data-ar="أدوات النص">Text Tools</div>
+        <div class="cat-desc" data-en="Word counter, character counter, grammar checker, text to speech and more." data-ur="الفاظ گنتی، حروف گنتی، گرامر چیکر اور مزید۔" data-ar="عداد الكلمات والأحرف ومدقق القواعد والمزيد.">Word counter, character counter, grammar checker and more.</div>
+        <div class="cat-tools">
+          <span class="cat-tool-pill">Word Counter</span>
+          <span class="cat-tool-pill">Grammar</span>
+          <span class="cat-tool-pill">Speech</span>
+        </div>
+        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
       </a>
 
-      <a href="#" class="cat-card" onclick="filterCat('seo')">
-        <div class="cat-icon-wrap">🔍</div>
-        <div>
-          <div class="cat-name" data-en="SEO Tools" data-ur="SEO ٹولز" data-ar="أدوات SEO">SEO Tools</div>
-          <div class="cat-desc" data-en="Meta tag generator, SEO checker, sitemap" data-ur="میٹا ٹیگ، SEO چیکر" data-ar="منشئ Meta ومدقق SEO">Meta tag generator, SEO checker, sitemap</div>
-          <div class="cat-count" data-en="4 Tools" data-ur="4 ٹولز" data-ar="4 أدوات">4 Tools</div>
+      <!-- SEO Tools -->
+      <a href="index.html#seo" class="cat-card" id="cat-seo">
+        <div class="cat-card-top">
+          <span class="cat-icon">🔍</span>
+          <span class="cat-count">5 tools</span>
         </div>
-        <div class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</div>
+        <div class="cat-name" data-en="SEO Tools" data-ur="SEO ٹولز" data-ar="أدوات السيو">SEO Tools</div>
+        <div class="cat-desc" data-en="Meta tag generator, SEO checker, website speed test, IP finder and more." data-ur="میٹا ٹیگ جنریٹر، SEO چیکر، ویب سپیڈ ٹیسٹ اور مزید۔" data-ar="منشئ وسوم Meta ومدقق SEO واختبار السرعة والمزيد.">Meta tag generator, SEO checker, speed test and more.</div>
+        <div class="cat-tools">
+          <span class="cat-tool-pill">Meta Tags</span>
+          <span class="cat-tool-pill">SEO Check</span>
+          <span class="cat-tool-pill">Speed Test</span>
+        </div>
+        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
       </a>
 
-      <a href="#" class="cat-card" onclick="filterCat('image')">
-        <div class="cat-icon-wrap">🖼️</div>
-        <div>
-          <div class="cat-name" data-en="Image Tools" data-ur="تصویر ٹولز" data-ar="أدوات الصور">Image Tools</div>
-          <div class="cat-desc" data-en="Image compressor, converter, editor" data-ur="تصویر کمپریسر، کنورٹر" data-ar="ضاغط الصور ومحول">Image compressor, converter, editor</div>
-          <div class="cat-count" data-en="4 Tools" data-ur="4 ٹولز" data-ar="4 أدوات">4 Tools</div>
+      <!-- Image Tools -->
+      <a href="index.html#image" class="cat-card" id="cat-image">
+        <div class="cat-card-top">
+          <span class="cat-icon">🖼️</span>
+          <span class="cat-count">3 tools</span>
         </div>
-        <div class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</div>
+        <div class="cat-name" data-en="Image Tools" data-ur="تصویر ٹولز" data-ar="أدوات الصور">Image Tools</div>
+        <div class="cat-desc" data-en="Image compressor, image to PDF converter and image editing tools." data-ur="تصویر کمپریسر، تصویر سے PDF اور تصویر ایڈیٹنگ ٹولز۔" data-ar="ضاغط الصور وتحويل الصور إلى PDF وأدوات تحرير الصور.">Image compressor, image to PDF and editing tools.</div>
+        <div class="cat-tools">
+          <span class="cat-tool-pill">Compressor</span>
+          <span class="cat-tool-pill">Image→PDF</span>
+          <span class="cat-tool-pill">Editor</span>
+        </div>
+        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
       </a>
 
-      <a href="#" class="cat-card" onclick="filterCat('ai')">
-        <div class="cat-icon-wrap">🤖</div>
-        <div>
-          <div class="cat-name" data-en="AI Tools" data-ur="AI ٹولز" data-ar="أدوات الذكاء الاصطناعي">AI Tools</div>
-          <div class="cat-desc" data-en="AI writer, grammar checker, plagiarism" data-ur="AI رائٹر، گرامر چیکر" data-ar="الكاتب AI ومدقق القواعد">AI writer, grammar checker, plagiarism</div>
-          <div class="cat-count" data-en="3 Tools" data-ur="3 ٹولز" data-ar="3 أدوات">3 Tools</div>
+      <!-- AI Tools -->
+      <a href="index.html#ai" class="cat-card" id="cat-ai">
+        <div class="cat-card-top">
+          <span class="cat-icon">🤖</span>
+          <span class="cat-count">3 tools</span>
         </div>
-        <div class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</div>
+        <div class="cat-name" data-en="AI Tools" data-ur="AI ٹولز" data-ar="أدوات الذكاء الاصطناعي">AI Tools</div>
+        <div class="cat-desc" data-en="AI Writer, Grammar Checker, Plagiarism Checker powered by artificial intelligence." data-ur="AI رائٹر، گرامر چیکر، چوری چیکر AI سے چلتے ہیں۔" data-ar="الكاتب بالذكاء الاصطناعي ومدقق القواعد والانتحال.">AI Writer, Grammar Checker & Plagiarism Checker.</div>
+        <div class="cat-tools">
+          <span class="cat-tool-pill">AI Writer</span>
+          <span class="cat-tool-pill">Grammar</span>
+          <span class="cat-tool-pill">Plagiarism</span>
+        </div>
+        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
       </a>
 
-      <a href="#" class="cat-card" onclick="filterCat('calc')">
-        <div class="cat-icon-wrap">📐</div>
-        <div>
-          <div class="cat-name" data-en="Calculators" data-ur="کیلکولیٹرز" data-ar="الحاسبات">Calculators</div>
-          <div class="cat-desc" data-en="Age, BMI, loan, percentage, tip calculator" data-ur="عمر، BMI، لون کیلکولیٹر" data-ar="حاسبة العمر وBMI والقرض">Age, BMI, loan, percentage, tip calculator</div>
-          <div class="cat-count" data-en="9 Tools" data-ur="9 ٹولز" data-ar="9 أدوات">9 Tools</div>
+      <!-- Calculators -->
+      <a href="index.html#calc" class="cat-card" id="cat-calc">
+        <div class="cat-card-top">
+          <span class="cat-icon">🧮</span>
+          <span class="cat-count">9 tools</span>
         </div>
-        <div class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</div>
+        <div class="cat-name" data-en="Calculators" data-ur="کیلکولیٹرز" data-ar="الحاسبات">Calculators</div>
+        <div class="cat-desc" data-en="Age, BMI, Loan, Interest, Percentage, Tip, Discount and more calculators." data-ur="عمر، BMI، لون، سود، فیصد، ٹپ اور ڈسکاؤنٹ کیلکولیٹرز۔" data-ar="حاسبات العمر والجسم والقرض والفائدة والخصم والمزيد.">Age, BMI, Loan, Interest, Percentage and more.</div>
+        <div class="cat-tools">
+          <span class="cat-tool-pill">Age Calc</span>
+          <span class="cat-tool-pill">BMI</span>
+          <span class="cat-tool-pill">Loan</span>
+          <span class="cat-tool-pill">+6 more</span>
+        </div>
+        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
       </a>
 
-      <a href="#" class="cat-card" onclick="filterCat('dev')">
-        <div class="cat-icon-wrap">💻</div>
-        <div>
-          <div class="cat-name" data-en="Developer Tools" data-ur="ڈویلپر ٹولز" data-ar="أدوات المطور">Developer Tools</div>
-          <div class="cat-desc" data-en="JSON formatter, CSS/HTML/JS minifier, encoder" data-ur="JSON، CSS، HTML مصغر" data-ar="منسق JSON ومصغر CSS">JSON formatter, CSS/HTML/JS minifier</div>
-          <div class="cat-count" data-en="7 Tools" data-ur="7 ٹولز" data-ar="7 أدوات">7 Tools</div>
+      <!-- Developer Tools -->
+      <a href="index.html#dev" class="cat-card" id="cat-dev">
+        <div class="cat-card-top">
+          <span class="cat-icon">💻</span>
+          <span class="cat-count">7 tools</span>
         </div>
-        <div class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</div>
+        <div class="cat-name" data-en="Developer Tools" data-ur="ڈویلپر ٹولز" data-ar="أدوات المطور">Developer Tools</div>
+        <div class="cat-desc" data-en="CSS, JS, HTML minifiers, JSON formatter, Base64 encoder, hash generator." data-ur="CSS، JS، HTML مصغر، JSON فارمیٹر، Base64 انکوڈر۔" data-ar="مصغرات CSS وJS وHTML ومنسق JSON والمزيد.">CSS, JS, HTML minifiers, JSON formatter & more.</div>
+        <div class="cat-tools">
+          <span class="cat-tool-pill">CSS Min</span>
+          <span class="cat-tool-pill">JS Min</span>
+          <span class="cat-tool-pill">JSON</span>
+          <span class="cat-tool-pill">Base64</span>
+        </div>
+        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
       </a>
 
-      <a href="#" class="cat-card" onclick="filterCat('pdf')">
-        <div class="cat-icon-wrap">📑</div>
-        <div>
-          <div class="cat-name" data-en="PDF Tools" data-ur="PDF ٹولز" data-ar="أدوات PDF">PDF Tools</div>
-          <div class="cat-desc" data-en="PDF to Word, Word to PDF, Image to PDF" data-ur="PDF سے Word، Word سے PDF" data-ar="PDF إلى Word وWord إلى PDF">PDF to Word, Word to PDF, Image to PDF</div>
-          <div class="cat-count" data-en="3 Tools" data-ur="3 ٹولز" data-ar="3 أدوات">3 Tools</div>
+      <!-- PDF Tools -->
+      <a href="index.html#pdf" class="cat-card" id="cat-pdf">
+        <div class="cat-card-top">
+          <span class="cat-icon">📑</span>
+          <span class="cat-count">3 tools</span>
         </div>
-        <div class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</div>
-      </a>
-
-      <a href="index.html#allTools" class="cat-card" onclick="showAllTools();return false;">
-        <div class="cat-icon-wrap">🛠️</div>
-        <div>
-          <div class="cat-name" data-en="All Tools" data-ur="تمام ٹولز" data-ar="جميع الأدوات">All Tools</div>
-          <div class="cat-desc" data-en="Browse all 40+ free online tools" data-ur="تمام 40+ مفت ٹولز دیکھیں" data-ar="تصفح جميع الأدوات المجانية">Browse all 40+ free online tools</div>
-          <div class="cat-count" data-en="40+ Tools" data-ur="40+ ٹولز" data-ar="+40 أداة">40+ Tools</div>
+        <div class="cat-name" data-en="PDF Tools" data-ur="PDF ٹولز" data-ar="أدوات PDF">PDF Tools</div>
+        <div class="cat-desc" data-en="PDF to Word, Word to PDF, Image to PDF — convert documents easily." data-ur="PDF سے Word، Word سے PDF، تصویر سے PDF۔" data-ar="PDF إلى Word وWord إلى PDF وصورة إلى PDF.">PDF to Word, Word to PDF, Image to PDF.</div>
+        <div class="cat-tools">
+          <span class="cat-tool-pill">PDF→Word</span>
+          <span class="cat-tool-pill">Word→PDF</span>
+          <span class="cat-tool-pill">Img→PDF</span>
         </div>
-        <div class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</div>
+        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
       </a>
 
     </div>
-  </div>
-
-  <!-- ══ ALL TOOLS (expandable) ══ -->
-  <div class="all-tools-section" id="allTools">
-    <div class="section-head">
-      <div class="section-title" id="allToolsTitle">🛠️ All Tools</div>
-    </div>
-    <div class="all-tools-grid" id="allToolsGrid">
-      <!-- populated by JS -->
-    </div>
-    <div id="noResults" style="display:none;text-align:center;padding:2rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.08em">No tools found.</div>
   </div>
 
 </div><!-- /wrap -->
