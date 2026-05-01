@@ -59,13 +59,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   padding:.22rem .75rem;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;
   cursor:pointer;text-decoration:none;transition:all .2s;}
 .nav-link:hover{border-color:var(--gold);color:var(--gold2);}
-.lang-select{background:rgba(201,168,76,0.08);border:1px solid var(--border);border-radius:20px;
-  padding:.22rem .75rem;color:var(--gold2);font-family:'Amiri',serif;font-size:.85rem;
-  cursor:pointer;outline:none;-webkit-appearance:none;appearance:none;
-  padding-right:1.5rem;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c9a84c'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right .5rem center;}
-.lang-select option{background:#0a0a0f;color:var(--text);}
 
 /* ══ TOP BANNER AD (fixed below nav) ══ */
 .ad-top-banner{position:fixed;top:44px;left:0;right:0;z-index:290;
@@ -183,7 +176,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.07em;margin-top:.2rem;}
 .cat-view::after{content:'→';}
 
-/* ══ ALL TOOLS (hidden, shown when expanded) ══ */
+/* ══ ALL TOOLS ══ */
 .all-tools-section{display:none;}
 .all-tools-section.show{display:block;animation:fadeUp .4s ease both;}
 .all-tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.85rem;}
@@ -217,7 +210,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .h-ornament{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:1rem;text-shadow:0 0 20px rgba(201,168,76,0.5);}
 .h-arabic{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.6rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
 .h-line{width:55px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1rem;}
-.h-urdu{font-family:'Amiri',serif;font-size:clamp(.9rem,2vw,1.05rem);color:var(--text);line-height:2;direction:rtl;margin-bottom:.5rem;}
 .h-en{font-family:'Amiri',serif;font-size:.88rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
 .h-source{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.12em;color:var(--muted);}
 
@@ -259,12 +251,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     <span class="nav-logo-text">ToolNex</span>
   </a>
   <div class="nav-right">
-    <a href="index.html" class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم" data-ar="🏠 الرئيسية">🏠 Home</a>
-    <select class="lang-select" id="langSelect" onchange="setLang(this.value)">
-      <option value="en">🌐 English</option>
-      <option value="ur">🌐 اردو</option>
-      <option value="ar">🌐 عربي</option>
-    </select>
+    <a href="index.html" class="nav-link">🏠 Home</a>
   </div>
 </nav>
 
@@ -279,15 +266,15 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 <!-- ══ HERO ══ -->
 <section class="hero">
   <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
-  <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+  <span class="bismillah-tr">In the name of Allah, the Most Gracious, the Most Merciful</span>
   <div class="hero-badge">⚡ 200+ Free Tools · No Sign-up · 100% Free</div>
-  <h1 class="hero-title" id="heroTitle">ToolNex</h1>
-  <p class="hero-sub" id="heroSub">Your all-in-one free online toolbox — calculators, converters, generators, PDF tools and more. Fast, free and private.</p>
+  <h1 class="hero-title">ToolNex</h1>
+  <p class="hero-sub">Your all-in-one free online toolbox — calculators, converters, generators, PDF tools and more. Fast, free and private.</p>
   <div class="gold-line"></div>
   <div class="search-outer">
     <div class="search-box-wrap">
       <input class="search-input" type="text" id="searchInput" placeholder="🔍 Search tools…" oninput="filterTools()"/>
-      <button class="search-btn" id="searchBtn">Search</button>
+      <button class="search-btn">Search</button>
     </div>
   </div>
 </section>
@@ -295,135 +282,105 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 <div class="wrap">
 
   <!-- ══ STATS ══ -->
-  <div class="stats-row" id="statsRow">
-    <div class="stat-box"><div class="stat-num">200+</div><div class="stat-lbl" id="sLbl1">Free Tools</div></div>
-    <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl"  id="sLbl2">Languages</div></div>
-    <div class="stat-box"><div class="stat-num">0</div><div class="stat-lbl"  id="sLbl3">Registration</div></div>
-    <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl" id="sLbl4">Private</div></div>
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num">200+</div><div class="stat-lbl">Free Tools</div></div>
+    <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Languages</div></div>
+    <div class="stat-box"><div class="stat-num">0</div><div class="stat-lbl">Registration</div></div>
+    <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl">Private</div></div>
   </div>
 
   <!-- ══ TOP 10 POPULAR TOOLS ══ -->
   <div>
     <div class="section-head">
-      <div class="section-title" id="top10Title">🔥 Top 10 Popular Tools</div>
-      <a href="#allTools" class="view-all" id="viewAllTop" onclick="showAllTools()">View All →</a>
+      <div class="section-title">🔥 Top 10 Popular Tools</div>
+      <a href="#allTools" class="view-all" onclick="showAllTools()">View All →</a>
     </div>
     <div class="top-tools-grid" id="top10Grid">
 
       <!-- 1 -->
-      <a href="image-compressor.html" class="tool-card"
-        data-title="Image Compressor – Reduce Image Size Online Free"
-        data-desc="Compress JPG PNG WebP GIF images online. Reduce file size up to 90% without losing quality."
-        data-kw="image compressor, compress image, reduce image size, jpg compressor, png compressor">
+      <a href="image-compressor.html" class="tool-card">
         <span class="tc-rank">#1</span>
         <div class="tc-top"><span class="tc-icon">🗜️</span><span class="tc-badge">Image</span></div>
-        <div class="tc-name" data-en="Image Compressor" data-ur="تصویر کمپریسر" data-ar="ضاغط الصور">Image Compressor</div>
-        <div class="tc-desc" data-en="Compress JPG, PNG, WebP up to 90% smaller" data-ur="تصاویر کو 90% تک چھوٹا کریں" data-ar="اضغط الصور حتى 90%">Compress JPG, PNG, WebP up to 90% smaller</div>
+        <div class="tc-name">Image Compressor</div>
+        <div class="tc-desc">Compress JPG, PNG, WebP up to 90% smaller</div>
       </a>
 
       <!-- 2 -->
-      <a href="pdf-to-word.html" class="tool-card"
-        data-title="PDF to Word Converter – Free Online"
-        data-desc="Convert PDF to Word document online for free. Extract text from PDF and download as .doc file."
-        data-kw="pdf to word, convert pdf to word, pdf to doc, extract text from pdf">
+      <a href="pdf-to-word.html" class="tool-card">
         <span class="tc-rank">#2</span>
         <div class="tc-top"><span class="tc-icon">📄</span><span class="tc-badge">PDF</span></div>
-        <div class="tc-name" data-en="PDF to Word" data-ur="PDF سے Word" data-ar="PDF إلى Word">PDF to Word</div>
-        <div class="tc-desc" data-en="Extract & convert PDF text to Word doc" data-ur="PDF متن Word میں تبدیل کریں" data-ar="تحويل PDF إلى مستند Word">Extract & convert PDF text to Word doc</div>
+        <div class="tc-name">PDF to Word</div>
+        <div class="tc-desc">Extract & convert PDF text to Word doc</div>
       </a>
 
       <!-- 3 -->
-      <a href="word-counter.html" class="tool-card"
-        data-title="Word Counter – Count Words & Characters Online"
-        data-desc="Free online word counter. Count words, characters, sentences and paragraphs instantly."
-        data-kw="word counter, character counter, count words online, word count tool">
+      <a href="word-counter.html" class="tool-card">
         <span class="tc-rank">#3</span>
         <div class="tc-top"><span class="tc-icon">🔤</span><span class="tc-badge">Text</span></div>
-        <div class="tc-name" data-en="Word Counter" data-ur="الفاظ گنتی" data-ar="عداد الكلمات">Word Counter</div>
-        <div class="tc-desc" data-en="Count words, characters & sentences" data-ur="الفاظ، حروف اور جملے گنیں" data-ar="عدّ الكلمات والأحرف والجمل">Count words, characters & sentences</div>
+        <div class="tc-name">Word Counter</div>
+        <div class="tc-desc">Count words, characters & sentences</div>
       </a>
 
       <!-- 4 -->
-      <a href="password-generator.html" class="tool-card"
-        data-title="Password Generator – Create Strong Passwords Free"
-        data-desc="Generate strong, secure and random passwords online. Customize length and character types."
-        data-kw="password generator, strong password, random password, secure password generator">
+      <a href="password-generator.html" class="tool-card">
         <span class="tc-rank">#4</span>
         <div class="tc-top"><span class="tc-icon">🔑</span><span class="tc-badge">Security</span></div>
-        <div class="tc-name" data-en="Password Generator" data-ur="پاس ورڈ جنریٹر" data-ar="منشئ كلمات المرور">Password Generator</div>
-        <div class="tc-desc" data-en="Generate strong & secure passwords" data-ur="مضبوط پاس ورڈ بنائیں" data-ar="إنشاء كلمات مرور قوية">Generate strong & secure passwords</div>
+        <div class="tc-name">Password Generator</div>
+        <div class="tc-desc">Generate strong & secure passwords</div>
       </a>
 
       <!-- 5 -->
-      <a href="qr-code.html" class="tool-card"
-        data-title="QR Code Generator – Free Online QR Creator"
-        data-desc="Create QR codes for URL, WiFi, Email, Phone, vCard, SMS. Download PNG, JPG or SVG."
-        data-kw="qr code generator, create qr code, free qr code, qr code maker">
+      <a href="qr-code.html" class="tool-card">
         <span class="tc-rank">#5</span>
         <div class="tc-top"><span class="tc-icon">📲</span><span class="tc-badge">Generator</span></div>
-        <div class="tc-name" data-en="QR Code Generator" data-ur="QR کوڈ جنریٹر" data-ar="منشئ رمز QR">QR Code Generator</div>
-        <div class="tc-desc" data-en="Create QR for URL, WiFi, vCard & more" data-ur="URL، WiFi، vCard کا QR بنائیں" data-ar="أنشئ QR للروابط وWiFi وvCard">Create QR for URL, WiFi, vCard & more</div>
+        <div class="tc-name">QR Code Generator</div>
+        <div class="tc-desc">Create QR for URL, WiFi, vCard & more</div>
       </a>
 
       <!-- 6 -->
-      <a href="json-formatter.html" class="tool-card"
-        data-title="JSON Formatter & Validator – Free Online"
-        data-desc="Format, beautify and validate JSON online. Minify JSON, fix errors and convert to CSV."
-        data-kw="json formatter, json validator, json beautifier, json minifier, format json">
+      <a href="json-formatter.html" class="tool-card">
         <span class="tc-rank">#6</span>
         <div class="tc-top"><span class="tc-icon">{}</span><span class="tc-badge">Dev</span></div>
-        <div class="tc-name" data-en="JSON Formatter" data-ur="JSON فارمیٹر" data-ar="منسق JSON">JSON Formatter</div>
-        <div class="tc-desc" data-en="Format, validate & minify JSON code" data-ur="JSON فارمیٹ اور درست کریں" data-ar="تنسيق JSON والتحقق منه">Format, validate & minify JSON code</div>
+        <div class="tc-name">JSON Formatter</div>
+        <div class="tc-desc">Format, validate & minify JSON code</div>
       </a>
 
       <!-- 7 -->
-      <a href="age-calculator.html" class="tool-card"
-        data-title="Age Calculator – Calculate Exact Age in Years Months Days"
-        data-desc="Calculate your exact age in years, months, days, hours, minutes and seconds. Find next birthday."
-        data-kw="age calculator, calculate age, how old am i, age in years months days">
+      <a href="age-calculator.html" class="tool-card">
         <span class="tc-rank">#7</span>
         <div class="tc-top"><span class="tc-icon">🎂</span><span class="tc-badge">Calculator</span></div>
-        <div class="tc-name" data-en="Age Calculator" data-ur="عمر کیلکولیٹر" data-ar="حاسبة العمر">Age Calculator</div>
-        <div class="tc-desc" data-en="Exact age in years, months, days & seconds" data-ur="سال، مہینے، دن میں عمر" data-ar="العمر بالسنوات والأشهر والأيام">Exact age in years, months, days & seconds</div>
+        <div class="tc-name">Age Calculator</div>
+        <div class="tc-desc">Exact age in years, months, days & seconds</div>
       </a>
 
       <!-- 8 -->
-      <a href="meta-tag.html" class="tool-card"
-        data-title="Meta Tag Generator – Free SEO Meta Tags Creator"
-        data-desc="Generate SEO-friendly meta tags for your website. Create title, description, keywords and Open Graph tags."
-        data-kw="meta tag generator, seo meta tags, meta description generator, og tags generator">
+      <a href="meta-tag.html" class="tool-card">
         <span class="tc-rank">#8</span>
         <div class="tc-top"><span class="tc-icon">🏷️</span><span class="tc-badge">SEO</span></div>
-        <div class="tc-name" data-en="Meta Tag Generator" data-ur="میٹا ٹیگ جنریٹر" data-ar="منشئ وسوم Meta">Meta Tag Generator</div>
-        <div class="tc-desc" data-en="Generate SEO meta tags & Open Graph" data-ur="SEO میٹا ٹیگز بنائیں" data-ar="إنشاء وسوم SEO وOpen Graph">Generate SEO meta tags & Open Graph</div>
+        <div class="tc-name">Meta Tag Generator</div>
+        <div class="tc-desc">Generate SEO meta tags & Open Graph</div>
       </a>
 
       <!-- 9 -->
-      <a href="bmi-calculator.html" class="tool-card"
-        data-title="BMI Calculator – Body Mass Index Calculator Free"
-        data-desc="Calculate your Body Mass Index (BMI) online. Find if you are underweight, normal, overweight or obese."
-        data-kw="bmi calculator, body mass index, bmi chart, calculate bmi, healthy weight">
+      <a href="bmi-calculator.html" class="tool-card">
         <span class="tc-rank">#9</span>
         <div class="tc-top"><span class="tc-icon">⚖️</span><span class="tc-badge">Health</span></div>
-        <div class="tc-name" data-en="BMI Calculator" data-ur="BMI کیلکولیٹر" data-ar="حاسبة مؤشر كتلة الجسم">BMI Calculator</div>
-        <div class="tc-desc" data-en="Calculate Body Mass Index & health status" data-ur="باڈی ماس انڈیکس معلوم کریں" data-ar="احسب مؤشر كتلة الجسم">Calculate Body Mass Index & health status</div>
+        <div class="tc-name">BMI Calculator</div>
+        <div class="tc-desc">Calculate Body Mass Index & health status</div>
       </a>
 
       <!-- 10 -->
-      <a href="ai-writer.html" class="tool-card"
-        data-title="AI Writer – Free AI Content Generator Online"
-        data-desc="Generate articles, blog posts, emails and more with AI. Free AI writing assistant powered by Claude."
-        data-kw="ai writer, ai content generator, ai article writer, free ai writer, ai text generator">
+      <a href="ai-writer.html" class="tool-card">
         <span class="tc-rank">#10</span>
         <div class="tc-top"><span class="tc-icon">🤖</span><span class="tc-badge" style="color:var(--blue);border-color:rgba(90,180,224,.3);background:rgba(90,180,224,.08)">AI</span></div>
-        <div class="tc-name" data-en="AI Writer" data-ur="AI رائٹر" data-ar="كاتب AI">AI Writer</div>
-        <div class="tc-desc" data-en="Generate content with AI — articles, emails" data-ur="AI سے مضامین اور ای میل لکھیں" data-ar="إنشاء محتوى بالذكاء الاصطناعي">Generate content with AI — articles, emails</div>
+        <div class="tc-name">AI Writer</div>
+        <div class="tc-desc">Generate content with AI — articles, emails</div>
       </a>
 
     </div><!-- /top10Grid -->
   </div>
 
-  <!-- ══ RESPONSIVE MID AD (between tools — best earning spot) ══ -->
+  <!-- ══ RESPONSIVE MID AD ══ -->
   <div class="ad-mid-responsive">
     <div class="ad-slot">
       <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
@@ -432,128 +389,85 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   </div>
 
   <!-- ══ CATEGORIES ══ -->
-  <di
   <div id="categories">
-    <div class="sec-header">
-      <div class="sec-title" id="catTitle">📂 Browse by Category</div>
+    <div class="section-head">
+      <div class="section-title">📂 Browse by Category</div>
     </div>
     <div class="cat-grid" id="catGrid">
 
       <!-- Text Tools -->
-      <a href="index.html#text" class="cat-card" id="cat-text">
-        <div class="cat-card-top">
-          <span class="cat-icon">✍️</span>
-          <span class="cat-count">8 tools</span>
-        </div>
-        <div class="cat-name" data-en="Text Tools" data-ur="متن ٹولز" data-ar="أدوات النص">Text Tools</div>
-        <div class="cat-desc" data-en="Word counter, character counter, grammar checker, text to speech and more." data-ur="الفاظ گنتی، حروف گنتی، گرامر چیکر اور مزید۔" data-ar="عداد الكلمات والأحرف ومدقق القواعد والمزيد.">Word counter, character counter, grammar checker and more.</div>
-        <div class="cat-tools">
-          <span class="cat-tool-pill">Word Counter</span>
-          <span class="cat-tool-pill">Grammar</span>
-          <span class="cat-tool-pill">Speech</span>
-        </div>
-        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
+      <a href="index.html#text" class="cat-card">
+        <div class="cat-icon-wrap">✍️</div>
+        <div class="cat-name">Text Tools</div>
+        <div class="cat-desc">Word counter, character counter, grammar checker and more.</div>
+        <div class="cat-count">8 tools</div>
+        <span class="cat-view">View All</span>
       </a>
 
       <!-- SEO Tools -->
-      <a href="index.html#seo" class="cat-card" id="cat-seo">
-        <div class="cat-card-top">
-          <span class="cat-icon">🔍</span>
-          <span class="cat-count">5 tools</span>
-        </div>
-        <div class="cat-name" data-en="SEO Tools" data-ur="SEO ٹولز" data-ar="أدوات السيو">SEO Tools</div>
-        <div class="cat-desc" data-en="Meta tag generator, SEO checker, website speed test, IP finder and more." data-ur="میٹا ٹیگ جنریٹر، SEO چیکر، ویب سپیڈ ٹیسٹ اور مزید۔" data-ar="منشئ وسوم Meta ومدقق SEO واختبار السرعة والمزيد.">Meta tag generator, SEO checker, speed test and more.</div>
-        <div class="cat-tools">
-          <span class="cat-tool-pill">Meta Tags</span>
-          <span class="cat-tool-pill">SEO Check</span>
-          <span class="cat-tool-pill">Speed Test</span>
-        </div>
-        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
+      <a href="index.html#seo" class="cat-card">
+        <div class="cat-icon-wrap">🔍</div>
+        <div class="cat-name">SEO Tools</div>
+        <div class="cat-desc">Meta tag generator, SEO checker, speed test and more.</div>
+        <div class="cat-count">5 tools</div>
+        <span class="cat-view">View All</span>
       </a>
 
       <!-- Image Tools -->
-      <a href="index.html#image" class="cat-card" id="cat-image">
-        <div class="cat-card-top">
-          <span class="cat-icon">🖼️</span>
-          <span class="cat-count">3 tools</span>
-        </div>
-        <div class="cat-name" data-en="Image Tools" data-ur="تصویر ٹولز" data-ar="أدوات الصور">Image Tools</div>
-        <div class="cat-desc" data-en="Image compressor, image to PDF converter and image editing tools." data-ur="تصویر کمپریسر، تصویر سے PDF اور تصویر ایڈیٹنگ ٹولز۔" data-ar="ضاغط الصور وتحويل الصور إلى PDF وأدوات تحرير الصور.">Image compressor, image to PDF and editing tools.</div>
-        <div class="cat-tools">
-          <span class="cat-tool-pill">Compressor</span>
-          <span class="cat-tool-pill">Image→PDF</span>
-          <span class="cat-tool-pill">Editor</span>
-        </div>
-        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
+      <a href="index.html#image" class="cat-card">
+        <div class="cat-icon-wrap">🖼️</div>
+        <div class="cat-name">Image Tools</div>
+        <div class="cat-desc">Image compressor, image to PDF and editing tools.</div>
+        <div class="cat-count">3 tools</div>
+        <span class="cat-view">View All</span>
       </a>
 
       <!-- AI Tools -->
-      <a href="index.html#ai" class="cat-card" id="cat-ai">
-        <div class="cat-card-top">
-          <span class="cat-icon">🤖</span>
-          <span class="cat-count">3 tools</span>
-        </div>
-        <div class="cat-name" data-en="AI Tools" data-ur="AI ٹولز" data-ar="أدوات الذكاء الاصطناعي">AI Tools</div>
-        <div class="cat-desc" data-en="AI Writer, Grammar Checker, Plagiarism Checker powered by artificial intelligence." data-ur="AI رائٹر، گرامر چیکر، چوری چیکر AI سے چلتے ہیں۔" data-ar="الكاتب بالذكاء الاصطناعي ومدقق القواعد والانتحال.">AI Writer, Grammar Checker & Plagiarism Checker.</div>
-        <div class="cat-tools">
-          <span class="cat-tool-pill">AI Writer</span>
-          <span class="cat-tool-pill">Grammar</span>
-          <span class="cat-tool-pill">Plagiarism</span>
-        </div>
-        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
+      <a href="index.html#ai" class="cat-card">
+        <div class="cat-icon-wrap">🤖</div>
+        <div class="cat-name">AI Tools</div>
+        <div class="cat-desc">AI Writer, Grammar Checker & Plagiarism Checker.</div>
+        <div class="cat-count">3 tools</div>
+        <span class="cat-view">View All</span>
       </a>
 
       <!-- Calculators -->
-      <a href="index.html#calc" class="cat-card" id="cat-calc">
-        <div class="cat-card-top">
-          <span class="cat-icon">🧮</span>
-          <span class="cat-count">9 tools</span>
-        </div>
-        <div class="cat-name" data-en="Calculators" data-ur="کیلکولیٹرز" data-ar="الحاسبات">Calculators</div>
-        <div class="cat-desc" data-en="Age, BMI, Loan, Interest, Percentage, Tip, Discount and more calculators." data-ur="عمر، BMI، لون، سود، فیصد، ٹپ اور ڈسکاؤنٹ کیلکولیٹرز۔" data-ar="حاسبات العمر والجسم والقرض والفائدة والخصم والمزيد.">Age, BMI, Loan, Interest, Percentage and more.</div>
-        <div class="cat-tools">
-          <span class="cat-tool-pill">Age Calc</span>
-          <span class="cat-tool-pill">BMI</span>
-          <span class="cat-tool-pill">Loan</span>
-          <span class="cat-tool-pill">+6 more</span>
-        </div>
-        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
+      <a href="index.html#calc" class="cat-card">
+        <div class="cat-icon-wrap">🧮</div>
+        <div class="cat-name">Calculators</div>
+        <div class="cat-desc">Age, BMI, Loan, Interest, Percentage and more.</div>
+        <div class="cat-count">9 tools</div>
+        <span class="cat-view">View All</span>
       </a>
 
       <!-- Developer Tools -->
-      <a href="index.html#dev" class="cat-card" id="cat-dev">
-        <div class="cat-card-top">
-          <span class="cat-icon">💻</span>
-          <span class="cat-count">7 tools</span>
-        </div>
-        <div class="cat-name" data-en="Developer Tools" data-ur="ڈویلپر ٹولز" data-ar="أدوات المطور">Developer Tools</div>
-        <div class="cat-desc" data-en="CSS, JS, HTML minifiers, JSON formatter, Base64 encoder, hash generator." data-ur="CSS، JS، HTML مصغر، JSON فارمیٹر، Base64 انکوڈر۔" data-ar="مصغرات CSS وJS وHTML ومنسق JSON والمزيد.">CSS, JS, HTML minifiers, JSON formatter & more.</div>
-        <div class="cat-tools">
-          <span class="cat-tool-pill">CSS Min</span>
-          <span class="cat-tool-pill">JS Min</span>
-          <span class="cat-tool-pill">JSON</span>
-          <span class="cat-tool-pill">Base64</span>
-        </div>
-        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
+      <a href="index.html#dev" class="cat-card">
+        <div class="cat-icon-wrap">💻</div>
+        <div class="cat-name">Developer Tools</div>
+        <div class="cat-desc">CSS, JS, HTML minifiers, JSON formatter & more.</div>
+        <div class="cat-count">7 tools</div>
+        <span class="cat-view">View All</span>
       </a>
 
       <!-- PDF Tools -->
-      <a href="index.html#pdf" class="cat-card" id="cat-pdf">
-        <div class="cat-card-top">
-          <span class="cat-icon">📑</span>
-          <span class="cat-count">3 tools</span>
-        </div>
-        <div class="cat-name" data-en="PDF Tools" data-ur="PDF ٹولز" data-ar="أدوات PDF">PDF Tools</div>
-        <div class="cat-desc" data-en="PDF to Word, Word to PDF, Image to PDF — convert documents easily." data-ur="PDF سے Word، Word سے PDF، تصویر سے PDF۔" data-ar="PDF إلى Word وWord إلى PDF وصورة إلى PDF.">PDF to Word, Word to PDF, Image to PDF.</div>
-        <div class="cat-tools">
-          <span class="cat-tool-pill">PDF→Word</span>
-          <span class="cat-tool-pill">Word→PDF</span>
-          <span class="cat-tool-pill">Img→PDF</span>
-        </div>
-        <span class="cat-view" data-en="View All" data-ur="سب دیکھیں" data-ar="عرض الكل">View All</span>
+      <a href="index.html#pdf" class="cat-card">
+        <div class="cat-icon-wrap">📑</div>
+        <div class="cat-name">PDF Tools</div>
+        <div class="cat-desc">PDF to Word, Word to PDF, Image to PDF.</div>
+        <div class="cat-count">3 tools</div>
+        <span class="cat-view">View All</span>
       </a>
 
     </div>
+  </div>
+
+  <!-- ══ ALL TOOLS (shown when expanded) ══ -->
+  <div id="allTools" class="all-tools-section">
+    <div class="section-head">
+      <div class="section-title">🛠️ All Tools</div>
+    </div>
+    <div class="all-tools-grid" id="allToolsGrid"></div>
+    <p id="noResults" style="display:none;text-align:center;color:var(--muted);font-family:'Cinzel',serif;font-size:.85rem;padding:1.5rem;">No tools found. Try a different search.</p>
   </div>
 
 </div><!-- /wrap -->
@@ -564,8 +478,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
     <span class="h-ornament">❁ ☽ ❁</span>
     <p class="h-arabic">«خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»</p>
     <div class="h-line"></div>
-    <p class="h-urdu" id="hUrdu">تم میں سے بہترین وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔</p>
-    <p class="h-en"   id="hEn">"The best among you are those who learn the Quran and teach it to others."</p>
+    <p class="h-en">"The best among you are those who learn the Quran and teach it to others."</p>
     <p class="h-source">— صحيح البخاري | Sahih Al-Bukhari · 5027</p>
   </div>
 </div>
@@ -577,38 +490,38 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 
       <div class="footer-brand">
         <span class="brand-logo">🛠️ ToolNex</span>
-        <p id="footerAboutTxt">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
+        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
       </div>
 
       <div class="footer-col">
-        <h4 id="fcQuick">Quick Links</h4>
+        <h4>Quick Links</h4>
         <ul>
-          <li><a href="index.html"               data-en="🏠 Home"             data-ur="🏠 ہوم"           data-ar="🏠 الرئيسية">🏠 Home</a></li>
-          <li><a href="age-calculator.html"       data-en="🎂 Age Calculator"   data-ur="🎂 عمر کیلکولیٹر" data-ar="🎂 حاسبة العمر">🎂 Age Calculator</a></li>
-          <li><a href="image-compressor.html"     data-en="🗜️ Image Compressor" data-ur="🗜️ تصویر کمپریسر" data-ar="🗜️ ضاغط الصور">🗜️ Image Compressor</a></li>
-          <li><a href="qr-code.html"              data-en="📲 QR Generator"     data-ur="📲 QR جنریٹر"     data-ar="📲 منشئ QR">📲 QR Generator</a></li>
-          <li><a href="currency-converter.html"   data-en="💱 Currency"         data-ur="💱 کرنسی"         data-ar="💱 العملات">💱 Currency</a></li>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+          <li><a href="image-compressor.html">🗜️ Image Compressor</a></li>
+          <li><a href="qr-code.html">📲 QR Generator</a></li>
+          <li><a href="currency-converter.html">💱 Currency</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4 id="fcTools">Tools</h4>
+        <h4>Tools</h4>
         <ul>
-          <li><a href="pdf-to-word.html"    data-en="PDF to Word"     data-ur="PDF سے Word"   data-ar="PDF إلى Word">PDF to Word</a></li>
-          <li><a href="word-to-pdf.html"    data-en="Word to PDF"     data-ur="Word سے PDF"   data-ar="Word إلى PDF">Word to PDF</a></li>
-          <li><a href="image-to-pdf.html"   data-en="Image to PDF"    data-ur="تصویر سے PDF"  data-ar="صورة إلى PDF">Image to PDF</a></li>
-          <li><a href="css-minifier.html"   data-en="CSS Minifier"    data-ur="CSS مصغر"      data-ar="مصغر CSS">CSS Minifier</a></li>
-          <li><a href="json-formatter.html" data-en="JSON Formatter"  data-ur="JSON فارمیٹر"  data-ar="منسق JSON">JSON Formatter</a></li>
+          <li><a href="pdf-to-word.html">PDF to Word</a></li>
+          <li><a href="word-to-pdf.html">Word to PDF</a></li>
+          <li><a href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a href="css-minifier.html">CSS Minifier</a></li>
+          <li><a href="json-formatter.html">JSON Formatter</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4 id="fcCompany">Company</h4>
+        <h4>Company</h4>
         <ul>
-          <li><a href="about.html"         data-en="📖 About Us"      data-ur="📖 ہمارے بارے میں" data-ar="📖 من نحن">📖 About Us</a></li>
-          <li><a href="contact.html"       data-en="✉️ Contact"       data-ur="✉️ رابطہ کریں"     data-ar="✉️ اتصل بنا">✉️ Contact</a></li>
-          <li><a href="privacy.html"       data-en="🔒 Privacy Policy" data-ur="🔒 رازداری"       data-ar="🔒 سياسة الخصوصية">🔒 Privacy Policy</a></li>
-          <li><a href="terms.html"         data-en="📋 Terms of Use"   data-ur="📋 شرائط استعمال" data-ar="📋 شروط الاستخدام">📋 Terms of Use</a></li>
+          <li><a href="about.html">📖 About Us</a></li>
+          <li><a href="contact.html">✉️ Contact</a></li>
+          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
+          <li><a href="terms.html">📋 Terms of Use</a></li>
         </ul>
       </div>
 
@@ -624,110 +537,58 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 <script>
 /* ══ ALL TOOLS DATA ══ */
 const ALL_TOOLS=[
-  {icon:'🎂',name:'Age Calculator',     ur:'عمر کیلکولیٹر',    ar:'حاسبة العمر',           href:'age-calculator.html',     cat:'calc'},
-  {icon:'📅',name:'Date Calculator',    ur:'تاریخ کیلکولیٹر',  ar:'حاسبة التاريخ',          href:'date-calculator.html',    cat:'calc'},
-  {icon:'⏱️',name:'Time Calculator',   ur:'وقت کیلکولیٹر',    ar:'حاسبة الوقت',            href:'time-calculator.html',    cat:'calc'},
-  {icon:'⚖️',name:'BMI Calculator',    ur:'BMI کیلکولیٹر',    ar:'حاسبة BMI',              href:'bmi-calculator.html',     cat:'calc'},
-  {icon:'🏦',name:'Loan Calculator',    ur:'لون کیلکولیٹر',    ar:'حاسبة القرض',            href:'loan-calculator.html',    cat:'calc'},
-  {icon:'💹',name:'Interest Calculator',ur:'سود کیلکولیٹر',    ar:'حاسبة الفائدة',          href:'interest-calculator.html',cat:'calc'},
-  {icon:'%', name:'Percentage Calc',    ur:'فیصد کیلکولیٹر',   ar:'حاسبة النسبة',           href:'percentage-calculator.html',cat:'calc'},
-  {icon:'🧾',name:'Tip Calculator',     ur:'ٹپ کیلکولیٹر',     ar:'حاسبة البقشيش',         href:'tip-calculator.html',     cat:'calc'},
-  {icon:'🏷️',name:'Discount Calculator',ur:'ڈسکاؤنٹ',         ar:'حاسبة الخصم',            href:'discount-calculator.html',cat:'calc'},
-  {icon:'💱',name:'Currency Converter', ur:'کرنسی کنورٹر',     ar:'محول العملات',           href:'currency-converter.html', cat:'calc'},
-  {icon:'📏',name:'Unit Converter',     ur:'یونٹ کنورٹر',      ar:'محول الوحدات',           href:'unit-converter.html',     cat:'calc'},
-  {icon:'🔤',name:'Word Counter',        ur:'الفاظ گنتی',       ar:'عداد الكلمات',           href:'word-counter.html',       cat:'text'},
-  {icon:'🔡',name:'Character Counter',  ur:'حروف گنتی',        ar:'عداد الأحرف',            href:'character-counter.html',  cat:'text'},
-  {icon:'✅',name:'Grammar Checker',    ur:'گرامر چیکر',        ar:'مدقق القواعد',           href:'grammar-checker.html',    cat:'text,ai'},
-  {icon:'🕵️',name:'Plagiarism Checker',ur:'چوری چیکر',        ar:'كاشف الانتحال',          href:'plagiarism-checker.html', cat:'text,ai'},
-  {icon:'🔊',name:'Text to Speech',     ur:'متن سے آواز',      ar:'تحويل النص إلى كلام',   href:'text-to-speech.html',     cat:'text'},
-  {icon:'🎙️',name:'Speech to Text',   ur:'آواز سے متن',      ar:'تحويل الكلام إلى نص',   href:'speech-to-text.html',     cat:'text'},
-  {icon:'🤖',name:'AI Writer',          ur:'AI رائٹر',          ar:'كاتب AI',                href:'ai-writer.html',          cat:'ai'},
-  {icon:'📄',name:'PDF to Word',        ur:'PDF سے Word',      ar:'PDF إلى Word',           href:'pdf-to-word.html',        cat:'pdf'},
-  {icon:'📝',name:'Word to PDF',        ur:'Word سے PDF',      ar:'Word إلى PDF',           href:'word-to-pdf.html',        cat:'pdf'},
-  {icon:'🖼️',name:'Image to PDF',      ur:'تصویر سے PDF',     ar:'صورة إلى PDF',           href:'image-to-pdf.html',       cat:'pdf,image'},
-  {icon:'🗜️',name:'Image Compressor',  ur:'تصویر کمپریسر',    ar:'ضاغط الصور',             href:'image-compressor.html',   cat:'image'},
-  {icon:'🔑',name:'Password Generator', ur:'پاس ورڈ جنریٹر',   ar:'منشئ كلمات المرور',     href:'password-generator.html', cat:'dev'},
-  {icon:'🎲',name:'Random Number',      ur:'بے ترتیب نمبر',     ar:'رقم عشوائي',             href:'random-number.html',      cat:'dev'},
-  {icon:'#️⃣',name:'Hash Generator',   ur:'ہیش جنریٹر',        ar:'منشئ التجزئة',           href:'hash-generator.html',     cat:'dev'},
-  {icon:'🔢',name:'Base64 Encoder',     ur:'Base64 انکوڈر',    ar:'مشفر Base64',             href:'base64.html',             cat:'dev'},
-  {icon:'📲',name:'QR Code Generator',  ur:'QR کوڈ جنریٹر',    ar:'منشئ رمز QR',            href:'qr-code.html',            cat:'dev'},
-  {icon:'|||',name:'Barcode Generator', ur:'بارکوڈ جنریٹر',    ar:'منشئ الباركود',          href:'barcode.html',            cat:'dev'},
-  {icon:'{}', name:'JSON Formatter',    ur:'JSON فارمیٹر',      ar:'منسق JSON',              href:'json-formatter.html',     cat:'dev'},
-  {icon:'</>', name:'HTML Minifier',    ur:'HTML مصغر',         ar:'مصغر HTML',              href:'html-minifier.html',      cat:'dev'},
-  {icon:'🎨',name:'CSS Minifier',       ur:'CSS مصغر',          ar:'مصغر CSS',               href:'css-minifier.html',       cat:'dev'},
-  {icon:'⚡',name:'JS Minifier',        ur:'JS مصغر',           ar:'مصغر JS',                href:'js-minifier.html',        cat:'dev'},
-  {icon:'🏷️',name:'Meta Tag Generator',ur:'میٹا ٹیگ جنریٹر',  ar:'منشئ وسوم Meta',         href:'meta-tag.html',           cat:'seo'},
-  {icon:'🔍',name:'SEO Checker',        ur:'SEO چیکر',           ar:'مدقق SEO',               href:'seo-checker.html',        cat:'seo'},
-  {icon:'⚡',name:'Website Speed Test', ur:'ویب سپیڈ ٹیسٹ',     ar:'اختبار سرعة الموقع',    href:'website-speed.html',      cat:'seo'},
-  {icon:'🌍',name:'IP Address Finder',  ur:'IP ایڈریس',          ar:'كاشف IP',                href:'ip-finder.html',          cat:'seo'},
-  {icon:'🌈',name:'Gradient Generator', ur:'گریڈیئنٹ',           ar:'منشئ التدرج',            href:'gradient.html',           cat:'image'},
-  {icon:'🎨',name:'Color Picker',       ur:'رنگ منتخب',          ar:'منتقي الألوان',          href:'color-picker.html',       cat:'image'},
-  {icon:'🌤️',name:'Weather Checker',   ur:'موسم چیکر',          ar:'مدقق الطقس',             href:'weather.html',            cat:'dev'},
-  {icon:'✔️',name:'To-Do List',        ur:'کام کی فہرست',      ar:'قائمة المهام',            href:'todo.html',               cat:'dev'},
+  {icon:'🎂',name:'Age Calculator',      href:'age-calculator.html'},
+  {icon:'📅',name:'Date Calculator',     href:'date-calculator.html'},
+  {icon:'⏱️',name:'Time Calculator',    href:'time-calculator.html'},
+  {icon:'⚖️',name:'BMI Calculator',     href:'bmi-calculator.html'},
+  {icon:'🏦',name:'Loan Calculator',     href:'loan-calculator.html'},
+  {icon:'💹',name:'Interest Calculator', href:'interest-calculator.html'},
+  {icon:'%', name:'Percentage Calc',     href:'percentage-calculator.html'},
+  {icon:'🧾',name:'Tip Calculator',      href:'tip-calculator.html'},
+  {icon:'🏷️',name:'Discount Calculator',href:'discount-calculator.html'},
+  {icon:'💱',name:'Currency Converter',  href:'currency-converter.html'},
+  {icon:'📏',name:'Unit Converter',      href:'unit-converter.html'},
+  {icon:'🔤',name:'Word Counter',         href:'word-counter.html'},
+  {icon:'🔡',name:'Character Counter',   href:'character-counter.html'},
+  {icon:'✅',name:'Grammar Checker',     href:'grammar-checker.html'},
+  {icon:'🕵️',name:'Plagiarism Checker', href:'plagiarism-checker.html'},
+  {icon:'🔊',name:'Text to Speech',      href:'text-to-speech.html'},
+  {icon:'🎙️',name:'Speech to Text',    href:'speech-to-text.html'},
+  {icon:'🤖',name:'AI Writer',           href:'ai-writer.html'},
+  {icon:'📄',name:'PDF to Word',         href:'pdf-to-word.html'},
+  {icon:'📝',name:'Word to PDF',         href:'word-to-pdf.html'},
+  {icon:'🖼️',name:'Image to PDF',       href:'image-to-pdf.html'},
+  {icon:'🗜️',name:'Image Compressor',   href:'image-compressor.html'},
+  {icon:'🔑',name:'Password Generator',  href:'password-generator.html'},
+  {icon:'🎲',name:'Random Number',       href:'random-number.html'},
+  {icon:'#️⃣',name:'Hash Generator',    href:'hash-generator.html'},
+  {icon:'🔢',name:'Base64 Encoder',      href:'base64.html'},
+  {icon:'📲',name:'QR Code Generator',   href:'qr-code.html'},
+  {icon:'|||',name:'Barcode Generator',  href:'barcode.html'},
+  {icon:'{}', name:'JSON Formatter',     href:'json-formatter.html'},
+  {icon:'</>', name:'HTML Minifier',     href:'html-minifier.html'},
+  {icon:'🎨',name:'CSS Minifier',        href:'css-minifier.html'},
+  {icon:'⚡',name:'JS Minifier',         href:'js-minifier.html'},
+  {icon:'🏷️',name:'Meta Tag Generator', href:'meta-tag.html'},
+  {icon:'🔍',name:'SEO Checker',         href:'seo-checker.html'},
+  {icon:'⚡',name:'Website Speed Test',  href:'website-speed.html'},
+  {icon:'🌍',name:'IP Address Finder',   href:'ip-finder.html'},
+  {icon:'🌈',name:'Gradient Generator',  href:'gradient.html'},
+  {icon:'🎨',name:'Color Picker',        href:'color-picker.html'},
+  {icon:'🌤️',name:'Weather Checker',    href:'weather.html'},
+  {icon:'✔️',name:'To-Do List',         href:'todo.html'},
 ];
 
-/* ══ LANGUAGE ══ */
-const TL={
-  en:{dir:'ltr',l:'en',
-    bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
-    heroTitle:'ToolNex',heroSub:'Your all-in-one free online toolbox — calculators, converters, generators, PDF tools and more. Fast, free and private.',
-    searchBtn:'Search',top10Title:'🔥 Top 10 Popular Tools',catTitle:'📂 Browse by Category',
-    allToolsTitle:'🛠️ All Tools',viewAllTop:'View All →',
-    sLbl1:'Free Tools',sLbl2:'Languages',sLbl3:'Registration',sLbl4:'Private',
-    fcQuick:'Quick Links',fcTools:'Tools',fcCompany:'Company',
-    footerAboutTxt:'Free online tools for everyone. Fast, private, no registration required. Built with ♥',
-    hUrdu:'',hEn:'"The best among you are those who learn the Quran and teach it to others."'},
-  ur:{dir:'rtl',l:'ur',
-    bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
-    heroTitle:'ToolNex',heroSub:'آپ کے لیے 200+ مفت آن لائن ٹولز — کیلکولیٹر، کنورٹر، جنریٹر، PDF ٹولز اور بھی بہت کچھ۔ تیز، مفت اور نجی۔',
-    searchBtn:'تلاش',top10Title:'🔥 ٹاپ 10 مقبول ٹولز',catTitle:'📂 کیٹیگری سے دیکھیں',
-    allToolsTitle:'🛠️ تمام ٹولز',viewAllTop:'سب دیکھیں →',
-    sLbl1:'مفت ٹولز',sLbl2:'زبانیں',sLbl3:'رجسٹریشن نہیں',sLbl4:'نجی',
-    fcQuick:'فوری لنکس',fcTools:'ٹولز',fcCompany:'کمپنی',
-    footerAboutTxt:'سب کے لیے مفت آن لائن ٹولز۔ تیز، نجی، کوئی رجسٹریشن نہیں۔ محبت سے بنایا گیا ♥',
-    hUrdu:'تم میں سے بہترین وہ ہے جو قرآن سیکھے اور دوسروں کو سکھائے۔',hEn:''},
-  ar:{dir:'rtl',l:'ar',
-    bisml:'بسم الله الرحمن الرحيم',
-    heroTitle:'ToolNex',heroSub:'أكثر من 200 أداة مجانية — حاسبات ومحولات ومنشئات وأدوات PDF والمزيد. سريعة ومجانية وخاصة.',
-    searchBtn:'بحث',top10Title:'🔥 أفضل 10 أدوات شائعة',catTitle:'📂 تصفح حسب الفئة',
-    allToolsTitle:'🛠️ جميع الأدوات',viewAllTop:'عرض الكل →',
-    sLbl1:'أداة مجانية',sLbl2:'لغات',sLbl3:'تسجيل',sLbl4:'خصوصية',
-    fcQuick:'روابط سريعة',fcTools:'الأدوات',fcCompany:'الشركة',
-    footerAboutTxt:'أدوات مجانية للجميع. سريعة وخاصة بدون تسجيل. صُنع بكل ♥',
-    hUrdu:'',hEn:'"The best among you are those who learn the Quran and teach it to others."'}
-};
-let lang='en';
-
-function setLang(l){
-  lang=l;const t=TL[l];
-  document.documentElement.lang=t.l;document.documentElement.dir=t.dir;
-  document.body.classList.toggle('rtl',t.dir==='rtl');
-  document.getElementById('langSelect').value=l;
-  const ids=['bismlTr','heroTitle','heroSub','searchBtn','top10Title','catTitle','allToolsTitle',
-    'viewAllTop','sLbl1','sLbl2','sLbl3','sLbl4','fcQuick','fcTools','fcCompany','footerAboutTxt'];
-  ids.forEach(id=>{const el=document.getElementById(id);if(el&&t[id])el.textContent=t[id];});
-  document.querySelectorAll('.nav-link[data-en]').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
-  document.querySelectorAll('[data-en]:not(.nav-link)').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
-  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
-  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
-  // Rebuild all tools with new lang
-  if(document.getElementById('allTools').classList.contains('show')) buildAllTools();
-}
-
 /* ══ BUILD ALL TOOLS GRID ══ */
-function buildAllTools(filter='',cat=''){
+function buildAllTools(filter=''){
   const grid=document.getElementById('allToolsGrid');
   const q=filter.toLowerCase();
-  const filtered=ALL_TOOLS.filter(t=>{
-    const nameMatch=[t.name,t.ur,t.ar].join(' ').toLowerCase().includes(q);
-    const catMatch=!cat||t.cat.includes(cat);
-    return nameMatch&&catMatch;
-  });
+  const filtered=ALL_TOOLS.filter(t=>t.name.toLowerCase().includes(q));
   document.getElementById('noResults').style.display=filtered.length?'none':'block';
   grid.innerHTML=filtered.map(t=>`
     <a href="${t.href}" class="sm-tool">
       <span class="sm-tool-icon">${t.icon}</span>
-      <span class="sm-tool-name">${t[lang==='ur'?'ur':lang==='ar'?'ar':'name']||t.name}</span>
+      <span class="sm-tool-name">${t.name}</span>
     </a>`).join('');
 }
 
@@ -739,11 +600,6 @@ function showAllTools(){
   setTimeout(()=>sec.scrollIntoView({behavior:'smooth',block:'start'}),100);
 }
 
-function filterCat(cat){
-  showAllTools();
-  buildAllTools('',cat);
-}
-
 /* ══ SEARCH ══ */
 function filterTools(){
   const q=document.getElementById('searchInput').value.trim();
@@ -753,7 +609,7 @@ function filterTools(){
   }
 }
 
-/* ══ SCROLL ANIMATION for tool cards ══ */
+/* ══ SCROLL ANIMATION ══ */
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
