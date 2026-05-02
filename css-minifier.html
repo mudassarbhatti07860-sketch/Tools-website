@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<title>CSS Minifier – Free Online CSS Compressor | ToolNex</title>
+<meta name="description" content="Free online CSS Minifier — compress and minify your CSS code instantly. Remove whitespace, comments, and redundant code. Fast, free and private."/>
+<meta name="keywords" content="css minifier, css compressor, minify css, compress css, online css minifier, free css minifier"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://toolnex.site/css-minifier.html"/>
+
+<meta property="og:title" content="CSS Minifier – ToolNex Free Online Tools"/>
+<meta property="og:description" content="Minify and compress CSS code instantly. Free, fast and private."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/css-minifier.html"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="CSS Minifier – ToolNex"/>
+<meta name="twitter:description" content="Free online CSS Minifier — compress CSS code instantly."/>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --gold:#c9a84c;--gold2:#f0d080;--darker:#07070e;--dark:#0d0d14;
+  --panel:rgba(18,18,30,0.96);--border:rgba(201,168,76,0.28);
+  --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;
+  --accent:rgba(201,168,76,0.08);--blue:#5ab4e0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 60%),
+    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    var(--darker);}
+
+/* ══ NAV ══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;
+  padding:.5rem 1.4rem;
+  background:rgba(5,5,12,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+.nav-logo-icon{font-size:1.3rem;}
+.nav-logo-text{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:.06em;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
+  padding:.22rem .75rem;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;
+  cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover{border-color:var(--gold);color:var(--gold2);}
+
+/* ══ TOP BANNER AD ══ */
+.ad-top-banner{position:fixed;top:44px;left:0;right:0;z-index:290;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(5,5,12,0.97);border-bottom:1px solid var(--border);padding:.3rem 0;}
+.ad-top-banner .ad-slot{
+  width:728px;height:90px;max-width:calc(100% - 2rem);
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.18);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){.ad-top-banner .ad-slot{width:320px;height:100px;}}
+
+/* ══ PAGE BODY OFFSET ══ */
+.page-body{padding-top:150px;}
+@media(max-width:768px){.page-body{padding-top:162px;}}
+
+/* ══ PAGE HERO ══ */
+.page-hero{position:relative;z-index:1;text-align:center;padding:2.5rem 1rem 1.5rem;}
+.breadcrumb{font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);letter-spacing:.08em;margin-bottom:.8rem;}
+.breadcrumb a{color:var(--gold);text-decoration:none;}
+.breadcrumb a:hover{color:var(--gold2);}
+.page-badge{display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:20px;
+  padding:.28rem 1rem;font-size:.72rem;font-family:'Cinzel',serif;color:var(--gold);
+  letter-spacing:.08em;margin-bottom:.7rem;}
+.page-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.15;margin-bottom:.5rem;}
+.page-sub{color:var(--muted);font-size:.9rem;max-width:520px;margin:0 auto;line-height:1.7;}
+.gold-line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto 0;}
+
+/* ══ MAIN WRAP ══ */
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 3rem;
+  display:flex;flex-direction:column;gap:1.5rem;}
+
+/* ══ TOOL CARD ══ */
+.tool-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:1.5rem;overflow:hidden;}
+.tool-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;}
+.tool-panel-title{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);
+  letter-spacing:.08em;display:flex;align-items:center;gap:.5rem;}
+.tool-panel-title::before{content:'';width:4px;height:16px;background:var(--gold);border-radius:2px;}
+.panel-actions{display:flex;gap:.5rem;flex-wrap:wrap;}
+
+/* ══ TEXTAREAS ══ */
+.editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:700px){.editor-grid{grid-template-columns:1fr;}}
+
+.editor-box{display:flex;flex-direction:column;gap:.5rem;}
+.editor-label{font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
+.editor-area{width:100%;height:280px;background:rgba(5,5,12,0.8);border:1px solid var(--border);
+  border-radius:10px;padding:1rem;color:var(--text);font-family:'Courier New',Courier,monospace;
+  font-size:.82rem;line-height:1.6;resize:vertical;outline:none;transition:border-color .2s;}
+.editor-area:focus{border-color:var(--gold);box-shadow:0 0 16px rgba(201,168,76,0.12);}
+.editor-area::placeholder{color:rgba(154,136,96,0.5);}
+.editor-area[readonly]{background:rgba(3,3,10,0.9);cursor:default;}
+
+/* ══ BUTTONS ══ */
+.btn{display:inline-flex;align-items:center;gap:.4rem;border:none;border-radius:25px;
+  padding:.5rem 1.2rem;font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;
+  cursor:pointer;transition:all .22s;letter-spacing:.06em;white-space:nowrap;}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#9a7020);color:#000;}
+.btn-gold:hover{transform:scale(1.04);box-shadow:0 4px 18px rgba(201,168,76,0.3);}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold2);}
+.btn-green{background:rgba(76,175,119,0.15);border:1px solid rgba(76,175,119,0.35);color:var(--green);}
+.btn-green:hover{background:rgba(76,175,119,0.25);border-color:var(--green);}
+.btn-red{background:rgba(224,90,90,0.12);border:1px solid rgba(224,90,90,0.3);color:var(--red);}
+.btn-red:hover{background:rgba(224,90,90,0.22);border-color:var(--red);}
+
+/* ══ MINIFY BUTTON (center) ══ */
+.minify-btn-wrap{display:flex;justify-content:center;padding:.5rem 0;}
+.btn-minify{background:linear-gradient(135deg,var(--gold2),var(--gold),#9a7020);color:#000;
+  padding:.65rem 2.5rem;font-size:.92rem;border-radius:30px;border:none;cursor:pointer;
+  font-family:'Cinzel',serif;font-weight:900;letter-spacing:.1em;
+  box-shadow:0 4px 24px rgba(201,168,76,0.25);transition:all .22s;}
+.btn-minify:hover{transform:scale(1.05);box-shadow:0 6px 32px rgba(201,168,76,0.4);}
+.btn-minify:active{transform:scale(.98);}
+
+/* ══ STATS ROW ══ */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;}
+@media(max-width:600px){.stats-bar{grid-template-columns:1fr 1fr;}}
+.stat-chip{background:rgba(5,5,12,0.8);border:1px solid var(--border);border-radius:10px;
+  padding:.75rem;text-align:center;}
+.stat-chip .num{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;color:var(--gold2);line-height:1;}
+.stat-chip .lbl{font-family:'Cinzel',serif;font-size:.63rem;color:var(--muted);letter-spacing:.09em;
+  text-transform:uppercase;margin-top:.2rem;}
+.stat-chip.highlight .num{color:var(--green);}
+
+/* ══ OPTIONS ══ */
+.options-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;}
+.opt-item{display:flex;align-items:center;gap:.6rem;cursor:pointer;padding:.6rem .8rem;
+  background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:8px;
+  transition:border-color .2s,background .2s;}
+.opt-item:hover{border-color:var(--gold);background:rgba(201,168,76,0.05);}
+.opt-item input[type=checkbox]{width:15px;height:15px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;}
+.opt-label{font-size:.78rem;color:var(--text);font-family:'Inter',sans-serif;user-select:none;}
+
+/* ══ NOTIFICATION ══ */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;
+  background:rgba(18,18,30,0.97);border:1px solid var(--gold);border-radius:10px;
+  padding:.7rem 1.2rem;font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);
+  letter-spacing:.06em;box-shadow:0 4px 20px rgba(201,168,76,0.2);
+  transform:translateY(20px);opacity:0;transition:all .3s;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* ══ MID AD ══ */
+.ad-mid-responsive{width:100%;display:flex;align-items:center;justify-content:center;
+  background:rgba(201,168,76,0.02);border:1px dashed rgba(201,168,76,0.18);
+  border-radius:10px;padding:.5rem;min-height:70px;}
+.ad-mid-responsive .ad-slot{width:728px;height:90px;max-width:100%;
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.12);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){.ad-mid-responsive .ad-slot{width:468px;height:60px;}}
+@media(max-width:520px){.ad-mid-responsive .ad-slot{width:320px;height:50px;}}
+
+/* ══ HOW TO USE ══ */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
+.how-step{background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:12px;padding:1.1rem;
+  display:flex;flex-direction:column;gap:.5rem;transition:border-color .2s;}
+.how-step:hover{border-color:var(--gold);}
+.how-num{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.how-title{font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;color:var(--gold2);letter-spacing:.04em;}
+.how-desc{font-size:.75rem;color:var(--muted);line-height:1.5;}
+
+/* ══ SECTION HEADER ══ */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;}
+.section-title{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;}
+.section-title::before{content:'';width:4px;height:18px;background:var(--gold);border-radius:2px;}
+
+/* ══ FAQ ══ */
+.faq-list{display:flex;flex-direction:column;gap:.6rem;}
+.faq-item{background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s;}
+.faq-item:hover{border-color:rgba(201,168,76,0.5);}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:.9rem 1rem;
+  font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);letter-spacing:.04em;
+  cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
+.faq-q span.arrow{font-size:.9rem;color:var(--gold);transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-q span.arrow{transform:rotate(180deg);}
+.faq-a{display:none;padding:0 1rem .9rem;font-size:.8rem;color:var(--muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+
+/* ══ RELATED TOOLS ══ */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.85rem;}
+@media(max-width:480px){.related-grid{grid-template-columns:1fr 1fr;}}
+.rel-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;
+  padding:.9rem;text-decoration:none;display:flex;align-items:center;gap:.7rem;
+  transition:transform .2s,border-color .2s;}
+.rel-card:hover{transform:translateY(-3px);border-color:var(--gold);}
+.rel-icon{font-size:1.3rem;flex-shrink:0;}
+.rel-name{font-size:.8rem;color:var(--text);font-family:'Inter',sans-serif;font-weight:500;}
+
+/* ══ FOOTER ══ */
+.footer{background:rgba(3,3,10,0.99);border-top:1px solid var(--border);padding:2.5rem 1rem 1.5rem;position:relative;z-index:1;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
+@media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
+.footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.5rem;display:block;}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
+.footer-col h4{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.footer-col ul li a{font-size:.78rem;color:var(--muted);text-decoration:none;
+  transition:color .2s;font-family:'Inter',sans-serif;}
+.footer-col ul li a:hover{color:var(--gold2);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.footer-copy{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.08em;}
+.footer-noor{font-family:'Amiri',serif;font-size:1rem;color:var(--gold2);direction:rtl;text-shadow:0 0 14px rgba(201,168,76,0.4);}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.anim-fade{animation:fadeUp .6s ease both;}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-icon">🛠️</span>
+    <span class="nav-logo-text">ToolNex</span>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="index.html#dev" class="nav-link">💻 Dev Tools</a>
+  </div>
+</nav>
+
+<!-- ══ TOP BANNER AD ══ -->
+<div class="ad-top-banner">
+  <div class="ad-slot">
+    <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
+    📢 Top Banner Ad · 728×90 Desktop / 320×100 Mobile
+  </div>
+</div>
+
+<!-- ══ PAGE BODY ══ -->
+<div class="page-body">
+
+  <!-- ══ HERO ══ -->
+  <div class="page-hero anim-fade">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &nbsp;›&nbsp;
+      <a href="index.html#dev">Developer Tools</a> &nbsp;›&nbsp;
+      CSS Minifier
+    </div>
+    <div class="page-badge">🎨 Developer Tool · Free & Instant</div>
+    <h1 class="page-title">CSS Minifier</h1>
+    <p class="page-sub">Compress and minify your CSS code instantly — remove whitespace, comments and redundant characters.</p>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ══ OPTIONS ══ -->
+    <div class="tool-panel anim-fade">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">⚙️ Minification Options</div>
+      </div>
+      <div class="options-grid">
+        <label class="opt-item">
+          <input type="checkbox" id="optComments" checked/>
+          <span class="opt-label">🗑️ Remove Comments</span>
+        </label>
+        <label class="opt-item">
+          <input type="checkbox" id="optWhitespace" checked/>
+          <span class="opt-label">↔️ Remove Whitespace</span>
+        </label>
+        <label class="opt-item">
+          <input type="checkbox" id="optSemicolon" checked/>
+          <span class="opt-label">; Remove Last Semicolons</span>
+        </label>
+        <label class="opt-item">
+          <input type="checkbox" id="optZero" checked/>
+          <span class="opt-label">0️⃣ Shorten Zero Values</span>
+        </label>
+        <label class="opt-item">
+          <input type="checkbox" id="optColor" checked/>
+          <span class="opt-label">🎨 Shorten Color Codes</span>
+        </label>
+        <label class="opt-item">
+          <input type="checkbox" id="optNone" checked/>
+          <span class="opt-label">✂️ Simplify None/0 Borders</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- ══ EDITOR ══ -->
+    <div class="tool-panel anim-fade">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">🎨 CSS Editor</div>
+        <div class="panel-actions">
+          <button class="btn btn-outline" onclick="loadSample()">📋 Load Sample</button>
+          <button class="btn btn-red" onclick="clearAll()">🗑️ Clear</button>
+        </div>
+      </div>
+
+      <div class="editor-grid">
+        <div class="editor-box">
+          <div class="editor-label">📥 Input CSS (Paste here)</div>
+          <textarea class="editor-area" id="inputCSS" placeholder="/* Paste your CSS here */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+}"></textarea>
+        </div>
+        <div class="editor-box">
+          <div class="editor-label">📤 Minified CSS (Output)</div>
+          <textarea class="editor-area" id="outputCSS" readonly placeholder="Minified CSS will appear here…"></textarea>
+        </div>
+      </div>
+
+      <!-- ══ MINIFY BUTTON ══ -->
+      <div class="minify-btn-wrap" style="margin-top:1rem;">
+        <button class="btn-minify" onclick="minifyCSS()">⚡ Minify CSS</button>
+      </div>
+
+      <!-- ══ ACTION BUTTONS ══ -->
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem;">
+        <button class="btn btn-green" onclick="copyOutput()">📋 Copy Output</button>
+        <button class="btn btn-outline" onclick="downloadOutput()">⬇️ Download .css</button>
+        <button class="btn btn-outline" onclick="swapContent()">🔄 Swap Input/Output</button>
+      </div>
+    </div>
+
+    <!-- ══ STATS ══ -->
+    <div class="tool-panel anim-fade" id="statsPanel" style="display:none;">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">📊 Compression Stats</div>
+      </div>
+      <div class="stats-bar">
+        <div class="stat-chip">
+          <div class="num" id="statOriginal">—</div>
+          <div class="lbl">Original Size</div>
+        </div>
+        <div class="stat-chip">
+          <div class="num" id="statMinified">—</div>
+          <div class="lbl">Minified Size</div>
+        </div>
+        <div class="stat-chip highlight">
+          <div class="num" id="statSaved">—</div>
+          <div class="lbl">Bytes Saved</div>
+        </div>
+        <div class="stat-chip highlight">
+          <div class="num" id="statPercent">—</div>
+          <div class="lbl">Reduction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ MID AD ══ -->
+    <div class="ad-mid-responsive">
+      <div class="ad-slot">
+        <!-- <ins class="adsbygoogle" ...></ins> -->
+        📢 Responsive Ad · 728×90 → 468×60 → 320×50 (Auto)
+      </div>
+    </div>
+
+    <!-- ══ HOW TO USE ══ -->
+    <div class="tool-panel anim-fade">
+      <div class="section-head">
+        <div class="section-title">📖 How to Use</div>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">01</div>
+          <div class="how-title">Paste Your CSS</div>
+          <div class="how-desc">Paste your CSS code into the left input box or click "Load Sample" to try an example.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">02</div>
+          <div class="how-title">Choose Options</div>
+          <div class="how-desc">Select which optimizations you want — remove comments, whitespace, shorten colors and more.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">03</div>
+          <div class="how-title">Click Minify</div>
+          <div class="how-desc">Hit the ⚡ Minify CSS button to instantly compress your code and see the savings.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">04</div>
+          <div class="how-title">Copy or Download</div>
+          <div class="how-desc">Copy the minified output to clipboard or download it directly as a .css file.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ FAQ ══ -->
+    <div class="tool-panel anim-fade">
+      <div class="section-head">
+        <div class="section-title">❓ Frequently Asked Questions</div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            What is CSS Minification? <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">CSS minification is the process of removing all unnecessary characters from CSS source code — whitespace, comments, newlines and redundant semicolons — without changing its functionality. This reduces file size and improves website loading speed.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            Does minified CSS work the same? <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">Yes. Minified CSS is 100% functionally identical to the original. All styles, selectors and properties remain intact — only unnecessary whitespace and comments are removed. Browsers read minified CSS exactly the same way.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            How much size can I save? <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">Typically 20%–60% depending on how much whitespace and comments your original file has. Large frameworks like Bootstrap can often be reduced by 30–40% through minification alone.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            Is my CSS data safe? <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">Completely. ToolNex processes everything in your browser — no CSS code is ever sent to our servers. Your data stays 100% private and secure on your own device.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">
+            Can I minify CSS with media queries? <span class="arrow">▾</span>
+          </button>
+          <div class="faq-a">Yes! This minifier fully supports @media queries, @keyframes, @import, CSS variables, pseudo-classes, pseudo-elements and all modern CSS3 features.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ RELATED TOOLS ══ -->
+    <div>
+      <div class="section-head">
+        <div class="section-title">🔗 Related Tools</div>
+      </div>
+      <div class="related-grid">
+        <a href="html-minifier.html" class="rel-card"><span class="rel-icon"></></span><span class="rel-name">HTML Minifier</span></a>
+        <a href="js-minifier.html" class="rel-card"><span class="rel-icon">⚡</span><span class="rel-name">JS Minifier</span></a>
+        <a href="json-formatter.html" class="rel-card"><span class="rel-icon">{}</span><span class="rel-name">JSON Formatter</span></a>
+        <a href="meta-tag.html" class="rel-card"><span class="rel-icon">🏷️</span><span class="rel-name">Meta Tag Generator</span></a>
+        <a href="color-picker.html" class="rel-card"><span class="rel-icon">🎨</span><span class="rel-name">Color Picker</span></a>
+        <a href="base64.html" class="rel-card"><span class="rel-icon">🔢</span><span class="rel-name">Base64 Encoder</span></a>
+      </div>
+    </div>
+
+  </div><!-- /wrap -->
+</div><!-- /page-body -->
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-logo">🛠️ ToolNex</span>
+        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+          <li><a href="image-compressor.html">🗜️ Image Compressor</a></li>
+          <li><a href="qr-code.html">📲 QR Generator</a></li>
+          <li><a href="currency-converter.html">💱 Currency</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dev Tools</h4>
+        <ul>
+          <li><a href="css-minifier.html">🎨 CSS Minifier</a></li>
+          <li><a href="js-minifier.html">⚡ JS Minifier</a></li>
+          <li><a href="html-minifier.html"></> HTML Minifier</a></li>
+          <li><a href="json-formatter.html">{} JSON Formatter</a></li>
+          <li><a href="base64.html">🔢 Base64 Encoder</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">📖 About Us</a></li>
+          <li><a href="contact.html">✉️ Contact</a></li>
+          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
+          <li><a href="terms.html">📋 Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+      <div class="footer-noor">نُورُ الہُدیٰ</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ TOAST ══ -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ══ SAMPLE CSS ══ */
+const SAMPLE_CSS = `/* ToolNex Sample CSS */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: #333333;
+}
+
+/* Navigation Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    background-color: #000000;
+    border-bottom: 1px solid #cccccc;
+    padding: 0px 20px;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 15px;
+    border: none;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0066ff;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+}`;
+
+function loadSample() {
+  document.getElementById('inputCSS').value = SAMPLE_CSS;
+  showToast('📋 Sample CSS loaded!');
+}
+
+/* ══ MINIFY ══ */
+function minifyCSS() {
+  let css = document.getElementById('inputCSS').value.trim();
+  if (!css) { showToast('⚠️ Please paste CSS first!'); return; }
+
+  const original = css.length;
+
+  // Remove comments
+  if (document.getElementById('optComments').checked) {
+    css = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  }
+
+  // Remove whitespace (newlines, tabs, multiple spaces)
+  if (document.getElementById('optWhitespace').checked) {
+    css = css.replace(/\s+/g, ' ');
+    css = css.replace(/\s*{\s*/g, '{');
+    css = css.replace(/\s*}\s*/g, '}');
+    css = css.replace(/\s*:\s*/g, ':');
+    css = css.replace(/\s*;\s*/g, ';');
+    css = css.replace(/\s*,\s*/g, ',');
+    css = css.replace(/\s*>\s*/g, '>');
+    css = css.replace(/\s*~\s*/g, '~');
+    css = css.replace(/\s*\+\s*/g, '+');
+  }
+
+  // Remove last semicolon before closing brace
+  if (document.getElementById('optSemicolon').checked) {
+    css = css.replace(/;}/g, '}');
+  }
+
+  // Shorten zero values: 0px → 0, 0em → 0, etc.
+  if (document.getElementById('optZero').checked) {
+    css = css.replace(/\b0(px|em|rem|%|pt|cm|mm|in|ex|ch|vw|vh|vmin|vmax)\b/g, '0');
+    css = css.replace(/:0 0 0 0/g, ':0');
+    css = css.replace(/:0 0 0/g, ':0');
+    css = css.replace(/:0 0/g, ':0');
+  }
+
+  // Shorten color codes: #ffffff → #fff, #aabbcc → #abc
+  if (document.getElementById('optColor').checked) {
+    css = css.replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g, '#$1$2$3');
+  }
+
+  // Simplify border: none and border: 0
+  if (document.getElementById('optNone').checked) {
+    css = css.replace(/border:none/g, 'border:0');
+    css = css.replace(/outline:none/g, 'outline:0');
+  }
+
+  css = css.trim();
+
+  document.getElementById('outputCSS').value = css;
+
+  // Show stats
+  const minified = css.length;
+  const saved = original - minified;
+  const percent = original > 0 ? ((saved / original) * 100).toFixed(1) : 0;
+
+  document.getElementById('statOriginal').textContent = formatBytes(original);
+  document.getElementById('statMinified').textContent = formatBytes(minified);
+  document.getElementById('statSaved').textContent = formatBytes(saved);
+  document.getElementById('statPercent').textContent = percent + '%';
+  document.getElementById('statsPanel').style.display = 'block';
+  document.getElementById('statsPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  showToast('⚡ CSS Minified! Saved ' + percent + '%');
+}
+
+function formatBytes(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  return (bytes / 1024).toFixed(2) + ' KB';
+}
+
+/* ══ COPY ══ */
+function copyOutput() {
+  const out = document.getElementById('outputCSS').value;
+  if (!out) { showToast('⚠️ Nothing to copy!'); return; }
+  navigator.clipboard.writeText(out).then(() => showToast('✅ Copied to clipboard!'));
+}
+
+/* ══ DOWNLOAD ══ */
+function downloadOutput() {
+  const out = document.getElementById('outputCSS').value;
+  if (!out) { showToast('⚠️ Nothing to download!'); return; }
+  const blob = new Blob([out], { type: 'text/css' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'minified.css'; a.click();
+  URL.revokeObjectURL(url);
+  showToast('⬇️ Download started!');
+}
+
+/* ══ CLEAR ══ */
+function clearAll() {
+  document.getElementById('inputCSS').value = '';
+  document.getElementById('outputCSS').value = '';
+  document.getElementById('statsPanel').style.display = 'none';
+  showToast('🗑️ Cleared!');
+}
+
+/* ══ SWAP ══ */
+function swapContent() {
+  const a = document.getElementById('inputCSS');
+  const b = document.getElementById('outputCSS');
+  const tmp = a.value;
+  a.value = b.value;
+  b.value = tmp;
+  showToast('🔄 Swapped!');
+}
+
+/* ══ TOAST ══ */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+/* ══ FAQ ══ */
+function toggleFAQ(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+/* ══ SCROLL ANIMATION ══ */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: .08 });
+
+document.querySelectorAll('.tool-panel, .how-step, .rel-card').forEach((c, i) => {
+  c.style.opacity = '0';
+  c.style.transform = 'translateY(20px)';
+  c.style.transition = `opacity .45s ${i * .06}s ease, transform .45s ${i * .06}s ease, box-shadow .22s, border-color .22s`;
+  io.observe(c);
+});
+</script>
+</body>
+</html>
