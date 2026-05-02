@@ -1,263 +1,358 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>QR Code Generator – نُور الہدیٰ</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>QR Code Generator – Free Online QR Creator | ToolNex</title>
+<meta name="description" content="Generate QR codes free online. URL, WiFi, Email, Phone, SMS, vCard, WhatsApp, Location, Bitcoin and more. Custom colors, logo, size. Download PNG, SVG. No sign-up."/>
+<meta name="keywords" content="qr code generator, free qr code, create qr code, qr code maker, wifi qr code, vcard qr code, custom qr code, qr code with logo"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://toolnex.site/qr-code.html"/>
+<meta property="og:title" content="QR Code Generator – Free Custom QR Codes | ToolNex"/>
+<meta property="og:description" content="Generate QR codes for URL, WiFi, Email, Phone, vCard, WhatsApp and more. Custom colors and logo. Free."/>
+<meta property="og:type" content="website"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<!-- QR Code library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <style>
 :root{
-  --gold:#c9a84c;--gold2:#f0d080;--dark:#0d0d14;--darker:#07070e;
-  --panel:rgba(20,20,35,0.95);--border:rgba(201,168,76,0.3);
+  --gold:#c9a84c;--gold2:#f0d080;--darker:#07070e;--dark:#0d0d14;
+  --panel:rgba(18,18,30,0.96);--border:rgba(201,168,76,0.28);
   --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;
-  --accent:rgba(201,168,76,0.08);
+  --blue:#5ab4e0;--purple:#a07ad0;--orange:#e09a3a;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Amiri',serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:
-    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
-    radial-gradient(ellipse 40% 30% at 90% 80%,rgba(201,168,76,0.04) 0%,transparent 60%),
-    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
-    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
+    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 60%),
+    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
     var(--darker);}
 
 /* ══ NAV ══ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;
-  padding:.55rem 1.2rem;background:rgba(7,7,14,0.97);
-  backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
-.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;text-decoration:none;
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;min-height:44px;
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;
+  padding:.5rem 1.4rem;background:rgba(5,5,12,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+.nav-logo-icon{font-size:1.3rem;}
+.nav-logo-text{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
   background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.nav-right{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.06em;}
+.nav-right{display:flex;align-items:center;gap:.4rem;}
 .nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
-  padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;
-  cursor:pointer;text-decoration:none;transition:all .2s;}
-.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
-.nav-link.active{background:rgba(201,168,76,0.1);}
-
-/* ── Single Language Dropdown ── */
-.lang-select{background:rgba(201,168,76,0.08);border:1px solid var(--border);border-radius:20px;
-  padding:.22rem .75rem;color:var(--gold2);font-family:'Amiri',serif;font-size:.85rem;
-  cursor:pointer;outline:none;transition:all .2s;-webkit-appearance:none;appearance:none;
-  padding-right:1.6rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c9a84c'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right .55rem center;}
-.lang-select:focus{border-color:var(--gold);}
-.lang-select option{background:#0a0a0f;color:var(--text);}
+  padding:.22rem .75rem;color:var(--muted);font-size:.82rem;text-decoration:none;transition:all .2s;}
+.nav-link:hover{border-color:var(--gold);color:var(--gold2);}
 
 /* ══ TOP BANNER AD ══ */
-.ad-top-banner{
-  position:fixed;top:44px;left:0;right:0;z-index:190;
+.ad-top-banner{position:fixed;top:44px;left:0;right:0;z-index:290;min-height:96px;
   display:flex;align-items:center;justify-content:center;
-  background:rgba(7,7,14,0.97);border-bottom:1px solid var(--border);padding:.25rem 0;}
-.ad-top-banner .ad-slot{
-  width:728px;height:90px;max-width:100%;
-  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);border-radius:6px;
+  background:rgba(5,5,12,0.97);border-bottom:1px solid var(--border);padding:.35rem 1rem;}
+.ad-top-banner .ad-slot{width:728px;height:90px;max-width:calc(100% - 2rem);
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.18);border-radius:6px;
   display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;}
-@media(max-width:768px){.ad-top-banner .ad-slot{width:320px;height:100px;}}
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){.ad-top-banner{min-height:116px;}.ad-top-banner .ad-slot{width:320px;height:100px;}}
+
+/* ══ PAGE BODY ══ */
+.page-body{padding-top:160px;}
+@media(max-width:768px){.page-body{padding-top:180px;}}
 
 /* ══ HERO ══ */
-.hero{position:relative;z-index:1;padding:8.8rem 1rem 2.5rem;text-align:center;}
-@media(max-width:768px){.hero{padding:9.5rem 1rem 2.5rem;}}
-.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.5rem,4vw,2.5rem);color:var(--gold2);
-  direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;animation:fadeDown .9s ease both;}
-.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.82rem,2vw,1rem);color:var(--gold);
-  opacity:.85;display:block;margin-top:.2rem;animation:fadeDown .9s .1s ease both;}
-.hero-icon{font-size:2rem;color:var(--gold);display:block;margin-bottom:.5rem;animation:spin 14s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-.hero-title{font-family:'Cinzel',serif;font-size:clamp(1.9rem,5vw,3.4rem);font-weight:900;
-  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 55%,#7a5c10 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:.4rem 0;}
-.hero-sub{color:var(--muted);font-size:clamp(.88rem,2vw,1.02rem);}
-.gold-line{width:110px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0;}
+.hero{position:relative;z-index:1;padding:2.5rem 1rem 2rem;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:20px;
+  padding:.28rem 1rem;font-size:.72rem;font-family:'Cinzel',serif;color:var(--gold);
+  letter-spacing:.08em;margin-bottom:.7rem;animation:fadeDown .9s ease both;}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:.5rem;animation:fadeDown .9s .1s ease both;}
+.hero-sub{color:var(--muted);font-size:clamp(.88rem,2vw,1.05rem);max-width:580px;margin:0 auto .6rem;
+  line-height:1.7;animation:fadeDown .9s .2s ease both;}
+.gold-line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.6rem auto 0;}
 
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
-@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+/* ══ BREADCRUMB ══ */
+.breadcrumb{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:.4rem 1rem 0;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.breadcrumb a{font-size:.75rem;color:var(--muted);text-decoration:none;font-family:'Cinzel',serif;letter-spacing:.05em;transition:color .2s;}
+.breadcrumb a:hover{color:var(--gold2);}
+.breadcrumb span{font-size:.75rem;color:rgba(201,168,76,0.4);}
+.breadcrumb .bc-cur{font-size:.75rem;color:var(--gold);font-family:'Cinzel',serif;letter-spacing:.05em;}
 
-/* ══ WRAP ══ */
-.wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;
-  padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:1.8rem;}
+/* ══ MAIN WRAP ══ */
+.main-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:1.2rem 1rem 3rem;display:flex;flex-direction:column;gap:1.5rem;}
 
-/* ══ RESPONSIVE MID AD ══ */
-.ad-mid-responsive{
-  width:100%;display:flex;align-items:center;justify-content:center;
-  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);
+/* ══ TWO-COL LAYOUT ══ */
+.tool-layout{display:grid;grid-template-columns:1fr 360px;gap:1.5rem;align-items:start;}
+@media(max-width:900px){.tool-layout{grid-template-columns:1fr;}}
+
+/* ══ TOOL PANEL ══ */
+.tool-panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;}
+.panel-header{padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;
+  background:rgba(201,168,76,0.03);}
+.panel-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold2);display:flex;align-items:center;gap:.5rem;letter-spacing:.05em;}
+
+/* ══ TYPE TABS ══ */
+.type-tabs{display:flex;flex-wrap:wrap;gap:.4rem;padding:1.2rem 1.5rem 0;}
+.type-tab{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;
+  padding:.38rem .9rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);
+  cursor:pointer;transition:all .2s;letter-spacing:.04em;display:flex;align-items:center;gap:.3rem;}
+.type-tab:hover{border-color:var(--gold);color:var(--gold2);}
+.type-tab.active{background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold2);}
+
+/* ══ FORM AREA ══ */
+.form-area{padding:1.2rem 1.5rem 1.5rem;}
+.field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.9rem;}
+.field:last-child{margin-bottom:0;}
+.field label{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+.field input,.field select,.field textarea{
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:9px;
+  padding:.62rem .9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.88rem;
+  outline:none;transition:border-color .2s,box-shadow .2s;width:100%;}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--gold);box-shadow:0 0 12px rgba(201,168,76,0.12);}
+.field select{-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c9a84c'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .8rem center;}
+.field select option{background:#0a0a0f;}
+.field textarea{resize:vertical;min-height:80px;line-height:1.6;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+@media(max-width:440px){.field-row{grid-template-columns:1fr;}}
+.field-hint{font-size:.7rem;color:var(--muted);margin-top:.2rem;}
+
+/* WiFi toggle */
+.wifi-enc-row{display:flex;gap:.4rem;flex-wrap:wrap;}
+.enc-chip{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;
+  padding:.3rem .75rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);
+  cursor:pointer;transition:all .2s;letter-spacing:.04em;}
+.enc-chip:hover{border-color:var(--gold);color:var(--gold2);}
+.enc-chip.active{background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold2);}
+
+/* ══ CHAR COUNTER ══ */
+.char-count{font-size:.68rem;color:var(--muted);text-align:right;margin-top:.2rem;font-family:'Cinzel',serif;letter-spacing:.04em;}
+
+/* ══ CUSTOMISE PANEL ══ */
+.custom-panel{padding:1.2rem 1.5rem;border-top:1px solid var(--border);background:rgba(201,168,76,0.02);}
+.custom-title{font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem;}
+.custom-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.85rem;}
+
+/* Color pickers */
+.color-field{display:flex;flex-direction:column;gap:.3rem;}
+.color-label{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+.color-wrap{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);border-radius:9px;padding:.4rem .7rem;
+  transition:border-color .2s;cursor:pointer;}
+.color-wrap:hover{border-color:var(--gold);}
+.color-swatch{width:24px;height:24px;border-radius:5px;border:1px solid rgba(255,255,255,0.15);flex-shrink:0;}
+.color-hex{font-family:'Cinzel',serif;font-size:.75rem;color:var(--text);letter-spacing:.04em;}
+input[type="color"]{position:absolute;opacity:0;width:0;height:0;}
+
+/* Style chips */
+.style-chips{display:flex;flex-wrap:wrap;gap:.4rem;}
+.style-chip{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;
+  padding:.28rem .7rem;font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);
+  cursor:pointer;transition:all .2s;letter-spacing:.04em;}
+.style-chip:hover{border-color:var(--gold);color:var(--gold2);}
+.style-chip.active{background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold2);}
+
+/* Size slider */
+.size-slider{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;
+  background:linear-gradient(90deg,var(--gold) var(--pct,50%),rgba(201,168,76,0.15) var(--pct,50%));
+  outline:none;cursor:pointer;}
+.size-slider::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;
+  background:var(--gold2);border:2px solid var(--gold);cursor:pointer;box-shadow:0 0 6px rgba(201,168,76,0.4);}
+
+/* Error level */
+.ec-chips{display:flex;gap:.4rem;flex-wrap:wrap;}
+.ec-chip{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;
+  padding:.28rem .65rem;font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);
+  cursor:pointer;transition:all .2s;letter-spacing:.04em;}
+.ec-chip:hover{border-color:var(--gold);color:var(--gold2);}
+.ec-chip.active{background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold2);}
+
+/* ══ LOGO UPLOAD ══ */
+.logo-upload-wrap{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
+.logo-preview{width:40px;height:40px;border-radius:8px;border:1px solid var(--border);
+  background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;overflow:hidden;flex-shrink:0;}
+.logo-preview img{width:100%;height:100%;object-fit:contain;}
+.btn-logo-upload{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;
+  padding:.4rem .85rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);
+  cursor:pointer;transition:all .2s;letter-spacing:.04em;}
+.btn-logo-upload:hover{border-color:var(--gold);color:var(--gold2);}
+.btn-logo-remove{background:transparent;border:1px solid rgba(224,90,90,0.3);border-radius:8px;
+  padding:.4rem .65rem;font-size:.72rem;color:var(--red);cursor:pointer;transition:all .2s;display:none;}
+.btn-logo-remove:hover{background:rgba(224,90,90,0.1);}
+#logoFileInput{display:none;}
+
+/* ══ GENERATE BUTTON ══ */
+.gen-area{padding:1.2rem 1.5rem;border-top:1px solid var(--border);
+  display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;background:rgba(201,168,76,0.02);}
+.btn-generate{background:linear-gradient(135deg,var(--gold2),var(--gold),#9a7020);
+  border:none;border-radius:12px;padding:.75rem 2rem;
+  color:#000;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;
+  cursor:pointer;transition:all .25s;letter-spacing:.06em;
+  display:flex;align-items:center;gap:.5rem;
+  box-shadow:0 4px 20px rgba(201,168,76,0.25);}
+.btn-generate:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,0.4);}
+.btn-reset{background:transparent;border:1px solid var(--border);border-radius:12px;
+  padding:.75rem 1.3rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.82rem;
+  cursor:pointer;transition:all .2s;}
+.btn-reset:hover{border-color:var(--red);color:var(--red);}
+
+/* ══ QR PREVIEW PANEL (right col) ══ */
+.qr-preview-panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;
+  overflow:hidden;position:sticky;top:164px;}
+.qr-preview-header{padding:1rem 1.3rem;border-bottom:1px solid var(--border);
+  background:rgba(201,168,76,0.03);}
+.qr-preview-title{font-family:'Cinzel',serif;font-size:.85rem;color:var(--gold2);letter-spacing:.05em;display:flex;align-items:center;gap:.4rem;}
+
+.qr-canvas-wrap{padding:1.5rem;display:flex;justify-content:center;background:transparent;}
+.qr-box{background:#fff;border-radius:14px;padding:16px;display:inline-flex;
+  align-items:center;justify-content:center;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  transition:all .3s;min-width:200px;min-height:200px;position:relative;}
+.qr-box.dark-bg{background:transparent;box-shadow:none;padding:0;}
+.qr-placeholder{text-align:center;color:#999;font-size:.8rem;font-family:'Cinzel',serif;
+  letter-spacing:.06em;display:flex;flex-direction:column;align-items:center;gap:.6rem;}
+.qr-placeholder-icon{font-size:3rem;opacity:.3;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:.6}}
+#qrContainer{display:flex;align-items:center;justify-content:center;}
+#qrContainer canvas,#qrContainer img{border-radius:8px;}
+
+.live-badge{display:flex;align-items:center;gap:.3rem;font-family:'Cinzel',serif;font-size:.65rem;
+  color:var(--green);letter-spacing:.06em;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 6px var(--green);animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* QR info */
+.qr-info{padding:0 1.3rem .8rem;display:flex;gap:.4rem;flex-wrap:wrap;}
+.qr-chip{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);
+  border-radius:8px;padding:.18rem .6rem;font-family:'Cinzel',serif;font-size:.65rem;
+  color:var(--muted);letter-spacing:.06em;}
+
+/* Download buttons */
+.dl-area{padding:.8rem 1.3rem 1.3rem;display:flex;flex-direction:column;gap:.5rem;}
+.btn-dl-png{background:linear-gradient(135deg,var(--green),#2e7d4f);
+  border:none;border-radius:10px;padding:.65rem;
+  color:#fff;font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;
+  cursor:pointer;transition:all .25s;letter-spacing:.05em;
+  display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;}
+.btn-dl-png:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(76,175,119,0.35);}
+.btn-dl-png:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+.dl-row{display:flex;gap:.5rem;}
+.btn-dl-sm{flex:1;background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  border-radius:10px;padding:.55rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.72rem;
+  cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.3rem;}
+.btn-dl-sm:hover{border-color:var(--gold);color:var(--gold2);}
+.btn-dl-sm:disabled{opacity:.4;cursor:not-allowed;}
+
+/* ══ HISTORY ══ */
+.history-panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;}
+.history-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;background:rgba(201,168,76,0.03);}
+.history-title{font-family:'Cinzel',serif;font-size:.85rem;color:var(--gold);letter-spacing:.08em;display:flex;align-items:center;gap:.4rem;}
+.btn-clear-hist{background:transparent;border:1px solid var(--border);border-radius:8px;
+  padding:.28rem .7rem;font-size:.7rem;color:var(--muted);font-family:'Cinzel',serif;
+  cursor:pointer;transition:all .2s;}
+.btn-clear-hist:hover{border-color:var(--red);color:var(--red);}
+.history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.7rem;padding:1rem 1.5rem;}
+.hist-card{background:rgba(255,255,255,0.025);border:1px solid rgba(201,168,76,0.15);
+  border-radius:10px;padding:.7rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  cursor:pointer;transition:all .2s;}
+.hist-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.hist-card-img{width:70px;height:70px;border-radius:6px;background:#fff;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hist-card-img img{width:100%;height:100%;object-fit:contain;}
+.hist-card-type{font-family:'Cinzel',serif;font-size:.62rem;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;}
+.hist-card-text{font-size:.68rem;color:var(--muted);text-align:center;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.4;}
+.hist-empty{padding:1.5rem;text-align:center;color:var(--muted);font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.06em;opacity:.6;}
+
+/* ══ FEATURES ══ */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.85rem;}
+.feat-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;
+  padding:1.1rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color .2s,transform .2s;}
+.feat-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+.feat-icon{font-size:1.4rem;}
+.feat-name{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.05em;}
+.feat-desc{font-size:.74rem;color:var(--muted);line-height:1.55;}
+
+/* ══ SEC TITLE ══ */
+.sec-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;}
+.sec-title::before{content:'';width:4px;height:16px;background:var(--gold);border-radius:2px;}
+
+/* ══ ERROR ══ */
+.error-msg{background:rgba(224,90,90,0.1);border:1px solid rgba(224,90,90,0.3);
+  border-radius:10px;padding:.85rem 1.2rem;font-size:.85rem;color:var(--red);
+  display:none;margin:0 1.5rem .5rem;line-height:1.5;}
+.error-msg.show{display:block;animation:fadeUp .3s ease both;}
+
+/* ══ MID AD ══ */
+.ad-mid-responsive{width:100%;display:flex;align-items:center;justify-content:center;
+  background:rgba(201,168,76,0.02);border:1px dashed rgba(201,168,76,0.18);
   border-radius:10px;padding:.5rem;min-height:70px;}
-.ad-mid-responsive .ad-slot{
-  width:728px;height:90px;max-width:100%;
-  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.15);border-radius:6px;
+.ad-mid-responsive .ad-slot{width:728px;height:90px;max-width:100%;
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.12);border-radius:6px;
   display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;}
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
 @media(max-width:768px){.ad-mid-responsive .ad-slot{width:468px;height:60px;}}
 @media(max-width:520px){.ad-mid-responsive .ad-slot{width:320px;height:50px;}}
 
-/* ══ CARD ══ */
-.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;
-  padding:1.8rem;backdrop-filter:blur(8px);}
-.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--gold);
-  letter-spacing:.1em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem;}
-.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+/* ══ FOOTER ══ */
+.footer{background:rgba(3,3,10,0.99);border-top:1px solid var(--border);padding:2.5rem 1rem 1.5rem;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
+@media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
+.footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;display:block;}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
+.footer-col h4{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.footer-col ul li a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:color .2s;font-family:'Inter',sans-serif;}
+.footer-col ul li a:hover{color:var(--gold2);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.footer-copy{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.08em;}
 
-/* ══ TABS ══ */
-.tabs{display:flex;gap:.45rem;margin-bottom:1.4rem;flex-wrap:wrap;}
-.tab{background:transparent;border:1px solid var(--border);border-radius:8px;padding:.38rem .9rem;
-  color:var(--muted);font-family:'Amiri',serif;font-size:.9rem;cursor:pointer;transition:all .2s;}
-.tab:hover{border-color:var(--gold);color:var(--gold2);}
-.tab.active{background:var(--gold);border-color:var(--gold);color:#000;font-weight:700;}
+/* ══ TOAST ══ */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;
+  background:rgba(18,18,30,0.98);border:1px solid var(--gold);border-radius:10px;
+  padding:.7rem 1.2rem;font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);
+  letter-spacing:.05em;box-shadow:0 8px 24px rgba(0,0,0,.5);
+  transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.34,1.56,.64,1);}
+.toast.show{transform:translateY(0);opacity:1;}
 
-/* ══ FORM ══ */
-.fg2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.fg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
-@media(max-width:600px){.fg2,.fg3{grid-template-columns:1fr 1fr;}}
-@media(max-width:380px){.fg2,.fg3{grid-template-columns:1fr;}}
-.field label{display:block;font-size:.74rem;letter-spacing:.08em;color:var(--muted);
-  text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:.4rem;}
-.field input[type="text"],.field input[type="url"],.field input[type="email"],
-.field input[type="tel"],.field input[type="number"],.field textarea,.field select{
-  width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;
-  padding:.65rem .9rem;color:var(--text);font-family:'Amiri',serif;font-size:.95rem;
-  outline:none;transition:border-color .2s,box-shadow .2s;color-scheme:dark;
-  -webkit-appearance:none;appearance:none;resize:vertical;}
-.field select option{background:#0a0a0f;}
-.field input:focus,.field textarea:focus,.field select:focus{
-  border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,0.18);}
-.field textarea{min-height:80px;}
-.char-count{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);
-  text-align:right;margin-top:.25rem;letter-spacing:.06em;}
-
-/* ══ COLOR PICKERS ══ */
-.color-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;}
-.color-field{display:flex;flex-direction:column;gap:.4rem;flex:1;min-width:120px;}
-.color-field label{font-size:.74rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;}
-.color-pick-wrap{display:flex;align-items:center;gap:.6rem;
-  background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:.5rem .9rem;}
-.color-pick-wrap input[type="color"]{width:28px;height:28px;border:none;border-radius:6px;cursor:pointer;background:none;padding:0;}
-.color-hex{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);letter-spacing:.06em;flex:1;}
-
-/* ══ SLIDER ══ */
-.slider-wrap{margin-bottom:1rem;}
-.slider-header{display:flex;justify-content:space-between;margin-bottom:.4rem;}
-.slider-label{font-size:.74rem;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;letter-spacing:.08em;}
-.slider-val{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold2);}
-input[type="range"]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;
-  background:linear-gradient(90deg,var(--gold) 0%,var(--gold) var(--pct,50%),rgba(201,168,76,0.15) var(--pct,50%),rgba(201,168,76,0.15) 100%);
-  outline:none;cursor:pointer;}
-input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
-  background:var(--gold2);border:2px solid var(--gold);cursor:pointer;box-shadow:0 0 8px rgba(201,168,76,0.5);}
-input[type="range"]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;
-  background:var(--gold2);border:2px solid var(--gold);cursor:pointer;}
-
-/* ══ TOGGLE ══ */
-.toggle-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1rem;}
-@media(max-width:480px){.toggle-grid{grid-template-columns:1fr;}}
-.toggle-row{display:flex;align-items:center;justify-content:space-between;
-  border:1px solid var(--border);border-radius:8px;padding:.6rem .9rem;background:rgba(255,255,255,0.02);}
-.tgl-lbl{font-size:.78rem;color:var(--text);font-family:'Cinzel',serif;letter-spacing:.05em;}
-.tgl{position:relative;width:40px;height:20px;cursor:pointer;flex-shrink:0;}
-.tgl input{opacity:0;width:0;height:0;}
-.tgl-sl{position:absolute;inset:0;background:rgba(201,168,76,0.15);border:1px solid var(--border);border-radius:20px;transition:.3s;}
-.tgl-sl::before{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:var(--muted);left:2px;top:2px;transition:.3s;}
-.tgl input:checked+.tgl-sl{background:var(--gold);border-color:var(--gold);}
-.tgl input:checked+.tgl-sl::before{transform:translateX(20px);background:#000;}
-
-/* ══ BUTTON ══ */
-.btn-row{display:flex;gap:.7rem;flex-wrap:wrap;}
-.btn{border:none;border-radius:8px;padding:.72rem 1.4rem;font-family:'Cinzel',serif;
-  font-size:.9rem;font-weight:700;letter-spacing:.07em;cursor:pointer;
-  transition:transform .2s,box-shadow .2s;flex:1;min-width:130px;}
-.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,#9a7020 100%);color:#000;}
-.btn-secondary{background:rgba(201,168,76,0.1);color:var(--gold2);border:1px solid var(--border);}
-.btn-danger{background:rgba(224,90,90,0.1);color:var(--red);border:1px solid rgba(224,90,90,0.25);}
-.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.3);}
-.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;}
-.btn-full{width:100%;margin-top:.9rem;}
-
-/* ══ QR OUTPUT ══ */
-.qr-output{display:none;margin-top:1.4rem;animation:fadeUp .4s ease both;}
-.qr-output.show{display:block;}
-.qr-center{display:flex;flex-direction:column;align-items:center;gap:1rem;}
-.qr-frame{background:#fff;border-radius:16px;padding:1.2rem;
-  box-shadow:0 0 40px rgba(201,168,76,0.2),0 0 0 1px rgba(201,168,76,0.3);
-  display:inline-block;position:relative;}
-.qr-logo-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:#fff;border-radius:8px;padding:4px;display:none;}
-.qr-logo-wrap img{width:36px;height:36px;object-fit:contain;border-radius:5px;display:block;}
-#qrCanvas{display:block;}
-.qr-info{text-align:center;}
-.qr-size-badge{display:inline-block;background:var(--accent);border:1px solid var(--border);
-  border-radius:20px;padding:.18rem .75rem;font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);}
-.qr-dl-row{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:.8rem;}
-.dl-btn{display:inline-flex;align-items:center;gap:.35rem;border:none;border-radius:8px;
-  padding:.55rem 1.1rem;font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;
-  letter-spacing:.06em;cursor:pointer;transition:transform .2s,box-shadow .2s;text-decoration:none;}
-.dl-png{background:linear-gradient(135deg,var(--gold),#9a7020);color:#000;}
-.dl-svg{background:rgba(201,168,76,0.12);color:var(--gold2);border:1px solid var(--border);}
-.dl-jpg{background:rgba(90,180,224,0.12);color:#5ab4e0;border:1px solid rgba(90,180,224,0.25);}
-.dl-btn:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.3);}
-
-/* ══ HISTORY ══ */
-.history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.7rem;margin-top:.5rem;}
-.hist-item{background:var(--accent);border:1px solid var(--border);border-radius:10px;
-  padding:.6rem;text-align:center;cursor:pointer;transition:border-color .2s,transform .2s;}
-.hist-item:hover{border-color:var(--gold);transform:translateY(-2px);}
-.hist-item canvas{width:70px!important;height:70px!important;border-radius:6px;}
-.hist-label{font-family:'Cinzel',serif;font-size:.6rem;color:var(--muted);
-  margin-top:.3rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:80px;}
-
-/* ══ INFO GRID ══ */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:.8rem;}
-.info-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center;}
-.ib-icon{font-size:1.5rem;margin-bottom:.3rem;}
-.ib-title{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
-.ib-desc{font-size:.78rem;color:var(--muted);line-height:1.5;}
-
-/* ══ QUICK LINKS ══ */
-.ql-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;}
-.ql{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;
-  text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;
-  transition:transform .2s,border-color .2s;}
-.ql:hover{transform:translateY(-4px);border-color:var(--gold);}
-.ql-icon{font-size:1.4rem;}
-.ql-name{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;}
-.ql-desc{font-size:.75rem;color:var(--muted);}
-
-/* ══ HADITH ══ */
-.hadith-sec{position:relative;z-index:1;margin-top:2rem;background:rgba(7,7,14,0.98);border-top:1px solid var(--border);}
-.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
-.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;text-shadow:0 0 20px rgba(201,168,76,0.5);}
-.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.6rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
-.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
-.h-urdu{font-family:'Amiri',serif;font-size:clamp(.9rem,2.2vw,1.06rem);color:var(--text);line-height:2;direction:rtl;margin-bottom:.5rem;}
-.h-en{font-family:'Amiri',serif;font-size:.9rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
-.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
-.noor-footer{text-align:center;padding:1.4rem .5rem;background:rgba(5,5,10,0.99);border-top:1px solid var(--border);}
-.noor-text{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold2);direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.4);}
-.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.35rem;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
+<!-- NAV -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-icon">🛠️</span>
+    <span class="nav-logo-text">ToolNex</span>
+  </a>
   <div class="nav-right">
-    <a href="age-calculator.html"  class="nav-link" data-en="🎂 Age"  data-ur="🎂 عمر"  data-ar="🎂 العمر">🎂 Age</a>
-    <a href="index.html"           class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم"  data-ar="🏠 الرئيسية">🏠 Home</a>
-    <!-- Single Language Dropdown -->
-    <select class="lang-select" id="langSelect" onchange="setLang(this.value)">
-      <option value="en">🌐 English</option>
-      <option value="ur">🌐 اردو</option>
-      <option value="ar">🌐 عربي</option>
-    </select>
+    <a href="index.html" class="nav-link">🏠 Home</a>
   </div>
 </nav>
 
-<!-- ══ TOP BANNER AD ══ -->
+<!-- TOP BANNER AD -->
 <div class="ad-top-banner">
   <div class="ad-slot">
     <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
@@ -265,610 +360,845 @@ input[type="range"]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;
   </div>
 </div>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <span class="hero-icon">📲</span>
-  <div style="margin-bottom:.9rem">
-    <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
-    <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
-  </div>
-  <h1 class="hero-title" id="heroTitle">QR Code Generator</h1>
-  <p  class="hero-sub"   id="heroSub">Generate QR codes for URL · Text · WiFi · Email · Phone · vCard · SMS</p>
-  <div class="gold-line"></div>
-</section>
+<div class="page-body">
 
-<div class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">📲 Free · Custom Colors · Logo · No Sign-up</div>
+    <h1 class="hero-title">QR Code Generator</h1>
+    <p class="hero-sub">Generate QR codes for URL, WiFi, Email, Phone, SMS, vCard, WhatsApp, Location and more. Custom colors, logo, size — download PNG or SVG instantly.</p>
+    <div class="gold-line"></div>
+  </section>
 
-  <!-- ══ MAIN CARD ══ -->
-  <div class="card">
-    <div class="card-title" id="ctContent">📝 Content</div>
-
-    <!-- TYPE TABS -->
-    <div class="tabs" id="typeTabs">
-      <button class="tab active" onclick="switchType('url')">🔗 URL</button>
-      <button class="tab" onclick="switchType('text')">📝 Text</button>
-      <button class="tab" onclick="switchType('wifi')">📶 WiFi</button>
-      <button class="tab" onclick="switchType('email')">📧 Email</button>
-      <button class="tab" onclick="switchType('phone')">📞 Phone</button>
-      <button class="tab" onclick="switchType('vcard')">👤 vCard</button>
-      <button class="tab" onclick="switchType('sms')">💬 SMS</button>
-    </div>
-
-    <!-- URL -->
-    <div id="typeUrl">
-      <div class="field">
-        <label id="lUrl">Website URL</label>
-        <input type="url" id="inUrl" placeholder="https://example.com" oninput="liveGenerate()"/>
-      </div>
-    </div>
-
-    <!-- TEXT -->
-    <div id="typeText" style="display:none">
-      <div class="field">
-        <label id="lText">Text / Message</label>
-        <textarea id="inText" rows="4" placeholder="Enter any text…" oninput="liveGenerate();updateCharCount(this,'ccText',500)"></textarea>
-        <div class="char-count" id="ccText">0 / 500</div>
-      </div>
-    </div>
-
-    <!-- WIFI -->
-    <div id="typeWifi" style="display:none">
-      <div class="fg2">
-        <div class="field"><label id="lWifiSSID">Network Name (SSID)</label><input type="text" id="inWifiSSID" placeholder="MyNetwork" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lWifiPass">Password</label><input type="text" id="inWifiPass" placeholder="password123" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lWifiSec">Security</label>
-          <select id="inWifiSec" onchange="liveGenerate()">
-            <option value="WPA">WPA/WPA2</option>
-            <option value="WEP">WEP</option>
-            <option value="nopass">None (Open)</option>
-          </select>
-        </div>
-        <div class="field"><label id="lWifiHidden">Hidden Network</label>
-          <select id="inWifiHidden" onchange="liveGenerate()">
-            <option value="false">No</option>
-            <option value="true">Yes</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <!-- EMAIL -->
-    <div id="typeEmail" style="display:none">
-      <div class="fg2">
-        <div class="field"><label id="lEmailTo">To</label><input type="email" id="inEmailTo" placeholder="name@example.com" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lEmailSubj">Subject</label><input type="text" id="inEmailSubj" placeholder="Subject…" oninput="liveGenerate()"/></div>
-      </div>
-      <div class="field"><label id="lEmailBody">Message</label><textarea id="inEmailBody" rows="3" placeholder="Message body…" oninput="liveGenerate()"></textarea></div>
-    </div>
-
-    <!-- PHONE -->
-    <div id="typePhone" style="display:none">
-      <div class="fg2">
-        <div class="field"><label id="lPhone">Phone Number</label><input type="tel" id="inPhone" placeholder="+92 300 1234567" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lPhoneType">Type</label>
-          <select id="inPhoneType" onchange="liveGenerate()">
-            <option value="tel">📞 Call</option>
-            <option value="sms">💬 SMS</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <!-- VCARD -->
-    <div id="typeVcard" style="display:none">
-      <div class="fg2">
-        <div class="field"><label id="lVcFirst">First Name</label><input type="text" id="inVcFirst" placeholder="Ahmed" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lVcLast">Last Name</label><input type="text" id="inVcLast" placeholder="Khan" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lVcPhone">Phone</label><input type="tel" id="inVcPhone" placeholder="+92 300 0000000" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lVcEmail">Email</label><input type="email" id="inVcEmail" placeholder="ahmed@example.com" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lVcOrg">Organization</label><input type="text" id="inVcOrg" placeholder="Company Name" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lVcTitle">Job Title</label><input type="text" id="inVcTitle" placeholder="Manager" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lVcUrl">Website</label><input type="url" id="inVcUrl" placeholder="https://example.com" oninput="liveGenerate()"/></div>
-        <div class="field"><label id="lVcCity">City</label><input type="text" id="inVcCity" placeholder="Karachi" oninput="liveGenerate()"/></div>
-      </div>
-    </div>
-
-    <!-- SMS -->
-    <div id="typeSms" style="display:none">
-      <div class="fg2">
-        <div class="field"><label id="lSmsNum">Phone Number</label><input type="tel" id="inSmsNum" placeholder="+92 300 1234567" oninput="liveGenerate()"/></div>
-        <div class="field"><label style="visibility:hidden">x</label></div>
-      </div>
-      <div class="field"><label id="lSmsMsg">SMS Message</label><textarea id="inSmsMsg" rows="3" placeholder="Your message here…" oninput="liveGenerate();updateCharCount(this,'ccSms',160)"></textarea><div class="char-count" id="ccSms">0 / 160</div></div>
-    </div>
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">🏠 Home</a><span>›</span>
+    <a href="index.html#dev">Generator Tools</a><span>›</span>
+    <span class="bc-cur">QR Code Generator</span>
   </div>
 
-  <!-- ══ DESIGN CARD ══ -->
-  <div class="card">
-    <div class="card-title" id="ctDesign">🎨 Design & Style</div>
+  <div class="main-wrap">
 
-    <!-- Colors -->
-    <div class="color-row">
-      <div class="color-field">
-        <label id="lQrColor">QR Color</label>
-        <div class="color-pick-wrap">
-          <input type="color" id="qrColor" value="#000000" oninput="syncHex('qrColor','hexQr');liveGenerate()"/>
-          <span class="color-hex" id="hexQr">#000000</span>
-        </div>
-      </div>
-      <div class="color-field">
-        <label id="lBgColor">Background</label>
-        <div class="color-pick-wrap">
-          <input type="color" id="bgColor" value="#ffffff" oninput="syncHex('bgColor','hexBg');liveGenerate()"/>
-          <span class="color-hex" id="hexBg">#ffffff</span>
-        </div>
-      </div>
-    </div>
+    <!-- ══ TWO-COL TOOL ══ -->
+    <div class="tool-layout">
 
-    <!-- Size slider -->
-    <div class="slider-wrap">
-      <div class="slider-header">
-        <span class="slider-label" id="lSize">QR Size</span>
-        <span class="slider-val" id="sizeVal">256 px</span>
-      </div>
-      <input type="range" id="sizeSlider" min="128" max="512" step="32" value="256" oninput="updateSizeSlider(this);liveGenerate()"/>
-    </div>
+      <!-- LEFT: Input Panel -->
+      <div>
+        <div class="tool-panel">
+          <div class="panel-header">
+            <div class="panel-title">📲 QR Code Generator</div>
+            <div class="live-badge"><span class="live-dot"></span>Live Preview</div>
+          </div>
 
-    <!-- Error correction -->
-    <div class="fg2" style="margin-bottom:1rem">
-      <div class="field">
-        <label id="lECC">Error Correction</label>
-        <select id="eccLevel" onchange="liveGenerate()">
-          <option value="L">L – Low (7%)</option>
-          <option value="M" selected>M – Medium (15%)</option>
-          <option value="Q">Q – Quartile (25%)</option>
-          <option value="H">H – High (30%)</option>
-        </select>
-      </div>
-      <div class="field">
-        <label id="lRender">Render Style</label>
-        <select id="renderStyle" onchange="liveGenerate()">
-          <option value="square">■ Square Dots</option>
-          <option value="round">● Round Dots</option>
-        </select>
-      </div>
-    </div>
+          <!-- Type Tabs -->
+          <div class="type-tabs" id="typeTabs">
+            <button class="type-tab active" data-type="url"       onclick="setType('url')">🌐 URL</button>
+            <button class="type-tab"         data-type="wifi"      onclick="setType('wifi')">📶 WiFi</button>
+            <button class="type-tab"         data-type="email"     onclick="setType('email')">📧 Email</button>
+            <button class="type-tab"         data-type="phone"     onclick="setType('phone')">📞 Phone</button>
+            <button class="type-tab"         data-type="sms"       onclick="setType('sms')">💬 SMS</button>
+            <button class="type-tab"         data-type="whatsapp"  onclick="setType('whatsapp')">💚 WhatsApp</button>
+            <button class="type-tab"         data-type="vcard"     onclick="setType('vcard')">👤 vCard</button>
+            <button class="type-tab"         data-type="location"  onclick="setType('location')">📍 Location</button>
+            <button class="type-tab"         data-type="text"      onclick="setType('text')">📝 Text</button>
+            <button class="type-tab"         data-type="bitcoin"   onclick="setType('bitcoin')">₿ Bitcoin</button>
+          </div>
 
-    <!-- Logo upload -->
-    <div class="field" style="margin-bottom:1rem">
-      <label id="lLogo">Center Logo (optional)</label>
-      <input type="file" id="logoInput" accept="image/*"
-        style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:.5rem .9rem;color:var(--muted);width:100%;cursor:pointer;"
-        onchange="handleLogo(this)"/>
-    </div>
+          <!-- Dynamic Form -->
+          <div class="form-area" id="formArea">
+            <!-- filled by JS -->
+          </div>
 
-    <!-- Toggles -->
-    <div class="toggle-grid">
-      <div class="toggle-row">
-        <span class="tgl-lbl" id="lLiveGen">Live Generate</span>
-        <label class="tgl"><input type="checkbox" id="liveGenToggle" checked/><span class="tgl-sl"></span></label>
-      </div>
-      <div class="toggle-row">
-        <span class="tgl-lbl" id="lShowLogo">Show Logo</span>
-        <label class="tgl"><input type="checkbox" id="showLogo" onchange="liveGenerate()"/><span class="tgl-sl"></span></label>
-      </div>
-    </div>
+          <!-- Error -->
+          <div class="error-msg" id="errorMsg"></div>
 
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="generateQR()">📲 <span id="genTxt">Generate QR</span></button>
-      <button class="btn btn-secondary" onclick="resetAll()">↺ <span id="resetTxt">Reset</span></button>
-    </div>
+          <!-- Customise -->
+          <div class="custom-panel">
+            <div class="custom-title">🎨 Customise</div>
+            <div class="custom-grid">
 
-    <!-- QR OUTPUT -->
-    <div class="qr-output" id="qrOutput">
-      <div class="qr-center">
-        <div class="qr-frame" id="qrFrame">
-          <div id="qrCanvas"></div>
-          <div class="qr-logo-wrap" id="logoWrap">
-            <img id="logoImg" src="" alt="logo"/>
+              <!-- Foreground Color -->
+              <div class="color-field">
+                <div class="color-label">QR Color</div>
+                <div class="color-wrap" onclick="document.getElementById('fgColor').click()">
+                  <div class="color-swatch" id="fgSwatch" style="background:#000000;"></div>
+                  <span class="color-hex" id="fgHex">#000000</span>
+                  <input type="color" id="fgColor" value="#000000" oninput="onColor()"/>
+                </div>
+              </div>
+
+              <!-- Background Color -->
+              <div class="color-field">
+                <div class="color-label">Background</div>
+                <div class="color-wrap" onclick="document.getElementById('bgColor').click()">
+                  <div class="color-swatch" id="bgSwatch" style="background:#ffffff;"></div>
+                  <span class="color-hex" id="bgHex">#ffffff</span>
+                  <input type="color" id="bgColor" value="#ffffff" oninput="onColor()"/>
+                </div>
+              </div>
+
+              <!-- Size -->
+              <div class="color-field" style="grid-column:1/-1;">
+                <div class="color-label" id="sizeLabel">Size: 256×256 px</div>
+                <input type="range" class="size-slider" id="sizeSlider" min="128" max="1024" value="256" step="64" oninput="onSize()"/>
+              </div>
+
+              <!-- Error Correction -->
+              <div class="color-field" style="grid-column:1/-1;">
+                <div class="color-label">Error Correction</div>
+                <div class="ec-chips">
+                  <span class="ec-chip" data-ec="L" onclick="setEC('L')">L – Low (7%)</span>
+                  <span class="ec-chip active" data-ec="M" onclick="setEC('M')">M – Medium (15%)</span>
+                  <span class="ec-chip" data-ec="Q" onclick="setEC('Q')">Q – High (25%)</span>
+                  <span class="ec-chip" data-ec="H" onclick="setEC('H')">H – Max (30%)</span>
+                </div>
+              </div>
+
+              <!-- Dot Style -->
+              <div class="color-field" style="grid-column:1/-1;">
+                <div class="color-label">Dot Style</div>
+                <div class="style-chips" id="dotStyleChips">
+                  <span class="style-chip active" data-style="square" onclick="setDotStyle('square')">■ Square</span>
+                  <span class="style-chip" data-style="round" onclick="setDotStyle('round')">● Round</span>
+                  <span class="style-chip" data-style="dot" onclick="setDotStyle('dot')">• Dot</span>
+                </div>
+              </div>
+
+              <!-- Logo Upload -->
+              <div class="color-field" style="grid-column:1/-1;">
+                <div class="color-label">Center Logo (optional)</div>
+                <div class="logo-upload-wrap">
+                  <div class="logo-preview" id="logoPreview">🖼️</div>
+                  <button class="btn-logo-upload" onclick="document.getElementById('logoFileInput').click()">Upload Logo</button>
+                  <button class="btn-logo-remove" id="logoRemoveBtn" onclick="removeLogo()">✕ Remove</button>
+                  <input type="file" id="logoFileInput" accept="image/*" onchange="onLogoUpload(this)"/>
+                </div>
+                <div class="field-hint">PNG with transparent background works best. Use H error correction with logo.</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Generate -->
+          <div class="gen-area">
+            <button class="btn-generate" onclick="generateQR()">📲 Generate QR Code</button>
+            <button class="btn-reset" onclick="resetAll()">🗑️ Reset</button>
           </div>
         </div>
-        <div class="qr-info">
-          <div class="qr-size-badge" id="qrSizeBadge">256 × 256 px</div>
-        </div>
-        <div class="qr-dl-row">
-          <button class="dl-btn dl-png" onclick="downloadQR('png')">⬇ PNG</button>
-          <button class="dl-btn dl-jpg" onclick="downloadQR('jpg')">⬇ JPG</button>
-          <button class="dl-btn dl-svg" onclick="downloadQR('svg')">⬇ SVG</button>
+      </div>
+
+      <!-- RIGHT: Preview Panel -->
+      <div>
+        <div class="qr-preview-panel">
+          <div class="qr-preview-header">
+            <div class="qr-preview-title">👁️ Live Preview</div>
+          </div>
+
+          <div class="qr-canvas-wrap">
+            <div class="qr-box" id="qrBox">
+              <div id="qrContainer">
+                <div class="qr-placeholder">
+                  <span class="qr-placeholder-icon">📲</span>
+                  <span style="font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.06em;">Fill in the form<br/>and generate your QR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="qr-info" id="qrInfo" style="display:none;">
+            <span class="qr-chip" id="qrTypeChip">—</span>
+            <span class="qr-chip" id="qrSizeChip">—</span>
+            <span class="qr-chip" id="qrEcChip">—</span>
+            <span class="qr-chip" id="qrCharChip">—</span>
+          </div>
+
+          <div class="dl-area">
+            <button class="btn-dl-png" id="dlPng" onclick="downloadPNG()" disabled>⬇️ Download PNG</button>
+            <div class="dl-row">
+              <button class="btn-dl-sm" id="dlSvg" onclick="downloadSVG()" disabled>📄 SVG</button>
+              <button class="btn-dl-sm" id="dlJpg" onclick="downloadJPG()" disabled>🖼️ JPG</button>
+              <button class="btn-dl-sm" onclick="copyToClipboard()" id="copyBtn">📋 Copy</button>
+            </div>
+          </div>
         </div>
       </div>
+    </div><!-- /tool-layout -->
+
+    <!-- HISTORY -->
+    <div class="history-panel">
+      <div class="history-header">
+        <div class="history-title">🕐 Recent QR Codes</div>
+        <button class="btn-clear-hist" onclick="clearHistory()">Clear All</button>
+      </div>
+      <div id="historyArea">
+        <div class="hist-empty">No QR codes generated yet. Your history will appear here.</div>
+      </div>
+    </div>
+
+    <!-- MID AD -->
+    <div class="ad-mid-responsive">
+      <div class="ad-slot">
+        <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+        📢 Responsive Ad · 728×90 → 468×60 → 320×50 (Auto)
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div>
+      <div class="sec-title">🚀 Features</div>
+      <div class="features-grid">
+        <div class="feat-card"><span class="feat-icon">🌐</span><div class="feat-name">10 QR Types</div><div class="feat-desc">URL, WiFi, Email, Phone, SMS, WhatsApp, vCard, Location, Text and Bitcoin.</div></div>
+        <div class="feat-card"><span class="feat-icon">🎨</span><div class="feat-name">Custom Colors</div><div class="feat-desc">Pick any foreground and background color to match your brand identity.</div></div>
+        <div class="feat-card"><span class="feat-icon">🖼️</span><div class="feat-name">Logo in Center</div><div class="feat-desc">Upload your logo or icon to appear in the center of the QR code.</div></div>
+        <div class="feat-card"><span class="feat-icon">📐</span><div class="feat-name">Custom Size</div><div class="feat-desc">Generate from 128×128 up to 1024×1024 px for print or digital use.</div></div>
+        <div class="feat-card"><span class="feat-icon">⬇️</span><div class="feat-name">PNG / SVG / JPG</div><div class="feat-desc">Download in PNG for web, SVG for print (vector), or JPG for email.</div></div>
+        <div class="feat-card"><span class="feat-icon">🕐</span><div class="feat-name">History</div><div class="feat-desc">Your last 12 generated QR codes are saved locally for quick access.</div></div>
+        <div class="feat-card"><span class="feat-icon">📋</span><div class="feat-name">Copy to Clipboard</div><div class="feat-desc">Copy the QR image directly to clipboard with one click.</div></div>
+        <div class="feat-card"><span class="feat-icon">🔒</span><div class="feat-name">100% Private</div><div class="feat-desc">All QR codes generated in your browser. No data sent to any server.</div></div>
+      </div>
+    </div>
+
+  </div><!-- /main-wrap -->
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-logo">🛠️ ToolNex</span>
+        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+          <li><a href="bmi-calculator.html">⚖️ BMI Calculator</a></li>
+          <li><a href="image-compressor.html">🗜️ Image Compressor</a></li>
+          <li><a href="ai-writer.html">🤖 AI Writer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="pdf-to-word.html">PDF to Word</a></li>
+          <li><a href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a href="json-formatter.html">JSON Formatter</a></li>
+          <li><a href="css-minifier.html">CSS Minifier</a></li>
+          <li><a href="password-generator.html">Password Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">📖 About Us</a></li>
+          <li><a href="contact.html">✉️ Contact</a></li>
+          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
+          <li><a href="terms.html">📋 Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
     </div>
   </div>
+</footer>
 
-  <!-- ══ RESPONSIVE MID AD — between tools (best earning spot) ══ -->
-  <div class="ad-mid-responsive">
-    <div class="ad-slot">
-      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
-      📢 Responsive Mid Ad · 728×90 → 468×60 → 320×50 (Auto)
-    </div>
-  </div>
+<div class="toast" id="toast"></div>
 
-  <!-- ══ HISTORY CARD ══ -->
-  <div class="card" id="historyCard" style="display:none">
-    <div class="card-title" id="ctHistory">🕐 Recent QR Codes</div>
-    <div class="history-grid" id="historyGrid"></div>
-    <button class="btn btn-danger btn-full" style="margin-top:.9rem" onclick="clearHistory()">🗑️ <span id="clearHistTxt">Clear History</span></button>
-  </div>
-
-  <!-- ══ FEATURES CARD ══ -->
-  <div class="card">
-    <div class="card-title" id="ctFeatures">✨ Features</div>
-    <div class="info-grid">
-      <div class="info-box"><div class="ib-icon">🔗</div><div class="ib-title" id="f1t">7 QR Types</div><div class="ib-desc" id="f1d">URL, Text, WiFi, Email, Phone, vCard, SMS.</div></div>
-      <div class="info-box"><div class="ib-icon">🎨</div><div class="ib-title" id="f2t">Full Custom</div><div class="ib-desc" id="f2d">Custom colors, sizes, error correction and logo.</div></div>
-      <div class="info-box"><div class="ib-icon">⚡</div><div class="ib-title" id="f3t">Live Preview</div><div class="ib-desc" id="f3d">QR updates instantly as you type.</div></div>
-      <div class="info-box"><div class="ib-icon">⬇</div><div class="ib-title" id="f4t">PNG · JPG · SVG</div><div class="ib-desc" id="f4d">Download in 3 formats for any use case.</div></div>
-      <div class="info-box"><div class="ib-icon">🖼️</div><div class="ib-title" id="f5t">Logo Support</div><div class="ib-desc" id="f5d">Add your own logo in the center of the QR.</div></div>
-      <div class="info-box"><div class="ib-icon">🕐</div><div class="ib-title" id="f6t">History</div><div class="ib-desc" id="f6d">Recently generated QR codes saved locally.</div></div>
-    </div>
-  </div>
-
-  <!-- QUICK LINKS -->
-  <div class="card">
-    <div class="card-title" id="ctLinks">🔗 Related Tools</div>
-    <div class="ql-grid">
-      <a href="barcode.html"          class="ql"><span class="ql-icon">|||</span><span class="ql-name" data-en="Barcode Generator" data-ur="بارکوڈ جنریٹر" data-ar="منشئ الباركود">Barcode</span><span class="ql-desc" data-en="Generate barcodes" data-ur="بارکوڈ بنائیں" data-ar="إنشاء الباركود">Generate barcodes</span></a>
-      <a href="image-compressor.html" class="ql"><span class="ql-icon">🗜️</span><span class="ql-name" data-en="Image Compressor" data-ur="تصویر کمپریسر" data-ar="ضاغط الصور">Compressor</span><span class="ql-desc" data-en="Compress images" data-ur="تصاویر چھوٹی کریں" data-ar="اضغط الصور">Compress images</span></a>
-      <a href="image-to-pdf.html"     class="ql"><span class="ql-icon">🖼️</span><span class="ql-name" data-en="Image to PDF" data-ur="تصویر سے PDF" data-ar="صورة إلى PDF">Image to PDF</span><span class="ql-desc" data-en="Convert images" data-ur="تصاویر تبدیل" data-ar="تحويل الصور">Convert images</span></a>
-      <a href="index.html"            class="ql"><span class="ql-icon">🛠️</span><span class="ql-name" data-en="All Tools" data-ur="تمام ٹولز" data-ar="جميع الأدوات">All Tools</span><span class="ql-desc" data-en="40+ free tools" data-ur="40+ مفت" data-ar="40+ أداة">40+ tools</span></a>
-    </div>
-  </div>
-
-</div><!-- /wrap -->
-
-<!-- ══ HADITH ══ -->
-<div class="hadith-sec">
-  <div class="hadith-inner">
-    <span class="h-ornament">❁ ☽ ❁</span>
-    <p class="h-arabic">«بَلِّغُوا عَنِّي وَلَوْ آيَةً»</p>
-    <div class="h-line"></div>
-    <p class="h-urdu" id="hUrdu">میری طرف سے پہنچاؤ، چاہے ایک آیت ہی کیوں نہ ہو۔</p>
-    <p class="h-en"   id="hEn">"Convey from me, even if it is one verse."</p>
-    <p class="h-source">— صحيح البخاري | Sahih Al-Bukhari · 3461</p>
-  </div>
-</div>
-<div class="noor-footer">
-  <div class="noor-text">نُورُ الہُدیٰ</div>
-  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED · MADE WITH ♥</div>
-</div>
-
+<!-- ══════════════════════════════════════
+     QR CODE GENERATOR — FULL JS ENGINE
+     ══════════════════════════════════════ -->
 <script>
-/* ══ LANGUAGE ══ */
-const TL={
-  en:{dir:'ltr',l:'en',bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
-    heroTitle:'QR Code Generator',heroSub:'Generate QR codes for URL · Text · WiFi · Email · Phone · vCard · SMS',
-    ctContent:'📝 Content',ctDesign:'🎨 Design & Style',ctHistory:'🕐 Recent QR Codes',ctFeatures:'✨ Features',ctLinks:'🔗 Related Tools',
-    lUrl:'Website URL',lText:'Text / Message',lWifiSSID:'Network Name (SSID)',lWifiPass:'Password',lWifiSec:'Security',lWifiHidden:'Hidden Network',
-    lEmailTo:'To',lEmailSubj:'Subject',lEmailBody:'Message',lPhone:'Phone Number',lPhoneType:'Type',
-    lVcFirst:'First Name',lVcLast:'Last Name',lVcPhone:'Phone',lVcEmail:'Email',lVcOrg:'Organization',lVcTitle:'Job Title',lVcUrl:'Website',lVcCity:'City',
-    lSmsNum:'Phone Number',lSmsMsg:'SMS Message',
-    lQrColor:'QR Color',lBgColor:'Background',lSize:'QR Size',lECC:'Error Correction',lRender:'Render Style',lLogo:'Center Logo (optional)',lLiveGen:'Live Generate',lShowLogo:'Show Logo',
-    genTxt:'Generate QR',resetTxt:'Reset',clearHistTxt:'Clear History',
-    f1t:'7 QR Types',f1d:'URL, Text, WiFi, Email, Phone, vCard, SMS.',
-    f2t:'Full Custom',f2d:'Custom colors, sizes, error correction and logo.',
-    f3t:'Live Preview',f3d:'QR updates instantly as you type.',
-    f4t:'PNG · JPG · SVG',f4d:'Download in 3 formats for any use case.',
-    f5t:'Logo Support',f5d:'Add your own logo in the center of the QR.',
-    f6t:'History',f6d:'Recently generated QR codes saved locally.',
-    hUrdu:'',hEn:'"Convey from me, even if it is one verse."'},
-  ur:{dir:'rtl',l:'ur',bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
-    heroTitle:'QR کوڈ جنریٹر',heroSub:'URL · متن · WiFi · ای میل · فون · vCard · SMS کے لیے QR کوڈ بنائیں',
-    ctContent:'📝 مواد',ctDesign:'🎨 ڈیزائن اور سٹائل',ctHistory:'🕐 حالیہ QR کوڈز',ctFeatures:'✨ خصوصیات',ctLinks:'🔗 متعلقہ ٹولز',
-    lUrl:'ویب سائٹ URL',lText:'متن / پیغام',lWifiSSID:'نیٹ ورک کا نام',lWifiPass:'پاس ورڈ',lWifiSec:'سیکیورٹی',lWifiHidden:'چھپا ہوا نیٹ ورک',
-    lEmailTo:'وصول کنندہ',lEmailSubj:'موضوع',lEmailBody:'پیغام',lPhone:'فون نمبر',lPhoneType:'قسم',
-    lVcFirst:'پہلا نام',lVcLast:'آخری نام',lVcPhone:'فون',lVcEmail:'ای میل',lVcOrg:'ادارہ',lVcTitle:'عہدہ',lVcUrl:'ویب سائٹ',lVcCity:'شہر',
-    lSmsNum:'فون نمبر',lSmsMsg:'SMS پیغام',
-    lQrColor:'QR رنگ',lBgColor:'پس منظر',lSize:'QR سائز',lECC:'خرابی اصلاح',lRender:'رینڈر سٹائل',lLogo:'درمیانی لوگو',lLiveGen:'لائیو جنریٹ',lShowLogo:'لوگو دکھائیں',
-    genTxt:'QR بنائیں',resetTxt:'ری سیٹ',clearHistTxt:'تاریخ صاف کریں',
-    f1t:'7 QR اقسام',f1d:'URL، متن، WiFi، ای میل، فون، vCard، SMS۔',
-    f2t:'مکمل کسٹم',f2d:'رنگ، سائز، خرابی اصلاح اور لوگو۔',
-    f3t:'لائیو پیش نظارہ',f3d:'ٹائپ کرتے ہی QR اپ ڈیٹ ہوتا ہے۔',
-    f4t:'PNG · JPG · SVG',f4d:'3 فارمیٹس میں ڈاؤن لوڈ کریں۔',
-    f5t:'لوگو سپورٹ',f5d:'QR کے درمیان اپنا لوگو شامل کریں۔',
-    f6t:'تاریخ',f6d:'حالیہ QR کوڈز محفوظ ہوتے ہیں۔',
-    hUrdu:'میری طرف سے پہنچاؤ، چاہے ایک آیت ہی کیوں نہ ہو۔',hEn:''},
-  ar:{dir:'rtl',l:'ar',bisml:'بسم الله الرحمن الرحيم',
-    heroTitle:'منشئ رمز QR',heroSub:'أنشئ رموز QR للروابط · النصوص · WiFi · البريد · الهاتف · vCard · SMS',
-    ctContent:'📝 المحتوى',ctDesign:'🎨 التصميم',ctHistory:'🕐 رموز QR الأخيرة',ctFeatures:'✨ المميزات',ctLinks:'🔗 أدوات ذات صلة',
-    lUrl:'رابط الموقع',lText:'النص / الرسالة',lWifiSSID:'اسم الشبكة',lWifiPass:'كلمة المرور',lWifiSec:'الأمان',lWifiHidden:'شبكة مخفية',
-    lEmailTo:'إلى',lEmailSubj:'الموضوع',lEmailBody:'الرسالة',lPhone:'رقم الهاتف',lPhoneType:'النوع',
-    lVcFirst:'الاسم الأول',lVcLast:'اسم العائلة',lVcPhone:'الهاتف',lVcEmail:'البريد',lVcOrg:'المؤسسة',lVcTitle:'المسمى الوظيفي',lVcUrl:'الموقع',lVcCity:'المدينة',
-    lSmsNum:'رقم الهاتف',lSmsMsg:'رسالة SMS',
-    lQrColor:'لون QR',lBgColor:'الخلفية',lSize:'حجم QR',lECC:'تصحيح الأخطاء',lRender:'نمط العرض',lLogo:'شعار مركزي',lLiveGen:'إنشاء مباشر',lShowLogo:'إظهار الشعار',
-    genTxt:'إنشاء QR',resetTxt:'إعادة تعيين',clearHistTxt:'مسح السجل',
-    f1t:'7 أنواع QR',f1d:'URL، نص، WiFi، بريد، هاتف، vCard، SMS.',
-    f2t:'تخصيص كامل',f2d:'الألوان والأحجام وتصحيح الأخطاء والشعار.',
-    f3t:'معاينة مباشرة',f3d:'يتحدث QR فور الكتابة.',
-    f4t:'PNG · JPG · SVG',f4d:'تنزيل بـ 3 صيغ.',
-    f5t:'دعم الشعار',f5d:'أضف شعارك في مركز رمز QR.',
-    f6t:'السجل',f6d:'يحفظ رموز QR الأخيرة محلياً.',
-    hUrdu:'',hEn:'"Convey from me, even if it is one verse."'}
+/* ── State ── */
+let currentType   = 'url';
+let currentEC     = 'M';
+let currentSize   = 256;
+let dotStyle      = 'square';
+let logoDataUrl   = null;
+let lastQRText    = '';
+let lastQRCanvas  = null;
+let history       = JSON.parse(localStorage.getItem('tn_qr_hist') || '[]');
+let autoTimer     = null;
+
+/* ── QR TYPE FORMS ── */
+const FORMS = {
+  url: () => `
+    <div class="field">
+      <label>Website URL *</label>
+      <input type="url" id="f_url" placeholder="https://toolnex.site" oninput="autoGenerate()"/>
+    </div>`,
+
+  wifi: () => `
+    <div class="field">
+      <label>Network Name (SSID) *</label>
+      <input type="text" id="f_ssid" placeholder="MyWiFiNetwork" oninput="autoGenerate()"/>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="text" id="f_wpass" placeholder="WiFi password" oninput="autoGenerate()"/>
+    </div>
+    <div class="field">
+      <label>Encryption</label>
+      <div class="wifi-enc-row" id="encChips">
+        <span class="enc-chip active" data-enc="WPA" onclick="setEnc('WPA')">WPA/WPA2</span>
+        <span class="enc-chip" data-enc="WEP" onclick="setEnc('WEP')">WEP</span>
+        <span class="enc-chip" data-enc="nopass" onclick="setEnc('nopass')">None (Open)</span>
+      </div>
+    </div>
+    <div class="field">
+      <label><input type="checkbox" id="f_hidden" onchange="autoGenerate()" style="width:auto;margin-right:.4rem;"/> Hidden Network</label>
+    </div>`,
+
+  email: () => `
+    <div class="field">
+      <label>Email Address *</label>
+      <input type="email" id="f_email" placeholder="hello@example.com" oninput="autoGenerate()"/>
+    </div>
+    <div class="field">
+      <label>Subject</label>
+      <input type="text" id="f_esubj" placeholder="Email subject" oninput="autoGenerate()"/>
+    </div>
+    <div class="field">
+      <label>Body</label>
+      <textarea id="f_ebody" placeholder="Email body…" oninput="autoGenerate()"></textarea>
+    </div>`,
+
+  phone: () => `
+    <div class="field">
+      <label>Phone Number *</label>
+      <input type="tel" id="f_phone" placeholder="+1 234 567 8900" oninput="autoGenerate()"/>
+    </div>`,
+
+  sms: () => `
+    <div class="field">
+      <label>Phone Number *</label>
+      <input type="tel" id="f_sphone" placeholder="+1 234 567 8900" oninput="autoGenerate()"/>
+    </div>
+    <div class="field">
+      <label>Message</label>
+      <textarea id="f_smsg" placeholder="SMS message text…" oninput="autoGenerate()"></textarea>
+    </div>`,
+
+  whatsapp: () => `
+    <div class="field">
+      <label>WhatsApp Number * <span style="color:var(--muted);font-size:.68rem;">(with country code)</span></label>
+      <input type="tel" id="f_waphone" placeholder="+92 300 1234567" oninput="autoGenerate()"/>
+    </div>
+    <div class="field">
+      <label>Pre-filled Message</label>
+      <textarea id="f_wamsg" placeholder="Hello! I saw your profile on…" oninput="autoGenerate()"></textarea>
+    </div>`,
+
+  vcard: () => `
+    <div class="field-row">
+      <div class="field">
+        <label>First Name *</label>
+        <input type="text" id="f_fname" placeholder="John" oninput="autoGenerate()"/>
+      </div>
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" id="f_lname" placeholder="Smith" oninput="autoGenerate()"/>
+      </div>
+    </div>
+    <div class="field">
+      <label>Organisation</label>
+      <input type="text" id="f_org" placeholder="Company Ltd." oninput="autoGenerate()"/>
+    </div>
+    <div class="field">
+      <label>Job Title</label>
+      <input type="text" id="f_title" placeholder="CEO / Designer / Developer" oninput="autoGenerate()"/>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Phone</label>
+        <input type="tel" id="f_vphone" placeholder="+1 234 567 8900" oninput="autoGenerate()"/>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="f_vemail" placeholder="john@example.com" oninput="autoGenerate()"/>
+      </div>
+    </div>
+    <div class="field">
+      <label>Website</label>
+      <input type="url" id="f_vweb" placeholder="https://example.com" oninput="autoGenerate()"/>
+    </div>
+    <div class="field">
+      <label>Address</label>
+      <input type="text" id="f_vaddr" placeholder="123 Main St, City, Country" oninput="autoGenerate()"/>
+    </div>`,
+
+  location: () => `
+    <div class="field-row">
+      <div class="field">
+        <label>Latitude *</label>
+        <input type="number" id="f_lat" placeholder="24.8607" step="any" oninput="autoGenerate()"/>
+      </div>
+      <div class="field">
+        <label>Longitude *</label>
+        <input type="number" id="f_lng" placeholder="67.0011" step="any" oninput="autoGenerate()"/>
+      </div>
+    </div>
+    <div class="field">
+      <label>Label (optional)</label>
+      <input type="text" id="f_locname" placeholder="Karachi, Pakistan" oninput="autoGenerate()"/>
+    </div>
+    <div style="margin-top:.3rem;">
+      <button onclick="detectLocation()" style="background:rgba(90,180,224,0.1);border:1px solid rgba(90,180,224,0.3);border-radius:8px;padding:.4rem .9rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--blue);cursor:pointer;letter-spacing:.04em;">📍 Use My Location</button>
+    </div>`,
+
+  text: () => `
+    <div class="field">
+      <label>Text / Message *</label>
+      <textarea id="f_text" placeholder="Enter any text, message or note…" style="min-height:120px;" oninput="autoGenerate(); countChars()"></textarea>
+      <div class="char-count" id="textCharCount">0 characters</div>
+    </div>`,
+
+  bitcoin: () => `
+    <div class="field">
+      <label>Bitcoin Address *</label>
+      <input type="text" id="f_btcaddr" placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7Divf" oninput="autoGenerate()"/>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Amount (BTC)</label>
+        <input type="number" id="f_btcamt" placeholder="0.001" step="any" min="0" oninput="autoGenerate()"/>
+      </div>
+      <div class="field">
+        <label>Label</label>
+        <input type="text" id="f_btclabel" placeholder="Payment for…" oninput="autoGenerate()"/>
+      </div>
+    </div>
+    <div class="field">
+      <label>Message</label>
+      <input type="text" id="f_btcmsg" placeholder="Invoice #1234" oninput="autoGenerate()"/>
+    </div>`,
 };
-let lang='en';
 
-function setLang(l){
-  lang=l;const t=TL[l];
-  document.documentElement.lang=t.l;document.documentElement.dir=t.dir;
-  document.body.classList.toggle('rtl',t.dir==='rtl');
-  document.getElementById('langSelect').value=l;
-  const ids=['bismlTr','heroTitle','heroSub','ctContent','ctDesign','ctHistory','ctFeatures','ctLinks',
-    'lUrl','lText','lWifiSSID','lWifiPass','lWifiSec','lWifiHidden','lEmailTo','lEmailSubj','lEmailBody',
-    'lPhone','lPhoneType','lVcFirst','lVcLast','lVcPhone','lVcEmail','lVcOrg','lVcTitle','lVcUrl','lVcCity',
-    'lSmsNum','lSmsMsg','lQrColor','lBgColor','lSize','lECC','lRender','lLogo','lLiveGen','lShowLogo',
-    'genTxt','resetTxt','clearHistTxt','f1t','f1d','f2t','f2d','f3t','f3d','f4t','f4d','f5t','f5d','f6t','f6d'];
-  ids.forEach(id=>{const el=document.getElementById(id);if(el&&t[id])el.textContent=t[id];});
-  document.querySelectorAll('.nav-link[data-en]').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
-  document.querySelectorAll('[data-en]:not(.nav-link)').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
-  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
-  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
+/* ── WiFi encryption state ── */
+let wifiEnc = 'WPA';
+function setEnc(enc) {
+  wifiEnc = enc;
+  document.querySelectorAll('.enc-chip').forEach(c => c.classList.toggle('active', c.dataset.enc===enc));
+  autoGenerate();
 }
 
-/* ══ TYPE TABS ══ */
-let currentType='url';
-const types=['url','text','wifi','email','phone','vcard','sms'];
-function switchType(t){
-  currentType=t;
-  document.querySelectorAll('#typeTabs .tab').forEach((b,i)=>b.classList.toggle('active',types[i]===t));
-  types.forEach(ty=>document.getElementById('type'+ty.charAt(0).toUpperCase()+ty.slice(1)).style.display=ty===t?'block':'none');
-  liveGenerate();
+/* ── Set Type ── */
+function setType(type) {
+  currentType = type;
+  document.querySelectorAll('.type-tab').forEach(t => t.classList.toggle('active', t.dataset.type===type));
+  document.getElementById('formArea').innerHTML = FORMS[type]();
+  hideError();
+  autoGenerate();
 }
 
-/* ══ SLIDERS ══ */
-function updateSizeSlider(el){
-  const v=el.value;
-  document.getElementById('sizeVal').textContent=v+' px';
-  el.style.setProperty('--pct',Math.round(((v-128)/(512-128))*100)+'%');
-}
-updateSizeSlider(document.getElementById('sizeSlider'));
-
-function syncHex(inputId,hexId){
-  document.getElementById(hexId).textContent=document.getElementById(inputId).value.toUpperCase();
-}
-
-/* ══ CHAR COUNT ══ */
-function updateCharCount(el,countId,max){
-  document.getElementById(countId).textContent=`${el.value.length} / ${max}`;
-}
-
-/* ══ LOGO ══ */
-let logoDataURL=null;
-function handleLogo(input){
-  const file=input.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=e=>{logoDataURL=e.target.result;liveGenerate();};
-  reader.readAsDataURL(file);
-}
-
-/* ══ BUILD QR TEXT ══ */
-function buildQRText(){
-  switch(currentType){
-    case'url':{const v=document.getElementById('inUrl').value.trim();return v||'https://example.com';}
-    case'text':return document.getElementById('inText').value.trim()||'Hello World';
-    case'wifi':{
-      const s=document.getElementById('inWifiSSID').value.trim();
-      const p=document.getElementById('inWifiPass').value.trim();
-      const sec=document.getElementById('inWifiSec').value;
-      const h=document.getElementById('inWifiHidden').value;
-      return `WIFI:T:${sec};S:${s};P:${p};H:${h};;`;
+/* ── Build QR text from form ── */
+function buildQRText() {
+  const g = id => { const el=document.getElementById(id); return el ? el.value.trim() : ''; };
+  switch(currentType) {
+    case 'url':
+      const url = g('f_url');
+      return url;
+    case 'wifi': {
+      const ssid=g('f_ssid'), pass=g('f_wpass'), hidden=document.getElementById('f_hidden')?.checked?'true':'false';
+      if (!ssid) return '';
+      const enc = wifiEnc==='nopass' ? 'nopass' : wifiEnc;
+      return `WIFI:T:${enc};S:${ssid};P:${pass};H:${hidden};;`;
     }
-    case'email':{
-      const to=document.getElementById('inEmailTo').value.trim();
-      const su=encodeURIComponent(document.getElementById('inEmailSubj').value.trim());
-      const bo=encodeURIComponent(document.getElementById('inEmailBody').value.trim());
-      return `mailto:${to}?subject=${su}&body=${bo}`;
+    case 'email': {
+      const em=g('f_email'), subj=g('f_esubj'), body=g('f_ebody');
+      if (!em) return '';
+      let s = `mailto:${em}`;
+      const params=[];
+      if(subj) params.push('subject='+encodeURIComponent(subj));
+      if(body) params.push('body='+encodeURIComponent(body));
+      if(params.length) s += '?' + params.join('&');
+      return s;
     }
-    case'phone':{
-      const num=document.getElementById('inPhone').value.trim().replace(/\s+/g,'');
-      const typ=document.getElementById('inPhoneType').value;
-      return `${typ}:${num}`;
+    case 'phone':
+      return g('f_phone') ? `tel:${g('f_phone')}` : '';
+    case 'sms': {
+      const ph=g('f_sphone'), msg=g('f_smsg');
+      if (!ph) return '';
+      return msg ? `sms:${ph}?body=${encodeURIComponent(msg)}` : `sms:${ph}`;
     }
-    case'vcard':{
-      const fn=document.getElementById('inVcFirst').value.trim();
-      const ln=document.getElementById('inVcLast').value.trim();
-      const ph=document.getElementById('inVcPhone').value.trim();
-      const em=document.getElementById('inVcEmail').value.trim();
-      const og=document.getElementById('inVcOrg').value.trim();
-      const ti=document.getElementById('inVcTitle').value.trim();
-      const ur=document.getElementById('inVcUrl').value.trim();
-      const ci=document.getElementById('inVcCity').value.trim();
-      return `BEGIN:VCARD\nVERSION:3.0\nN:${ln};${fn}\nFN:${fn} ${ln}\nTEL:${ph}\nEMAIL:${em}\nORG:${og}\nTITLE:${ti}\nURL:${ur}\nADR:;;${ci};;;;\nEND:VCARD`;
+    case 'whatsapp': {
+      const ph=g('f_waphone').replace(/\D/g,''), msg=g('f_wamsg');
+      if (!ph) return '';
+      return `https://wa.me/${ph}${msg?'?text='+encodeURIComponent(msg):''}`;
     }
-    case'sms':{
-      const num=document.getElementById('inSmsNum').value.trim().replace(/\s+/g,'');
-      const msg=encodeURIComponent(document.getElementById('inSmsMsg').value.trim());
-      return `sms:${num}?body=${msg}`;
+    case 'vcard': {
+      const fn=g('f_fname'), ln=g('f_lname'), org=g('f_org'), title=g('f_title'),
+            ph=g('f_vphone'), em=g('f_vemail'), web=g('f_vweb'), addr=g('f_vaddr');
+      if (!fn) return '';
+      let vc = `BEGIN:VCARD\nVERSION:3.0\nN:${ln};${fn};;;\nFN:${fn} ${ln}`.trim();
+      if(org)   vc += `\nORG:${org}`;
+      if(title) vc += `\nTITLE:${title}`;
+      if(ph)    vc += `\nTEL:${ph}`;
+      if(em)    vc += `\nEMAIL:${em}`;
+      if(web)   vc += `\nURL:${web}`;
+      if(addr)  vc += `\nADR:;;${addr};;;;`;
+      vc += '\nEND:VCARD';
+      return vc;
     }
-    default:return '';
+    case 'location': {
+      const lat=g('f_lat'), lng=g('f_lng');
+      if (!lat || !lng) return '';
+      return `geo:${lat},${lng}`;
+    }
+    case 'text':
+      return g('f_text');
+    case 'bitcoin': {
+      const addr=g('f_btcaddr'), amt=g('f_btcamt'), lbl=g('f_btclabel'), msg=g('f_btcmsg');
+      if (!addr) return '';
+      let s = `bitcoin:${addr}`;
+      const params=[];
+      if(amt)  params.push('amount='+amt);
+      if(lbl)  params.push('label='+encodeURIComponent(lbl));
+      if(msg)  params.push('message='+encodeURIComponent(msg));
+      if(params.length) s += '?' + params.join('&');
+      return s;
+    }
+    default: return '';
   }
 }
 
-/* ══ GENERATE QR ══ */
-let qrInstance=null;
-let liveTimer=null;
-
-function liveGenerate(){
-  if(!document.getElementById('liveGenToggle').checked)return;
-  clearTimeout(liveTimer);
-  liveTimer=setTimeout(()=>generateQR(),350);
+/* ── Auto Generate (debounced) ── */
+function autoGenerate() {
+  clearTimeout(autoTimer);
+  autoTimer = setTimeout(() => generateQR(true), 400);
 }
 
-function generateQR(){
-  const text=buildQRText();
-  if(!text)return;
-  const size=parseInt(document.getElementById('sizeSlider').value)||256;
-  const fgColor=document.getElementById('qrColor').value;
-  const bgColor=document.getElementById('bgColor').value;
-  const eccMap={L:QRCode.CorrectLevel.L,M:QRCode.CorrectLevel.M,Q:QRCode.CorrectLevel.Q,H:QRCode.CorrectLevel.H};
-  const ecc=eccMap[document.getElementById('eccLevel').value]||QRCode.CorrectLevel.M;
+/* ── Generate QR ── */
+function generateQR(auto=false) {
+  const text = buildQRText();
+  if (!text) { if (!auto) showError('Please fill in the required fields.'); return; }
+  hideError();
+  lastQRText = text;
 
-  const canvas=document.getElementById('qrCanvas');
-  canvas.innerHTML='';
+  const fg   = document.getElementById('fgColor').value;
+  const bg   = document.getElementById('bgColor').value;
+  const size = currentSize;
 
-  qrInstance=new QRCode(canvas,{
-    text,width:size,height:size,
-    colorDark:fgColor,colorLight:bgColor,
-    correctLevel:ecc
-  });
+  const container = document.getElementById('qrContainer');
+  container.innerHTML = '';
 
-  // Apply rounded style if selected
-  setTimeout(()=>{
-    if(document.getElementById('renderStyle').value==='round'){
-      applyRoundDots(canvas,fgColor,bgColor,size);
-    }
-    // Logo overlay
-    const logoWrap=document.getElementById('logoWrap');
-    if(document.getElementById('showLogo').checked&&logoDataURL){
-      document.getElementById('logoImg').src=logoDataURL;
-      logoWrap.style.display='block';
-    } else {
-      logoWrap.style.display='none';
-    }
-    // Save to history
-    saveToHistory(text,size);
-  },100);
+  // Set QR box background
+  const qrBox = document.getElementById('qrBox');
+  qrBox.style.background = bg;
+  qrBox.style.padding = '16px';
 
-  document.getElementById('qrOutput').classList.add('show');
-  document.getElementById('qrSizeBadge').textContent=`${size} × ${size} px`;
-}
+  const ecMap = { L: QRCode.CorrectLevel.L, M: QRCode.CorrectLevel.M, Q: QRCode.CorrectLevel.Q, H: QRCode.CorrectLevel.H };
 
-function applyRoundDots(container,fg,bg,size){
-  const img=container.querySelector('img');
-  if(!img)return;
-  const canvas2=document.createElement('canvas');
-  canvas2.width=size;canvas2.height=size;
-  const ctx=canvas2.getContext('2d');
-  const tempImg=new Image();
-  tempImg.onload=()=>{
-    ctx.drawImage(tempImg,0,0,size,size);
-    const d=ctx.getImageData(0,0,size,size);
-    const c2=document.createElement('canvas');
-    c2.width=size;c2.height=size;
-    const cx2=c2.getContext('2d');
-    cx2.fillStyle=bg;cx2.fillRect(0,0,size,size);
-    const module=Math.round(size/33);
-    for(let y=0;y<size;y+=module){
-      for(let x=0;x<size;x+=module){
-        const idx=(y*size+x)*4;
-        const r=d.data[idx],g=d.data[idx+1],b=d.data[idx+2];
-        const isDark=(r<128&&g<128&&b<128);
-        if(isDark){
-          cx2.fillStyle=fg;
-          cx2.beginPath();cx2.arc(x+module/2,y+module/2,module*.45,0,Math.PI*2);cx2.fill();
-        }
-      }
-    }
-    img.src=c2.toDataURL();
-  };
-  tempImg.src=img.src;
-}
+  try {
+    new QRCode(container, {
+      text,
+      width:  size,
+      height: size,
+      colorDark:  fg,
+      colorLight: bg,
+      correctLevel: ecMap[currentEC] || QRCode.CorrectLevel.M,
+    });
 
-/* ══ DOWNLOAD ══ */
-function downloadQR(fmt){
-  const img=document.querySelector('#qrCanvas img');
-  if(!img){alert('Please generate a QR code first!');return;}
-  const size=parseInt(document.getElementById('sizeSlider').value)||256;
-  const canvas=document.createElement('canvas');
-  canvas.width=size;canvas.height=size;
-  const ctx=canvas.getContext('2d');
-  const bg=document.getElementById('bgColor').value;
-  ctx.fillStyle=bg;ctx.fillRect(0,0,size,size);
-  const qi=new Image();
-  qi.onload=()=>{
-    ctx.drawImage(qi,0,0,size,size);
-    // Overlay logo if enabled
-    if(document.getElementById('showLogo').checked&&logoDataURL){
-      const li=new Image();
-      li.onload=()=>{
-        const ls=size*.18;
-        ctx.drawImage(li,(size-ls)/2,(size-ls)/2,ls,ls);
-        triggerDownload(canvas,fmt);
-      };li.src=logoDataURL;
-    } else {
-      triggerDownload(canvas,fmt);
-    }
-  };
-  qi.onerror=()=>{
-    // fallback: draw from canvas element directly
-    const qcv=document.querySelector('#qrCanvas canvas');
-    if(qcv){ctx.drawImage(qcv,0,0,size,size);triggerDownload(canvas,fmt);}
-  };
-  qi.src=img.src;
-}
+    // After QR renders, overlay logo if set
+    setTimeout(() => {
+      const canvas = container.querySelector('canvas');
+      if (!canvas) return;
+      lastQRCanvas = canvas;
 
-function triggerDownload(canvas,fmt){
-  const a=document.createElement('a');
-  if(fmt==='svg'){
-    const text=buildQRText();
-    const svgContent=generateSVG(text,parseInt(document.getElementById('sizeSlider').value)||256);
-    const blob=new Blob([svgContent],{type:'image/svg+xml'});
-    a.href=URL.createObjectURL(blob);a.download='qr-code.svg';
-  } else {
-    const mime=fmt==='jpg'?'image/jpeg':'image/png';
-    const q=fmt==='jpg'?0.92:1;
-    a.href=canvas.toDataURL(mime,q);a.download=`qr-code.${fmt}`;
+      // Apply dot style
+      if (dotStyle !== 'square') applyDotStyle(canvas, fg, bg);
+
+      // Overlay logo
+      if (logoDataUrl) overlayLogo(canvas);
+
+      // Enable download
+      ['dlPng','dlSvg','dlJpg'].forEach(id => document.getElementById(id).disabled = false);
+      document.getElementById('copyBtn').disabled = false;
+
+      // Update info chips
+      document.getElementById('qrInfo').style.display = '';
+      document.getElementById('qrTypeChip').textContent = currentType.toUpperCase();
+      document.getElementById('qrSizeChip').textContent = size+'×'+size+'px';
+      document.getElementById('qrEcChip').textContent   = 'EC: '+currentEC;
+      document.getElementById('qrCharChip').textContent = text.length+' chars';
+
+      // Save to history
+      if (!auto || lastQRText !== text) saveHistory(text, canvas.toDataURL('image/png'));
+    }, 150);
+
+  } catch(e) {
+    showError('QR generation failed. The content may be too long. Try shorter text or higher error correction.');
   }
+}
+
+/* ── Dot Style ── */
+function applyDotStyle(canvas, fg, bg) {
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  const imgData = ctx.getImageData(0, 0, w, h);
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = bg;
+  ctx.fillRect(0,0,w,h);
+
+  // Detect module size by finding first dark pixel
+  let mod = 0;
+  for (let x=0;x<w;x++) {
+    const idx=(x)*4;
+    const r=imgData.data[idx],g2=imgData.data[idx+1],b2=imgData.data[idx+2];
+    if(r<128&&g2<128&&b2<128){mod=x;break;}
+  }
+  if(!mod) mod = Math.round(w/33);
+
+  ctx.fillStyle = fg;
+  const step = mod||8;
+  for(let y=0;y<h;y+=step){
+    for(let x=0;x<w;x+=step){
+      const idx=(y*w+x)*4;
+      const r=imgData.data[idx],gv=imgData.data[idx+1],bv=imgData.data[idx+2];
+      const isDark = r<128&&gv<128&&bv<128;
+      if(!isDark) continue;
+      const cx=x+step/2, cy=y+step/2, r2=step/2;
+      ctx.beginPath();
+      if(dotStyle==='round') ctx.arc(cx,cy,r2*.85,0,Math.PI*2);
+      else if(dotStyle==='dot') ctx.arc(cx,cy,r2*.55,0,Math.PI*2);
+      else ctx.rect(x+1,y+1,step-2,step-2);
+      ctx.fill();
+    }
+  }
+}
+
+/* ── Logo Overlay ── */
+function overlayLogo(canvas) {
+  if (!logoDataUrl) return;
+  const ctx = canvas.getContext('2d');
+  const size = canvas.width;
+  const logoSize = Math.round(size * 0.22);
+  const x = (size - logoSize) / 2;
+  const y = (size - logoSize) / 2;
+  const img = new Image();
+  img.onload = () => {
+    // White circle bg
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,0.2)';
+    ctx.shadowBlur  = 8;
+    ctx.fillStyle   = '#ffffff';
+    ctx.beginPath();
+    ctx.roundRect(x-6, y-6, logoSize+12, logoSize+12, 8);
+    ctx.fill();
+    ctx.restore();
+    ctx.drawImage(img, x, y, logoSize, logoSize);
+  };
+  img.src = logoDataUrl;
+}
+
+/* ── Logo Upload ── */
+function onLogoUpload(inp) {
+  const f = inp.files[0]; if (!f) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    logoDataUrl = e.target.result;
+    const prev = document.getElementById('logoPreview');
+    prev.innerHTML = `<img src="${logoDataUrl}" alt="logo"/>`;
+    document.getElementById('logoRemoveBtn').style.display = '';
+    // Auto upgrade EC to H for logo
+    setEC('H');
+    autoGenerate();
+  };
+  reader.readAsDataURL(f);
+}
+function removeLogo() {
+  logoDataUrl = null;
+  document.getElementById('logoPreview').innerHTML = '🖼️';
+  document.getElementById('logoRemoveBtn').style.display = 'none';
+  document.getElementById('logoFileInput').value = '';
+  autoGenerate();
+}
+
+/* ── Colors ── */
+function onColor() {
+  const fg = document.getElementById('fgColor').value;
+  const bg = document.getElementById('bgColor').value;
+  document.getElementById('fgSwatch').style.background = fg;
+  document.getElementById('bgSwatch').style.background = bg;
+  document.getElementById('fgHex').textContent = fg;
+  document.getElementById('bgHex').textContent = bg;
+  autoGenerate();
+}
+
+/* ── Size ── */
+function onSize() {
+  const v = parseInt(document.getElementById('sizeSlider').value);
+  currentSize = v;
+  const pct = ((v-128)/(1024-128))*100;
+  document.getElementById('sizeSlider').style.setProperty('--pct', pct+'%');
+  document.getElementById('sizeLabel').textContent = `Size: ${v}×${v} px`;
+  autoGenerate();
+}
+onSize(); // init
+
+/* ── Error Correction ── */
+function setEC(ec) {
+  currentEC = ec;
+  document.querySelectorAll('.ec-chip').forEach(c => c.classList.toggle('active', c.dataset.ec===ec));
+  autoGenerate();
+}
+
+/* ── Dot Style ── */
+function setDotStyle(style) {
+  dotStyle = style;
+  document.querySelectorAll('.style-chip').forEach(c => c.classList.toggle('active', c.dataset.style===style));
+  autoGenerate();
+}
+
+/* ── Location ── */
+function detectLocation() {
+  if (!navigator.geolocation) { showToast('⚠️ Geolocation not supported.'); return; }
+  navigator.geolocation.getCurrentPosition(pos => {
+    document.getElementById('f_lat').value = pos.coords.latitude.toFixed(6);
+    document.getElementById('f_lng').value = pos.coords.longitude.toFixed(6);
+    autoGenerate();
+    showToast('📍 Location detected!');
+  }, () => showToast('❌ Could not get location.'));
+}
+
+/* ── Char count ── */
+function countChars() {
+  const el = document.getElementById('f_text');
+  const cc = document.getElementById('textCharCount');
+  if (el && cc) cc.textContent = el.value.length + ' characters';
+}
+
+/* ── Download ── */
+function getCanvas() { return lastQRCanvas || document.querySelector('#qrContainer canvas'); }
+
+function downloadPNG() {
+  const canvas = getCanvas(); if (!canvas) return;
+  const a = document.createElement('a');
+  a.download = 'toolnex-qr-' + currentType + '.png';
+  a.href = canvas.toDataURL('image/png');
   a.click();
+  showToast('⬇️ PNG downloaded!');
 }
 
-function generateSVG(text,size){
-  // Simple SVG placeholder — real SVG generation would need QR matrix calculation
-  return`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
-  <rect width="${size}" height="${size}" fill="${document.getElementById('bgColor').value}"/>
-  <text x="50%" y="50%" font-size="12" fill="${document.getElementById('qrColor').value}" text-anchor="middle" dominant-baseline="middle" font-family="monospace">QR: ${text.slice(0,30)}</text>
-  <text x="50%" y="60%" font-size="9" fill="#999" text-anchor="middle" font-family="sans-serif">Export PNG for best quality</text>
+function downloadJPG() {
+  const canvas = getCanvas(); if (!canvas) return;
+  const a = document.createElement('a');
+  a.download = 'toolnex-qr-' + currentType + '.jpg';
+  a.href = canvas.toDataURL('image/jpeg', 0.95);
+  a.click();
+  showToast('⬇️ JPG downloaded!');
+}
+
+function downloadSVG() {
+  if (!lastQRText) return;
+  // Build minimal SVG QR representation using PNG embed
+  const canvas = getCanvas(); if (!canvas) return;
+  const dataUrl = canvas.toDataURL('image/png');
+  const size = currentSize;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
+  <image href="${dataUrl}" width="${size}" height="${size}"/>
 </svg>`;
+  const blob = new Blob([svg], {type:'image/svg+xml'});
+  const url  = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.download = 'toolnex-qr-' + currentType + '.svg';
+  a.href = url; a.click();
+  URL.revokeObjectURL(url);
+  showToast('⬇️ SVG downloaded!');
 }
 
-/* ══ HISTORY ══ */
-let history=[];
-function saveToHistory(text,size){
-  const img=document.querySelector('#qrCanvas img');if(!img)return;
-  const entry={text:text.slice(0,40),dataURL:img.src,size,ts:Date.now()};
-  history=history.filter(h=>h.text!==entry.text).slice(0,11);
+async function copyToClipboard() {
+  const canvas = getCanvas(); if (!canvas) { showToast('⚠️ Generate a QR code first.'); return; }
+  try {
+    canvas.toBlob(async blob => {
+      await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+      showToast('📋 QR code copied!');
+    });
+  } catch { showToast('❌ Copy not supported in this browser. Use Download instead.'); }
+}
+
+/* ── History ── */
+function saveHistory(text, dataUrl) {
+  const entry = { type:currentType, text:text.slice(0,60), dataUrl, time:Date.now() };
+  history = history.filter(h => h.text !== entry.text); // deduplicate
   history.unshift(entry);
+  if (history.length > 12) history = history.slice(0,12);
+  localStorage.setItem('tn_qr_hist', JSON.stringify(history));
   renderHistory();
 }
 
-function renderHistory(){
-  const card=document.getElementById('historyCard');
-  const grid=document.getElementById('historyGrid');
-  if(!history.length){card.style.display='none';return;}
-  card.style.display='block';
-  grid.innerHTML=history.map((h,i)=>`
-    <div class="hist-item" onclick="loadHistory(${i})" title="${h.text}">
-      <img src="${h.dataURL}" style="width:70px;height:70px;border-radius:6px;object-fit:contain;background:#fff"/>
-      <div class="hist-label">${h.text}</div>
-    </div>`).join('');
+function renderHistory() {
+  const area = document.getElementById('historyArea');
+  if (!history.length) {
+    area.innerHTML = '<div class="hist-empty">No QR codes generated yet.</div>';
+    return;
+  }
+  area.innerHTML = `<div class="history-grid">${history.map((h,i) => `
+    <div class="hist-card" onclick="loadHistory(${i})" title="${h.text}">
+      <div class="hist-card-img"><img src="${h.dataUrl}" alt="QR"/></div>
+      <div class="hist-card-type">${h.type}</div>
+      <div class="hist-card-text">${h.text}</div>
+    </div>`).join('')}</div>`;
 }
 
-function loadHistory(idx){
-  const h=history[idx];if(!h)return;
-  // Put text in URL field and regenerate
-  document.getElementById('inUrl').value=h.text;
-  switchType('url');generateQR();
+function loadHistory(i) {
+  const h = history[i];
+  // Set type tab
+  setType(h.type);
+  showToast('📂 Loaded from history!');
 }
 
-function clearHistory(){history=[];renderHistory();}
-
-/* ══ RESET ══ */
-function resetAll(){
-  types.forEach(t=>{
-    ['url','text','wifi','email','phone','vcard','sms'].forEach(type=>{
-      const fields=document.querySelectorAll(`#type${type.charAt(0).toUpperCase()+type.slice(1)} input, #type${type.charAt(0).toUpperCase()+type.slice(1)} textarea`);
-      fields.forEach(f=>f.value='');
-    });
-  });
-  document.getElementById('qrColor').value='#000000';
-  document.getElementById('bgColor').value='#ffffff';
-  document.getElementById('hexQr').textContent='#000000';
-  document.getElementById('hexBg').textContent='#FFFFFF';
-  document.getElementById('sizeSlider').value=256;
-  updateSizeSlider(document.getElementById('sizeSlider'));
-  document.getElementById('eccLevel').value='M';
-  document.getElementById('renderStyle').value='square';
-  document.getElementById('qrOutput').classList.remove('show');
-  logoDataURL=null;
+function clearHistory() {
+  history = [];
+  localStorage.removeItem('tn_qr_hist');
+  renderHistory();
+  showToast('🗑️ History cleared!');
 }
+
+/* ── Reset ── */
+function resetAll() {
+  setType('url');
+  document.getElementById('fgColor').value = '#000000'; onColor();
+  document.getElementById('bgColor').value = '#ffffff'; onColor();
+  document.getElementById('sizeSlider').value = 256; onSize();
+  setEC('M'); setDotStyle('square'); removeLogo();
+  document.getElementById('qrContainer').innerHTML = `
+    <div class="qr-placeholder">
+      <span class="qr-placeholder-icon">📲</span>
+      <span style="font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.06em;">Fill in the form<br/>and generate your QR</span>
+    </div>`;
+  document.getElementById('qrBox').style.background = '#fff';
+  document.getElementById('qrInfo').style.display = 'none';
+  ['dlPng','dlSvg','dlJpg'].forEach(id => document.getElementById(id).disabled = true);
+  lastQRCanvas = null; lastQRText = '';
+  hideError();
+  showToast('🗑️ Reset done!');
+}
+
+/* ── UI helpers ── */
+function showError(msg) { const e=document.getElementById('errorMsg'); e.textContent=msg; e.classList.add('show'); }
+function hideError()    { document.getElementById('errorMsg').classList.remove('show'); }
+function showToast(msg) { const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
+
+/* ── Init ── */
+document.addEventListener('DOMContentLoaded', () => {
+  setType('url');
+  renderHistory();
+  // Disable dl buttons initially
+  ['dlPng','dlSvg','dlJpg'].forEach(id => document.getElementById(id).disabled = true);
+});
+
+/* ── Scroll animations ── */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';io.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.feat-card').forEach((c,i)=>{
+  c.style.opacity='0';c.style.transform='translateY(14px)';
+  c.style.transition=`opacity .4s ${i*.05}s ease,transform .4s ${i*.05}s ease,border-color .2s`;
+  io.observe(c);
+});
 </script>
 </body>
 </html>
