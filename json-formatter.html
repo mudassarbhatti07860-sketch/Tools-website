@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<title>JSON Formatter – Free Online JSON Beautifier, Validator & Minifier | ToolNex</title>
+<meta name="description" content="Free advanced JSON Formatter — beautify, validate, minify, compare and convert JSON online. Tree view, syntax highlighting, error detection, JSON to CSV/XML and more."/>
+<meta name="keywords" content="json formatter, json beautifier, json validator, json minifier, json editor, json to csv, json to xml, online json formatter"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://toolnex.site/json-formatter.html"/>
+<meta property="og:title" content="JSON Formatter – ToolNex Free Online Tools"/>
+<meta property="og:description" content="Beautify, validate, minify and convert JSON instantly. Free, fast & private."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/json-formatter.html"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --gold:#c9a84c;--gold2:#f0d080;--darker:#07070e;--dark:#0d0d14;
+  --panel:rgba(18,18,30,0.96);--border:rgba(201,168,76,0.28);
+  --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;
+  --blue:#5ab4e0;--orange:#e09a3a;--purple:#b07de0;
+  --accent:rgba(201,168,76,0.08);
+  /* JSON syntax colors */
+  --jkey:#f0d080;--jstr:#4caf77;--jnum:#5ab4e0;
+  --jbool:#b07de0;--jnull:#e05a5a;--jpunc:#9a8860;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 60%),
+    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    var(--darker);}
+
+/* ══ NAV ══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;height:44px;
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+  padding:0 1.4rem;
+  background:rgba(5,5,12,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+.nav-logo-icon{font-size:1.3rem;}
+.nav-logo-text{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:.06em;}
+.nav-right{display:flex;align-items:center;gap:.4rem;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
+  padding:.22rem .75rem;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;
+  cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover{border-color:var(--gold);color:var(--gold2);}
+
+/* ══ TOP BANNER AD ══ */
+.ad-top-banner{
+  position:fixed;top:44px;left:0;right:0;z-index:290;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(5,5,12,0.97);
+  border-bottom:1px solid var(--border);
+  padding:.35rem 1rem;
+  min-height:100px;}
+.ad-top-banner .ad-slot{
+  width:728px;height:90px;max-width:100%;
+  background:rgba(201,168,76,0.03);
+  border:1px dashed rgba(201,168,76,0.18);
+  border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){
+  .ad-top-banner{min-height:116px;}
+  .ad-top-banner .ad-slot{width:320px;height:100px;}}
+
+/* ══ BODY OFFSET — nav(44) + banner(100) = 144px ══ */
+.page-body{padding-top:144px;}
+@media(max-width:768px){.page-body{padding-top:160px;}}
+
+/* ══ HERO ══ */
+.page-hero{position:relative;z-index:1;text-align:center;padding:2.2rem 1rem 1.2rem;}
+.breadcrumb{font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);letter-spacing:.08em;margin-bottom:.7rem;}
+.breadcrumb a{color:var(--gold);text-decoration:none;}
+.breadcrumb a:hover{color:var(--gold2);}
+.page-badge{display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:20px;
+  padding:.28rem 1rem;font-size:.72rem;font-family:'Cinzel',serif;color:var(--gold);
+  letter-spacing:.08em;margin-bottom:.6rem;}
+.page-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.15;margin-bottom:.4rem;}
+.page-sub{color:var(--muted);font-size:.88rem;max-width:520px;margin:0 auto;line-height:1.7;}
+.gold-line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.7rem auto 0;}
+
+/* ══ WRAP ══ */
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:1.2rem 1rem 3rem;
+  display:flex;flex-direction:column;gap:1.4rem;}
+
+/* ══ TOOL PANEL ══ */
+.tool-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:1.4rem;overflow:hidden;}
+.tool-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem;flex-wrap:wrap;gap:.5rem;}
+.tool-panel-title{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);
+  letter-spacing:.08em;display:flex;align-items:center;gap:.5rem;}
+.tool-panel-title::before{content:'';width:4px;height:16px;background:var(--gold);border-radius:2px;}
+
+/* ══ SECTION HEADER ══ */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;}
+.section-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;}
+.section-title::before{content:'';width:4px;height:18px;background:var(--gold);border-radius:2px;}
+
+/* ══ MODE TABS ══ */
+.mode-tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.mode-tab{padding:.38rem .95rem;border-radius:20px;border:1px solid var(--border);
+  font-family:'Cinzel',serif;font-size:.73rem;color:var(--muted);cursor:pointer;
+  background:transparent;transition:all .2s;letter-spacing:.06em;}
+.mode-tab.active{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
+.mode-tab:hover:not(.active){border-color:rgba(201,168,76,0.4);color:var(--text);}
+.mode-content{display:none;}
+.mode-content.active{display:block;animation:fadeUp .32s ease both;}
+
+/* ══ EDITOR LAYOUT ══ */
+.editor-split{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:720px){.editor-split{grid-template-columns:1fr;}}
+.editor-col{display:flex;flex-direction:column;gap:.5rem;}
+.editor-col-label{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.3rem;}
+.col-label-text{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
+.col-label-actions{display:flex;gap:.35rem;flex-wrap:wrap;}
+
+/* ══ TEXTAREA ══ */
+.json-area{width:100%;height:320px;background:rgba(3,3,10,0.92);border:1px solid var(--border);
+  border-radius:10px;padding:.9rem;color:var(--text);font-family:'Courier New',Courier,monospace;
+  font-size:.82rem;line-height:1.65;resize:vertical;outline:none;
+  transition:border-color .2s,box-shadow .2s;tab-size:2;}
+.json-area:focus{border-color:var(--gold);box-shadow:0 0 16px rgba(201,168,76,0.12);}
+.json-area::placeholder{color:rgba(154,136,96,0.45);}
+.json-area.error{border-color:var(--red);box-shadow:0 0 12px rgba(224,90,90,0.15);}
+.json-area.success{border-color:var(--green);box-shadow:0 0 12px rgba(76,175,119,0.12);}
+
+/* ══ HIGHLIGHTED OUTPUT ══ */
+.json-highlighted{width:100%;height:320px;background:rgba(3,3,10,0.92);border:1px solid var(--border);
+  border-radius:10px;padding:.9rem;font-family:'Courier New',Courier,monospace;
+  font-size:.82rem;line-height:1.65;overflow:auto;white-space:pre;
+  border-color:var(--green);}
+.json-highlighted .jk{color:var(--jkey);}
+.json-highlighted .js{color:var(--jstr);}
+.json-highlighted .jn{color:var(--jnum);}
+.json-highlighted .jb{color:var(--jbool);}
+.json-highlighted .jnu{color:var(--jnull);}
+.json-highlighted .jp{color:var(--jpunc);}
+.json-highlighted::-webkit-scrollbar{width:5px;height:5px;}
+.json-highlighted::-webkit-scrollbar-track{background:rgba(255,255,255,0.02);}
+.json-highlighted::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.3);border-radius:4px;}
+
+/* ══ TREE VIEW ══ */
+.tree-view{width:100%;min-height:320px;max-height:500px;background:rgba(3,3,10,0.92);
+  border:1px solid var(--border);border-radius:10px;padding:.9rem;
+  overflow:auto;font-family:'Courier New',monospace;font-size:.8rem;line-height:1.8;}
+.tree-view::-webkit-scrollbar{width:5px;}
+.tree-view::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.3);border-radius:4px;}
+.tv-node{margin-left:1.2rem;}
+.tv-toggle{cursor:pointer;color:var(--gold);user-select:none;margin-right:.3rem;font-size:.7rem;}
+.tv-toggle:hover{color:var(--gold2);}
+.tv-key{color:var(--jkey);}
+.tv-colon{color:var(--jpunc);}
+.tv-str{color:var(--jstr);}
+.tv-num{color:var(--jnum);}
+.tv-bool{color:var(--jbool);}
+.tv-null{color:var(--jnull);}
+.tv-bracket{color:var(--jpunc);}
+.tv-count{font-size:.68rem;color:var(--muted);margin-left:.4rem;}
+.tv-collapsed{display:none;}
+
+/* ══ ERROR BOX ══ */
+.error-box{display:none;background:rgba(224,90,90,0.08);border:1px solid rgba(224,90,90,0.3);
+  border-radius:8px;padding:.7rem 1rem;margin-top:.6rem;}
+.error-box.show{display:flex;align-items:flex-start;gap:.5rem;}
+.error-icon{font-size:1rem;flex-shrink:0;margin-top:.05rem;}
+.error-msg{font-family:'Courier New',monospace;font-size:.78rem;color:var(--red);line-height:1.5;}
+
+/* ══ SUCCESS BOX ══ */
+.success-box{display:none;background:rgba(76,175,119,0.08);border:1px solid rgba(76,175,119,0.3);
+  border-radius:8px;padding:.6rem 1rem;margin-top:.6rem;}
+.success-box.show{display:flex;align-items:center;gap:.5rem;}
+.success-msg{font-family:'Cinzel',serif;font-size:.75rem;color:var(--green);letter-spacing:.05em;}
+
+/* ══ STATS ROW ══ */
+.stats-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin-top:.9rem;}
+@media(max-width:640px){.stats-bar{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:380px){.stats-bar{grid-template-columns:repeat(2,1fr);}}
+.stat-chip{background:rgba(5,5,12,0.8);border:1px solid var(--border);border-radius:10px;
+  padding:.65rem .5rem;text-align:center;}
+.stat-chip .num{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;color:var(--gold2);line-height:1;}
+.stat-chip .lbl{font-family:'Cinzel',serif;font-size:.6rem;color:var(--muted);
+  letter-spacing:.07em;text-transform:uppercase;margin-top:.2rem;}
+
+/* ══ ACTION BUTTON ROW ══ */
+.action-row{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:.9rem;}
+
+/* ══ BUTTONS ══ */
+.btn{display:inline-flex;align-items:center;gap:.35rem;border:none;border-radius:22px;
+  padding:.44rem 1rem;font-family:'Cinzel',serif;font-size:.74rem;font-weight:700;
+  cursor:pointer;transition:all .22s;letter-spacing:.06em;white-space:nowrap;}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#9a7020);color:#000;}
+.btn-gold:hover{transform:scale(1.04);box-shadow:0 4px 18px rgba(201,168,76,0.3);}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold2);}
+.btn-green{background:rgba(76,175,119,0.14);border:1px solid rgba(76,175,119,0.35);color:var(--green);}
+.btn-green:hover{background:rgba(76,175,119,0.24);}
+.btn-red{background:rgba(224,90,90,0.12);border:1px solid rgba(224,90,90,0.3);color:var(--red);}
+.btn-red:hover{background:rgba(224,90,90,0.22);}
+.btn-blue{background:rgba(90,180,224,0.12);border:1px solid rgba(90,180,224,0.3);color:var(--blue);}
+.btn-blue:hover{background:rgba(90,180,224,0.22);}
+.btn-purple{background:rgba(176,125,224,0.12);border:1px solid rgba(176,125,224,0.3);color:var(--purple);}
+.btn-purple:hover{background:rgba(176,125,224,0.22);}
+
+/* ══ MAIN ACTION BUTTON ══ */
+.btn-main{background:linear-gradient(135deg,var(--gold2),var(--gold),#9a7020);color:#000;
+  padding:.62rem 2.2rem;font-size:.9rem;border-radius:28px;border:none;cursor:pointer;
+  font-family:'Cinzel',serif;font-weight:900;letter-spacing:.1em;
+  box-shadow:0 4px 22px rgba(201,168,76,0.25);transition:all .22s;}
+.btn-main:hover{transform:scale(1.05);box-shadow:0 6px 30px rgba(201,168,76,0.4);}
+.btn-main:active{transform:scale(.98);}
+
+/* ══ INDENT SELECT ══ */
+.indent-select{background:rgba(5,5,12,0.8);border:1px solid var(--border);border-radius:8px;
+  padding:.38rem .7rem;color:var(--text);font-family:'Cinzel',serif;font-size:.73rem;
+  outline:none;transition:border-color .2s;cursor:pointer;letter-spacing:.05em;}
+.indent-select:focus{border-color:var(--gold);}
+.indent-select option{background:#0d0d14;}
+
+/* ══ COMPARE DIFF ══ */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:.9rem;}
+@media(max-width:700px){.compare-grid{grid-template-columns:1fr;}}
+.diff-output{width:100%;min-height:180px;background:rgba(3,3,10,0.92);border:1px solid var(--border);
+  border-radius:10px;padding:.9rem;font-family:'Courier New',monospace;font-size:.78rem;
+  line-height:1.7;overflow:auto;white-space:pre-wrap;}
+.diff-add{background:rgba(76,175,119,0.12);color:var(--green);}
+.diff-rem{background:rgba(224,90,90,0.1);color:var(--red);}
+.diff-same{color:var(--muted);}
+
+/* ══ CONVERT OUTPUT ══ */
+.convert-area{width:100%;height:220px;background:rgba(3,3,10,0.92);border:1px solid var(--border);
+  border-radius:10px;padding:.9rem;color:var(--text);font-family:'Courier New',monospace;
+  font-size:.8rem;line-height:1.65;resize:vertical;outline:none;}
+.convert-area::-webkit-scrollbar{width:4px;}
+.convert-area::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.3);border-radius:4px;}
+
+/* ══ SCHEMA ══ */
+.schema-area{width:100%;height:200px;background:rgba(3,3,10,0.92);border:1px solid var(--border);
+  border-radius:10px;padding:.9rem;color:var(--blue);font-family:'Courier New',monospace;
+  font-size:.78rem;line-height:1.65;overflow:auto;white-space:pre;}
+
+/* ══ SEARCH BAR ══ */
+.search-bar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.9rem;}
+.search-input{flex:1;min-width:160px;background:rgba(5,5,12,0.8);border:1px solid var(--border);
+  border-radius:8px;padding:.45rem .8rem;color:var(--text);font-family:'Inter',sans-serif;
+  font-size:.82rem;outline:none;transition:border-color .2s;}
+.search-input:focus{border-color:var(--gold);}
+.search-results{font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);
+  letter-spacing:.06em;padding:.3rem 0;}
+
+/* ══ HISTORY ══ */
+.hist-list{display:flex;flex-direction:column;gap:.5rem;max-height:240px;overflow-y:auto;}
+.hist-list::-webkit-scrollbar{width:4px;}
+.hist-list::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.3);border-radius:4px;}
+.hist-item{display:flex;align-items:center;gap:.6rem;padding:.55rem .8rem;
+  background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:8px;
+  cursor:pointer;transition:border-color .2s;}
+.hist-item:hover{border-color:var(--gold);}
+.hi-preview{font-family:'Courier New',monospace;font-size:.74rem;color:var(--muted);
+  flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.hi-meta{font-family:'Cinzel',serif;font-size:.62rem;color:var(--muted);white-space:nowrap;}
+.hi-size{font-family:'Cinzel',serif;font-size:.62rem;color:var(--gold);white-space:nowrap;}
+
+/* ══ HOW TO ══ */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.9rem;}
+.how-step{background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:12px;
+  padding:1rem;display:flex;flex-direction:column;gap:.4rem;transition:border-color .2s;}
+.how-step:hover{border-color:var(--gold);}
+.how-num{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.how-title{font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;color:var(--gold2);}
+.how-desc{font-size:.73rem;color:var(--muted);line-height:1.5;}
+
+/* ══ FAQ ══ */
+.faq-list{display:flex;flex-direction:column;gap:.55rem;}
+.faq-item{background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s;}
+.faq-item:hover{border-color:rgba(201,168,76,0.5);}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:.85rem 1rem;
+  font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.04em;
+  cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
+.faq-q .arrow{font-size:.85rem;color:var(--gold);transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg);}
+.faq-a{display:none;padding:0 1rem .85rem;font-size:.78rem;color:var(--muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+
+/* ══ RELATED ══ */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.8rem;}
+.rel-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;
+  padding:.85rem;text-decoration:none;display:flex;align-items:center;gap:.65rem;
+  transition:transform .2s,border-color .2s;}
+.rel-card:hover{transform:translateY(-3px);border-color:var(--gold);}
+.rel-icon{font-size:1.25rem;flex-shrink:0;}
+.rel-name{font-size:.78rem;color:var(--text);font-family:'Inter',sans-serif;font-weight:500;}
+
+/* ══ MID AD ══ */
+.ad-mid-responsive{width:100%;display:flex;align-items:center;justify-content:center;
+  background:rgba(201,168,76,0.02);border:1px dashed rgba(201,168,76,0.18);
+  border-radius:10px;padding:.5rem;min-height:70px;}
+.ad-mid-responsive .ad-slot{width:728px;height:90px;max-width:100%;
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.12);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){.ad-mid-responsive .ad-slot{width:468px;height:60px;}}
+@media(max-width:520px){.ad-mid-responsive .ad-slot{width:320px;height:50px;}}
+
+/* ══ TOAST ══ */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;
+  background:rgba(18,18,30,0.97);border:1px solid var(--gold);border-radius:10px;
+  padding:.7rem 1.2rem;font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);
+  letter-spacing:.06em;box-shadow:0 4px 20px rgba(201,168,76,0.2);
+  transform:translateY(20px);opacity:0;transition:all .3s;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* ══ FOOTER ══ */
+.footer{background:rgba(3,3,10,0.99);border-top:1px solid var(--border);padding:2.2rem 1rem 1.4rem;position:relative;z-index:1;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.8rem;}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
+@media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
+.footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.5rem;display:block;}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
+.footer-col h4{font-family:'Cinzel',serif;font-size:.73rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.65rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.38rem;}
+.footer-col ul li a{font-size:.77rem;color:var(--muted);text-decoration:none;transition:color .2s;}
+.footer-col ul li a:hover{color:var(--gold2);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.1rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.footer-copy{font-family:'Cinzel',serif;font-size:.67rem;color:var(--muted);letter-spacing:.08em;}
+.footer-noor{font-family:'Amiri',serif;font-size:1rem;color:var(--gold2);direction:rtl;text-shadow:0 0 14px rgba(201,168,76,0.4);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-icon">🛠️</span>
+    <span class="nav-logo-text">ToolNex</span>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="index.html#dev" class="nav-link">💻 Dev Tools</a>
+  </div>
+</nav>
+
+<!-- ══ TOP BANNER AD ══ -->
+<div class="ad-top-banner">
+  <div class="ad-slot">
+    <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
+         data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
+    📢 Top Banner Ad · 728×90 Desktop / 320×100 Mobile
+  </div>
+</div>
+
+<!-- ══ PAGE BODY ══ -->
+<div class="page-body">
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &nbsp;›&nbsp;
+      <a href="index.html#dev">Developer Tools</a> &nbsp;›&nbsp;
+      JSON Formatter
+    </div>
+    <div class="page-badge">{} Developer Tool · Syntax Highlight · Tree View</div>
+    <h1 class="page-title">JSON Formatter</h1>
+    <p class="page-sub">Beautify, validate, minify, compare and convert JSON — with syntax highlighting, tree view, error detection and more.</p>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ══ MAIN TOOL ══ -->
+    <div class="tool-panel">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">{} JSON Formatter & Validator</div>
+        <div style="display:flex;gap:.45rem;align-items:center;flex-wrap:wrap;">
+          <span style="font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.07em;">Indent:</span>
+          <select class="indent-select" id="indentSize">
+            <option value="2">2 Spaces</option>
+            <option value="4">4 Spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+          <button class="btn btn-outline" onclick="loadSample()">📋 Sample</button>
+          <button class="btn btn-red" onclick="clearAll()">🗑️ Clear</button>
+        </div>
+      </div>
+
+      <!-- MODE TABS -->
+      <div class="mode-tabs">
+        <button class="mode-tab active" onclick="switchMode('format',this)">✨ Format</button>
+        <button class="mode-tab" onclick="switchMode('tree',this)">🌳 Tree View</button>
+        <button class="mode-tab" onclick="switchMode('minify',this)">⚡ Minify</button>
+        <button class="mode-tab" onclick="switchMode('compare',this)">🔍 Compare</button>
+        <button class="mode-tab" onclick="switchMode('convert',this)">🔄 Convert</button>
+        <button class="mode-tab" onclick="switchMode('schema',this)">📐 Schema</button>
+        <button class="mode-tab" onclick="switchMode('search',this)">🔎 Search</button>
+      </div>
+
+      <!-- ══ FORMAT MODE ══ -->
+      <div id="mode-format" class="mode-content active">
+        <div class="editor-split">
+          <div class="editor-col">
+            <div class="editor-col-label">
+              <span class="col-label-text">📥 Input JSON</span>
+              <div class="col-label-actions">
+                <button class="btn btn-outline" onclick="pasteFromClipboard()" style="font-size:.68rem;padding:.28rem .65rem;">📋 Paste</button>
+                <button class="btn btn-outline" onclick="uploadJSON()" style="font-size:.68rem;padding:.28rem .65rem;">📁 Upload</button>
+                <input type="file" id="fileInput" accept=".json,.txt" style="display:none" onchange="handleFileUpload(event)"/>
+              </div>
+            </div>
+            <textarea class="json-area" id="jsonInput"
+              placeholder='Paste your JSON here…&#10;&#10;Example:&#10;{"name":"ToolNex","tools":200,"free":true}'
+              oninput="onInputChange()"></textarea>
+          </div>
+          <div class="editor-col">
+            <div class="editor-col-label">
+              <span class="col-label-text">📤 Formatted Output</span>
+              <div class="col-label-actions">
+                <button class="btn btn-green" onclick="copyOutput()" style="font-size:.68rem;padding:.28rem .65rem;">📋 Copy</button>
+                <button class="btn btn-outline" onclick="downloadJSON()" style="font-size:.68rem;padding:.28rem .65rem;">⬇️ Download</button>
+              </div>
+            </div>
+            <div class="json-highlighted" id="jsonOutput">
+              <span style="color:var(--muted);font-style:italic;">Formatted JSON will appear here with syntax highlighting…</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ERROR / SUCCESS -->
+        <div class="error-box" id="errorBox">
+          <span class="error-icon">❌</span>
+          <span class="error-msg" id="errorMsg"></span>
+        </div>
+        <div class="success-box" id="successBox">
+          <span>✅</span>
+          <span class="success-msg" id="successMsg"></span>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-bar" id="statsBar" style="display:none;">
+          <div class="stat-chip"><div class="num" id="statSize">—</div><div class="lbl">Size</div></div>
+          <div class="stat-chip"><div class="num" id="statLines">—</div><div class="lbl">Lines</div></div>
+          <div class="stat-chip"><div class="num" id="statKeys">—</div><div class="lbl">Keys</div></div>
+          <div class="stat-chip"><div class="num" id="statDepth">—</div><div class="lbl">Depth</div></div>
+          <div class="stat-chip"><div class="num" id="statArrays">—</div><div class="lbl">Arrays</div></div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="action-row">
+          <button class="btn-main" onclick="formatJSON()">✨ Format JSON</button>
+          <button class="btn btn-outline" onclick="validateOnly()">✔️ Validate</button>
+          <button class="btn btn-outline" onclick="sortKeys()">🔤 Sort Keys</button>
+          <button class="btn btn-outline" onclick="removeNulls()">🚫 Remove Nulls</button>
+          <button class="btn btn-outline" onclick="swapInputOutput()">⇄ Swap</button>
+        </div>
+      </div>
+
+      <!-- ══ TREE VIEW MODE ══ -->
+      <div id="mode-tree" class="mode-content">
+        <div class="editor-col" style="margin-bottom:.9rem;">
+          <div class="editor-col-label">
+            <span class="col-label-text">📥 Input JSON</span>
+            <div class="col-label-actions">
+              <button class="btn btn-outline" onclick="expandAll()" style="font-size:.68rem;padding:.28rem .65rem;">➕ Expand All</button>
+              <button class="btn btn-outline" onclick="collapseAll()" style="font-size:.68rem;padding:.28rem .65rem;">➖ Collapse All</button>
+            </div>
+          </div>
+          <textarea class="json-area" id="treeInput" style="height:160px;"
+            placeholder='Paste JSON to see interactive tree view…'
+            oninput="buildTree()"></textarea>
+        </div>
+        <div class="editor-col-label" style="margin-bottom:.4rem;">
+          <span class="col-label-text">🌳 Interactive Tree</span>
+        </div>
+        <div class="tree-view" id="treeOutput">
+          <span style="color:var(--muted);font-style:italic;">Tree will appear here. Click ▶ to expand/collapse nodes.</span>
+        </div>
+        <div class="error-box" id="treeErrorBox" style="margin-top:.6rem;">
+          <span class="error-icon">❌</span>
+          <span class="error-msg" id="treeErrorMsg"></span>
+        </div>
+      </div>
+
+      <!-- ══ MINIFY MODE ══ -->
+      <div id="mode-minify" class="mode-content">
+        <div class="editor-split">
+          <div class="editor-col">
+            <div class="editor-col-label">
+              <span class="col-label-text">📥 Input JSON</span>
+            </div>
+            <textarea class="json-area" id="minifyInput"
+              placeholder='Paste formatted JSON to minify…'
+              oninput="doMinify()"></textarea>
+          </div>
+          <div class="editor-col">
+            <div class="editor-col-label">
+              <span class="col-label-text">⚡ Minified Output</span>
+              <div class="col-label-actions">
+                <button class="btn btn-green" onclick="copyMinified()" style="font-size:.68rem;padding:.28rem .65rem;">📋 Copy</button>
+                <button class="btn btn-outline" onclick="downloadMinified()" style="font-size:.68rem;padding:.28rem .65rem;">⬇️ Download</button>
+              </div>
+            </div>
+            <textarea class="json-area" id="minifyOutput" readonly style="border-color:var(--green);color:var(--green);"
+              placeholder='Minified JSON will appear here…'></textarea>
+          </div>
+        </div>
+        <div class="stats-bar" id="minifyStats" style="display:none;margin-top:.9rem;">
+          <div class="stat-chip"><div class="num" id="mOriginal">—</div><div class="lbl">Original</div></div>
+          <div class="stat-chip"><div class="num" id="mMinified">—</div><div class="lbl">Minified</div></div>
+          <div class="stat-chip"><div class="num" id="mSaved">—</div><div class="lbl">Saved</div></div>
+          <div class="stat-chip"><div class="num" id="mPercent">—</div><div class="lbl">Reduction</div></div>
+          <div class="stat-chip"><div class="num" id="mRatio">—</div><div class="lbl">Ratio</div></div>
+        </div>
+        <div class="error-box" id="minifyError">
+          <span class="error-icon">❌</span>
+          <span class="error-msg" id="minifyErrorMsg"></span>
+        </div>
+      </div>
+
+      <!-- ══ COMPARE MODE ══ -->
+      <div id="mode-compare" class="mode-content">
+        <div class="compare-grid">
+          <div class="editor-col">
+            <div class="editor-col-label">
+              <span class="col-label-text">📄 JSON A (Original)</span>
+            </div>
+            <textarea class="json-area" id="compareA" style="height:200px;"
+              placeholder='Paste first JSON here…'></textarea>
+          </div>
+          <div class="editor-col">
+            <div class="editor-col-label">
+              <span class="col-label-text">📄 JSON B (Modified)</span>
+            </div>
+            <textarea class="json-area" id="compareB" style="height:200px;"
+              placeholder='Paste second JSON here…'></textarea>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;margin-bottom:.9rem;">
+          <button class="btn-main" onclick="compareJSON()">🔍 Compare JSON</button>
+        </div>
+        <div class="editor-col-label" style="margin-bottom:.5rem;">
+          <span class="col-label-text">📊 Diff Result</span>
+          <span style="font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);">
+            <span style="color:var(--green);">▌ Added</span> &nbsp;
+            <span style="color:var(--red);">▌ Removed</span> &nbsp;
+            <span style="color:var(--muted);">▌ Same</span>
+          </span>
+        </div>
+        <div class="diff-output" id="diffOutput">
+          <span style="color:var(--muted);font-style:italic;">Differences will appear here…</span>
+        </div>
+        <div id="compareStats" style="display:none;margin-top:.7rem;font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);letter-spacing:.06em;text-align:center;"></div>
+      </div>
+
+      <!-- ══ CONVERT MODE ══ -->
+      <div id="mode-convert" class="mode-content">
+        <div class="editor-col" style="margin-bottom:.9rem;">
+          <div class="editor-col-label">
+            <span class="col-label-text">📥 Input JSON</span>
+          </div>
+          <textarea class="json-area" id="convertInput" style="height:180px;"
+            placeholder='Paste JSON to convert…'></textarea>
+        </div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem;">
+          <button class="btn btn-gold" onclick="convertTo('csv')">📊 To CSV</button>
+          <button class="btn btn-blue" onclick="convertTo('xml')">📋 To XML</button>
+          <button class="btn btn-purple" onclick="convertTo('yaml')">📝 To YAML</button>
+          <button class="btn btn-outline" onclick="convertTo('tsv')">📑 To TSV</button>
+          <button class="btn btn-outline" onclick="convertTo('html')">🌐 To HTML Table</button>
+          <button class="btn btn-green" onclick="copyConverted()">📋 Copy Result</button>
+          <button class="btn btn-outline" onclick="downloadConverted()">⬇️ Download</button>
+        </div>
+        <div class="editor-col-label" style="margin-bottom:.4rem;">
+          <span class="col-label-text" id="convertLabel">📤 Converted Output</span>
+        </div>
+        <textarea class="convert-area" id="convertOutput" readonly
+          placeholder='Converted output will appear here…'></textarea>
+        <div class="error-box" id="convertError" style="margin-top:.6rem;">
+          <span class="error-icon">❌</span>
+          <span class="error-msg" id="convertErrorMsg"></span>
+        </div>
+      </div>
+
+      <!-- ══ SCHEMA MODE ══ -->
+      <div id="mode-schema" class="mode-content">
+        <div class="editor-col" style="margin-bottom:.9rem;">
+          <div class="editor-col-label">
+            <span class="col-label-text">📥 Input JSON</span>
+          </div>
+          <textarea class="json-area" id="schemaInput" style="height:180px;"
+            placeholder='Paste JSON to auto-generate its JSON Schema…'></textarea>
+        </div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem;">
+          <button class="btn-main" onclick="generateSchema()">📐 Generate Schema</button>
+          <button class="btn btn-green" onclick="copySchema()">📋 Copy Schema</button>
+          <button class="btn btn-outline" onclick="downloadSchema()">⬇️ Download</button>
+        </div>
+        <div class="editor-col-label" style="margin-bottom:.4rem;">
+          <span class="col-label-text">📐 JSON Schema (Draft-07)</span>
+        </div>
+        <div class="schema-area" id="schemaOutput">
+          <span style="color:var(--muted);font-style:italic;">JSON Schema will be auto-generated here…</span>
+        </div>
+        <div class="error-box" id="schemaError" style="margin-top:.6rem;">
+          <span class="error-icon">❌</span>
+          <span class="error-msg" id="schemaErrorMsg"></span>
+        </div>
+      </div>
+
+      <!-- ══ SEARCH MODE ══ -->
+      <div id="mode-search" class="mode-content">
+        <div class="editor-col" style="margin-bottom:.9rem;">
+          <div class="editor-col-label">
+            <span class="col-label-text">📥 Input JSON</span>
+          </div>
+          <textarea class="json-area" id="searchInput" style="height:180px;"
+            placeholder='Paste JSON to search within…'></textarea>
+        </div>
+        <div class="search-bar">
+          <input class="search-input" id="searchQuery" type="text" placeholder="🔎 Search key or value…" oninput="searchJSON()"/>
+          <select class="indent-select" id="searchType">
+            <option value="both">Keys & Values</option>
+            <option value="keys">Keys Only</option>
+            <option value="values">Values Only</option>
+          </select>
+          <button class="btn btn-gold" onclick="searchJSON()">Search</button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+        <div class="json-highlighted" id="searchOutput" style="min-height:140px;">
+          <span style="color:var(--muted);font-style:italic;">Matching results will be highlighted here…</span>
+        </div>
+      </div>
+
+    </div><!-- /tool-panel main -->
+
+    <!-- ══ HISTORY ══ -->
+    <div class="tool-panel">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">📜 JSON History</div>
+        <div style="display:flex;gap:.45rem;">
+          <button class="btn btn-red" onclick="clearJSONHistory()">🗑️ Clear</button>
+        </div>
+      </div>
+      <div class="hist-list" id="histList">
+        <p style="text-align:center;color:var(--muted);font-family:'Cinzel',serif;font-size:.78rem;padding:.9rem;">
+          No history yet. Format a JSON to save it automatically.
+        </p>
+      </div>
+    </div>
+
+    <!-- ══ MID AD ══ -->
+    <div class="ad-mid-responsive">
+      <div class="ad-slot">
+        <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX"
+             data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+        📢 Responsive Ad · 728×90 → 468×60 → 320×50 (Auto)
+      </div>
+    </div>
+
+    <!-- ══ HOW TO USE ══ -->
+    <div class="tool-panel">
+      <div class="section-head"><div class="section-title">📖 How to Use</div></div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">01</div>
+          <div class="how-title">Paste Your JSON</div>
+          <div class="how-desc">Paste raw, minified or broken JSON into the input box, or upload a .json file directly.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">02</div>
+          <div class="how-title">Choose a Mode</div>
+          <div class="how-desc">Select Format, Tree View, Minify, Compare, Convert, Schema or Search from the tabs.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">03</div>
+          <div class="how-title">Process Instantly</div>
+          <div class="how-desc">Results appear with full syntax highlighting, error detection and detailed stats.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">04</div>
+          <div class="how-title">Copy or Download</div>
+          <div class="how-desc">Copy output to clipboard or download as .json, .csv, .xml, .yaml or other formats.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ FAQ ══ -->
+    <div class="tool-panel">
+      <div class="section-head"><div class="section-title">❓ FAQ</div></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">What is JSON formatting? <span class="arrow">▾</span></button>
+          <div class="faq-a">JSON formatting (beautifying) adds proper indentation, line breaks and spacing to make compact or minified JSON human-readable. It does not change the data — only its presentation.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">Is my JSON data private? <span class="arrow">▾</span></button>
+          <div class="faq-a">100% yes. All processing happens entirely in your browser using JavaScript. No JSON data is ever sent to any server. Your data stays completely private on your device.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">What is JSON Schema? <span class="arrow">▾</span></button>
+          <div class="faq-a">JSON Schema is a vocabulary that allows you to annotate and validate JSON documents. It defines the structure, data types and constraints of your JSON. ToolNex auto-generates a Draft-07 compatible schema from any valid JSON.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">Can I convert JSON arrays to CSV? <span class="arrow">▾</span></button>
+          <div class="faq-a">Yes! Use the Convert tab and click "To CSV". JSON arrays of objects are converted to proper CSV with headers. Nested objects are flattened automatically.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">What file formats can I upload? <span class="arrow">▾</span></button>
+          <div class="faq-a">You can upload .json and .txt files. The tool reads the file content and processes it as JSON. Maximum recommended file size is around 5MB for best browser performance.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div>
+      <div class="section-head"><div class="section-title">🔗 Related Tools</div></div>
+      <div class="related-grid">
+        <a href="css-minifier.html" class="rel-card"><span class="rel-icon">🎨</span><span class="rel-name">CSS Minifier</span></a>
+        <a href="js-minifier.html" class="rel-card"><span class="rel-icon">⚡</span><span class="rel-name">JS Minifier</span></a>
+        <a href="html-minifier.html" class="rel-card"><span class="rel-icon"></></span><span class="rel-name">HTML Minifier</span></a>
+        <a href="base64.html" class="rel-card"><span class="rel-icon">🔢</span><span class="rel-name">Base64 Encoder</span></a>
+        <a href="hash-generator.html" class="rel-card"><span class="rel-icon">#️⃣</span><span class="rel-name">Hash Generator</span></a>
+        <a href="meta-tag.html" class="rel-card"><span class="rel-icon">🏷️</span><span class="rel-name">Meta Tag Generator</span></a>
+      </div>
+    </div>
+
+  </div><!-- /wrap -->
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-logo">🛠️ ToolNex</span>
+        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+          <li><a href="image-compressor.html">🗜️ Image Compressor</a></li>
+          <li><a href="qr-code.html">📲 QR Generator</a></li>
+          <li><a href="password-generator.html">🔑 Password Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dev Tools</h4>
+        <ul>
+          <li><a href="json-formatter.html">{} JSON Formatter</a></li>
+          <li><a href="css-minifier.html">🎨 CSS Minifier</a></li>
+          <li><a href="js-minifier.html">⚡ JS Minifier</a></li>
+          <li><a href="html-minifier.html"></> HTML Minifier</a></li>
+          <li><a href="base64.html">🔢 Base64 Encoder</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">📖 About Us</a></li>
+          <li><a href="contact.html">✉️ Contact</a></li>
+          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
+          <li><a href="terms.html">📋 Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+      <div class="footer-noor">نُورُ الہُدیٰ</div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ════════════════════════════════════════
+   SAMPLE JSON
+════════════════════════════════════════ */
+const SAMPLE = {
+  "toolnex": {
+    "name": "ToolNex",
+    "version": "2.0",
+    "description": "200+ Free Online Tools",
+    "free": true,
+    "registration": false,
+    "stats": {
+      "tools": 200,
+      "languages": 3,
+      "users": 50000
+    },
+    "categories": ["Text","SEO","Image","PDF","Calculator","Developer","AI"],
+    "topTools": [
+      {"rank": 1, "name": "Image Compressor", "category": "Image"},
+      {"rank": 2, "name": "PDF to Word",      "category": "PDF"},
+      {"rank": 3, "name": "Word Counter",     "category": "Text"},
+      {"rank": 4, "name": "Password Generator","category": "Security"},
+      {"rank": 5, "name": "QR Code Generator","category": "Generator"}
+    ],
+    "contact": {
+      "website": "https://toolnex.site",
+      "email": "hello@toolnex.site",
+      "social": null
+    }
+  }
+};
+
+/* ════════════════════════════════════════
+   GLOBALS
+════════════════════════════════════════ */
+let currentMode = 'format';
+let lastFormatted = '';
+let jsonHistory = [];
+let lastConverted = '';
+let lastSchema = '';
+
+/* ════════════════════════════════════════
+   MODE SWITCH
+════════════════════════════════════════ */
+function switchMode(mode, btn) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.mode-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('mode-' + mode).classList.add('active');
+}
+
+/* ════════════════════════════════════════
+   INDENT HELPER
+════════════════════════════════════════ */
+function getIndent() {
+  const v = document.getElementById('indentSize').value;
+  return v === 'tab' ? '\t' : parseInt(v);
+}
+
+/* ════════════════════════════════════════
+   FORMAT
+════════════════════════════════════════ */
+function formatJSON() {
+  const raw = document.getElementById('jsonInput').value.trim();
+  if (!raw) { showToast('⚠️ Paste JSON first!'); return; }
+  hideMessages('format');
+  try {
+    const parsed = JSON.parse(raw);
+    const formatted = JSON.stringify(parsed, null, getIndent());
+    lastFormatted = formatted;
+    document.getElementById('jsonOutput').innerHTML = highlight(formatted);
+    document.getElementById('jsonInput').classList.remove('error');
+    document.getElementById('jsonInput').classList.add('success');
+    showSuccess('✅ Valid JSON — Formatted successfully!', 'successBox', 'successMsg');
+    updateStats(raw, formatted, parsed);
+    saveToHistory(raw);
+    showToast('✨ JSON formatted!');
+  } catch(e) {
+    showError(e.message, 'errorBox', 'errorMsg');
+    document.getElementById('jsonInput').classList.add('error');
+    document.getElementById('jsonInput').classList.remove('success');
+    document.getElementById('statsBar').style.display = 'none';
+  }
+}
+
+function onInputChange() {
+  const raw = document.getElementById('jsonInput').value.trim();
+  if (!raw) {
+    resetOutputState();
+    return;
+  }
+  try {
+    JSON.parse(raw);
+    document.getElementById('jsonInput').classList.remove('error');
+    document.getElementById('jsonInput').classList.add('success');
+    hideMessages('format');
+  } catch(e) {
+    document.getElementById('jsonInput').classList.add('error');
+    document.getElementById('jsonInput').classList.remove('success');
+  }
+}
+
+function resetOutputState() {
+  document.getElementById('jsonInput').classList.remove('error','success');
+  hideMessages('format');
+  document.getElementById('statsBar').style.display = 'none';
+}
+
+function validateOnly() {
+  const raw = document.getElementById('jsonInput').value.trim();
+  if (!raw) { showToast('⚠️ Paste JSON first!'); return; }
+  try {
+    JSON.parse(raw);
+    showSuccess('✅ Valid JSON — No errors found!', 'successBox', 'successMsg');
+    document.getElementById('errorBox').classList.remove('show');
+    showToast('✅ JSON is valid!');
+  } catch(e) {
+    showError(e.message, 'errorBox', 'errorMsg');
+    showToast('❌ Invalid JSON!');
+  }
+}
+
+function sortKeys() {
+  const raw = document.getElementById('jsonInput').value.trim();
+  if (!raw) { showToast('⚠️ Paste JSON first!'); return; }
+  try {
+    const parsed = JSON.parse(raw);
+    const sorted = sortObjKeys(parsed);
+    const formatted = JSON.stringify(sorted, null, getIndent());
+    document.getElementById('jsonInput').value = formatted;
+    lastFormatted = formatted;
+    document.getElementById('jsonOutput').innerHTML = highlight(formatted);
+    showToast('🔤 Keys sorted alphabetically!');
+  } catch(e) { showToast('❌ Invalid JSON!'); }
+}
+
+function sortObjKeys(obj) {
+  if (Array.isArray(obj)) return obj.map(sortObjKeys);
+  if (obj !== null && typeof obj === 'object') {
+    return Object.keys(obj).sort().reduce((r,k)=>{r[k]=sortObjKeys(obj[k]);return r;},{});
+  }
+  return obj;
+}
+
+function removeNulls() {
+  const raw = document.getElementById('jsonInput').value.trim();
+  if (!raw) { showToast('⚠️ Paste JSON first!'); return; }
+  try {
+    const parsed = JSON.parse(raw);
+    const cleaned = removeNullsDeep(parsed);
+    const formatted = JSON.stringify(cleaned, null, getIndent());
+    document.getElementById('jsonInput').value = formatted;
+    document.getElementById('jsonOutput').innerHTML = highlight(formatted);
+    showToast('🚫 Null values removed!');
+  } catch(e) { showToast('❌ Invalid JSON!'); }
+}
+
+function removeNullsDeep(obj) {
+  if (Array.isArray(obj)) return obj.filter(v=>v!==null).map(removeNullsDeep);
+  if (obj !== null && typeof obj === 'object') {
+    return Object.fromEntries(
+      Object.entries(obj)
+        .filter(([,v])=>v!==null)
+        .map(([k,v])=>[k,removeNullsDeep(v)])
+    );
+  }
+  return obj;
+}
+
+function swapInputOutput() {
+  const inp = document.getElementById('jsonInput');
+  if (!lastFormatted) { showToast('⚠️ Format first!'); return; }
+  inp.value = lastFormatted;
+  showToast('⇄ Swapped!');
+}
+
+/* ════════════════════════════════════════
+   SYNTAX HIGHLIGHT
+════════════════════════════════════════ */
+function highlight(json) {
+  return json
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?|[{}\[\],:])/g, m => {
+      if (/^"/.test(m)) {
+        if (/:$/.test(m)) return `<span class="jk">${m}</span>`;
+        return `<span class="js">${m}</span>`;
+      }
+      if (/true|false/.test(m)) return `<span class="jb">${m}</span>`;
+      if (/null/.test(m))       return `<span class="jnu">${m}</span>`;
+      if (/[{}\[\]]/.test(m))   return `<span class="jp">${m}</span>`;
+      if (/[:,]/.test(m))       return `<span class="jp">${m}</span>`;
+      return `<span class="jn">${m}</span>`;
+    });
+}
+
+/* ════════════════════════════════════════
+   STATS
+════════════════════════════════════════ */
+function updateStats(raw, formatted, parsed) {
+  document.getElementById('statsBar').style.display = 'grid';
+  document.getElementById('statSize').textContent  = formatBytes(new Blob([raw]).size);
+  document.getElementById('statLines').textContent = formatted.split('\n').length;
+  document.getElementById('statKeys').textContent  = countKeys(parsed);
+  document.getElementById('statDepth').textContent = getDepth(parsed);
+  document.getElementById('statArrays').textContent= countArrays(parsed);
+}
+
+function countKeys(obj) {
+  if (typeof obj !== 'object' || obj === null) return 0;
+  let c = 0;
+  if (!Array.isArray(obj)) c += Object.keys(obj).length;
+  for (const v of Object.values(obj)) c += countKeys(v);
+  return c;
+}
+
+function getDepth(obj, d=0) {
+  if (typeof obj !== 'object' || obj === null) return d;
+  const vals = Object.values(obj);
+  if (!vals.length) return d+1;
+  return Math.max(...vals.map(v => getDepth(v, d+1)));
+}
+
+function countArrays(obj) {
+  if (typeof obj !== 'object' || obj === null) return 0;
+  let c = Array.isArray(obj) ? 1 : 0;
+  for (const v of Object.values(obj)) c += countArrays(v);
+  return c;
+}
+
+function formatBytes(b) {
+  if (b < 1024) return b + ' B';
+  return (b/1024).toFixed(1) + ' KB';
+}
+
+/* ════════════════════════════════════════
+   TREE VIEW
+════════════════════════════════════════ */
+function buildTree() {
+  const raw = document.getElementById('treeInput').value.trim();
+  const out = document.getElementById('treeOutput');
+  const errBox = document.getElementById('treeErrorBox');
+  errBox.classList.remove('show');
+  if (!raw) { out.innerHTML = '<span style="color:var(--muted);font-style:italic;">Tree will appear here…</span>'; return; }
+  try {
+    const parsed = JSON.parse(raw);
+    out.innerHTML = renderTree(parsed, null);
+  } catch(e) {
+    out.innerHTML = '';
+    document.getElementById('treeErrorMsg').textContent = e.message;
+    errBox.classList.add('show');
+  }
+}
+
+function renderTree(val, key) {
+  const keyHtml = key !== null ? `<span class="tv-key">"${escHtml(String(key))}"</span><span class="tv-colon">: </span>` : '';
+  if (val === null) return `<div>${keyHtml}<span class="tv-null">null</span></div>`;
+  if (typeof val === 'boolean') return `<div>${keyHtml}<span class="tv-bool">${val}</span></div>`;
+  if (typeof val === 'number') return `<div>${keyHtml}<span class="tv-num">${val}</span></div>`;
+  if (typeof val === 'string') return `<div>${keyHtml}<span class="tv-str">"${escHtml(val)}"</span></div>`;
+  if (Array.isArray(val)) {
+    const id = 'tv_' + Math.random().toString(36).slice(2);
+    const children = val.map((v,i)=>renderTree(v,i)).join('');
+    return `<div>
+      ${keyHtml}<span class="tv-toggle" onclick="toggleNode('${id}')">▼</span><span class="tv-bracket">[</span><span class="tv-count">${val.length} items</span>
+      <div class="tv-node" id="${id}">${children}</div>
+      <span class="tv-bracket">]</span>
+    </div>`;
+  }
+  if (typeof val === 'object') {
+    const id = 'tv_' + Math.random().toString(36).slice(2);
+    const keys = Object.keys(val);
+    const children = keys.map(k=>renderTree(val[k],k)).join('');
+    return `<div>
+      ${keyHtml}<span class="tv-toggle" onclick="toggleNode('${id}')">▼</span><span class="tv-bracket">{</span><span class="tv-count">${keys.length} keys</span>
+      <div class="tv-node" id="${id}">${children}</div>
+      <span class="tv-bracket">}</span>
+    </div>`;
+  }
+  return `<div>${keyHtml}${escHtml(String(val))}</div>`;
+}
+
+function toggleNode(id) {
+  const el = document.getElementById(id);
+  const tog = el.previousElementSibling?.previousElementSibling;
+  if (!el) return;
+  const collapsed = el.classList.toggle('tv-collapsed');
+  if (tog && tog.classList.contains('tv-toggle')) tog.textContent = collapsed ? '▶' : '▼';
+}
+
+function expandAll()   { document.querySelectorAll('.tv-node').forEach(n=>{n.classList.remove('tv-collapsed'); const t=n.previousElementSibling?.previousElementSibling; if(t?.classList.contains('tv-toggle'))t.textContent='▼';}); }
+function collapseAll() { document.querySelectorAll('.tv-node').forEach(n=>{n.classList.add('tv-collapsed');   const t=n.previousElementSibling?.previousElementSibling; if(t?.classList.contains('tv-toggle'))t.textContent='▶';}); }
+
+/* ════════════════════════════════════════
+   MINIFY
+════════════════════════════════════════ */
+function doMinify() {
+  const raw = document.getElementById('minifyInput').value.trim();
+  const errBox = document.getElementById('minifyError');
+  errBox.classList.remove('show');
+  if (!raw) { document.getElementById('minifyOutput').value=''; document.getElementById('minifyStats').style.display='none'; return; }
+  try {
+    const minified = JSON.stringify(JSON.parse(raw));
+    document.getElementById('minifyOutput').value = minified;
+    const orig = raw.length, mini = minified.length;
+    const saved = orig - mini;
+    const pct = ((saved/orig)*100).toFixed(1);
+    document.getElementById('minifyStats').style.display = 'grid';
+    document.getElementById('mOriginal').textContent = formatBytes(orig);
+    document.getElementById('mMinified').textContent = formatBytes(mini);
+    document.getElementById('mSaved').textContent    = formatBytes(saved);
+    document.getElementById('mPercent').textContent  = pct + '%';
+    document.getElementById('mRatio').textContent    = (orig/mini).toFixed(2)+'x';
+  } catch(e) {
+    document.getElementById('minifyOutput').value = '';
+    document.getElementById('minifyStats').style.display = 'none';
+    document.getElementById('minifyErrorMsg').textContent = e.message;
+    errBox.classList.add('show');
+  }
+}
+
+function copyMinified() {
+  const v = document.getElementById('minifyOutput').value;
+  if (!v) { showToast('⚠️ Nothing to copy!'); return; }
+  navigator.clipboard.writeText(v).then(()=>showToast('✅ Minified JSON copied!'));
+}
+
+function downloadMinified() {
+  const v = document.getElementById('minifyOutput').value;
+  if (!v) { showToast('⚠️ Nothing to download!'); return; }
+  dlFile(v, 'minified.json', 'application/json');
+}
+
+/* ════════════════════════════════════════
+   COMPARE
+════════════════════════════════════════ */
+function compareJSON() {
+  const ra = document.getElementById('compareA').value.trim();
+  const rb = document.getElementById('compareB').value.trim();
+  if (!ra || !rb) { showToast('⚠️ Paste both JSONs!'); return; }
+  let a, b;
+  try { a = JSON.parse(ra); } catch(e) { showToast('❌ JSON A is invalid!'); return; }
+  try { b = JSON.parse(rb); } catch(e) { showToast('❌ JSON B is invalid!'); return; }
+
+  const linesA = JSON.stringify(a, null, 2).split('\n');
+  const linesB = JSON.stringify(b, null, 2).split('\n');
+  const setA = new Set(linesA), setB = new Set(linesB);
+
+  let added=0, removed=0, same=0;
+  let html = '';
+  const allLines = [...new Set([...linesA,...linesB])];
+
+  // Simple line-by-line diff
+  const maxLen = Math.max(linesA.length, linesB.length);
+  for (let i=0; i<maxLen; i++) {
+    const la = linesA[i], lb = linesB[i];
+    if (la === lb) {
+      html += `<div class="diff-same">  ${escHtml(la||'')}</div>`;
+      same++;
+    } else {
+      if (la !== undefined) { html += `<div class="diff-rem">− ${escHtml(la)}</div>`; removed++; }
+      if (lb !== undefined) { html += `<div class="diff-add">+ ${escHtml(lb)}</div>`; added++; }
+    }
+  }
+
+  document.getElementById('diffOutput').innerHTML = html || '<span style="color:var(--green);">✅ JSONs are identical!</span>';
+  document.getElementById('compareStats').style.display = 'block';
+  document.getElementById('compareStats').innerHTML =
+    `<span style="color:var(--green);">+${added} added</span> &nbsp;
+     <span style="color:var(--red);">−${removed} removed</span> &nbsp;
+     <span style="color:var(--muted);">${same} same</span>`;
+  showToast('🔍 Comparison complete!');
+}
+
+/* ════════════════════════════════════════
+   CONVERT
+════════════════════════════════════════ */
+function convertTo(fmt) {
+  const raw = document.getElementById('convertInput').value.trim();
+  const errBox = document.getElementById('convertError');
+  errBox.classList.remove('show');
+  if (!raw) { showToast('⚠️ Paste JSON first!'); return; }
+  let parsed;
+  try { parsed = JSON.parse(raw); } catch(e) {
+    document.getElementById('convertErrorMsg').textContent = e.message;
+    errBox.classList.add('show'); return;
+  }
+
+  let out = '', label = '';
+  if (fmt==='csv')  { out = jsonToCSV(parsed);  label = '📊 CSV Output'; }
+  if (fmt==='xml')  { out = jsonToXML(parsed);  label = '📋 XML Output'; }
+  if (fmt==='yaml') { out = jsonToYAML(parsed,0); label = '📝 YAML Output'; }
+  if (fmt==='tsv')  { out = jsonToTSV(parsed);  label = '📑 TSV Output'; }
+  if (fmt==='html') { out = jsonToHTMLTable(parsed); label = '🌐 HTML Table Output'; }
+
+  document.getElementById('convertOutput').value = out;
+  document.getElementById('convertLabel').textContent = label;
+  lastConverted = out;
+  showToast('🔄 Converted to ' + fmt.toUpperCase() + '!');
+}
+
+function jsonToCSV(data) {
+  const arr = Array.isArray(data) ? data : [data];
+  const allKeys = [...new Set(arr.flatMap(o=>typeof o==='object'&&o?Object.keys(o):[]))];
+  if (!allKeys.length) return JSON.stringify(data);
+  const esc = v => `"${String(v??'').replace(/"/g,'""')}"`;
+  return [allKeys.map(esc).join(','),
+    ...arr.map(row=>allKeys.map(k=>esc(flatten(row)[k]??'')).join(','))
+  ].join('\n');
+}
+
+function jsonToTSV(data) {
+  return jsonToCSV(data).replace(/","/g,'"\t"').replace(/",\n/g,'"\n');
+}
+
+function flatten(obj, pre='', res={}) {
+  for (const [k,v] of Object.entries(obj||{})) {
+    const key = pre ? `${pre}.${k}` : k;
+    if (v && typeof v==='object' && !Array.isArray(v)) flatten(v,key,res);
+    else res[key] = Array.isArray(v) ? JSON.stringify(v) : v;
+  }
+  return res;
+}
+
+function jsonToXML(obj, indent=0, tag='root') {
+  const pad = '  '.repeat(indent);
+  if (typeof obj !== 'object' || obj===null) return `${pad}<${tag}>${escHtml(String(obj))}</${tag}>`;
+  if (Array.isArray(obj)) return obj.map((v,i)=>jsonToXML(v,indent,'item')).join('\n');
+  const inner = Object.entries(obj).map(([k,v])=>jsonToXML(v,indent+1,k)).join('\n');
+  return `${pad}<${tag}>\n${inner}\n${pad}</${tag}>`;
+}
+
+function jsonToYAML(obj, indent) {
+  const pad = '  '.repeat(indent);
+  if (obj===null) return 'null';
+  if (typeof obj==='boolean'||typeof obj==='number') return String(obj);
+  if (typeof obj==='string') return obj.includes('\n')||obj.includes(':')||obj.startsWith('#') ? `"${obj.replace(/"/g,'\\"')}"` : obj;
+  if (Array.isArray(obj)) return obj.map(v=>`${pad}- ${jsonToYAML(v,indent+1)}`).join('\n');
+  return Object.entries(obj).map(([k,v])=>{
+    if (typeof v==='object'&&v!==null) return `${pad}${k}:\n${jsonToYAML(v,indent+1)}`;
+    return `${pad}${k}: ${jsonToYAML(v,indent+1)}`;
+  }).join('\n');
+}
+
+function jsonToHTMLTable(data) {
+  const arr = Array.isArray(data) ? data : [data];
+  const allKeys = [...new Set(arr.flatMap(o=>typeof o==='object'&&o?Object.keys(o):[]))];
+  if (!allKeys.length) return '<p>' + escHtml(JSON.stringify(data)) + '</p>';
+  const ths = allKeys.map(k=>`<th>${escHtml(k)}</th>`).join('');
+  const rows = arr.map(row=>`<tr>${allKeys.map(k=>`<td>${escHtml(String(row[k]??''))}</td>`).join('')}</tr>`).join('');
+  return `<table border="1" cellpadding="6" cellspacing="0">\n<thead><tr>${ths}</tr></thead>\n<tbody>${rows}</tbody>\n</table>`;
+}
+
+function copyConverted() {
+  if (!lastConverted) { showToast('⚠️ Convert first!'); return; }
+  navigator.clipboard.writeText(lastConverted).then(()=>showToast('✅ Copied!'));
+}
+
+function downloadConverted() {
+  if (!lastConverted) { showToast('⚠️ Convert first!'); return; }
+  const label = document.getElementById('convertLabel').textContent;
+  const ext = label.includes('CSV')?'csv':label.includes('XML')?'xml':label.includes('YAML')?'yaml':label.includes('TSV')?'tsv':'html';
+  dlFile(lastConverted, 'converted.'+ext, 'text/plain');
+}
+
+/* ════════════════════════════════════════
+   SCHEMA GENERATOR
+════════════════════════════════════════ */
+function generateSchema() {
+  const raw = document.getElementById('schemaInput').value.trim();
+  const errBox = document.getElementById('schemaError');
+  errBox.classList.remove('show');
+  if (!raw) { showToast('⚠️ Paste JSON first!'); return; }
+  try {
+    const parsed = JSON.parse(raw);
+    const schema = buildSchema(parsed);
+    const formatted = JSON.stringify(schema, null, 2);
+    document.getElementById('schemaOutput').textContent = formatted;
+    lastSchema = formatted;
+    showToast('📐 Schema generated!');
+  } catch(e) {
+    document.getElementById('schemaErrorMsg').textContent = e.message;
+    errBox.classList.add('show');
+  }
+}
+
+function buildSchema(val) {
+  if (val === null) return {type:'null'};
+  if (Array.isArray(val)) {
+    const items = val.length ? buildSchema(val[0]) : {};
+    return {type:'array', items};
+  }
+  if (typeof val === 'object') {
+    const props = {};
+    for (const [k,v] of Object.entries(val)) props[k] = buildSchema(v);
+    return {type:'object', properties:props, required:Object.keys(val)};
+  }
+  return {type: typeof val};
+}
+
+function copySchema() {
+  if (!lastSchema) { showToast('⚠️ Generate schema first!'); return; }
+  navigator.clipboard.writeText(lastSchema).then(()=>showToast('✅ Schema copied!'));
+}
+
+function downloadSchema() {
+  if (!lastSchema) { showToast('⚠️ Generate schema first!'); return; }
+  dlFile(lastSchema, 'schema.json', 'application/json');
+}
+
+/* ════════════════════════════════════════
+   SEARCH
+════════════════════════════════════════ */
+function searchJSON() {
+  const raw   = document.getElementById('searchInput').value.trim();
+  const query = document.getElementById('searchQuery').value.trim().toLowerCase();
+  const type  = document.getElementById('searchType').value;
+  const out   = document.getElementById('searchOutput');
+  const resEl = document.getElementById('searchResults');
+
+  if (!raw) { out.innerHTML='<span style="color:var(--muted);">Paste JSON above first…</span>'; return; }
+  let parsed;
+  try { parsed = JSON.parse(raw); } catch(e) {
+    out.innerHTML='<span style="color:var(--red);">Invalid JSON</span>'; return;
+  }
+  if (!query) {
+    out.innerHTML = highlight(JSON.stringify(parsed,null,2));
+    resEl.textContent = '';
+    return;
+  }
+
+  const matches = [];
+  function walk(obj, path) {
+    if (typeof obj !== 'object' || obj===null) return;
+    for (const [k,v] of Object.entries(obj)) {
+      const curPath = path ? `${path}.${k}` : k;
+      const keyMatch   = (type==='both'||type==='keys')   && k.toLowerCase().includes(query);
+      const valStr     = typeof v !== 'object' ? String(v).toLowerCase() : '';
+      const valMatch   = (type==='both'||type==='values') && valStr.includes(query);
+      if (keyMatch||valMatch) matches.push({path:curPath, key:k, value:v});
+      if (typeof v==='object'&&v!==null) walk(v, curPath);
+    }
+  }
+  walk(parsed,'');
+
+  resEl.textContent = matches.length ? `Found ${matches.length} match(es)` : 'No matches found';
+  if (!matches.length) { out.innerHTML='<span style="color:var(--muted);">No matches.</span>'; return; }
+
+  const resultObj = {};
+  matches.forEach((m,i)=>{ resultObj[m.path] = m.value; });
+  let html = highlight(JSON.stringify(resultObj,null,2));
+  const re = new RegExp(`(${escRegex(query)})`, 'gi');
+  html = html.replace(re, '<mark style="background:rgba(201,168,76,0.35);color:var(--gold2);border-radius:2px;">$1</mark>');
+  out.innerHTML = html;
+}
+
+function escRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+
+/* ════════════════════════════════════════
+   HISTORY
+════════════════════════════════════════ */
+function saveToHistory(raw) {
+  const now = new Date();
+  jsonHistory.unshift({
+    raw, size: formatBytes(raw.length),
+    time: now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}),
+    preview: raw.slice(0,60).replace(/\s+/g,' ')
+  });
+  if (jsonHistory.length > 20) jsonHistory.pop();
+  renderHistory();
+}
+
+function renderHistory() {
+  const list = document.getElementById('histList');
+  if (!jsonHistory.length) {
+    list.innerHTML = '<p style="text-align:center;color:var(--muted);font-family:\'Cinzel\',serif;font-size:.78rem;padding:.9rem;">No history yet.</p>';
+    return;
+  }
+  list.innerHTML = jsonHistory.map((h,i) => `
+    <div class="hist-item" onclick="loadHistory(${i})">
+      <span class="hi-preview">${escHtml(h.preview)}…</span>
+      <span class="hi-size">${h.size}</span>
+      <span class="hi-meta">${h.time}</span>
+    </div>`).join('');
+}
+
+function loadHistory(i) {
+  document.getElementById('jsonInput').value = jsonHistory[i].raw;
+  switchMode('format', document.querySelector('.mode-tab'));
+  document.querySelector('.mode-tab').classList.add('active');
+  formatJSON();
+  showToast('📜 Loaded from history!');
+}
+
+function clearJSONHistory() {
+  jsonHistory = [];
+  renderHistory();
+  showToast('🗑️ History cleared!');
+}
+
+/* ════════════════════════════════════════
+   CLIPBOARD / FILE
+════════════════════════════════════════ */
+function copyOutput() {
+  if (!lastFormatted) { showToast('⚠️ Format first!'); return; }
+  navigator.clipboard.writeText(lastFormatted).then(()=>showToast('✅ Copied to clipboard!'));
+}
+
+function downloadJSON() {
+  if (!lastFormatted) { showToast('⚠️ Format first!'); return; }
+  dlFile(lastFormatted, 'formatted.json', 'application/json');
+}
+
+async function pasteFromClipboard() {
+  try {
+    const text = await navigator.clipboard.readText();
+    document.getElementById('jsonInput').value = text;
+    onInputChange();
+    showToast('📋 Pasted from clipboard!');
+  } catch(e) { showToast('⚠️ Allow clipboard access!'); }
+}
+
+function uploadJSON() { document.getElementById('fileInput').click(); }
+
+function handleFileUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    document.getElementById('jsonInput').value = ev.target.result;
+    onInputChange();
+    formatJSON();
+    showToast('📁 File loaded: ' + file.name);
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+function loadSample() {
+  document.getElementById('jsonInput').value = JSON.stringify(SAMPLE, null, 2);
+  formatJSON();
+  showToast('📋 Sample JSON loaded!');
+}
+
+function clearAll() {
+  document.getElementById('jsonInput').value = '';
+  document.getElementById('jsonOutput').innerHTML = '<span style="color:var(--muted);font-style:italic;">Formatted JSON will appear here with syntax highlighting…</span>';
+  resetOutputState();
+  lastFormatted = '';
+  showToast('🗑️ Cleared!');
+}
+
+/* ════════════════════════════════════════
+   HELPERS
+════════════════════════════════════════ */
+function dlFile(content, name, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content],{type}));
+  a.download = name; a.click();
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function showError(msg, boxId, msgId) {
+  document.getElementById(msgId).textContent = msg;
+  document.getElementById(boxId).classList.add('show');
+  if (boxId==='errorBox') {
+    document.getElementById('successBox').classList.remove('show');
+  }
+}
+
+function showSuccess(msg, boxId, msgId) {
+  document.getElementById(msgId).textContent = msg;
+  document.getElementById(boxId).classList.add('show');
+  if (boxId==='successBox') {
+    document.getElementById('errorBox').classList.remove('show');
+  }
+}
+
+function hideMessages(scope) {
+  if (scope==='format') {
+    document.getElementById('errorBox').classList.remove('show');
+    document.getElementById('successBox').classList.remove('show');
+  }
+}
+
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+function toggleFAQ(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+/* ════════════════════════════════════════
+   INIT
+════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  // Scroll animations
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.07});
+
+  document.querySelectorAll('.tool-panel,.how-step,.rel-card').forEach((c,i) => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(20px)';
+    c.style.transition = `opacity .45s ${i*.05}s ease, transform .45s ${i*.05}s ease, box-shadow .22s, border-color .22s`;
+    io.observe(c);
+  });
+});
+</script>
+</body>
+</html>
