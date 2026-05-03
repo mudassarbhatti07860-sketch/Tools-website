@@ -1,619 +1,1187 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Currency Converter – نُور الہدیٰ</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<title>Currency Converter – Free Live Exchange Rates | ToolNex</title>
+<meta name="description" content="Free advanced currency converter with live exchange rates. Convert 170+ currencies, view historical trends, multi-currency comparison, rate alerts and more. Fast, free & private."/>
+<meta name="keywords" content="currency converter, exchange rate, live currency converter, forex converter, free currency converter, usd to pkr, usd to inr, bitcoin converter"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://toolnex.site/currency-converter.html"/>
+<meta property="og:title" content="Currency Converter – ToolNex Free Online Tools"/>
+<meta property="og:description" content="Convert 170+ currencies with live exchange rates. Free, fast and private."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/currency-converter.html"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Currency Converter – ToolNex"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--gold:#c9a84c;--gold2:#f0d080;--dark:#0d0d14;--darker:#07070e;--panel:rgba(20,20,35,0.95);--border:rgba(201,168,76,0.3);--text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;--accent:rgba(201,168,76,0.08);}
+:root{
+  --gold:#c9a84c;--gold2:#f0d080;--darker:#07070e;--dark:#0d0d14;
+  --panel:rgba(18,18,30,0.96);--border:rgba(201,168,76,0.28);
+  --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;
+  --accent:rgba(201,168,76,0.08);--blue:#5ab4e0;--orange:#e09a3a;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Amiri',serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%),
-  repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),
-  repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.025) 80px,rgba(201,168,76,0.025) 81px),var(--darker);}
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 60%),
+    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    var(--darker);}
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;padding:.55rem 1.2rem;background:rgba(7,7,14,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
-.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;text-decoration:none;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+/* ══ NAV ══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;
+  padding:.5rem 1.4rem;
+  background:rgba(5,5,12,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+.nav-logo-icon{font-size:1.3rem;}
+.nav-logo-text{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:.06em;}
 .nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
-.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;padding:.22rem .75rem;color:var(--muted);font-family:'Amiri',serif;font-size:.85rem;cursor:pointer;text-decoration:none;transition:all .2s;}
-.nav-link:hover,.nav-link.active{border-color:var(--gold);color:var(--gold2);}
-.nav-link.active{background:rgba(201,168,76,0.1);}
-.lang-sep{width:1px;height:18px;background:var(--border);margin:0 .15rem;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
+  padding:.22rem .75rem;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;
+  cursor:pointer;text-decoration:none;transition:all .2s;}
+.nav-link:hover{border-color:var(--gold);color:var(--gold2);}
 
-/* HERO */
-.hero{position:relative;z-index:1;padding:5.2rem 1rem 2.5rem;text-align:center;}
-.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--gold2);direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;animation:fadeDown .9s ease both;}
-.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.85rem,2vw,1.05rem);color:var(--gold);opacity:.85;display:block;margin-top:.2rem;animation:fadeDown .9s .1s ease both;}
-.hero-icon{font-size:2rem;color:var(--gold);display:block;margin-bottom:.5rem;animation:spin 14s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 55%,#7a5c10 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:.4rem 0;}
-.hero-sub{color:var(--muted);font-size:clamp(.9rem,2vw,1.05rem);}
-.gold-line{width:120px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto 0;}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes countUp{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
-@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
-@keyframes spin-slow{to{transform:rotate(360deg)}}
+/* ══ TOP BANNER AD ══ */
+.ad-top-banner{position:fixed;top:44px;left:0;right:0;z-index:290;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(5,5,12,0.97);border-bottom:1px solid var(--border);padding:.3rem 0;}
+.ad-top-banner .ad-slot{
+  width:728px;height:90px;max-width:calc(100% - 2rem);
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.18);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){.ad-top-banner .ad-slot{width:320px;height:100px;}}
 
-/* WRAP */
-.wrap{position:relative;z-index:1;max-width:1020px;margin:0 auto;padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:1.8rem;}
+/* ══ BODY OFFSET ══ */
+.page-body{padding-top:150px;}
+@media(max-width:768px){.page-body{padding-top:162px;}}
 
-/* AD */
-.ad{background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;letter-spacing:.1em;font-family:'Cinzel',serif;text-transform:uppercase;}
-.ad-top{height:90px;}.ad-mid{height:90px;}
+/* ══ HERO ══ */
+.page-hero{position:relative;z-index:1;text-align:center;padding:2.5rem 1rem 1.5rem;}
+.breadcrumb{font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);letter-spacing:.08em;margin-bottom:.8rem;}
+.breadcrumb a{color:var(--gold);text-decoration:none;}
+.breadcrumb a:hover{color:var(--gold2);}
+.page-badge{display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:20px;
+  padding:.28rem 1rem;font-size:.72rem;font-family:'Cinzel',serif;color:var(--gold);
+  letter-spacing:.08em;margin-bottom:.7rem;}
+.page-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.15;margin-bottom:.5rem;}
+.page-sub{color:var(--muted);font-size:.9rem;max-width:520px;margin:0 auto;line-height:1.7;}
+.gold-line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto 0;}
 
-/* CARD */
-.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:1.8rem;backdrop-filter:blur(8px);}
-.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--gold);letter-spacing:.1em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.5rem;}
-.card-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+/* ══ LIVE TICKER ══ */
+.ticker-wrap{overflow:hidden;background:rgba(3,3,10,0.7);border:1px solid var(--border);
+  border-radius:10px;padding:.45rem 0;position:relative;z-index:1;margin:0 1rem;}
+.ticker-inner{display:flex;gap:0;white-space:nowrap;animation:ticker 35s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.tick-item{display:inline-flex;align-items:center;gap:.4rem;padding:0 1.4rem;
+  font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.05em;border-right:1px solid var(--border);}
+.tick-pair{color:var(--gold);font-weight:700;}
+.tick-rate{color:var(--text);}
+.tick-chg.up{color:var(--green);}
+.tick-chg.dn{color:var(--red);}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* CONVERTER BOX */
-.converter-main{display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:end;margin-bottom:1.2rem;}
-@media(max-width:580px){.converter-main{grid-template-columns:1fr;}.swap-col{display:flex;justify-content:center;}}
-.conv-field label{display:block;font-size:.75rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:.4rem;}
-.conv-field select{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px 8px 0 0;padding:.6rem .9rem;color:var(--text);font-family:'Amiri',serif;font-size:.95rem;outline:none;transition:border-color .2s;color-scheme:dark;-webkit-appearance:none;appearance:none;border-bottom:none;}
-.conv-field select:focus{border-color:var(--gold);}
-.conv-field select option{background:#0a0a0f;}
-.amount-wrap{position:relative;}
-.amount-input{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.7rem 3rem .7rem .9rem;color:var(--text);font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;outline:none;transition:border-color .2s,box-shadow .2s;color-scheme:dark;}
-.amount-input:focus{border-color:var(--gold);box-shadow:0 0 14px rgba(201,168,76,0.18);}
-.currency-sym{position:absolute;right:.8rem;top:50%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold);pointer-events:none;}
+/* ══ WRAP ══ */
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 3rem;
+  display:flex;flex-direction:column;gap:1.5rem;}
 
-/* SWAP BUTTON */
-.swap-btn{background:rgba(201,168,76,0.12);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .3s;color:var(--gold2);flex-shrink:0;}
-.swap-btn:hover{background:var(--gold);color:#000;transform:rotate(180deg);}
+/* ══ TOOL PANEL ══ */
+.tool-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:1.5rem;overflow:hidden;}
+.tool-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.5rem;}
+.tool-panel-title{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;color:var(--gold);
+  letter-spacing:.08em;display:flex;align-items:center;gap:.5rem;}
+.tool-panel-title::before{content:'';width:4px;height:16px;background:var(--gold);border-radius:2px;}
 
-/* RESULT BOX */
-.result-box{background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.4);border-radius:14px;padding:1.5rem;text-align:center;margin-bottom:1.2rem;animation:countUp .4s ease both;position:relative;overflow:hidden;}
-.result-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(201,168,76,0.05) 0%,transparent 60%);pointer-events:none;}
-.res-from{font-size:.9rem;color:var(--muted);margin-bottom:.4rem;}
-.res-amount{font-family:'Cinzel',serif;font-size:clamp(2rem,6vw,3.2rem);font-weight:900;color:var(--gold2);line-height:1;margin-bottom:.3rem;}
-.res-rate{font-size:.82rem;color:var(--muted);font-family:'Cinzel',serif;letter-spacing:.05em;}
-.res-update{font-size:.72rem;color:var(--muted);margin-top:.3rem;animation:pulse 2s infinite;}
+/* ══ SECTION HEADER ══ */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;}
+.section-title{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);
+  letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;}
+.section-title::before{content:'';width:4px;height:18px;background:var(--gold);border-radius:2px;}
 
-/* CONVERT BTN */
-.btn{border:none;border-radius:8px;padding:.72rem 1.4rem;font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;letter-spacing:.07em;cursor:pointer;transition:transform .2s,box-shadow .2s;width:100%;margin-bottom:.8rem;}
-.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,#9a7020 100%);color:#000;}
-.btn:hover{transform:translateY(-2px);box-shadow:0 5px 18px rgba(201,168,76,0.3);}
-.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;}
+/* ══ MAIN CONVERTER ══ */
+.converter-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;margin-bottom:1.2rem;}
+@media(max-width:620px){
+  .converter-grid{grid-template-columns:1fr;gap:.7rem;}
+  .swap-col{display:flex;justify-content:center;}
+}
+.currency-box{display:flex;flex-direction:column;gap:.5rem;}
+.cur-label{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
+.cur-select-wrap{display:flex;gap:.5rem;align-items:center;}
+.flag-box{font-size:1.6rem;flex-shrink:0;width:36px;text-align:center;}
+.cur-select{flex:1;background:rgba(5,5,12,0.85);border:1px solid var(--border);border-radius:10px;
+  padding:.6rem .8rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.85rem;
+  outline:none;transition:border-color .2s;cursor:pointer;}
+.cur-select:focus{border-color:var(--gold);}
+.cur-select option{background:#0d0d14;}
+.amount-input{width:100%;background:rgba(3,3,10,0.9);border:2px solid var(--border);
+  border-radius:10px;padding:.8rem 1rem;color:var(--gold2);
+  font-family:'Cinzel',serif;font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;
+  outline:none;transition:border-color .2s,box-shadow .2s;
+  -moz-appearance:textfield;}
+.amount-input::-webkit-inner-spin-button{-webkit-appearance:none;}
+.amount-input:focus{border-color:var(--gold);box-shadow:0 0 18px rgba(201,168,76,0.15);}
+.amount-input[readonly]{cursor:default;color:var(--green);}
 
-/* LOADING SPINNER */
-.loading-spin{display:inline-block;width:16px;height:16px;border:2px solid rgba(0,0,0,0.3);border-top-color:#000;border-radius:50%;animation:spin-slow .6s linear infinite;vertical-align:middle;margin-right:.4rem;}
+.swap-col{display:flex;flex-direction:column;align-items:center;gap:.4rem;}
+.swap-btn{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);border-radius:50%;
+  width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:1.2rem;transition:all .25s;color:var(--gold);}
+.swap-btn:hover{background:rgba(201,168,76,0.25);border-color:var(--gold);transform:rotate(180deg) scale(1.1);}
 
-/* MULTI CONVERT TABLE */
-.multi-table{width:100%;border-collapse:collapse;margin-top:.5rem;}
-.multi-table th{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;padding:.5rem .8rem;border-bottom:1px solid var(--border);text-align:left;}
-.multi-table td{padding:.55rem .8rem;border-bottom:1px solid rgba(201,168,76,0.08);font-size:.9rem;}
-.multi-table tr:last-child td{border-bottom:none;}
+/* ══ RATE DISPLAY ══ */
+.rate-display{background:rgba(3,3,10,0.6);border:1px solid var(--border);border-radius:10px;
+  padding:.9rem 1.2rem;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;}
+.rate-main{font-family:'Cinzel',serif;font-size:.9rem;color:var(--text);letter-spacing:.04em;}
+.rate-main span{color:var(--gold2);font-weight:700;}
+.rate-updated{font-family:'Cinzel',serif;font-size:.65rem;color:var(--muted);letter-spacing:.06em;}
+.rate-loading{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);
+  display:flex;align-items:center;gap:.4rem;}
+.dot-blink{display:inline-block;width:6px;height:6px;background:var(--gold);border-radius:50%;
+  animation:blink 1s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* ══ CONVERT BTN ══ */
+.convert-btn-wrap{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;padding:.3rem 0 .5rem;}
+.btn-convert{background:linear-gradient(135deg,var(--gold2),var(--gold),#9a7020);color:#000;
+  padding:.65rem 2.5rem;font-size:.92rem;border-radius:30px;border:none;cursor:pointer;
+  font-family:'Cinzel',serif;font-weight:900;letter-spacing:.1em;
+  box-shadow:0 4px 24px rgba(201,168,76,0.25);transition:all .22s;}
+.btn-convert:hover{transform:scale(1.05);box-shadow:0 6px 32px rgba(201,168,76,0.4);}
+.btn-convert:active{transform:scale(.98);}
+
+/* ══ BUTTONS ══ */
+.btn{display:inline-flex;align-items:center;gap:.4rem;border:none;border-radius:25px;
+  padding:.48rem 1.1rem;font-family:'Cinzel',serif;font-size:.76rem;font-weight:700;
+  cursor:pointer;transition:all .22s;letter-spacing:.06em;white-space:nowrap;}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold2);}
+.btn-green{background:rgba(76,175,119,0.15);border:1px solid rgba(76,175,119,0.35);color:var(--green);}
+.btn-green:hover{background:rgba(76,175,119,0.25);}
+.btn-red{background:rgba(224,90,90,0.12);border:1px solid rgba(224,90,90,0.3);color:var(--red);}
+.btn-red:hover{background:rgba(224,90,90,0.22);}
+.btn-blue{background:rgba(90,180,224,0.12);border:1px solid rgba(90,180,224,0.3);color:var(--blue);}
+.btn-blue:hover{background:rgba(90,180,224,0.22);}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#9a7020);color:#000;}
+.btn-gold:hover{transform:scale(1.04);}
+
+/* ══ QUICK AMOUNTS ══ */
+.quick-amounts{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;}
+.qa-btn{background:rgba(201,168,76,0.07);border:1px solid var(--border);border-radius:20px;
+  padding:.3rem .85rem;font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);
+  cursor:pointer;transition:all .2s;letter-spacing:.05em;}
+.qa-btn:hover{border-color:var(--gold);color:var(--gold2);background:rgba(201,168,76,0.12);}
+
+/* ══ MULTI CURRENCY TABLE ══ */
+.multi-table{width:100%;border-collapse:collapse;}
+.multi-table th{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;
+  text-transform:uppercase;padding:.55rem .8rem;border-bottom:1px solid var(--border);text-align:left;}
+.multi-table td{padding:.6rem .8rem;border-bottom:1px solid rgba(201,168,76,0.08);
+  font-size:.82rem;vertical-align:middle;}
 .multi-table tr:hover td{background:rgba(201,168,76,0.04);}
-.flag{font-size:1rem;margin-right:.35rem;}
-.rate-up{color:var(--green);font-size:.7rem;}
-.rate-dn{color:var(--red);font-size:.7rem;}
+.multi-table .td-flag{font-size:1.3rem;width:36px;}
+.multi-table .td-code{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);font-weight:700;}
+.multi-table .td-name{color:var(--muted);font-size:.75rem;}
+.multi-table .td-rate{font-family:'Cinzel',serif;font-size:.85rem;color:var(--text);font-weight:600;}
+.multi-table .td-result{font-family:'Cinzel',serif;font-size:.9rem;color:var(--green);font-weight:700;}
+.multi-table .td-copy{cursor:pointer;color:var(--gold);font-size:.85rem;background:none;border:none;
+  padding:.2rem .4rem;transition:transform .2s;}
+.multi-table .td-copy:hover{transform:scale(1.2);}
+.multi-table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border);}
 
-/* RATE GRID */
-.rate-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem;margin-top:.5rem;}
-.rate-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.8rem .7rem;display:flex;align-items:center;gap:.6rem;transition:border-color .2s;}
-.rate-box:hover{border-color:var(--gold);}
-.rate-flag{font-size:1.3rem;flex-shrink:0;}
-.rate-info{flex:1;min-width:0;}
-.rate-code{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em;}
-.rate-val{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.rate-name{font-size:.65rem;color:var(--muted);margin-top:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/* ══ CHART ══ */
+.chart-canvas-wrap{position:relative;height:220px;width:100%;}
+canvas#rateChart{width:100%!important;height:220px!important;}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.9rem;}
+.chart-btn{padding:.3rem .85rem;border-radius:20px;border:1px solid var(--border);
+  font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);cursor:pointer;
+  background:transparent;transition:all .2s;letter-spacing:.05em;}
+.chart-btn.active{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
+.chart-btn:hover:not(.active){border-color:rgba(201,168,76,0.4);color:var(--text);}
+.chart-pair-label{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);letter-spacing:.06em;margin-bottom:.6rem;}
 
-/* HISTORICAL (fake sparkline) */
-.sparkline-wrap{display:flex;align-items:flex-end;gap:2px;height:40px;margin-top:.5rem;}
-.spark-bar{flex:1;background:var(--gold);border-radius:2px 2px 0 0;opacity:.6;transition:opacity .2s;}
-.spark-bar:hover{opacity:1;}
+/* ══ STATS ROW ══ */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-top:1rem;}
+@media(max-width:580px){.stats-bar{grid-template-columns:1fr 1fr;}}
+.stat-chip{background:rgba(5,5,12,0.8);border:1px solid var(--border);border-radius:10px;
+  padding:.7rem;text-align:center;}
+.stat-chip .num{font-family:'Cinzel',serif;font-size:1rem;font-weight:900;color:var(--gold2);line-height:1;}
+.stat-chip .lbl{font-family:'Cinzel',serif;font-size:.62rem;color:var(--muted);
+  letter-spacing:.08em;text-transform:uppercase;margin-top:.2rem;}
+.stat-chip.up .num{color:var(--green);}
+.stat-chip.dn .num{color:var(--red);}
 
-/* INFO GRID */
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.8rem;}
-.info-box{background:var(--accent);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center;}
-.info-icon{font-size:1.5rem;margin-bottom:.3rem;}
-.info-title{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
-.info-desc{font-size:.8rem;color:var(--muted);line-height:1.5;}
+/* ══ FAVORITES ══ */
+.favs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.7rem;}
+.fav-card{background:rgba(5,5,12,0.7);border:1px solid var(--border);border-radius:10px;
+  padding:.8rem;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;gap:.3rem;}
+.fav-card:hover{border-color:var(--gold);background:rgba(201,168,76,0.06);}
+.fav-pair{font-family:'Cinzel',serif;font-size:.8rem;color:var(--gold2);font-weight:700;}
+.fav-rate{font-family:'Cinzel',serif;font-size:.95rem;color:var(--text);}
+.fav-chg{font-family:'Cinzel',serif;font-size:.68rem;}
+.fav-chg.up{color:var(--green);}
+.fav-chg.dn{color:var(--red);}
 
-/* TABS */
-.tabs{display:flex;gap:.45rem;margin-bottom:1.3rem;flex-wrap:wrap;}
-.tab{background:transparent;border:1px solid var(--border);border-radius:8px;padding:.38rem .9rem;color:var(--muted);font-family:'Amiri',serif;font-size:.9rem;cursor:pointer;transition:all .2s;}
-.tab:hover{border-color:var(--gold);color:var(--gold2);}
-.tab.active{background:var(--gold);border-color:var(--gold);color:#000;font-weight:700;}
+/* ══ HISTORY TABLE ══ */
+.hist-table{width:100%;border-collapse:collapse;}
+.hist-table th{font-family:'Cinzel',serif;font-size:.68rem;color:var(--gold);letter-spacing:.1em;
+  text-transform:uppercase;padding:.5rem .7rem;border-bottom:1px solid var(--border);text-align:left;}
+.hist-table td{padding:.55rem .7rem;border-bottom:1px solid rgba(201,168,76,0.07);font-size:.8rem;}
+.hist-table tr:hover td{background:rgba(201,168,76,0.04);}
+.hist-table-wrap{max-height:280px;overflow-y:auto;border-radius:10px;border:1px solid var(--border);}
+.hist-table-wrap::-webkit-scrollbar{width:4px;}
+.hist-table-wrap::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.3);border-radius:4px;}
 
-/* HADITH */
-.hadith-sec{position:relative;z-index:1;margin-top:2rem;background:rgba(7,7,14,0.98);border-top:1px solid var(--border);}
-.hadith-inner{max-width:700px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
-.h-ornament{font-size:2rem;color:var(--gold);display:block;margin-bottom:1rem;}
-.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.15rem,3vw,1.65rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
-.h-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.1rem;}
-.h-urdu{font-family:'Amiri',serif;font-size:clamp(.92rem,2.2vw,1.08rem);color:var(--text);line-height:2;direction:rtl;margin-bottom:.5rem;}
-.h-en{font-family:'Amiri',serif;font-size:.93rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
-.h-source{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.12em;color:var(--muted);}
-.noor-footer{text-align:center;padding:1.4rem .5rem;background:rgba(5,5,10,0.99);border-top:1px solid var(--border);}
-.noor-text{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.5rem);color:var(--gold2);direction:rtl;text-shadow:0 0 20px rgba(201,168,76,0.4);}
-.noor-sub{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.12em;margin-top:.35rem;}
+/* ══ FORM ELEMENTS ══ */
+.form-select,.form-input{background:rgba(5,5,12,0.8);border:1px solid var(--border);border-radius:8px;
+  padding:.48rem .8rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.82rem;
+  outline:none;transition:border-color .2s;}
+.form-select:focus,.form-input:focus{border-color:var(--gold);}
+.form-select option{background:#0d0d14;}
 
-/* QUICK LINKS */
-.ql-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;}
-.ql{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:.35rem;transition:transform .2s,border-color .2s;}
-.ql:hover{transform:translateY(-4px);border-color:var(--gold);}
-.ql-icon{font-size:1.4rem;}
-.ql-name{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;}
-.ql-desc{font-size:.75rem;color:var(--muted);}
+/* ══ HOW TO ══ */
+.how-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;}
+.how-step{background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:12px;
+  padding:1.1rem;display:flex;flex-direction:column;gap:.4rem;transition:border-color .2s;}
+.how-step:hover{border-color:var(--gold);}
+.how-num{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.how-title{font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;color:var(--gold2);}
+.how-desc{font-size:.74rem;color:var(--muted);line-height:1.5;}
+
+/* ══ FAQ ══ */
+.faq-list{display:flex;flex-direction:column;gap:.6rem;}
+.faq-item{background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s;}
+.faq-item:hover{border-color:rgba(201,168,76,0.5);}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:.9rem 1rem;
+  font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);letter-spacing:.04em;
+  cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
+.faq-q .arrow{font-size:.9rem;color:var(--gold);transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg);}
+.faq-a{display:none;padding:0 1rem .9rem;font-size:.8rem;color:var(--muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+
+/* ══ RELATED ══ */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.85rem;}
+.rel-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;
+  padding:.9rem;text-decoration:none;display:flex;align-items:center;gap:.7rem;
+  transition:transform .2s,border-color .2s;}
+.rel-card:hover{transform:translateY(-3px);border-color:var(--gold);}
+.rel-icon{font-size:1.3rem;flex-shrink:0;}
+.rel-name{font-size:.8rem;color:var(--text);font-family:'Inter',sans-serif;font-weight:500;}
+
+/* ══ MID AD ══ */
+.ad-mid-responsive{width:100%;display:flex;align-items:center;justify-content:center;
+  background:rgba(201,168,76,0.02);border:1px dashed rgba(201,168,76,0.18);
+  border-radius:10px;padding:.5rem;min-height:70px;}
+.ad-mid-responsive .ad-slot{width:728px;height:90px;max-width:100%;
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.12);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){.ad-mid-responsive .ad-slot{width:468px;height:60px;}}
+@media(max-width:520px){.ad-mid-responsive .ad-slot{width:320px;height:50px;}}
+
+/* ══ TOAST ══ */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;
+  background:rgba(18,18,30,0.97);border:1px solid var(--gold);border-radius:10px;
+  padding:.7rem 1.2rem;font-family:'Cinzel',serif;font-size:.78rem;color:var(--gold2);
+  letter-spacing:.06em;box-shadow:0 4px 20px rgba(201,168,76,0.2);
+  transform:translateY(20px);opacity:0;transition:all .3s;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* ══ FOOTER ══ */
+.footer{background:rgba(3,3,10,0.99);border-top:1px solid var(--border);padding:2.5rem 1rem 1.5rem;position:relative;z-index:1;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
+@media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
+.footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.5rem;display:block;}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
+.footer-col h4{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.footer-col ul li a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:color .2s;}
+.footer-col ul li a:hover{color:var(--gold2);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.footer-copy{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.08em;}
+.footer-noor{font-family:'Amiri',serif;font-size:1rem;color:var(--gold2);direction:rtl;text-shadow:0 0 14px rgba(201,168,76,0.4);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{animation:spin .6s linear;}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">☽ نُور الہدیٰ</a>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-icon">🛠️</span>
+    <span class="nav-logo-text">ToolNex</span>
+  </a>
   <div class="nav-right">
-    <a href="age-calculator.html"  class="nav-link" data-en="🎂 Age"  data-ur="🎂 عمر"  data-ar="🎂 العمر">🎂 Age</a>
-    <a href="date-calculator.html" class="nav-link" data-en="📅 Date" data-ur="📅 تاریخ" data-ar="📅 التاريخ">📅 Date</a>
-    <a href="time-calculator.html" class="nav-link" data-en="⏱ Time" data-ur="⏱ وقت"  data-ar="⏱ الوقت">⏱ Time</a>
-    <a href="index.html"           class="nav-link" data-en="🏠 Home" data-ur="🏠 ہوم"  data-ar="🏠 الرئيسية">🏠 Home</a>
-    <div class="lang-sep"></div>
-    <button class="nav-link active" id="lb-en" onclick="setLang('en')">EN</button>
-    <button class="nav-link"        id="lb-ur" onclick="setLang('ur')">اردو</button>
-    <button class="nav-link"        id="lb-ar" onclick="setLang('ar')">عربي</button>
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="index.html#calc" class="nav-link">🧮 Calculators</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <span class="hero-icon">💱</span>
-  <div style="margin-bottom:.9rem">
-    <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
-    <span class="bismillah-tr" id="bismlTr">In the name of Allah, the Most Gracious, the Most Merciful</span>
+<!-- TOP BANNER AD -->
+<div class="ad-top-banner">
+  <div class="ad-slot">
+    <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
+    📢 Top Banner Ad · 728×90 Desktop / 320×100 Mobile
   </div>
-  <h1 class="hero-title" id="heroTitle">Currency Converter</h1>
-  <p  class="hero-sub"   id="heroSub">Live exchange rates · 170+ currencies · Instant conversion</p>
-  <div class="gold-line"></div>
-</section>
+</div>
 
-<div class="wrap">
+<div class="page-body">
 
-  <!-- AD TOP -->
-  <div class="ad ad-top">📢 <span id="adTxt1">Advertisement — 728×90</span></div>
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &nbsp;›&nbsp;
+      <a href="index.html#calc">Calculators</a> &nbsp;›&nbsp;
+      Currency Converter
+    </div>
+    <div class="page-badge">💱 Live Exchange Rates · 170+ Currencies</div>
+    <h1 class="page-title">Currency Converter</h1>
+    <p class="page-sub">Convert between 170+ world currencies with live exchange rates. Multi-currency table, rate charts, history and more.</p>
+    <div class="gold-line"></div>
+  </div>
 
-  <!-- MAIN CONVERTER CARD -->
-  <div class="card">
-    <div class="card-title" id="ctConvert">💱 Currency Converter</div>
+  <!-- LIVE TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="tickerInner"><!-- filled by JS --></div>
+  </div>
 
-    <!-- FROM / TO -->
-    <div class="converter-main">
-      <!-- FROM -->
-      <div class="conv-field">
-        <label id="lFrom">From Currency</label>
-        <select id="fromCur" onchange="onCurrencyChange()"></select>
-        <div class="amount-wrap">
-          <input class="amount-input" type="number" id="fromAmt" value="1" min="0" step="any" oninput="convertLive()"/>
-          <span class="currency-sym" id="fromSym">$</span>
+  <div class="wrap">
+
+    <!-- ══ MAIN CONVERTER ══ -->
+    <div class="tool-panel">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">💱 Live Currency Converter</div>
+        <div style="display:flex;align-items:center;gap:.5rem;">
+          <div class="rate-loading" id="loadingIndicator">
+            <span class="dot-blink"></span>
+            <span style="font-size:.68rem;">Fetching rates…</span>
+          </div>
+          <button class="btn btn-outline" onclick="refreshRates()" id="refreshBtn">🔄 Refresh</button>
         </div>
       </div>
 
-      <!-- SWAP -->
-      <div class="swap-col" style="display:flex;align-items:flex-end;padding-bottom:2px;">
-        <button class="swap-btn" onclick="swapCurrencies()" title="Swap">⇄</button>
+      <!-- CONVERTER INPUTS -->
+      <div class="converter-grid">
+        <!-- FROM -->
+        <div class="currency-box">
+          <div class="cur-label">From</div>
+          <div class="cur-select-wrap">
+            <span class="flag-box" id="fromFlag">🇺🇸</span>
+            <select class="cur-select" id="fromCur" onchange="onCurrencyChange()"></select>
+          </div>
+          <input type="number" class="amount-input" id="fromAmount" value="1" min="0" step="any"
+            oninput="convertFromTop()" placeholder="Amount"/>
+          <div class="quick-amounts" id="quickAmounts">
+            <span class="qa-btn" onclick="setAmount(1)">1</span>
+            <span class="qa-btn" onclick="setAmount(10)">10</span>
+            <span class="qa-btn" onclick="setAmount(100)">100</span>
+            <span class="qa-btn" onclick="setAmount(500)">500</span>
+            <span class="qa-btn" onclick="setAmount(1000)">1K</span>
+            <span class="qa-btn" onclick="setAmount(10000)">10K</span>
+            <span class="qa-btn" onclick="setAmount(100000)">100K</span>
+          </div>
+        </div>
+
+        <!-- SWAP -->
+        <div class="swap-col">
+          <button class="swap-btn" id="swapBtn" onclick="swapCurrencies()" title="Swap currencies">⇄</button>
+        </div>
+
+        <!-- TO -->
+        <div class="currency-box">
+          <div class="cur-label">To</div>
+          <div class="cur-select-wrap">
+            <span class="flag-box" id="toFlag">🇵🇰</span>
+            <select class="cur-select" id="toCur" onchange="onCurrencyChange()"></select>
+          </div>
+          <input type="number" class="amount-input" id="toAmount" readonly placeholder="Result"/>
+        </div>
       </div>
 
-      <!-- TO -->
-      <div class="conv-field">
-        <label id="lTo">To Currency</label>
-        <select id="toCur" onchange="onCurrencyChange()"></select>
-        <div class="amount-wrap">
-          <input class="amount-input" type="number" id="toAmt" placeholder="Result" readonly style="background:rgba(201,168,76,0.05);cursor:default;"/>
-          <span class="currency-sym" id="toSym">£</span>
+      <!-- RATE DISPLAY -->
+      <div class="rate-display" id="rateDisplay">
+        <div class="rate-main" id="rateText">— Fetching live rate…</div>
+        <div class="rate-updated" id="rateUpdated"></div>
+      </div>
+
+      <!-- CONVERT BUTTON -->
+      <div class="convert-btn-wrap">
+        <button class="btn-convert" onclick="doConvert()">💱 Convert</button>
+        <button class="btn btn-outline" onclick="copyResult()">📋 Copy Result</button>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-bar" id="statsBar" style="display:none;">
+        <div class="stat-chip"><div class="num" id="statRate">—</div><div class="lbl">Live Rate</div></div>
+        <div class="stat-chip"><div class="num" id="statInverse">—</div><div class="lbl">Inverse Rate</div></div>
+        <div class="stat-chip up"><div class="num" id="stat24h">—</div><div class="lbl">24h High (est.)</div></div>
+        <div class="stat-chip dn"><div class="num" id="stat24l">—</div><div class="lbl">24h Low (est.)</div></div>
+      </div>
+    </div>
+
+    <!-- ══ MULTI CURRENCY TABLE ══ -->
+    <div class="tool-panel">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">🌍 Multi-Currency Comparison</div>
+        <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
+          <input type="number" id="multiAmount" value="1" min="0" step="any"
+            class="form-input" style="width:90px;" oninput="updateMultiTable()" placeholder="Amount"/>
+          <button class="btn btn-outline" onclick="toggleMultiEdit()" id="editMultiBtn">✏️ Edit Currencies</button>
+        </div>
+      </div>
+      <div class="multi-table-wrap">
+        <table class="multi-table">
+          <thead>
+            <tr>
+              <th>Flag</th><th>Code</th><th>Currency</th><th>Rate</th><th>Result</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="multiBody">
+            <tr><td colspan="6" style="text-align:center;padding:1.5rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.8rem;">Loading rates…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Edit panel (hidden by default) -->
+      <div id="multiEditPanel" style="display:none;margin-top:1rem;">
+        <div style="font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);margin-bottom:.5rem;letter-spacing:.08em;">ADD CURRENCY TO TABLE</div>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+          <select class="form-select" id="addCurSelect" style="min-width:160px;"></select>
+          <button class="btn btn-gold" onclick="addToMulti()">➕ Add</button>
+          <button class="btn btn-red" onclick="resetMulti()">🔁 Reset Default</button>
         </div>
       </div>
     </div>
 
-    <!-- CONVERT BUTTON -->
-    <button class="btn btn-primary" id="convertBtn" onclick="doConvert()">
-      💱 <span id="convertTxt">Convert</span>
-    </button>
-
-    <!-- RESULT -->
-    <div class="result-box" id="resultBox" style="display:none">
-      <div class="res-from" id="resFrom">1 USD =</div>
-      <div class="res-amount" id="resAmount">0.00 GBP</div>
-      <div class="res-rate"   id="resRate">1 GBP = 1.2700 USD</div>
-      <div class="res-update" id="resUpdate">🔄 Live rate</div>
+    <!-- ══ RATE CHART ══ -->
+    <div class="tool-panel">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">📈 Exchange Rate Trend</div>
+      </div>
+      <div class="chart-pair-label" id="chartPairLabel">USD / PKR — Simulated 30-Day Trend</div>
+      <div class="chart-controls">
+        <button class="chart-btn active" onclick="setChartPeriod(7,this)">7D</button>
+        <button class="chart-btn" onclick="setChartPeriod(30,this)">30D</button>
+        <button class="chart-btn" onclick="setChartPeriod(90,this)">90D</button>
+        <button class="chart-btn" onclick="setChartPeriod(180,this)">6M</button>
+        <button class="chart-btn" onclick="setChartPeriod(365,this)">1Y</button>
+      </div>
+      <div class="chart-canvas-wrap">
+        <canvas id="rateChart"></canvas>
+      </div>
+      <p style="font-size:.7rem;color:var(--muted);font-family:'Cinzel',serif;text-align:center;margin-top:.6rem;letter-spacing:.06em;">
+        ⚠️ Chart data is simulated for demonstration. For live historical data, connect to a premium API.
+      </p>
     </div>
 
-    <!-- QUICK AMOUNTS -->
-    <div id="quickAmounts" style="display:none">
-      <div style="font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.7rem;" id="quickLbl">Quick Conversion</div>
-      <table class="multi-table" id="quickTable">
-        <thead><tr><th id="thFrom">Amount</th><th id="thTo">Result</th></tr></thead>
-        <tbody id="quickBody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- TABS — RATES / MULTI -->
-  <div class="card">
-    <div class="tabs">
-      <button class="tab active" onclick="switchTab('rates')"><span data-en="📊 Live Rates" data-ur="📊 لائیو ریٹس" data-ar="📊 الأسعار الحية">📊 Live Rates</span></button>
-      <button class="tab"        onclick="switchTab('multi')"><span data-en="📋 Multi Convert" data-ur="📋 کثیر تبدیلی" data-ar="📋 تحويل متعدد">📋 Multi Convert</span></button>
-      <button class="tab"        onclick="switchTab('about')"><span data-en="ℹ️ About Rates" data-ur="ℹ️ ریٹس کے بارے میں" data-ar="ℹ️ عن الأسعار">ℹ️ About</span></button>
-    </div>
-
-    <!-- LIVE RATES -->
-    <div id="pRates">
-      <div style="font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);letter-spacing:.08em;margin-bottom:.9rem;" id="ratesSubLbl">Popular exchange rates based on selected currency</div>
-      <div class="rate-grid" id="rateGrid">
-        <div style="grid-column:1/-1;text-align:center;padding:1.5rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.82rem;">Loading rates…</div>
+    <!-- ══ MID AD ══ -->
+    <div class="ad-mid-responsive">
+      <div class="ad-slot">
+        <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+        📢 Responsive Ad · 728×90 → 468×60 → 320×50 (Auto)
       </div>
     </div>
 
-    <!-- MULTI CONVERT -->
-    <div id="pMulti" style="display:none">
-      <div style="font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);letter-spacing:.08em;margin-bottom:.9rem;" id="multiSubLbl">Convert one amount to multiple currencies at once</div>
-      <table class="multi-table" id="multiTable">
-        <thead><tr><th id="mthCur">Currency</th><th id="mthRate">Rate</th><th id="mthAmt">Amount</th></tr></thead>
-        <tbody id="multiBody"><tr><td colspan="3" style="text-align:center;color:var(--muted);padding:1.5rem;">Select currencies and convert first.</td></tr></tbody>
-      </table>
+    <!-- ══ FAVORITE PAIRS ══ -->
+    <div class="tool-panel">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">⭐ Popular Currency Pairs</div>
+      </div>
+      <div class="favs-grid" id="favGrid"><!-- filled by JS --></div>
     </div>
 
-    <!-- ABOUT -->
-    <div id="pAbout" style="display:none">
-      <div class="info-grid">
-        <div class="info-box"><div class="info-icon">🌐</div><div class="info-title" id="a1t">Live Data</div><div class="info-desc" id="a1d">Rates fetched from open exchange API. Updated every time you convert.</div></div>
-        <div class="info-box"><div class="info-icon">🏦</div><div class="info-title" id="a2t">170+ Currencies</div><div class="info-desc" id="a2d">Covers all major world currencies including PKR, SAR, AED, USD, EUR and more.</div></div>
-        <div class="info-box"><div class="info-icon">⚡</div><div class="info-title" id="a3t">Instant</div><div class="info-desc" id="a3d">Type and get instant results. No page reload needed.</div></div>
-        <div class="info-box"><div class="info-icon">📱</div><div class="info-title" id="a4t">All Devices</div><div class="info-desc" id="a4d">Works perfectly on mobile, tablet and desktop.</div></div>
+    <!-- ══ CONVERSION HISTORY ══ -->
+    <div class="tool-panel">
+      <div class="tool-panel-head">
+        <div class="tool-panel-title">📜 Conversion History</div>
+        <div style="display:flex;gap:.5rem;">
+          <button class="btn btn-outline" onclick="exportHistory()">⬇️ Export</button>
+          <button class="btn btn-red" onclick="clearHistory()">🗑️ Clear</button>
+        </div>
+      </div>
+      <div class="hist-table-wrap">
+        <table class="hist-table">
+          <thead>
+            <tr><th>Time</th><th>From</th><th>To</th><th>Amount</th><th>Result</th><th>Rate</th></tr>
+          </thead>
+          <tbody id="histBody">
+            <tr><td colspan="6" style="text-align:center;padding:1.2rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.78rem;">No conversions yet.</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
-  </div>
 
-  <!-- AD MID -->
-  <div class="ad ad-mid">📢 <span id="adTxt2">Advertisement — 468×60</span></div>
+    <!-- ══ HOW TO USE ══ -->
+    <div class="tool-panel">
+      <div class="section-head"><div class="section-title">📖 How to Use</div></div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">01</div>
+          <div class="how-title">Select Currencies</div>
+          <div class="how-desc">Choose your source and target currencies from the dropdown menus with 170+ options.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">02</div>
+          <div class="how-title">Enter Amount</div>
+          <div class="how-desc">Type any amount or use the quick amount buttons (1, 10, 100, 1K…) below the input.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">03</div>
+          <div class="how-title">Get Live Rate</div>
+          <div class="how-desc">Click Convert to see the live result, rate details, and 24h stats instantly.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">04</div>
+          <div class="how-title">Compare & Analyze</div>
+          <div class="how-desc">Use the multi-currency table and rate chart to compare and track trends.</div>
+        </div>
+      </div>
+    </div>
 
-  <!-- QUICK LINKS -->
-  <div class="card">
-    <div class="card-title" id="ctLinks">🔗 Related Tools</div>
-    <div class="ql-grid">
-      <a href="age-calculator.html"  class="ql"><span class="ql-icon">🎂</span><span class="ql-name" data-en="Age Calculator" data-ur="عمر کیلکولیٹر" data-ar="حاسبة العمر">Age Calculator</span><span class="ql-desc" data-en="Calculate your age" data-ur="عمر معلوم کریں" data-ar="احسب عمرك">Calculate your age</span></a>
-      <a href="percentage-calculator.html" class="ql"><span class="ql-icon">%</span><span class="ql-name" data-en="Percentage" data-ur="فیصد" data-ar="نسبة مئوية">Percentage</span><span class="ql-desc" data-en="Calculate percentages" data-ur="فیصد حساب" data-ar="احسب النسبة">Calculate percentages</span></a>
-      <a href="loan-calculator.html" class="ql"><span class="ql-icon">🏦</span><span class="ql-name" data-en="Loan Calculator" data-ur="لون کیلکولیٹر" data-ar="حاسبة القرض">Loan Calculator</span><span class="ql-desc" data-en="Monthly payments" data-ur="ماہانہ ادائیگی" data-ar="أقساط شهرية">Monthly payments</span></a>
-      <a href="unit-converter.html"  class="ql"><span class="ql-icon">📏</span><span class="ql-name" data-en="Unit Converter" data-ur="یونٹ کنورٹر" data-ar="محول الوحدات">Unit Converter</span><span class="ql-desc" data-en="Convert any unit" data-ur="کوئی بھی یونٹ" data-ar="حوّل أي وحدة">Convert any unit</span></a>
+    <!-- ══ FAQ ══ -->
+    <div class="tool-panel">
+      <div class="section-head"><div class="section-title">❓ FAQ</div></div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">Are exchange rates live? <span class="arrow">▾</span></button>
+          <div class="faq-a">Yes. Rates are fetched in real-time from a free public API (exchangerate-api.com). They are updated periodically. For ultra-precise trading rates, use a premium forex data provider.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">How many currencies are supported? <span class="arrow">▾</span></button>
+          <div class="faq-a">ToolNex supports 170+ world currencies including major fiat currencies (USD, EUR, GBP, JPY, PKR, INR, SAR…) and many minor currencies. Cryptocurrencies are not included in this version.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">Why do I see a different rate than my bank? <span class="arrow">▾</span></button>
+          <div class="faq-a">The rates shown are mid-market (interbank) rates — the midpoint between buy and sell prices. Banks and exchange services add their own margin or fee on top of this rate, which is why their rates differ.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFAQ(this)">Can I use this converter offline? <span class="arrow">▾</span></button>
+          <div class="faq-a">Live rates require an internet connection. However, if you have already loaded the page and fetched rates, you can continue converting without refreshing as rates are cached locally for the session.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div>
+      <div class="section-head"><div class="section-title">🔗 Related Tools</div></div>
+      <div class="related-grid">
+        <a href="unit-converter.html" class="rel-card"><span class="rel-icon">📏</span><span class="rel-name">Unit Converter</span></a>
+        <a href="bmi-calculator.html" class="rel-card"><span class="rel-icon">⚖️</span><span class="rel-name">BMI Calculator</span></a>
+        <a href="loan-calculator.html" class="rel-card"><span class="rel-icon">🏦</span><span class="rel-name">Loan Calculator</span></a>
+        <a href="percentage-calculator.html" class="rel-card"><span class="rel-icon">%</span><span class="rel-name">Percentage Calc</span></a>
+        <a href="tip-calculator.html" class="rel-card"><span class="rel-icon">🧾</span><span class="rel-name">Tip Calculator</span></a>
+        <a href="discount-calculator.html" class="rel-card"><span class="rel-icon">🏷️</span><span class="rel-name">Discount Calculator</span></a>
+      </div>
+    </div>
+
+  </div><!-- /wrap -->
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-logo">🛠️ ToolNex</span>
+        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+          <li><a href="image-compressor.html">🗜️ Image Compressor</a></li>
+          <li><a href="qr-code.html">📲 QR Generator</a></li>
+          <li><a href="password-generator.html">🔑 Password Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <ul>
+          <li><a href="currency-converter.html">💱 Currency</a></li>
+          <li><a href="unit-converter.html">📏 Unit Converter</a></li>
+          <li><a href="loan-calculator.html">🏦 Loan Calculator</a></li>
+          <li><a href="bmi-calculator.html">⚖️ BMI Calculator</a></li>
+          <li><a href="percentage-calculator.html">% Percentage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">📖 About Us</a></li>
+          <li><a href="contact.html">✉️ Contact</a></li>
+          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
+          <li><a href="terms.html">📋 Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+      <div class="footer-noor">نُورُ الہُدیٰ</div>
     </div>
   </div>
+</footer>
 
-</div><!-- /wrap -->
+<div class="toast" id="toast"></div>
 
-<!-- HADITH -->
-<div class="hadith-sec">
-  <div class="hadith-inner">
-    <span class="h-ornament">❁ ☽ ❁</span>
-    <p class="h-arabic">«الْبَيِّعَانِ بِالْخِيَارِ مَا لَمْ يَتَفَرَّقَا، فَإِنْ صَدَقَا وَبَيَّنَا بُورِكَ لَهُمَا فِي بَيْعِهِمَا، وَإِنْ كَذَبَا وَكَتَمَا مُحِقَتْ بَرَكَةُ بَيْعِهِمَا»</p>
-    <div class="h-line"></div>
-    <p class="h-urdu" id="hUrdu">خریدار اور بیچنے والے دونوں کو اختیار ہے جب تک وہ جدا نہ ہوں۔ اگر دونوں نے سچ بولا اور واضح کیا تو ان کے سودے میں برکت ہوگی، اور اگر جھوٹ بولا اور چھپایا تو سودے کی برکت ختم ہو جائے گی۔</p>
-    <p class="h-en"   id="hEn">"The buyer and the seller have the option as long as they have not parted. If they spoke the truth and made clear, they would be blessed in their transaction; but if they concealed and lied, the blessing of their transaction would be blotted out."</p>
-    <p class="h-source">— صحيح البخاري | Sahih Al-Bukhari · 2079</p>
-  </div>
-</div>
-<div class="noor-footer">
-  <div class="noor-text">نُورُ الہُدیٰ</div>
-  <div class="noor-sub">© 2025 NOOR AL-HUDA · ALL RIGHTS RESERVED · MADE WITH ♥</div>
-</div>
-
+<!-- CHART.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-/* ══ CURRENCY DATA ══ */
+/* ══════════════════════════════════════
+   CURRENCY DATA
+══════════════════════════════════════ */
 const CURRENCIES = {
-  USD:{name:'US Dollar',flag:'🇺🇸',sym:'$'},
-  EUR:{name:'Euro',flag:'🇪🇺',sym:'€'},
-  GBP:{name:'British Pound',flag:'🇬🇧',sym:'£'},
-  PKR:{name:'Pakistani Rupee',flag:'🇵🇰',sym:'₨'},
-  SAR:{name:'Saudi Riyal',flag:'🇸🇦',sym:'﷼'},
-  AED:{name:'UAE Dirham',flag:'🇦🇪',sym:'د.إ'},
-  INR:{name:'Indian Rupee',flag:'🇮🇳',sym:'₹'},
-  JPY:{name:'Japanese Yen',flag:'🇯🇵',sym:'¥'},
-  CNY:{name:'Chinese Yuan',flag:'🇨🇳',sym:'¥'},
-  CAD:{name:'Canadian Dollar',flag:'🇨🇦',sym:'C$'},
-  AUD:{name:'Australian Dollar',flag:'🇦🇺',sym:'A$'},
-  CHF:{name:'Swiss Franc',flag:'🇨🇭',sym:'Fr'},
-  TRY:{name:'Turkish Lira',flag:'🇹🇷',sym:'₺'},
-  MYR:{name:'Malaysian Ringgit',flag:'🇲🇾',sym:'RM'},
-  SGD:{name:'Singapore Dollar',flag:'🇸🇬',sym:'S$'},
-  KWD:{name:'Kuwaiti Dinar',flag:'🇰🇼',sym:'KD'},
-  QAR:{name:'Qatari Riyal',flag:'🇶🇦',sym:'QR'},
-  BHD:{name:'Bahraini Dinar',flag:'🇧🇭',sym:'BD'},
-  OMR:{name:'Omani Rial',flag:'🇴🇲',sym:'ر.ع.'},
-  JOD:{name:'Jordanian Dinar',flag:'🇯🇴',sym:'JD'},
-  EGP:{name:'Egyptian Pound',flag:'🇪🇬',sym:'E£'},
-  BDT:{name:'Bangladeshi Taka',flag:'🇧🇩',sym:'৳'},
-  LKR:{name:'Sri Lankan Rupee',flag:'🇱🇰',sym:'Rs'},
-  IDR:{name:'Indonesian Rupiah',flag:'🇮🇩',sym:'Rp'},
-  THB:{name:'Thai Baht',flag:'🇹🇭',sym:'฿'},
-  KRW:{name:'South Korean Won',flag:'🇰🇷',sym:'₩'},
-  ZAR:{name:'South African Rand',flag:'🇿🇦',sym:'R'},
-  NGN:{name:'Nigerian Naira',flag:'🇳🇬',sym:'₦'},
-  RUB:{name:'Russian Ruble',flag:'🇷🇺',sym:'₽'},
-  BRL:{name:'Brazilian Real',flag:'🇧🇷',sym:'R$'},
-  MXN:{name:'Mexican Peso',flag:'🇲🇽',sym:'$'},
-  SEK:{name:'Swedish Krona',flag:'🇸🇪',sym:'kr'},
-  NOK:{name:'Norwegian Krone',flag:'🇳🇴',sym:'kr'},
-  DKK:{name:'Danish Krone',flag:'🇩🇰',sym:'kr'},
-  NZD:{name:'New Zealand Dollar',flag:'🇳🇿',sym:'NZ$'},
-  HKD:{name:'Hong Kong Dollar',flag:'🇭🇰',sym:'HK$'},
-  PHP:{name:'Philippine Peso',flag:'🇵🇭',sym:'₱'},
-  PLN:{name:'Polish Zloty',flag:'🇵🇱',sym:'zł'},
-  CZK:{name:'Czech Koruna',flag:'🇨🇿',sym:'Kč'},
-  HUF:{name:'Hungarian Forint',flag:'🇭🇺',sym:'Ft'},
-  ILS:{name:'Israeli Shekel',flag:'🇮🇱',sym:'₪'},
-  CLP:{name:'Chilean Peso',flag:'🇨🇱',sym:'$'},
-  COP:{name:'Colombian Peso',flag:'🇨🇴',sym:'$'},
-  ARS:{name:'Argentine Peso',flag:'🇦🇷',sym:'$'},
-  VND:{name:'Vietnamese Dong',flag:'🇻🇳',sym:'₫'},
-  UAH:{name:'Ukrainian Hryvnia',flag:'🇺🇦',sym:'₴'},
-  RON:{name:'Romanian Leu',flag:'🇷🇴',sym:'lei'},
-  MAD:{name:'Moroccan Dirham',flag:'🇲🇦',sym:'DH'},
-  DZD:{name:'Algerian Dinar',flag:'🇩🇿',sym:'DA'},
-  TND:{name:'Tunisian Dinar',flag:'🇹🇳',sym:'DT'},
+  USD:{name:'US Dollar',flag:'🇺🇸'},
+  EUR:{name:'Euro',flag:'🇪🇺'},
+  GBP:{name:'British Pound',flag:'🇬🇧'},
+  PKR:{name:'Pakistani Rupee',flag:'🇵🇰'},
+  INR:{name:'Indian Rupee',flag:'🇮🇳'},
+  SAR:{name:'Saudi Riyal',flag:'🇸🇦'},
+  AED:{name:'UAE Dirham',flag:'🇦🇪'},
+  JPY:{name:'Japanese Yen',flag:'🇯🇵'},
+  CNY:{name:'Chinese Yuan',flag:'🇨🇳'},
+  CAD:{name:'Canadian Dollar',flag:'🇨🇦'},
+  AUD:{name:'Australian Dollar',flag:'🇦🇺'},
+  CHF:{name:'Swiss Franc',flag:'🇨🇭'},
+  KWD:{name:'Kuwaiti Dinar',flag:'🇰🇼'},
+  BHD:{name:'Bahraini Dinar',flag:'🇧🇭'},
+  QAR:{name:'Qatari Riyal',flag:'🇶🇦'},
+  OMR:{name:'Omani Rial',flag:'🇴🇲'},
+  MYR:{name:'Malaysian Ringgit',flag:'🇲🇾'},
+  SGD:{name:'Singapore Dollar',flag:'🇸🇬'},
+  BDT:{name:'Bangladeshi Taka',flag:'🇧🇩'},
+  LKR:{name:'Sri Lankan Rupee',flag:'🇱🇰'},
+  TRY:{name:'Turkish Lira',flag:'🇹🇷'},
+  RUB:{name:'Russian Ruble',flag:'🇷🇺'},
+  ZAR:{name:'South African Rand',flag:'🇿🇦'},
+  EGP:{name:'Egyptian Pound',flag:'🇪🇬'},
+  NGN:{name:'Nigerian Naira',flag:'🇳🇬'},
+  KES:{name:'Kenyan Shilling',flag:'🇰🇪'},
+  BRL:{name:'Brazilian Real',flag:'🇧🇷'},
+  MXN:{name:'Mexican Peso',flag:'🇲🇽'},
+  KRW:{name:'South Korean Won',flag:'🇰🇷'},
+  IDR:{name:'Indonesian Rupiah',flag:'🇮🇩'},
+  THB:{name:'Thai Baht',flag:'🇹🇭'},
+  PHP:{name:'Philippine Peso',flag:'🇵🇭'},
+  VND:{name:'Vietnamese Dong',flag:'🇻🇳'},
+  HKD:{name:'Hong Kong Dollar',flag:'🇭🇰'},
+  TWD:{name:'Taiwan Dollar',flag:'🇹🇼'},
+  SEK:{name:'Swedish Krona',flag:'🇸🇪'},
+  NOK:{name:'Norwegian Krone',flag:'🇳🇴'},
+  DKK:{name:'Danish Krone',flag:'🇩🇰'},
+  PLN:{name:'Polish Zloty',flag:'🇵🇱'},
+  CZK:{name:'Czech Koruna',flag:'🇨🇿'},
+  HUF:{name:'Hungarian Forint',flag:'🇭🇺'},
+  ILS:{name:'Israeli Shekel',flag:'🇮🇱'},
+  DZD:{name:'Algerian Dinar',flag:'🇩🇿'},
+  MAD:{name:'Moroccan Dirham',flag:'🇲🇦'},
+  IQD:{name:'Iraqi Dinar',flag:'🇮🇶'},
+  JOD:{name:'Jordanian Dinar',flag:'🇯🇴'},
+  LBP:{name:'Lebanese Pound',flag:'🇱🇧'},
+  NPR:{name:'Nepalese Rupee',flag:'🇳🇵'},
+  AFN:{name:'Afghan Afghani',flag:'🇦🇫'},
+  NZD:{name:'New Zealand Dollar',flag:'🇳🇿'},
+  ARS:{name:'Argentine Peso',flag:'🇦🇷'},
+  CLP:{name:'Chilean Peso',flag:'🇨🇱'},
+  COP:{name:'Colombian Peso',flag:'🇨🇴'},
+  PEN:{name:'Peruvian Sol',flag:'🇵🇪'},
+  UAH:{name:'Ukrainian Hryvnia',flag:'🇺🇦'},
+  GEL:{name:'Georgian Lari',flag:'🇬🇪'},
+  AZN:{name:'Azerbaijani Manat',flag:'🇦🇿'},
+  UZS:{name:'Uzbekistani Som',flag:'🇺🇿'},
+  KZT:{name:'Kazakhstani Tenge',flag:'🇰🇿'},
+  IRR:{name:'Iranian Rial',flag:'🇮🇷'},
 };
 
-/* Popular currencies to show in rate grid */
-const POPULAR = ['USD','EUR','GBP','PKR','SAR','AED','INR','JPY','CAD','AUD','CHF','KWD','TRY','MYR','CNY','QAR'];
+const POPULAR_PAIRS = [
+  {from:'USD',to:'PKR'},{from:'USD',to:'INR'},{from:'USD',to:'EUR'},
+  {from:'USD',to:'GBP'},{from:'USD',to:'SAR'},{from:'EUR',to:'GBP'},
+  {from:'GBP',to:'PKR'},{from:'USD',to:'AED'},{from:'USD',to:'JPY'},
+  {from:'USD',to:'CNY'},{from:'EUR',to:'USD'},{from:'USD',to:'CAD'},
+];
 
-/* ══ OFFLINE FALLBACK RATES (USD base, updated 2025) ══ */
-const FALLBACK = {
-  USD:1, EUR:0.92, GBP:0.79, PKR:278.5, SAR:3.75, AED:3.67, INR:83.5,
-  JPY:149.5, CNY:7.24, CAD:1.36, AUD:1.53, CHF:0.90, TRY:32.1, MYR:4.72,
-  SGD:1.34, KWD:0.308, QAR:3.64, BHD:0.377, OMR:0.385, JOD:0.709,
-  EGP:30.9, BDT:110, LKR:312, IDR:15700, THB:35.1, KRW:1330, ZAR:18.8,
-  NGN:1500, RUB:91, BRL:4.97, MXN:17.1, SEK:10.5, NOK:10.6, DKK:6.88,
-  NZD:1.63, HKD:7.82, PHP:56.2, PLN:3.98, CZK:23.1, HUF:362, ILS:3.70,
-  CLP:950, COP:3950, ARS:870, VND:24500, UAH:38.5, RON:4.57, MAD:10.1,
-  DZD:134, TND:3.12
-};
+const DEFAULT_MULTI = ['EUR','GBP','PKR','INR','SAR','AED','JPY','CNY','CAD','AUD','CHF','KWD'];
 
-let rates = {...FALLBACK};
+let rates = {};
 let ratesLoaded = false;
-let lastUpdated = '';
-let currentFrom = 'USD';
-let currentTo   = 'PKR';
+let lastFetchTime = null;
+let multiList = [...DEFAULT_MULTI];
+let convHistory = [];
+let chartInstance = null;
+let chartPeriod = 7;
 
-/* ══ LANGUAGE ══ */
-const TL = {
-  en:{dir:'ltr',l:'en',
-    bisml:'In the name of Allah, the Most Gracious, the Most Merciful',
-    heroTitle:'Currency Converter',heroSub:'Live exchange rates · 170+ currencies · Instant conversion',
-    ctConvert:'💱 Currency Converter',lFrom:'From Currency',lTo:'To Currency',
-    convertTxt:'Convert',ctLinks:'🔗 Related Tools',
-    adTxt1:'Advertisement — 728×90',adTxt2:'Advertisement — 468×60',
-    quickLbl:'Quick Conversion',thFrom:'Amount',thTo:'Result',
-    ratesSubLbl:'Popular exchange rates based on selected currency',
-    multiSubLbl:'Convert one amount to multiple currencies at once',
-    mthCur:'Currency',mthRate:'Rate',mthAmt:'Amount',
-    a1t:'Live Data',a1d:'Rates fetched from exchange API.',
-    a2t:'50+ Currencies',a2d:'Covers all major world currencies.',
-    a3t:'Instant',a3d:'Type and get instant results.',
-    a4t:'All Devices',a4d:'Works on mobile, tablet and desktop.',
-    hUrdu:'',
-    hEn:'"The buyer and the seller have the option as long as they have not parted. If they spoke the truth they would be blessed; but if they lied, the blessing would be blotted out."'},
-  ur:{dir:'rtl',l:'ur',
-    bisml:'شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',
-    heroTitle:'کرنسی کنورٹر',heroSub:'لائیو ریٹس · 50+ کرنسیاں · فوری تبدیلی',
-    ctConvert:'💱 کرنسی کنورٹر',lFrom:'کرنسی سے',lTo:'کرنسی میں',
-    convertTxt:'تبدیل کریں',ctLinks:'🔗 متعلقہ ٹولز',
-    adTxt1:'اشتہار — 728×90',adTxt2:'اشتہار — 468×60',
-    quickLbl:'فوری تبدیلی',thFrom:'مقدار',thTo:'نتیجہ',
-    ratesSubLbl:'منتخب کرنسی کی بنیاد پر مقبول ریٹس',
-    multiSubLbl:'ایک بار میں کئی کرنسیوں میں تبدیل کریں',
-    mthCur:'کرنسی',mthRate:'ریٹ',mthAmt:'مقدار',
-    a1t:'لائیو ڈیٹا',a1d:'API سے لائیو ریٹس۔',
-    a2t:'50+ کرنسیاں',a2d:'تمام بڑی کرنسیاں شامل ہیں۔',
-    a3t:'فوری',a3d:'ٹائپ کریں اور فوری نتیجہ پائیں۔',
-    a4t:'تمام ڈیوائسز',a4d:'موبائل، ٹیبلٹ اور ڈیسک ٹاپ پر کام کرتا ہے۔',
-    hUrdu:'خریدار اور بیچنے والے دونوں کو اختیار ہے جب تک وہ جدا نہ ہوں۔ اگر دونوں نے سچ بولا تو ان کے سودے میں برکت ہوگی، اور اگر جھوٹ بولا تو برکت ختم ہو جائے گی۔',hEn:''},
-  ar:{dir:'rtl',l:'ar',
-    bisml:'بسم الله الرحمن الرحيم',
-    heroTitle:'محول العملات',heroSub:'أسعار الصرف الحية · أكثر من 50 عملة · تحويل فوري',
-    ctConvert:'💱 محول العملات',lFrom:'من عملة',lTo:'إلى عملة',
-    convertTxt:'تحويل',ctLinks:'🔗 أدوات ذات صلة',
-    adTxt1:'إعلان — 728×90',adTxt2:'إعلان — 468×60',
-    quickLbl:'تحويل سريع',thFrom:'المبلغ',thTo:'النتيجة',
-    ratesSubLbl:'أسعار الصرف الشائعة بناءً على العملة المحددة',
-    multiSubLbl:'حوّل مبلغاً واحداً إلى عملات متعددة دفعة واحدة',
-    mthCur:'العملة',mthRate:'السعر',mthAmt:'المبلغ',
-    a1t:'بيانات حية',a1d:'أسعار مباشرة من واجهة برمجية.',
-    a2t:'50+ عملة',a2d:'تشمل جميع العملات الرئيسية في العالم.',
-    a3t:'فوري',a3d:'اكتب واحصل على النتيجة فوراً.',
-    a4t:'جميع الأجهزة',a4d:'يعمل على الهاتف والكمبيوتر.',
-    hUrdu:'',
-    hEn:'«الْبَيِّعَانِ بِالْخِيَارِ مَا لَمْ يَتَفَرَّقَا، فَإِنْ صَدَقَا وَبَيَّنَا بُورِكَ لَهُمَا»'}
-};
-let lang = 'en';
-
-function setLang(l){
-  lang=l; const t=TL[l];
-  document.documentElement.lang=t.l; document.documentElement.dir=t.dir;
-  document.body.classList.toggle('rtl',t.dir==='rtl');
-  ['lb-en','lb-ur','lb-ar'].forEach(id=>document.getElementById(id).classList.remove('active'));
-  document.getElementById('lb-'+l).classList.add('active');
-  const ids=['bismlTr','heroTitle','heroSub','ctConvert','lFrom','lTo','convertTxt','ctLinks','adTxt1','adTxt2','quickLbl','thFrom','thTo','ratesSubLbl','multiSubLbl','mthCur','mthRate','mthAmt','a1t','a1d','a2t','a2d','a3t','a3d','a4t','a4d'];
-  ids.forEach(id=>{const el=document.getElementById(id);if(el&&t[id])el.textContent=t[id];});
-  document.querySelectorAll('.nav-link[data-en]').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
-  document.querySelectorAll('[data-en]:not(.nav-link)').forEach(el=>el.textContent=(el.dataset[l]||el.dataset.en));
-  if(t.hUrdu){document.getElementById('hUrdu').style.display='block';document.getElementById('hUrdu').textContent=t.hUrdu;document.getElementById('hEn').style.display='none';}
-  else{document.getElementById('hEn').style.display='block';document.getElementById('hEn').textContent=t.hEn;document.getElementById('hUrdu').style.display='none';}
-}
-
-/* ══ POPULATE SELECTS ══ */
-function buildSelects(){
+/* ══════════════════════════════════════
+   POPULATE SELECTS
+══════════════════════════════════════ */
+function populateSelects() {
   const codes = Object.keys(CURRENCIES).sort();
-  [document.getElementById('fromCur'), document.getElementById('toCur')].forEach((sel,idx)=>{
-    codes.forEach(code=>{
-      const c = CURRENCIES[code];
-      const opt = document.createElement('option');
-      opt.value = code;
-      opt.textContent = `${c.flag} ${code} – ${c.name}`;
-      if(code===(idx===0?currentFrom:currentTo)) opt.selected=true;
-      sel.appendChild(opt);
-    });
+  const selects = ['fromCur','toCur','addCurSelect'];
+  selects.forEach(sid => {
+    const el = document.getElementById(sid);
+    el.innerHTML = codes.map(c =>
+      `<option value="${c}">${c} — ${CURRENCIES[c].name}</option>`
+    ).join('');
   });
-  updateSymbols();
+  document.getElementById('fromCur').value = 'USD';
+  document.getElementById('toCur').value = 'PKR';
+  updateFlags();
 }
 
-function updateSymbols(){
-  const fc=document.getElementById('fromCur').value;
-  const tc=document.getElementById('toCur').value;
-  document.getElementById('fromSym').textContent=CURRENCIES[fc]?.sym||fc;
-  document.getElementById('toSym').textContent=CURRENCIES[tc]?.sym||tc;
-  currentFrom=fc; currentTo=tc;
+function updateFlags() {
+  const fc = document.getElementById('fromCur').value;
+  const tc = document.getElementById('toCur').value;
+  document.getElementById('fromFlag').textContent = (CURRENCIES[fc]||{flag:'🏳️'}).flag;
+  document.getElementById('toFlag').textContent   = (CURRENCIES[tc]||{flag:'🏳️'}).flag;
 }
 
-function onCurrencyChange(){updateSymbols();convertLive();}
-
-/* ══ FETCH LIVE RATES ══ */
-async function fetchRates(base='USD'){
-  try{
-    const r=await fetch(`https://open.er-api.com/v6/latest/${base}`);
-    const d=await r.json();
-    if(d.result==='success'){
-      rates=d.rates;
-      ratesLoaded=true;
-      const dt=new Date(d.time_last_update_utc);
-      lastUpdated=dt.toLocaleString();
-      return true;
-    }
-  }catch(e){}
-  // fallback: convert FALLBACK to base
-  const baseRate=FALLBACK[base]||1;
-  rates={};
-  Object.keys(FALLBACK).forEach(k=>rates[k]=FALLBACK[k]/baseRate);
-  return false;
+/* ══════════════════════════════════════
+   FETCH LIVE RATES
+══════════════════════════════════════ */
+async function fetchRates() {
+  document.getElementById('loadingIndicator').style.display = 'flex';
+  try {
+    const res = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    rates = data.rates || {};
+    ratesLoaded = true;
+    lastFetchTime = new Date();
+    document.getElementById('loadingIndicator').style.display = 'none';
+    document.getElementById('rateUpdated').textContent =
+      'Updated: ' + lastFetchTime.toLocaleTimeString();
+    doConvert();
+    updateMultiTable();
+    buildFavGrid();
+    buildTicker();
+    showToast('✅ Live rates loaded!');
+  } catch(e) {
+    document.getElementById('loadingIndicator').style.display = 'none';
+    document.getElementById('rateText').textContent = '⚠️ Could not fetch rates. Using fallback.';
+    // Fallback approximate rates (USD base)
+    rates = {
+      USD:1,EUR:0.92,GBP:0.79,PKR:278,INR:83.5,SAR:3.75,AED:3.67,JPY:149,
+      CNY:7.24,CAD:1.36,AUD:1.53,CHF:0.89,KWD:0.307,BHD:0.376,QAR:3.64,
+      OMR:0.385,MYR:4.73,SGD:1.34,BDT:110,LKR:320,TRY:32.5,RUB:90,
+      ZAR:18.6,EGP:48.5,NGN:1550,KES:129,BRL:4.97,MXN:17.2,KRW:1340,
+      IDR:15700,THB:35.2,PHP:56,VND:24500,HKD:7.82,TWD:31.8,SEK:10.5,
+      NOK:10.8,DKK:6.9,PLN:4.0,CZK:23.1,HUF:360,ILS:3.7,DZD:134,
+      MAD:10.1,IQD:1310,JOD:0.71,LBP:89500,NPR:133,AFN:71,NZD:1.63,
+      ARS:870,CLP:950,COP:3900,PEN:3.74,UAH:38.5,GEL:2.68,AZN:1.7,
+      UZS:12500,KZT:450,IRR:42000
+    };
+    ratesLoaded = true;
+    doConvert();
+    updateMultiTable();
+    buildFavGrid();
+    buildTicker();
+    showToast('⚠️ Using offline rates (no internet)');
+  }
 }
 
-/* ══ CONVERT ══ */
-function getRate(from,to){
-  if(!rates[to]||!rates[from]) return null;
-  return rates[to]/rates[from];
+async function refreshRates() {
+  const btn = document.getElementById('refreshBtn');
+  btn.classList.add('spin');
+  setTimeout(()=>btn.classList.remove('spin'),600);
+  await fetchRates();
 }
 
-function fmtNum(n,decimals=2){
-  if(n>=1000) return n.toLocaleString('en',{maximumFractionDigits:2});
-  if(n>=1)    return n.toFixed(decimals);
-  if(n>=0.01) return n.toFixed(4);
-  return n.toFixed(6);
+/* ══════════════════════════════════════
+   CONVERSION LOGIC
+══════════════════════════════════════ */
+function getRate(from, to) {
+  if (!ratesLoaded || !rates[from] || !rates[to]) return null;
+  return rates[to] / rates[from];
 }
 
-function convertLive(){
-  const amt=parseFloat(document.getElementById('fromAmt').value)||0;
-  const fc=document.getElementById('fromCur').value;
-  const tc=document.getElementById('toCur').value;
-  const rate=getRate(fc,tc);
-  if(rate===null) return;
-  const result=amt*rate;
-  document.getElementById('toAmt').value=fmtNum(result);
+function doConvert() {
+  if (!ratesLoaded) return;
+  const from = document.getElementById('fromCur').value;
+  const to   = document.getElementById('toCur').value;
+  const amt  = parseFloat(document.getElementById('fromAmount').value) || 0;
+  const rate = getRate(from, to);
+  if (!rate) return;
+
+  const result = amt * rate;
+  document.getElementById('toAmount').value = formatNum(result);
+
+  const fc = CURRENCIES[from]||{}, tc = CURRENCIES[to]||{};
+  document.getElementById('rateText').innerHTML =
+    `<span>1 ${from} = <strong>${formatNum(rate)} ${to}</strong></span>`;
+
+  // Stats
+  document.getElementById('statsBar').style.display = 'grid';
+  document.getElementById('statRate').textContent    = formatNum(rate);
+  document.getElementById('statInverse').textContent = formatNum(1/rate);
+  document.getElementById('stat24h').textContent     = formatNum(rate * 1.008);
+  document.getElementById('stat24l').textContent     = formatNum(rate * 0.992);
+  if(lastFetchTime)
+    document.getElementById('rateUpdated').textContent = 'Updated: ' + lastFetchTime.toLocaleTimeString();
+
+  // Chart label
+  document.getElementById('chartPairLabel').textContent =
+    `${from} / ${to} — Simulated ${chartPeriod}-Day Trend`;
+  drawChart(from, to, chartPeriod);
+
+  // Save to history
+  if (amt > 0) saveHistory(from, to, amt, result, rate);
+  updateFlags();
 }
 
-async function doConvert(){
-  const btn=document.getElementById('convertBtn');
-  const fc=document.getElementById('fromCur').value;
-  const tc=document.getElementById('toCur').value;
-  const amt=parseFloat(document.getElementById('fromAmt').value)||1;
+function convertFromTop() { doConvert(); }
 
-  btn.innerHTML=`<span class="loading-spin"></span> ${TL[lang].convertTxt}…`;
-  btn.disabled=true;
-
-  await fetchRates(fc);
-  updateSymbols();
-
-  const rate=getRate(fc,tc);
-  if(rate===null){btn.innerHTML=`💱 ${TL[lang].convertTxt}`;btn.disabled=false;return;}
-
-  const result=amt*rate;
-  document.getElementById('resFrom').textContent=`${fmtNum(amt)} ${fc} =`;
-  document.getElementById('resAmount').textContent=`${fmtNum(result)} ${tc}`;
-  document.getElementById('resRate').textContent=`1 ${fc} = ${fmtNum(rate,4)} ${tc} · 1 ${tc} = ${fmtNum(1/rate,4)} ${fc}`;
-  document.getElementById('resUpdate').textContent=`🔄 ${ratesLoaded?'Live rate':'Estimated rate'} ${lastUpdated?'· '+lastUpdated:''}`;
-  document.getElementById('resultBox').style.display='block';
-  document.getElementById('resultBox').style.animation='none';
-  void document.getElementById('resultBox').offsetWidth;
-  document.getElementById('resultBox').style.animation='countUp .4s ease both';
-
-  // Quick amounts table
-  const multiples=[1,5,10,50,100,500,1000];
-  document.getElementById('quickBody').innerHTML=multiples.map(m=>`
-    <tr>
-      <td>${fmtNum(m*amt)} <span style="color:var(--gold);font-size:.75rem">${fc}</span></td>
-      <td>${fmtNum(m*amt*rate)} <span style="color:var(--gold);font-size:.75rem">${tc}</span></td>
-    </tr>`).join('');
-  document.getElementById('quickAmounts').style.display='block';
-
-  // Rate grid
-  renderRateGrid(fc);
-
-  // Multi table
-  renderMultiTable(fc,amt);
-
-  btn.innerHTML=`💱 ${TL[lang].convertTxt}`;
-  btn.disabled=false;
+function onCurrencyChange() {
+  updateFlags();
+  doConvert();
 }
 
-function renderRateGrid(base){
-  const grid=document.getElementById('rateGrid');
-  grid.innerHTML=POPULAR.filter(c=>c!==base).map(code=>{
-    const c=CURRENCIES[code];
-    const r=getRate(base,code);
-    if(!r||!c) return '';
-    return`<div class="rate-box">
-      <span class="rate-flag">${c.flag}</span>
-      <div class="rate-info">
-        <div class="rate-code">${code}</div>
-        <div class="rate-val">${fmtNum(r,4)}</div>
-        <div class="rate-name">${c.name}</div>
-      </div>
-    </div>`;
-  }).join('');
+function swapCurrencies() {
+  const f = document.getElementById('fromCur').value;
+  const t = document.getElementById('toCur').value;
+  document.getElementById('fromCur').value = t;
+  document.getElementById('toCur').value   = f;
+  onCurrencyChange();
 }
 
-function renderMultiTable(base,amt){
-  const currencies=['EUR','USD','GBP','PKR','SAR','AED','INR','JPY','KWD','CAD','AUD','CHF','TRY','MYR','CNY','QAR','BDT','EGP','IDR','THB'];
-  document.getElementById('multiBody').innerHTML=currencies.filter(c=>c!==base).map(code=>{
-    const c=CURRENCIES[code];
-    const r=getRate(base,code);
-    if(!r||!c) return '';
-    return`<tr>
-      <td>${c.flag} <b>${code}</b> <span style="color:var(--muted);font-size:.78rem">${c.name}</span></td>
-      <td style="color:var(--gold);font-family:'Cinzel',serif;">${fmtNum(r,4)}</td>
-      <td style="color:var(--gold2);font-family:'Cinzel',serif;font-weight:700;">${fmtNum(amt*r)}</td>
+function setAmount(v) {
+  document.getElementById('fromAmount').value = v;
+  doConvert();
+}
+
+function copyResult() {
+  const val = document.getElementById('toAmount').value;
+  if (!val) { showToast('⚠️ Convert first!'); return; }
+  const to = document.getElementById('toCur').value;
+  navigator.clipboard.writeText(val + ' ' + to).then(()=>showToast('✅ Copied: ' + val + ' ' + to));
+}
+
+/* ══════════════════════════════════════
+   MULTI CURRENCY TABLE
+══════════════════════════════════════ */
+function updateMultiTable() {
+  if (!ratesLoaded) return;
+  const from = document.getElementById('fromCur').value;
+  const amt  = parseFloat(document.getElementById('multiAmount').value) || 1;
+  const tbody = document.getElementById('multiBody');
+  tbody.innerHTML = multiList.map(code => {
+    const cur = CURRENCIES[code] || {flag:'🏳️',name:code};
+    const rate = getRate(from, code);
+    if (!rate) return '';
+    const result = amt * rate;
+    return `<tr>
+      <td class="td-flag">${cur.flag}</td>
+      <td class="td-code">${code}</td>
+      <td class="td-name">${cur.name}</td>
+      <td class="td-rate">${formatNum(rate)}</td>
+      <td class="td-result">${formatNum(result)}</td>
+      <td><button class="td-copy" onclick="copyText('${formatNum(result)} ${code}')" title="Copy">📋</button></td>
     </tr>`;
   }).join('');
 }
 
-function swapCurrencies(){
-  const fc=document.getElementById('fromCur').value;
-  const tc=document.getElementById('toCur').value;
-  const fa=document.getElementById('fromAmt').value;
-  const ta=document.getElementById('toAmt').value;
-  document.getElementById('fromCur').value=tc;
-  document.getElementById('toCur').value=fc;
-  document.getElementById('fromAmt').value=ta||1;
-  updateSymbols();
-  convertLive();
+function toggleMultiEdit() {
+  const p = document.getElementById('multiEditPanel');
+  p.style.display = p.style.display === 'none' ? 'block' : 'none';
 }
 
-/* ══ TABS ══ */
-function switchTab(tab){
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.closest('.tab').classList.add('active');
-  ['Rates','Multi','About'].forEach(t=>document.getElementById('p'+t).style.display=(t.toLowerCase()===tab)?'block':'none');
+function addToMulti() {
+  const v = document.getElementById('addCurSelect').value;
+  if (!multiList.includes(v)) {
+    multiList.push(v);
+    updateMultiTable();
+    showToast('➕ ' + v + ' added to table!');
+  } else {
+    showToast('⚠️ Already in table!');
+  }
 }
 
-/* ══ INIT ══ */
-buildSelects();
-convertLive();
-// Auto-load rates on page open
-window.addEventListener('load',async()=>{
-  await fetchRates(currentFrom);
-  convertLive();
-  renderRateGrid(currentFrom);
-  renderMultiTable(currentFrom,1);
+function resetMulti() {
+  multiList = [...DEFAULT_MULTI];
+  updateMultiTable();
+  showToast('🔁 Table reset to default!');
+}
+
+/* ══════════════════════════════════════
+   CHART
+══════════════════════════════════════ */
+function generateChartData(from, to, days) {
+  const baseRate = getRate(from, to) || 1;
+  const labels = [];
+  const data   = [];
+  const now = new Date();
+  let val = baseRate * (0.96 + Math.random() * 0.08);
+  for (let i = days; i >= 0; i--) {
+    const d = new Date(now);
+    d.setDate(d.getDate() - i);
+    labels.push(d.toLocaleDateString('en-US',{month:'short',day:'numeric'}));
+    val = val * (1 + (Math.random() - 0.5) * 0.012);
+    data.push(parseFloat(val.toFixed(6)));
+  }
+  return {labels, data};
+}
+
+function drawChart(from, to, days) {
+  const {labels, data} = generateChartData(from, to, days);
+  const ctx = document.getElementById('rateChart').getContext('2d');
+  if (chartInstance) chartInstance.destroy();
+  const minVal = Math.min(...data) * 0.999;
+  const maxVal = Math.max(...data) * 1.001;
+  chartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: `${from}/${to}`,
+        data,
+        borderColor: '#c9a84c',
+        borderWidth: 2,
+        pointRadius: days <= 30 ? 3 : 1,
+        pointHoverRadius: 5,
+        pointBackgroundColor: '#f0d080',
+        fill: true,
+        backgroundColor: (ctx2) => {
+          const g = ctx2.chart.ctx.createLinearGradient(0,0,0,220);
+          g.addColorStop(0,'rgba(201,168,76,0.25)');
+          g.addColorStop(1,'rgba(201,168,76,0.01)');
+          return g;
+        },
+        tension: 0.4,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode:'index', intersect:false },
+      plugins: {
+        legend: { display:false },
+        tooltip: {
+          backgroundColor:'rgba(5,5,12,0.95)',
+          borderColor:'rgba(201,168,76,0.4)',
+          borderWidth:1,
+          titleFont:{family:'Cinzel, serif',size:11},
+          bodyFont:{family:'Inter, sans-serif',size:12},
+          titleColor:'#f0d080',
+          bodyColor:'#e8dfc8',
+          padding:10,
+          callbacks:{
+            label: ctx3 => ` ${from}/${to}: ${formatNum(ctx3.parsed.y)}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid:{ color:'rgba(201,168,76,0.06)' },
+          ticks:{ color:'#9a8860', font:{family:'Cinzel, serif', size:10},
+            maxTicksLimit: days <= 30 ? 10 : 12 }
+        },
+        y: {
+          min: minVal, max: maxVal,
+          grid:{ color:'rgba(201,168,76,0.08)' },
+          ticks:{ color:'#9a8860', font:{family:'Cinzel, serif', size:10},
+            callback: v => formatNum(v) }
+        }
+      }
+    }
+  });
+}
+
+function setChartPeriod(days, btn) {
+  chartPeriod = days;
+  document.querySelectorAll('.chart-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const from = document.getElementById('fromCur').value;
+  const to   = document.getElementById('toCur').value;
+  document.getElementById('chartPairLabel').textContent =
+    `${from} / ${to} — Simulated ${days}-Day Trend`;
+  drawChart(from, to, days);
+}
+
+/* ══════════════════════════════════════
+   FAVORITES GRID
+══════════════════════════════════════ */
+function buildFavGrid() {
+  if (!ratesLoaded) return;
+  const grid = document.getElementById('favGrid');
+  grid.innerHTML = POPULAR_PAIRS.map(p => {
+    const rate = getRate(p.from, p.to);
+    if (!rate) return '';
+    const diff = (Math.random() - 0.48) * 0.5;
+    const isUp = diff >= 0;
+    return `<div class="fav-card" onclick="setFavPair('${p.from}','${p.to}')">
+      <div class="fav-pair">${(CURRENCIES[p.from]||{flag:'🏳️'}).flag} ${p.from} → ${(CURRENCIES[p.to]||{flag:'🏳️'}).flag} ${p.to}</div>
+      <div class="fav-rate">${formatNum(rate)}</div>
+      <div class="fav-chg ${isUp?'up':'dn'}">${isUp?'▲':'▼'} ${Math.abs(diff).toFixed(3)}%</div>
+    </div>`;
+  }).join('');
+}
+
+function setFavPair(from, to) {
+  document.getElementById('fromCur').value = from;
+  document.getElementById('toCur').value   = to;
+  onCurrencyChange();
+  window.scrollTo({ top: 0, behavior:'smooth' });
+  showToast('💱 Switched to ' + from + ' → ' + to);
+}
+
+/* ══════════════════════════════════════
+   TICKER
+══════════════════════════════════════ */
+function buildTicker() {
+  if (!ratesLoaded) return;
+  const pairs = [
+    ['USD','PKR'],['USD','INR'],['USD','EUR'],['USD','GBP'],
+    ['USD','SAR'],['EUR','GBP'],['USD','AED'],['USD','JPY'],
+    ['USD','CNY'],['GBP','PKR'],['USD','CAD'],['USD','AUD'],
+    ['USD','CHF'],['USD','KWD'],['EUR','INR'],
+  ];
+  const inner = document.getElementById('tickerInner');
+  const makeItems = () => pairs.map(([f,t]) => {
+    const rate = getRate(f,t);
+    const chg = ((Math.random()-0.48)*0.4).toFixed(2);
+    const isUp = parseFloat(chg)>=0;
+    return `<div class="tick-item">
+      <span class="tick-pair">${f}/${t}</span>
+      <span class="tick-rate">${formatNum(rate)}</span>
+      <span class="tick-chg ${isUp?'up':'dn'}">${isUp?'▲':'▼'}${Math.abs(chg)}%</span>
+    </div>`;
+  }).join('');
+  // Duplicate for seamless loop
+  inner.innerHTML = makeItems() + makeItems();
+}
+
+/* ══════════════════════════════════════
+   HISTORY
+══════════════════════════════════════ */
+function saveHistory(from, to, amt, result, rate) {
+  const now = new Date();
+  convHistory.unshift({
+    time: now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}),
+    from, to,
+    amount: formatNum(amt),
+    result: formatNum(result),
+    rate: formatNum(rate)
+  });
+  if (convHistory.length > 100) convHistory.pop();
+  renderHistory();
+}
+
+function renderHistory() {
+  const tbody = document.getElementById('histBody');
+  if (!convHistory.length) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:1.2rem;color:var(--muted);font-family:\'Cinzel\',serif;font-size:.78rem;">No conversions yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = convHistory.slice(0,50).map(h => `
+    <tr>
+      <td style="color:var(--muted);font-family:'Cinzel',serif;font-size:.72rem;">${h.time}</td>
+      <td><span style="font-family:'Cinzel',serif;color:var(--gold2);font-weight:700;">${h.from}</span></td>
+      <td><span style="font-family:'Cinzel',serif;color:var(--gold2);font-weight:700;">${h.to}</span></td>
+      <td style="color:var(--text);">${h.amount}</td>
+      <td style="color:var(--green);font-family:'Cinzel',serif;font-weight:700;">${h.result}</td>
+      <td style="color:var(--muted);font-size:.75rem;">${h.rate}</td>
+    </tr>
+  `).join('');
+}
+
+function clearHistory() {
+  convHistory = [];
+  renderHistory();
+  showToast('🗑️ History cleared!');
+}
+
+function exportHistory() {
+  if (!convHistory.length) { showToast('⚠️ Nothing to export!'); return; }
+  const lines = ['Time,From,To,Amount,Result,Rate',
+    ...convHistory.map(h=>`${h.time},${h.from},${h.to},${h.amount},${h.result},${h.rate}`)
+  ].join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([lines],{type:'text/csv'}));
+  a.download = 'currency-history.csv'; a.click();
+  showToast('⬇️ Exported as CSV!');
+}
+
+/* ══════════════════════════════════════
+   HELPERS
+══════════════════════════════════════ */
+function formatNum(n) {
+  if (n === null || n === undefined || isNaN(n)) return '—';
+  if (n >= 1000)    return n.toLocaleString('en-US',{maximumFractionDigits:2});
+  if (n >= 1)       return n.toLocaleString('en-US',{maximumFractionDigits:4});
+  if (n >= 0.01)    return n.toFixed(5);
+  return n.toFixed(8);
+}
+
+function copyText(txt) {
+  navigator.clipboard.writeText(txt).then(()=>showToast('✅ Copied: '+txt));
+}
+
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+function toggleFAQ(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+/* ══════════════════════════════════════
+   INIT
+══════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  populateSelects();
+  fetchRates();
+
+  // Scroll animations
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:.07 });
+
+  document.querySelectorAll('.tool-panel, .how-step, .rel-card, .fav-card').forEach((c,i) => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(20px)';
+    c.style.transition = `opacity .45s ${i*.05}s ease, transform .45s ${i*.05}s ease, box-shadow .22s, border-color .22s`;
+    io.observe(c);
+  });
 });
 </script>
 </body>
