@@ -4,6 +4,15 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
+<!-- ══ GOOGLE ANALYTICS GA4 ══ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-535630536');
+</script>
+
 <!-- ══ SEO META ══ -->
 <title>ToolNex – Free Online Tools | Age Calculator, Image Compressor, QR Generator & More</title>
 <meta name="description" content="ToolNex offers 200+ free online tools — Age Calculator, Image Compressor, PDF to Word, QR Code Generator, Password Generator, Word Counter, BMI Calculator and more. Fast, free and private."/>
@@ -219,7 +228,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
 @media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
 @media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
-
 .footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
   background:linear-gradient(135deg,var(--gold2),var(--gold));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
@@ -227,14 +235,12 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 .footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
 .footer-brand .bismillah-footer{font-family:'Amiri',serif;font-size:.95rem;color:var(--gold);
   direction:rtl;margin-top:.5rem;display:block;}
-
 .footer-col h4{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);
   letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
 .footer-col ul li a{font-size:.78rem;color:var(--muted);text-decoration:none;
   transition:color .2s;font-family:'Inter',sans-serif;}
 .footer-col ul li a:hover{color:var(--gold2);}
-
 .footer-bottom{border-top:1px solid var(--border);padding-top:1.2rem;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
 .footer-copy{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.08em;}
@@ -294,88 +300,67 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
       <a href="#allTools" class="view-all" onclick="showAllTools()">View All →</a>
     </div>
     <div class="top-tools-grid" id="top10Grid">
-
-      <!-- 1 -->
       <a href="image-compressor.html" class="tool-card">
         <span class="tc-rank">#1</span>
         <div class="tc-top"><span class="tc-icon">🗜️</span><span class="tc-badge">Image</span></div>
         <div class="tc-name">Image Compressor</div>
         <div class="tc-desc">Compress JPG, PNG, WebP up to 90% smaller</div>
       </a>
-
-      <!-- 2 -->
       <a href="pdf-to-word.html" class="tool-card">
         <span class="tc-rank">#2</span>
         <div class="tc-top"><span class="tc-icon">📄</span><span class="tc-badge">PDF</span></div>
         <div class="tc-name">PDF to Word</div>
         <div class="tc-desc">Extract & convert PDF text to Word doc</div>
       </a>
-
-      <!-- 3 -->
       <a href="word-counter.html" class="tool-card">
         <span class="tc-rank">#3</span>
         <div class="tc-top"><span class="tc-icon">🔤</span><span class="tc-badge">Text</span></div>
         <div class="tc-name">Word Counter</div>
         <div class="tc-desc">Count words, characters & sentences</div>
       </a>
-
-      <!-- 4 -->
       <a href="password-generator.html" class="tool-card">
         <span class="tc-rank">#4</span>
         <div class="tc-top"><span class="tc-icon">🔑</span><span class="tc-badge">Security</span></div>
         <div class="tc-name">Password Generator</div>
         <div class="tc-desc">Generate strong & secure passwords</div>
       </a>
-
-      <!-- 5 -->
       <a href="qr-code.html" class="tool-card">
         <span class="tc-rank">#5</span>
         <div class="tc-top"><span class="tc-icon">📲</span><span class="tc-badge">Generator</span></div>
         <div class="tc-name">QR Code Generator</div>
         <div class="tc-desc">Create QR for URL, WiFi, vCard & more</div>
       </a>
-
-      <!-- 6 -->
       <a href="json-formatter.html" class="tool-card">
         <span class="tc-rank">#6</span>
         <div class="tc-top"><span class="tc-icon">{}</span><span class="tc-badge">Dev</span></div>
         <div class="tc-name">JSON Formatter</div>
         <div class="tc-desc">Format, validate & minify JSON code</div>
       </a>
-
-      <!-- 7 -->
       <a href="age-calculator.html" class="tool-card">
         <span class="tc-rank">#7</span>
         <div class="tc-top"><span class="tc-icon">🎂</span><span class="tc-badge">Calculator</span></div>
         <div class="tc-name">Age Calculator</div>
         <div class="tc-desc">Exact age in years, months, days & seconds</div>
       </a>
-
-      <!-- 8 -->
       <a href="meta-tag.html" class="tool-card">
         <span class="tc-rank">#8</span>
         <div class="tc-top"><span class="tc-icon">🏷️</span><span class="tc-badge">SEO</span></div>
         <div class="tc-name">Meta Tag Generator</div>
         <div class="tc-desc">Generate SEO meta tags & Open Graph</div>
       </a>
-
-      <!-- 9 -->
       <a href="bmi-calculator.html" class="tool-card">
         <span class="tc-rank">#9</span>
         <div class="tc-top"><span class="tc-icon">⚖️</span><span class="tc-badge">Health</span></div>
         <div class="tc-name">BMI Calculator</div>
         <div class="tc-desc">Calculate Body Mass Index & health status</div>
       </a>
-
-      <!-- 10 -->
       <a href="ai-writer.html" class="tool-card">
         <span class="tc-rank">#10</span>
         <div class="tc-top"><span class="tc-icon">🤖</span><span class="tc-badge" style="color:var(--blue);border-color:rgba(90,180,224,.3);background:rgba(90,180,224,.08)">AI</span></div>
         <div class="tc-name">AI Writer</div>
         <div class="tc-desc">Generate content with AI — articles, emails</div>
       </a>
-
-    </div><!-- /top10Grid -->
+    </div>
   </div>
 
   <!-- ══ RESPONSIVE MID AD ══ -->
@@ -392,8 +377,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
       <div class="section-title">📂 Browse by Category</div>
     </div>
     <div class="cat-grid" id="catGrid">
-
-      <!-- Text Tools -->
       <a href="text-tools.html#text" class="cat-card">
         <div class="cat-icon-wrap">✍️</div>
         <div class="cat-name">Text Tools</div>
@@ -401,8 +384,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
         <div class="cat-count">25 tools</div>
         <span class="cat-view">View All</span>
       </a>
-
-      <!-- SEO Tools -->
       <a href="seo-tools.html#seo" class="cat-card">
         <div class="cat-icon-wrap">🔍</div>
         <div class="cat-name">SEO Tools</div>
@@ -410,8 +391,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
         <div class="cat-count">20 tools</div>
         <span class="cat-view">View All</span>
       </a>
-
-      <!-- Image Tools -->
       <a href="image-tools.html#image" class="cat-card">
         <div class="cat-icon-wrap">🖼️</div>
         <div class="cat-name">Image Tools</div>
@@ -419,17 +398,13 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
         <div class="cat-count">25 tools</div>
         <span class="cat-view">View All</span>
       </a>
-
-      <!-- AI Tools -->
-      <a href=-ai-tools.html#ai" class="cat-card">
+      <a href="ai-tools.html#ai" class="cat-card">
         <div class="cat-icon-wrap">🤖</div>
         <div class="cat-name">AI Tools</div>
         <div class="cat-desc">AI Writer, Grammar Checker & Plagiarism Checker.</div>
         <div class="cat-count">30 tools</div>
         <span class="cat-view">View All</span>
       </a>
-
-      <!-- Calculators -->
       <a href="calculators.html#calc" class="cat-card">
         <div class="cat-icon-wrap">🧮</div>
         <div class="cat-name">Calculators</div>
@@ -437,8 +412,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
         <div class="cat-count">25 tools</div>
         <span class="cat-view">View All</span>
       </a>
-
-      <!-- Developer Tools -->
       <a href="developer-tools.html#dev" class="cat-card">
         <div class="cat-icon-wrap">💻</div>
         <div class="cat-name">Developer Tools</div>
@@ -446,8 +419,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
         <div class="cat-count">30 tools</div>
         <span class="cat-view">View All</span>
       </a>
-
-      <!-- PDF Tools -->
       <a href="pdf-tools.html#pdf" class="cat-card">
         <div class="cat-icon-wrap">📑</div>
         <div class="cat-name">PDF Tools</div>
@@ -455,8 +426,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
         <div class="cat-count">3 tools</div>
         <span class="cat-view">View All</span>
       </a>
-
-      <!-- Video & Audio Tools -->
       <a href="video-audio.html#tools" class="cat-card">
         <div class="cat-icon-wrap">🎬</div>
         <div class="cat-name">Video & Audio Tools</div>
@@ -464,11 +433,10 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
         <div class="cat-count">20 tools</div>
         <span class="cat-view">View All</span>
       </a>
-
     </div>
   </div>
 
-  <!-- ══ ALL TOOLS (shown when expanded) ══ -->
+  <!-- ══ ALL TOOLS ══ -->
   <div id="allTools" class="all-tools-section">
     <div class="section-head">
       <div class="section-title">🛠️ All Tools</div>
@@ -494,12 +462,10 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
-
       <div class="footer-brand">
         <span class="brand-logo">🛠️ ToolNex</span>
         <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
       </div>
-
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
@@ -510,7 +476,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
           <li><a href="currency-converter.html">💱 Currency</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Tools</h4>
         <ul>
@@ -521,7 +486,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
           <li><a href="json-formatter.html">JSON Formatter</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
@@ -531,9 +495,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
           <li><a href="terms.html">📋 Terms of Use</a></li>
         </ul>
       </div>
-
-    </div><!-- /footer-top -->
-
+    </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2025 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
       <div class="footer-noor">نُورُ الہُدیٰ</div>
@@ -542,7 +504,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 </footer>
 
 <script>
-/* ══ ALL TOOLS DATA ══ */
 const ALL_TOOLS=[
   {icon:'🎂',name:'Age Calculator',      href:'age-calculator.html'},
   {icon:'📅',name:'Date Calculator',     href:'date-calculator.html'},
@@ -586,7 +547,6 @@ const ALL_TOOLS=[
   {icon:'✔️',name:'To-Do List',         href:'todo.html'},
 ];
 
-/* ══ BUILD ALL TOOLS GRID ══ */
 function buildAllTools(filter=''){
   const grid=document.getElementById('allToolsGrid');
   const q=filter.toLowerCase();
@@ -599,7 +559,6 @@ function buildAllTools(filter=''){
     </a>`).join('');
 }
 
-/* ══ SHOW ALL TOOLS ══ */
 function showAllTools(){
   const sec=document.getElementById('allTools');
   sec.classList.add('show');
@@ -607,7 +566,6 @@ function showAllTools(){
   setTimeout(()=>sec.scrollIntoView({behavior:'smooth',block:'start'}),100);
 }
 
-/* ══ SEARCH ══ */
 function filterTools(){
   const q=document.getElementById('searchInput').value.trim();
   if(q.length>0){
@@ -616,7 +574,6 @@ function filterTools(){
   }
 }
 
-/* ══ SCROLL ANIMATION ══ */
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
