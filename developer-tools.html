@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<!-- ══ SEO META ══ -->
+<title>Developer Tools – 30 Free Online Dev Tools | ToolNex</title>
+<meta name="description" content="30+ free online developer tools — HTML/CSS/JS Minifier, JSON Formatter, Base64 Encoder, Regex Tester, API Tester, Password Generator, UUID Generator, Color Converter and more. No sign-up."/>
+<meta name="keywords" content="developer tools online, html minifier, css minifier, js minifier, json formatter, base64 encoder, regex tester, password generator, url encoder, ip lookup, dns lookup, jwt decoder, uuid generator, code beautifier, markdown editor"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://toolnex.site/developer-tools.html"/>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Developer Tools – 30 Free Online Dev Tools | ToolNex"/>
+<meta property="og:description" content="30+ free developer tools — Minifiers, JSON Formatter, Base64, Regex Tester, API Tester, Password Generator and more."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/developer-tools.html"/>
+<meta property="og:site_name" content="ToolNex"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Developer Tools – 30 Free Online Dev Tools | ToolNex"/>
+<meta name="twitter:description" content="30+ free dev tools — HTML/CSS/JS Minifier, JSON, Base64, Regex, API Tester and more. No sign-up."/>
+
+<!-- ══ GOOGLE ANALYTICS GA4 ══ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-535630536');
+</script>
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Developer Tools – 30 Free Online Dev Tools",
+  "description": "30+ free online developer tools including HTML/CSS/JS Minifier, JSON Formatter, Base64 Encoder, Regex Tester, Password Generator and more.",
+  "url": "https://toolnex.site/developer-tools.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ToolNex",
+    "url": "https://toolnex.site"
+  }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --gold:#c9a84c;--gold2:#f0d080;--darker:#07070e;--dark:#0d0d14;
+  --panel:rgba(18,18,30,0.96);--border:rgba(201,168,76,0.28);
+  --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;
+  --blue:#5ab4e0;--purple:#a07ad0;--orange:#e09a3a;
+  /* Category colors */
+  --code:#5ab4e0;--network:#4caf77;--seo:#a07ad0;--security:#e05a5a;--design:#e09a3a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 60%),
+    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
+    var(--darker);}
+
+/* ══ NAV ══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;min-height:44px;
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;
+  padding:.5rem 1.4rem;background:rgba(5,5,12,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+.nav-logo-icon{font-size:1.3rem;}
+.nav-logo-text{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.06em;}
+.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
+  padding:.22rem .75rem;color:var(--muted);font-size:.82rem;text-decoration:none;transition:all .2s;}
+.nav-link:hover{border-color:var(--gold);color:var(--gold2);}
+
+/* ══ TOP BANNER AD ══ */
+.ad-top-banner{position:fixed;top:44px;left:0;right:0;z-index:290;min-height:96px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(5,5,12,0.97);border-bottom:1px solid var(--border);padding:.35rem 1rem;}
+.ad-top-banner .ad-slot{width:728px;height:90px;max-width:calc(100% - 2rem);
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.18);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){.ad-top-banner{min-height:116px;}.ad-top-banner .ad-slot{width:320px;height:100px;}}
+
+/* ══ PAGE BODY ══ */
+.page-body{padding-top:160px;}
+@media(max-width:768px){.page-body{padding-top:180px;}}
+
+/* ══ HERO ══ */
+.hero{position:relative;z-index:1;padding:2.8rem 1rem 2.2rem;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(90,180,224,0.1);border:1px solid rgba(90,180,224,0.3);border-radius:20px;
+  padding:.28rem 1rem;font-size:.72rem;font-family:'Cinzel',serif;color:var(--blue);
+  letter-spacing:.08em;margin-bottom:.8rem;animation:fadeDown .9s ease both;}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5.5vw,3.8rem);font-weight:900;
+  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:.6rem;animation:fadeDown .9s .1s ease both;}
+.hero-title-icon{font-size:clamp(2rem,5vw,3.5rem);display:inline-block;vertical-align:middle;
+  filter:drop-shadow(0 0 20px rgba(90,180,224,0.5));margin-right:.5rem;}
+.hero-sub{color:var(--muted);font-size:clamp(.88rem,2vw,1.05rem);max-width:640px;margin:0 auto .8rem;
+  line-height:1.8;animation:fadeDown .9s .2s ease both;}
+.gold-line{width:100px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto 1.2rem;}
+
+.stats-bar{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;animation:fadeDown .9s .3s ease both;}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:900;color:var(--gold2);line-height:1;}
+.stat-lbl{font-family:'Cinzel',serif;font-size:.62rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem;}
+
+/* ══ SEARCH ══ */
+.search-outer{display:flex;justify-content:center;padding:0 1rem .5rem;position:relative;z-index:1;animation:fadeUp .8s .4s ease both;}
+.search-wrap{display:flex;align-items:center;background:rgba(255,255,255,0.05);
+  border:1px solid var(--border);border-radius:30px;padding:.1rem .2rem .1rem 1.2rem;
+  width:min(560px,100%);transition:border-color .2s,box-shadow .2s;}
+.search-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,0.18);}
+.search-input{background:none;border:none;outline:none;color:var(--text);font-size:.95rem;
+  font-family:'Inter',sans-serif;width:100%;padding:.6rem 0;}
+.search-input::placeholder{color:var(--muted);}
+.search-clear{background:none;border:none;color:var(--muted);cursor:pointer;padding:.5rem .7rem;font-size:1rem;display:none;}
+.search-clear:hover{color:var(--red);}
+
+/* ══ BREADCRUMB ══ */
+.breadcrumb{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:.5rem 1rem 0;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.breadcrumb a{font-size:.75rem;color:var(--muted);text-decoration:none;font-family:'Cinzel',serif;letter-spacing:.05em;transition:color .2s;}
+.breadcrumb a:hover{color:var(--gold2);}
+.breadcrumb span{font-size:.75rem;color:rgba(201,168,76,0.4);}
+.breadcrumb .bc-cur{font-size:.75rem;color:var(--gold);font-family:'Cinzel',serif;}
+
+/* ══ MAIN WRAP ══ */
+.main-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 3rem;display:flex;flex-direction:column;gap:2rem;}
+
+/* ══ FILTER TABS ══ */
+.filter-tabs{display:flex;gap:.5rem;flex-wrap:wrap;}
+.filter-tab{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;
+  padding:.35rem 1rem;font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);
+  cursor:pointer;transition:all .2s;letter-spacing:.05em;display:flex;align-items:center;gap:.35rem;}
+.filter-tab:hover{border-color:var(--gold);color:var(--gold2);}
+.filter-tab.active{background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold2);}
+.filter-tab.code.active{background:rgba(90,180,224,0.1);border-color:rgba(90,180,224,0.3);color:var(--blue);}
+.filter-tab.net.active{background:rgba(76,175,119,0.1);border-color:rgba(76,175,119,0.3);color:var(--green);}
+.filter-tab.seo.active{background:rgba(160,122,208,0.1);border-color:rgba(160,122,208,0.3);color:var(--purple);}
+.filter-tab.sec.active{background:rgba(224,90,90,0.1);border-color:rgba(224,90,90,0.3);color:var(--red);}
+.filter-tab.des.active{background:rgba(224,154,58,0.1);border-color:rgba(224,154,58,0.3);color:var(--orange);}
+
+/* ══ NO RESULTS ══ */
+.no-results{display:none;text-align:center;padding:3rem 1rem;color:var(--muted);
+  font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.06em;}
+.no-results.show{display:block;}
+
+/* ══ SECTION ══ */
+.section-block{display:flex;flex-direction:column;gap:1rem;}
+.section-head{display:flex;align-items:center;gap:.8rem;}
+.sec-icon-wrap{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.sec-icon-wrap.code{background:rgba(90,180,224,0.12);border:1px solid rgba(90,180,224,0.3);}
+.sec-icon-wrap.net{background:rgba(76,175,119,0.12);border:1px solid rgba(76,175,119,0.3);}
+.sec-icon-wrap.seo{background:rgba(160,122,208,0.12);border:1px solid rgba(160,122,208,0.3);}
+.sec-icon-wrap.sec{background:rgba(224,90,90,0.12);border:1px solid rgba(224,90,90,0.3);}
+.sec-icon-wrap.des{background:rgba(224,154,58,0.12);border:1px solid rgba(224,154,58,0.3);}
+
+.sec-label{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:.14rem .55rem;border-radius:8px;}
+.sec-label.code{background:rgba(90,180,224,0.1);border:1px solid rgba(90,180,224,0.25);color:var(--blue);}
+.sec-label.net{background:rgba(76,175,119,0.1);border:1px solid rgba(76,175,119,0.25);color:var(--green);}
+.sec-label.seo{background:rgba(160,122,208,0.1);border:1px solid rgba(160,122,208,0.25);color:var(--purple);}
+.sec-label.sec{background:rgba(224,90,90,0.1);border:1px solid rgba(224,90,90,0.25);color:var(--red);}
+.sec-label.des{background:rgba(224,154,58,0.1);border:1px solid rgba(224,154,58,0.25);color:var(--orange);}
+
+.sec-title-text{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold2);letter-spacing:.06em;}
+.sec-count{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);letter-spacing:.06em;}
+
+/* ══ TOOLS GRID ══ */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:1rem;}
+@media(max-width:480px){.tools-grid{grid-template-columns:1fr 1fr;}}
+
+/* ══ TOOL CARD ══ */
+.tool-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;
+  padding:1.2rem;text-decoration:none;display:flex;flex-direction:column;gap:.6rem;
+  transition:transform .22s,box-shadow .22s,border-color .22s;position:relative;overflow:hidden;}
+.tool-card::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(201,168,76,0.06),transparent);
+  opacity:0;transition:opacity .22s;pointer-events:none;}
+.tool-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,0.4);}
+.tool-card:hover::after{opacity:1;}
+.tool-card.code:hover{border-color:rgba(90,180,224,0.6);box-shadow:0 10px 28px rgba(90,180,224,0.1);}
+.tool-card.net:hover{border-color:rgba(76,175,119,0.6);box-shadow:0 10px 28px rgba(76,175,119,0.1);}
+.tool-card.seo:hover{border-color:rgba(160,122,208,0.6);box-shadow:0 10px 28px rgba(160,122,208,0.1);}
+.tool-card.sec:hover{border-color:rgba(224,90,90,0.6);box-shadow:0 10px 28px rgba(224,90,90,0.1);}
+.tool-card.des:hover{border-color:rgba(224,154,58,0.6);box-shadow:0 10px 28px rgba(224,154,58,0.1);}
+
+/* Featured card */
+.tool-card.featured{grid-column:span 2;flex-direction:row;align-items:center;gap:1.2rem;
+  border-color:rgba(201,168,76,0.35);background:rgba(201,168,76,0.03);}
+@media(max-width:480px){.tool-card.featured{grid-column:span 1;flex-direction:column;}}
+.tool-card.featured .tc-icon-wrap{width:56px;height:56px;font-size:1.8rem;flex-shrink:0;}
+.tool-card.featured .tc-name{font-size:1rem;}
+.tool-card.featured .tc-desc{font-size:.8rem;}
+
+/* Card top */
+.tc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.4rem;}
+.tc-icon-wrap{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform .2s;}
+.tool-card:hover .tc-icon-wrap{transform:scale(1.1);}
+.tc-icon-wrap.code{background:rgba(90,180,224,0.1);border:1px solid rgba(90,180,224,0.2);}
+.tc-icon-wrap.net{background:rgba(76,175,119,0.1);border:1px solid rgba(76,175,119,0.2);}
+.tc-icon-wrap.seo{background:rgba(160,122,208,0.1);border:1px solid rgba(160,122,208,0.2);}
+.tc-icon-wrap.sec{background:rgba(224,90,90,0.1);border:1px solid rgba(224,90,90,0.2);}
+.tc-icon-wrap.des{background:rgba(224,154,58,0.1);border:1px solid rgba(224,154,58,0.2);}
+
+.tc-badges{display:flex;flex-direction:column;align-items:flex-end;gap:.28rem;}
+.tc-badge{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;
+  border-radius:8px;padding:.12rem .5rem;white-space:nowrap;}
+.tc-badge.code{background:rgba(90,180,224,0.1);border:1px solid rgba(90,180,224,0.25);color:var(--blue);}
+.tc-badge.net{background:rgba(76,175,119,0.1);border:1px solid rgba(76,175,119,0.25);color:var(--green);}
+.tc-badge.seo{background:rgba(160,122,208,0.1);border:1px solid rgba(160,122,208,0.25);color:var(--purple);}
+.tc-badge.sec{background:rgba(224,90,90,0.1);border:1px solid rgba(224,90,90,0.25);color:var(--red);}
+.tc-badge.des{background:rgba(224,154,58,0.1);border:1px solid rgba(224,154,58,0.25);color:var(--orange);}
+.tc-badge.popular{background:rgba(224,154,58,0.1);border:1px solid rgba(224,154,58,0.3);color:var(--orange);}
+.tc-badge.new{background:rgba(76,175,119,0.1);border:1px solid rgba(76,175,119,0.3);color:var(--green);}
+.tc-badge.live{background:rgba(76,175,119,0.1);border:1px solid rgba(76,175,119,0.3);color:var(--green);
+  display:flex;align-items:center;gap:.25rem;}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 5px var(--green);animation:blink 1.5s infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.tc-name{font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;color:var(--gold2);letter-spacing:.04em;line-height:1.3;}
+.tc-desc{font-size:.75rem;color:var(--muted);line-height:1.55;}
+
+/* ══ HIGHLIGHT BOX ══ */
+.highlight-box{background:rgba(90,180,224,0.04);border:1px solid rgba(90,180,224,0.2);
+  border-left:3px solid var(--blue);border-radius:0 12px 12px 0;
+  padding:1rem 1.3rem;font-size:.87rem;color:var(--text);line-height:1.8;}
+.highlight-box strong{color:var(--gold2);}
+
+/* ══ MID AD ══ */
+.ad-mid-responsive{width:100%;display:flex;align-items:center;justify-content:center;
+  background:rgba(201,168,76,0.02);border:1px dashed rgba(201,168,76,0.18);
+  border-radius:10px;padding:.5rem;min-height:70px;}
+.ad-mid-responsive .ad-slot{width:728px;height:90px;max-width:100%;
+  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.12);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+@media(max-width:768px){.ad-mid-responsive .ad-slot{width:468px;height:60px;}}
+@media(max-width:520px){.ad-mid-responsive .ad-slot{width:320px;height:50px;}}
+
+/* ══ FOOTER ══ */
+.footer{background:rgba(3,3,10,0.99);border-top:1px solid var(--border);padding:2.5rem 1rem 1.5rem;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+@media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
+@media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
+.footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;display:block;}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
+.footer-col h4{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.footer-col ul li a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:color .2s;font-family:'Inter',sans-serif;}
+.footer-col ul li a:hover{color:var(--gold2);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.footer-copy{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.08em;}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-icon">🛠️</span>
+    <span class="nav-logo-text">ToolNex</span>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">🏠 Home</a>
+    <a href="index.html#allTools" class="nav-link">🛠️ All Tools</a>
+  </div>
+</nav>
+
+<!-- TOP BANNER AD -->
+<div class="ad-top-banner">
+  <div class="ad-slot">
+    <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
+    📢 Top Banner Ad · 728×90 Desktop / 320×100 Mobile
+  </div>
+</div>
+
+<div class="page-body">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">💻 30 Tools · Free · No Sign-up Required</div>
+    <h1 class="hero-title">
+      <span class="hero-title-icon">💻</span>Developer Tools
+    </h1>
+    <p class="hero-sub">30 free online developer tools — code minifiers, formatters, encoders, network checkers, SEO analyzers, security tools and more. Built for developers, designers and webmasters.</p>
+    <div class="gold-line"></div>
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-num">30</div><div class="stat-lbl">Dev Tools</div></div>
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Categories</div></div>
+      <div class="stat-item"><div class="stat-num">0</div><div class="stat-lbl">Sign-up Needed</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">Free Forever</div></div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <div class="search-outer">
+    <div class="search-wrap">
+      <input class="search-input" type="text" id="searchInput" placeholder="🔍 Search developer tools…" oninput="filterTools()"/>
+      <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">🏠 Home</a><span>›</span>
+    <span class="bc-cur">Developer Tools</span>
+  </div>
+
+  <div class="main-wrap">
+
+    <!-- FILTER TABS -->
+    <div class="filter-tabs">
+      <span class="filter-tab active" data-filter="all" onclick="setFilter('all',this)">💻 All (30)</span>
+      <span class="filter-tab code" data-filter="code" onclick="setFilter('code',this)">📝 Code Tools</span>
+      <span class="filter-tab net" data-filter="network" onclick="setFilter('network',this)">🌐 Network</span>
+      <span class="filter-tab seo" data-filter="seo" onclick="setFilter('seo',this)">🔍 SEO Tools</span>
+      <span class="filter-tab sec" data-filter="security" onclick="setFilter('security',this)">🔐 Security</span>
+      <span class="filter-tab des" data-filter="design" onclick="setFilter('design',this)">🎨 Design</span>
+      <span class="filter-tab" data-filter="popular" onclick="setFilter('popular',this)">🔥 Popular</span>
+    </div>
+
+    <!-- NO RESULTS -->
+    <div class="no-results" id="noResults">😔 No tools found. Try a different search term.</div>
+
+    <!-- ══ CODE TOOLS ══ -->
+    <div class="section-block" id="sec-code">
+      <div class="section-head">
+        <div class="sec-icon-wrap code">📝</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+            <span class="sec-title-text">Code Tools</span>
+            <span class="sec-label code">Code</span>
+            <span class="sec-count">13 tools</span>
+          </div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.15rem;">Minifiers, formatters, encoders, editors and code utilities.</div>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+
+        <!-- JSON Formatter - Featured -->
+        <a href="json-formatter.html" class="tool-card code featured" data-name="JSON Formatter" data-cat="code" data-tags="json formatter validator beautifier minifier pretty print">
+          <div class="tc-icon-wrap code" style="width:56px;height:56px;font-size:1.8rem;flex-shrink:0;">{}</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
+              <span class="tc-name">JSON Formatter & Validator</span>
+              <span class="tc-badge live"><span class="live-dot"></span>Live</span>
+              <span class="tc-badge popular">🔥 Popular</span>
+            </div>
+            <div class="tc-desc">Format, validate, beautify and minify JSON online. Syntax highlighting, error detection and JSON-to-CSV conversion.</div>
+          </div>
+        </a>
+
+        <a href="html-minifier.html" class="tool-card code" data-name="HTML Minifier" data-cat="code" data-tags="html minifier compress reduce size web performance">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">&lt;/&gt;</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span><span class="tc-badge popular">🔥 Popular</span></div>
+          </div>
+          <div class="tc-name">HTML Minifier</div>
+          <div class="tc-desc">Remove whitespace, comments and reduce HTML file size for faster page loads.</div>
+        </a>
+
+        <a href="css-minifier.html" class="tool-card code" data-name="CSS Minifier" data-cat="code" data-tags="css minifier compress stylesheet optimize web performance">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">🎨</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span><span class="tc-badge popular">🔥 Popular</span></div>
+          </div>
+          <div class="tc-name">CSS Minifier</div>
+          <div class="tc-desc">Minify CSS stylesheets by removing comments, whitespace and redundant code.</div>
+        </a>
+
+        <a href="js-minifier.html" class="tool-card code" data-name="JS Minifier" data-cat="code" data-tags="javascript minifier compress js uglify optimize">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">⚡</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span><span class="tc-badge popular">🔥 Popular</span></div>
+          </div>
+          <div class="tc-name">JS Minifier</div>
+          <div class="tc-desc">Minify and compress JavaScript code. Reduce file size for faster website loading.</div>
+        </a>
+
+        <a href="xml-formatter.html" class="tool-card code" data-name="XML Formatter" data-cat="code" data-tags="xml formatter beautifier validator pretty print">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">📋</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span></div>
+          </div>
+          <div class="tc-name">XML Formatter</div>
+          <div class="tc-desc">Format and beautify XML documents. Validate XML structure and fix indentation.</div>
+        </a>
+
+        <a href="code-beautifier.html" class="tool-card code" data-name="Code Beautifier" data-cat="code" data-tags="code beautifier formatter pretty print html css js python">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">✨</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span></div>
+          </div>
+          <div class="tc-name">Code Beautifier</div>
+          <div class="tc-desc">Beautify and format HTML, CSS, JavaScript, Python and more programming languages.</div>
+        </a>
+
+        <a href="base64-encoder.html" class="tool-card code" data-name="Base64 Encoder" data-cat="code" data-tags="base64 encoder decode convert text image binary">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">🔢</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span></div>
+          </div>
+          <div class="tc-name">Base64 Encoder</div>
+          <div class="tc-desc">Encode text, files and images to Base64 format for use in web applications.</div>
+        </a>
+
+        <a href="base64-decoder.html" class="tool-card code" data-name="Base64 Decoder" data-cat="code" data-tags="base64 decoder decode convert text image binary">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">🔓</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span></div>
+          </div>
+          <div class="tc-name">Base64 Decoder</div>
+          <div class="tc-desc">Decode Base64 encoded strings back to plain text, files or image data.</div>
+        </a>
+
+        <a href="url-encoder.html" class="tool-card code" data-name="URL Encoder" data-cat="code" data-tags="url encoder encode percent encoding special characters">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">🔗</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span></div>
+          </div>
+          <div class="tc-name">URL Encoder</div>
+          <div class="tc-desc">Encode URLs and query strings to make them safe for web transmission.</div>
+        </a>
+
+        <a href="url-decoder.html" class="tool-card code" data-name="URL Decoder" data-cat="code" data-tags="url decoder decode percent encoded string">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">🔓</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span></div>
+          </div>
+          <div class="tc-name">URL Decoder</div>
+          <div class="tc-desc">Decode percent-encoded URL strings back to human-readable format.</div>
+        </a>
+
+        <a href="regex-tester.html" class="tool-card code" data-name="Regex Tester" data-cat="code" data-tags="regex tester regular expression test match pattern">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">🔍</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span><span class="tc-badge new">✨ New</span></div>
+          </div>
+          <div class="tc-name">Regex Tester</div>
+          <div class="tc-desc">Test and debug regular expressions with real-time matching, groups and flags support.</div>
+        </a>
+
+        <a href="markdown-editor.html" class="tool-card code" data-name="Markdown Editor" data-cat="code" data-tags="markdown editor live preview write md readme documentation">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">📝</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span><span class="tc-badge new">✨ New</span></div>
+          </div>
+          <div class="tc-name">Markdown Editor</div>
+          <div class="tc-desc">Write Markdown with live HTML preview. Export as HTML or download .md file.</div>
+        </a>
+
+        <a href="html-editor.html" class="tool-card code" data-name="HTML Editor Online" data-cat="code" data-tags="html editor online live preview write html browser">
+          <div class="tc-top">
+            <div class="tc-icon-wrap code">🖥️</div>
+            <div class="tc-badges"><span class="tc-badge code">Code</span><span class="tc-badge new">✨ New</span></div>
+          </div>
+          <div class="tc-name">HTML Editor Online</div>
+          <div class="tc-desc">Write HTML, CSS and JS with instant live browser preview. No IDE needed.</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- MID AD -->
+    <div class="ad-mid-responsive">
+      <div class="ad-slot">
+        <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+        📢 Responsive Ad · 728×90 → 468×60 → 320×50 (Auto)
+      </div>
+    </div>
+
+    <!-- ══ NETWORK TOOLS ══ -->
+    <div class="section-block" id="sec-network">
+      <div class="section-head">
+        <div class="sec-icon-wrap net">🌐</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+            <span class="sec-title-text">Network Tools</span>
+            <span class="sec-label net">Network</span>
+            <span class="sec-count">4 tools</span>
+          </div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.15rem;">IP lookup, DNS, HTTP headers and API testing tools.</div>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+
+        <a href="ip-lookup.html" class="tool-card net" data-name="IP Lookup" data-cat="network" data-tags="ip lookup finder location isp geolocation my ip address">
+          <div class="tc-top">
+            <div class="tc-icon-wrap net">🌍</div>
+            <div class="tc-badges"><span class="tc-badge net">Network</span><span class="tc-badge popular">🔥 Popular</span></div>
+          </div>
+          <div class="tc-name">IP Lookup</div>
+          <div class="tc-desc">Look up any IP address — location, ISP, timezone, organization and geolocation data.</div>
+        </a>
+
+        <a href="dns-lookup.html" class="tool-card net" data-name="DNS Lookup" data-cat="network" data-tags="dns lookup query records a aaaa mx cname txt domain">
+          <div class="tc-top">
+            <div class="tc-icon-wrap net">🔎</div>
+            <div class="tc-badges"><span class="tc-badge net">Network</span></div>
+          </div>
+          <div class="tc-name">DNS Lookup</div>
+          <div class="tc-desc">Query DNS records for any domain — A, AAAA, MX, CNAME, TXT, NS and more.</div>
+        </a>
+
+        <a href="http-headers.html" class="tool-card net" data-name="HTTP Headers Checker" data-cat="network" data-tags="http headers checker response server security status code">
+          <div class="tc-top">
+            <div class="tc-icon-wrap net">📡</div>
+            <div class="tc-badges"><span class="tc-badge net">Network</span></div>
+          </div>
+          <div class="tc-name">HTTP Headers Checker</div>
+          <div class="tc-desc">Check HTTP response headers for any URL — status codes, server info and security headers.</div>
+        </a>
+
+        <a href="api-tester.html" class="tool-card net featured" data-name="API Tester" data-cat="network" data-tags="api tester rest get post put delete json http request test">
+          <div class="tc-icon-wrap net" style="width:56px;height:56px;font-size:1.8rem;flex-shrink:0;">🔌</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
+              <span class="tc-name">API Tester</span>
+              <span class="tc-badge new">✨ New</span>
+              <span class="tc-badge popular">🔥 Popular</span>
+            </div>
+            <div class="tc-desc">Test REST APIs with GET, POST, PUT, DELETE requests. Set headers, body and auth. View formatted JSON responses.</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ══ SEO TOOLS ══ -->
+    <div class="section-block" id="sec-seo">
+      <div class="section-head">
+        <div class="sec-icon-wrap seo">🔍</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+            <span class="sec-title-text">SEO & Website Tools</span>
+            <span class="sec-label seo">SEO</span>
+            <span class="sec-count">6 tools</span>
+          </div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.15rem;">Speed test, meta tags, robots.txt, sitemap and SEO analysis.</div>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+
+        <a href="meta-tag.html" class="tool-card seo featured" data-name="Meta Tag Analyzer" data-cat="seo" data-tags="meta tag analyzer generator seo title description og twitter">
+          <div class="tc-icon-wrap seo" style="width:56px;height:56px;font-size:1.8rem;flex-shrink:0;">🏷️</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
+              <span class="tc-name">Meta Tag Analyzer</span>
+              <span class="tc-badge live"><span class="live-dot"></span>Live</span>
+              <span class="tc-badge popular">🔥 Popular</span>
+            </div>
+            <div class="tc-desc">Analyze and generate SEO meta tags — title, description, Open Graph, Twitter Cards and structured data.</div>
+          </div>
+        </a>
+
+        <a href="website-speed.html" class="tool-card seo" data-name="Website Speed Test" data-cat="seo,network" data-tags="website speed test performance pagespeed load time core web vitals">
+          <div class="tc-top">
+            <div class="tc-icon-wrap seo">⚡</div>
+            <div class="tc-badges"><span class="tc-badge seo">SEO</span><span class="tc-badge popular">🔥 Popular</span></div>
+          </div>
+          <div class="tc-name">Website Speed Test</div>
+          <div class="tc-desc">Test page load speed and Core Web Vitals. Get performance score and improvement tips.</div>
+        </a>
+
+        <a href="mobile-friendly.html" class="tool-card seo" data-name="Mobile-Friendly Test" data-cat="seo" data-tags="mobile friendly test responsive design google mobile usability">
+          <div class="tc-top">
+            <div class="tc-icon-wrap seo">📱</div>
+            <div class="tc-badges"><span class="tc-badge seo">SEO</span></div>
+          </div>
+          <div class="tc-name">Mobile-Friendly Test</div>
+          <div class="tc-desc">Check if your website is mobile-friendly and responsive. See mobile preview.</div>
+        </a>
+
+        <a href="ssl-checker.html" class="tool-card seo" data-name="SSL Checker" data-cat="seo,security" data-tags="ssl checker https certificate expiry valid secure">
+          <div class="tc-top">
+            <div class="tc-icon-wrap seo">🔒</div>
+            <div class="tc-badges"><span class="tc-badge seo">SEO</span><span class="tc-badge sec">Security</span></div>
+          </div>
+          <div class="tc-name">SSL Checker</div>
+          <div class="tc-desc">Check SSL/TLS certificate validity, expiry date and security details for any domain.</div>
+        </a>
+
+        <a href="robots-txt.html" class="tool-card seo" data-name="Robots.txt Generator" data-cat="seo" data-tags="robots txt generator create allow disallow sitemap seo crawl">
+          <div class="tc-top">
+            <div class="tc-icon-wrap seo">🤖</div>
+            <div class="tc-badges"><span class="tc-badge seo">SEO</span></div>
+          </div>
+          <div class="tc-name">Robots.txt Generator</div>
+          <div class="tc-desc">Generate a robots.txt file to control how search engine bots crawl your website.</div>
+        </a>
+
+        <a href="sitemap-generator.html" class="tool-card seo" data-name="Sitemap Generator" data-cat="seo" data-tags="sitemap generator xml create urls seo search engine submit">
+          <div class="tc-top">
+            <div class="tc-icon-wrap seo">🗺️</div>
+            <div class="tc-badges"><span class="tc-badge seo">SEO</span><span class="tc-badge new">✨ New</span></div>
+          </div>
+          <div class="tc-name">Sitemap Generator</div>
+          <div class="tc-desc">Generate an XML sitemap for your website to improve search engine indexing.</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ══ SECURITY TOOLS ══ -->
+    <div class="section-block" id="sec-security">
+      <div class="section-head">
+        <div class="sec-icon-wrap sec">🔐</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+            <span class="sec-title-text">Security Tools</span>
+            <span class="sec-label sec">Security</span>
+            <span class="sec-count">4 tools</span>
+          </div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.15rem;">Password tools, JWT decoder and UUID generator for developers.</div>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+
+        <a href="password-generator.html" class="tool-card sec featured" data-name="Password Generator" data-cat="security" data-tags="password generator strong secure random uppercase symbols numbers">
+          <div class="tc-icon-wrap sec" style="width:56px;height:56px;font-size:1.8rem;flex-shrink:0;">🔑</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem;">
+              <span class="tc-name">Password Generator</span>
+              <span class="tc-badge live"><span class="live-dot"></span>Live</span>
+              <span class="tc-badge popular">🔥 Popular</span>
+            </div>
+            <div class="tc-desc">Generate strong, secure and random passwords. Customize length, uppercase, symbols, numbers. Instant copy.</div>
+          </div>
+        </a>
+
+        <a href="password-strength.html" class="tool-card sec" data-name="Password Strength Checker" data-cat="security" data-tags="password strength checker weak strong meter score">
+          <div class="tc-top">
+            <div class="tc-icon-wrap sec">🛡️</div>
+            <div class="tc-badges"><span class="tc-badge sec">Security</span></div>
+          </div>
+          <div class="tc-name">Password Strength Checker</div>
+          <div class="tc-desc">Check password strength score, crack time estimate and get improvement suggestions.</div>
+        </a>
+
+        <a href="jwt-decoder.html" class="tool-card sec" data-name="JWT Decoder" data-cat="security,code" data-tags="jwt decoder json web token header payload signature decode verify">
+          <div class="tc-top">
+            <div class="tc-icon-wrap sec">🎫</div>
+            <div class="tc-badges"><span class="tc-badge sec">Security</span><span class="tc-badge new">✨ New</span></div>
+          </div>
+          <div class="tc-name">JWT Decoder</div>
+          <div class="tc-desc">Decode and inspect JSON Web Tokens — header, payload and signature. Verify expiry.</div>
+        </a>
+
+        <a href="uuid-generator.html" class="tool-card sec" data-name="UUID Generator" data-cat="security,code" data-tags="uuid generator v4 unique id guid random identifier">
+          <div class="tc-top">
+            <div class="tc-icon-wrap sec">🆔</div>
+            <div class="tc-badges"><span class="tc-badge sec">Security</span><span class="tc-badge new">✨ New</span></div>
+          </div>
+          <div class="tc-name">UUID Generator</div>
+          <div class="tc-desc">Generate UUID v1, v4 and v5 unique identifiers. Bulk generation supported.</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ══ DESIGN TOOLS ══ -->
+    <div class="section-block" id="sec-design">
+      <div class="section-head">
+        <div class="sec-icon-wrap des">🎨</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+            <span class="sec-title-text">Design & Color Tools</span>
+            <span class="sec-label des">Design</span>
+            <span class="sec-count">3 tools</span>
+          </div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.15rem;">Color converter, gradient generator and visual design utilities.</div>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+
+        <a href="color-converter.html" class="tool-card des" data-name="Color Code Converter" data-cat="design" data-tags="color code converter hex rgb hsl rgba picker css">
+          <div class="tc-top">
+            <div class="tc-icon-wrap des">🎨</div>
+            <div class="tc-badges"><span class="tc-badge des">Design</span><span class="tc-badge popular">🔥 Popular</span></div>
+          </div>
+          <div class="tc-name">Color Code Converter</div>
+          <div class="tc-desc">Convert between HEX, RGB, RGBA, HSL and HSV color formats instantly with live preview.</div>
+        </a>
+
+        <a href="gradient.html" class="tool-card des" data-name="CSS Gradient Generator" data-cat="design" data-tags="css gradient generator linear radial background color css code">
+          <div class="tc-top">
+            <div class="tc-icon-wrap des">🌈</div>
+            <div class="tc-badges"><span class="tc-badge des">Design</span></div>
+          </div>
+          <div class="tc-name">CSS Gradient Generator</div>
+          <div class="tc-desc">Create beautiful linear and radial CSS gradients. Copy CSS code with one click.</div>
+        </a>
+
+        <a href="qr-code.html" class="tool-card des" data-name="QR Code Generator" data-cat="design,code" data-tags="qr code generator custom color logo url wifi vcard">
+          <div class="tc-top">
+            <div class="tc-icon-wrap des">📲</div>
+            <div class="tc-badges"><span class="tc-badge des">Design</span><span class="tc-badge popular">🔥 Popular</span></div>
+          </div>
+          <div class="tc-name">QR Code Generator</div>
+          <div class="tc-desc">Generate custom QR codes with colors, logo and all sizes. Download PNG or SVG.</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- HIGHLIGHT BOX -->
+    <div class="highlight-box">
+      💡 <strong>Pro Tip:</strong> All code processing tools (Minifiers, Formatters, Encoders, Regex Tester) run entirely in your browser — your source code and sensitive data never leave your device. Safe for proprietary code.
+    </div>
+
+    <!-- RELATED TOOLS -->
+    <div>
+      <div style="font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;">
+        <span style="width:4px;height:16px;background:var(--gold);border-radius:2px;display:inline-block;"></span>
+        🔗 Related Tools
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+        <a href="calculator-tools.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">🧮 Calculator Tools</a>
+        <a href="video-audio-tools.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">🎬 Video & Audio</a>
+        <a href="word-counter.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">🔤 Word Counter</a>
+        <a href="image-compressor.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">🗜️ Image Compressor</a>
+        <a href="ai-writer.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.75rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">🤖 AI Writer</a>
+        <a href="index.html" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:.5rem 1rem;font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold2);text-decoration:none;letter-spacing:.04em;">🛠️ All 200+ Tools →</a>
+      </div>
+    </div>
+
+  </div><!-- /main-wrap -->
+</div><!-- /page-body -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-logo">🛠️ ToolNex</span>
+        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
+      </div>
+      <div class="footer-col">
+        <h4>Code Tools</h4>
+        <ul>
+          <li><a href="json-formatter.html">{} JSON Formatter</a></li>
+          <li><a href="html-minifier.html">&lt;/&gt; HTML Minifier</a></li>
+          <li><a href="css-minifier.html">🎨 CSS Minifier</a></li>
+          <li><a href="js-minifier.html">⚡ JS Minifier</a></li>
+          <li><a href="regex-tester.html">🔍 Regex Tester</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>SEO & Security</h4>
+        <ul>
+          <li><a href="meta-tag.html">🏷️ Meta Tag Analyzer</a></li>
+          <li><a href="password-generator.html">🔑 Password Generator</a></li>
+          <li><a href="jwt-decoder.html">🎫 JWT Decoder</a></li>
+          <li><a href="uuid-generator.html">🆔 UUID Generator</a></li>
+          <li><a href="ssl-checker.html">🔒 SSL Checker</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">📖 About Us</a></li>
+          <li><a href="contact.html">✉️ Contact</a></li>
+          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
+          <li><a href="terms.html">📋 Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── State ── */
+let activeFilter = 'all';
+
+/* ── Filter ── */
+function setFilter(f, el) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  applyFilter();
+}
+
+function applyFilter() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  let visible = 0;
+
+  document.querySelectorAll('.tool-card[data-name]').forEach(card => {
+    const name = (card.dataset.name || '').toLowerCase();
+    const cat  = (card.dataset.cat  || '').toLowerCase();
+    const tags = (card.dataset.tags || '').toLowerCase();
+
+    const matchSearch = !q || name.includes(q) || cat.includes(q) || tags.includes(q);
+    let matchFilter = true;
+    if (activeFilter === 'code')     matchFilter = cat.includes('code');
+    if (activeFilter === 'network')  matchFilter = cat.includes('network');
+    if (activeFilter === 'seo')      matchFilter = cat.includes('seo');
+    if (activeFilter === 'security') matchFilter = cat.includes('security');
+    if (activeFilter === 'design')   matchFilter = cat.includes('design');
+    if (activeFilter === 'popular')  matchFilter = !!card.querySelector('.tc-badge.popular');
+
+    const show = matchSearch && matchFilter;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+
+  // Section visibility
+  [['sec-code','code'],['sec-network','network'],['sec-seo','seo'],['sec-security','security'],['sec-design','design']].forEach(([id]) => {
+    const sec = document.getElementById(id);
+    if (!sec) return;
+    const hasVis = sec.querySelectorAll('.tool-card[data-name]:not([style*="display: none"])').length > 0;
+    sec.style.display = hasVis ? '' : 'none';
+  });
+
+  document.getElementById('noResults').classList.toggle('show', visible === 0);
+}
+
+function filterTools() {
+  const q = document.getElementById('searchInput').value;
+  document.getElementById('searchClear').style.display = q ? '' : 'none';
+  applyFilter();
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchClear').style.display = 'none';
+  applyFilter();
+}
+
+/* ── Scroll animations ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: .07 });
+
+document.querySelectorAll('.tool-card').forEach((c, i) => {
+  c.style.opacity = '0';
+  c.style.transform = 'translateY(16px)';
+  c.style.transition = `opacity .45s ${i * .04}s ease, transform .45s ${i * .04}s ease, border-color .22s, box-shadow .22s`;
+  io.observe(c);
+});
+
+/* ── ESC to clear ── */
+document.getElementById('searchInput').addEventListener('keydown', e => {
+  if (e.key === 'Escape') clearSearch();
+});
+
+/* ── GA4 Event Tracking ── */
+document.querySelectorAll('.tool-card[data-name]').forEach(card => {
+  card.addEventListener('click', () => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'tool_click', {
+        tool_name: card.dataset.name,
+        tool_category: card.dataset.cat,
+        page: 'developer-tools'
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>
