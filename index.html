@@ -1,594 +1,529 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
-<!-- ══ GOOGLE ANALYTICS GA4 ══ -->
+<!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-535630536');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-535630536');
+function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}
 </script>
 
-<!-- ══ SEO META ══ -->
-<title>ToolNex – Free Online Tools | Age Calculator, Image Compressor, QR Generator & More</title>
-<meta name="description" content="ToolNex offers 200+ free online tools — Age Calculator, Image Compressor, PDF to Word, QR Code Generator, Password Generator, Word Counter, BMI Calculator and more. Fast, free and private."/>
-<meta name="keywords" content="free online tools, age calculator, image compressor, pdf to word, qr code generator, password generator, word counter, bmi calculator, json formatter, meta tag generator, css minifier, currency converter"/>
+<!-- SEO -->
+<title>ToolNex – 100+ Free Online Tools | Age Calculator, Image Compressor, QR Generator & More</title>
+<meta name="description" content="ToolNex offers 2100+ free online tools — Age Calculator, Image Compressor, PDF to Word, QR Code Generator, Password Generator, Word Counter, BMI Calculator, Currency Converter. Fast, free, no sign-up."/>
+<meta name="keywords" content="free online tools,age calculator,image compressor,pdf to word,qr code generator,password generator,word counter,bmi calculator,json formatter,meta tag generator,css minifier,currency converter,unit converter,base64 encoder,hash generator,loan calculator,grammar checker,barcode generator,color picker,gradient generator,plagiarism checker,text to speech"/>
 <meta name="author" content="ToolNex"/>
-<meta name="robots" content="index, follow"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="theme-color" content="#ffffff"/>
 <link rel="canonical" href="https://toolnex.site/"/>
-
-<!-- Open Graph -->
-<meta property="og:title" content="ToolNex – 200+ Free Online Tools"/>
-<meta property="og:description" content="Free online tools for everyone — calculators, converters, generators, PDF tools and more."/>
+<meta property="og:title" content="ToolNex – 100+ Free Online Tools"/>
+<meta property="og:description" content="Free online tools — calculators, converters, generators, PDF tools. No sign-up. 100% free."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://toolnex.site/"/>
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="ToolNex – Free Online Tools"/>
-<meta name="twitter:description" content="200+ free online tools — fast, private, no sign-up required."/>
+<meta name="twitter:title" content="ToolNex – 100+ Free Online Tools"/>
+<meta name="twitter:description" content="100+ free online tools. Fast, private, no sign-up required."/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"ToolNex","url":"https://toolnex.site/","description":"200+ free online tools — calculators, converters, generators and PDF tools.","potentialAction":{"@type":"SearchAction","target":"https://toolnex.site/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+
 <style>
-:root{
-  --gold:#c9a84c;--gold2:#f0d080;--darker:#07070e;--dark:#0d0d14;
-  --panel:rgba(18,18,30,0.96);--border:rgba(201,168,76,0.28);
-  --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;
-  --accent:rgba(201,168,76,0.08);--blue:#5ab4e0;
-}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),
-    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 60%),
-    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
-    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
-    var(--darker);}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 
-/* ══ NAV ══ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:300;
-  display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;
-  padding:.5rem 1.4rem;
-  background:rgba(5,5,12,0.97);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);}
-.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
-.nav-logo-icon{font-size:1.3rem;}
-.nav-logo-text{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  letter-spacing:.06em;}
-.nav-right{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
-.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
-  padding:.22rem .75rem;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;
-  cursor:pointer;text-decoration:none;transition:all .2s;}
-.nav-link:hover{border-color:var(--gold);color:var(--gold2);}
+/* ─── HEADER ─── */
+.hdr{
+  background:#fff;border-bottom:1px solid #e8eaed;
+  position:sticky;top:0;z-index:100;
+}
+.hdr-inner{
+  max-width:1180px;margin:0 auto;
+  display:flex;align-items:center;gap:1rem;
+  padding:.65rem 1.2rem;
+}
+.logo{
+  display:flex;align-items:center;gap:.35rem;
+  font-size:1.2rem;font-weight:700;color:#202124;
+  flex-shrink:0;white-space:nowrap;
+}
+.logo-accent{color:#1a73e8;}
 
-/* ══ TOP BANNER AD (fixed below nav) ══ */
-.ad-top-banner{position:fixed;top:44px;left:0;right:0;z-index:290;
+/* Google-style search */
+.sbar{
+  flex:1;max-width:580px;
+  display:flex;align-items:center;
+  background:#f1f3f4;border:1.5px solid transparent;
+  border-radius:28px;padding:.32rem .32rem .32rem .95rem;
+  transition:background .15s,border-color .15s,box-shadow .15s;
+}
+.sbar:focus-within{
+  background:#fff;border-color:#1a73e8;
+  box-shadow:0 0 0 3px rgba(26,115,232,.1);
+}
+.sbar input{
+  flex:1;background:none;border:none;outline:none;
+  font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;
+  padding:.1rem 0;
+}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{
+  background:#1a73e8;color:#fff;border:none;
+  border-radius:22px;padding:.4rem 1rem;
+  font-size:.8rem;font-weight:600;letter-spacing:.01em;
+  transition:background .15s;white-space:nowrap;
+}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
+.hdr-link:hover{background:#f1f3f4;color:#202124;}
+@media(max-width:650px){.hdr-links{display:none;}}
+@media(max-width:420px){.logo span:last-child{display:none;}}
+
+/* ─── TOP BANNER AD ─── */
+.ad-top{
+  background:#fff;border-bottom:1px solid #e8eaed;
+  display:flex;justify-content:center;padding:.35rem;min-height:50px;
+}
+.adslot{
   display:flex;align-items:center;justify-content:center;
-  background:rgba(5,5,12,0.97);border-bottom:1px solid var(--border);padding:.3rem 0;}
-.ad-top-banner .ad-slot{
-  width:728px;height:90px;max-width:calc(100% - 2rem);
-  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.18);border-radius:6px;
+  background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;
+  font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;
+}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}}
+
+/* ─── HERO ─── */
+.hero{
+  background:#fff;
+  border-bottom:1px solid #e8eaed;
+  padding:2.8rem 1.2rem 2.2rem;
+  text-align:center;
+}
+.hero h1{
+  font-size:clamp(1.7rem,4.5vw,2.6rem);
+  font-weight:700;color:#202124;
+  line-height:1.2;margin-bottom:.55rem;
+  letter-spacing:-.025em;
+}
+.hero h1 em{font-style:normal;color:#1a73e8;}
+.hero p{font-size:.93rem;color:#5f6368;max-width:460px;margin:0 auto 1.4rem;line-height:1.65;}
+.chips{display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;}
+.chip{
+  background:#f8f9fa;border:1px solid #e8eaed;border-radius:20px;
+  padding:.24rem .85rem;font-size:.73rem;font-weight:600;color:#5f6368;
+}
+.chip b{color:#1a73e8;}
+
+/* ─── MAIN ─── */
+.main{max-width:1180px;margin:0 auto;padding:2rem 1.2rem 3.5rem;display:flex;flex-direction:column;gap:2.4rem;}
+
+/* ─── SECTION HEAD ─── */
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.st{
+  font-size:.88rem;font-weight:700;color:#202124;
+  display:flex;align-items:center;gap:.45rem;
+}
+.st-bar{width:3px;height:16px;background:#1a73e8;border-radius:2px;flex-shrink:0;}
+.sa{
+  font-size:.78rem;font-weight:600;color:#1a73e8;
+  padding:.22rem .65rem;border-radius:20px;
+  transition:background .13s;
+}
+.sa:hover{background:#e8f0fe;}
+
+/* ─── CATEGORY GRID ─── */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:.7rem;}
+@media(max-width:440px){.cg{grid-template-columns:repeat(3,1fr);gap:.5rem;}}
+
+.cc{
+  background:#fff;border:1.5px solid #e8eaed;border-radius:14px;
+  padding:1rem .75rem .85rem;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  text-align:center;
+  transition:border-color .15s,box-shadow .15s,transform .2s;
+}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{
+  width:42px;height:42px;border-radius:11px;font-size:1.3rem;
   display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
-@media(max-width:768px){.ad-top-banner .ad-slot{width:320px;height:100px;}}
+  transition:transform .18s;
+}
+.cc:hover .cc-ico{transform:scale(1.1);}
+.cc-nm{font-size:.74rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.63rem;color:#9aa0a6;}
 
-/* ══ HERO ══ */
-.hero{position:relative;z-index:1;padding:9rem 1rem 3rem;text-align:center;}
-@media(max-width:768px){.hero{padding:10rem 1rem 2.5rem;}}
-.bismillah-ar{font-family:'Amiri',serif;font-size:clamp(1.4rem,3.5vw,2.2rem);color:var(--gold2);
-  direction:rtl;line-height:2;text-shadow:0 0 30px rgba(201,168,76,0.4);display:block;
-  animation:fadeDown .9s ease both;}
-.bismillah-tr{font-family:'Amiri',serif;font-size:clamp(.8rem,1.8vw,.95rem);color:var(--gold);
-  opacity:.8;display:block;margin-top:.15rem;animation:fadeDown .9s .1s ease both;}
-.hero-badge{display:inline-flex;align-items:center;gap:.4rem;
-  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:20px;
-  padding:.28rem 1rem;font-size:.72rem;font-family:'Cinzel',serif;color:var(--gold);
-  letter-spacing:.08em;margin:.8rem 0 .5rem;animation:fadeDown .9s .2s ease both;}
-.hero-title{font-family:'Cinzel',serif;font-size:clamp(2.2rem,6vw,4.2rem);font-weight:900;
-  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1.1;margin-bottom:.5rem;animation:fadeDown .9s .25s ease both;}
-.hero-sub{color:var(--muted);font-size:clamp(.9rem,2vw,1.1rem);max-width:560px;margin:0 auto .8rem;
-  line-height:1.7;animation:fadeDown .9s .35s ease both;}
-.gold-line{width:100px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:.8rem auto 1.2rem;}
+/* category bg colours */
+[data-c="calc"]  .cc-ico{background:#fff3e0;}
+[data-c="text"]  .cc-ico{background:#e8f5e9;}
+[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"]   .cc-ico{background:#ffebee;}
+[data-c="dev"]   .cc-ico{background:#e3f2fd;}
+[data-c="seo"]   .cc-ico{background:#f3e5f5;}
+[data-c="sec"]   .cc-ico{background:#e0f7fa;}
+[data-c="fin"]   .cc-ico{background:#e8f5e9;}
+[data-c="des"]   .cc-ico{background:#fff8e1;}
+[data-c="vid"]   .cc-ico{background:#fce4ec;}
 
-/* Search */
-.search-outer{display:flex;justify-content:center;animation:fadeUp .8s .45s ease both;}
-.search-box-wrap{display:flex;align-items:center;background:rgba(255,255,255,0.05);
-  border:1px solid var(--border);border-radius:30px;padding:.1rem .2rem .1rem 1rem;
-  width:min(500px,100%);transition:border-color .2s,box-shadow .2s;}
-.search-box-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,0.18);}
-.search-input{background:none;border:none;outline:none;color:var(--text);font-size:.95rem;
-  font-family:'Inter',sans-serif;width:100%;padding:.55rem 0;}
-.search-input::placeholder{color:var(--muted);}
-.search-btn{background:linear-gradient(135deg,var(--gold),#9a7020);border:none;border-radius:25px;
-  padding:.52rem 1.1rem;color:#000;font-family:'Cinzel',serif;font-size:.78rem;font-weight:700;
-  cursor:pointer;white-space:nowrap;transition:all .2s;letter-spacing:.06em;}
-.search-btn:hover{transform:scale(1.04);}
+/* ─── TRENDING GRID ─── */
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:.8rem;}
+@media(max-width:440px){.tg{grid-template-columns:1fr 1fr;gap:.55rem;}}
 
-/* ══ WRAP ══ */
-.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 1rem 3rem;
-  display:flex;flex-direction:column;gap:2rem;}
+.tc{
+  background:#fff;border:1.5px solid #e8eaed;border-radius:14px;
+  padding:1.1rem 1rem;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:.38rem;
+  transition:border-color .15s,box-shadow .15s,transform .2s;
+}
+.tc:hover{border-color:#1a73e8;box-shadow:0 4px 20px rgba(26,115,232,.12);transform:translateY(-2px);}
+.tc-rk{position:absolute;top:.55rem;right:.65rem;font-size:.63rem;font-weight:700;color:#e8eaed;}
+.tc-row{display:flex;align-items:center;justify-content:space-between;}
+.tc-ico{font-size:1.5rem;line-height:1;}
+.tc-tg{
+  font-size:.59rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  background:#e8f0fe;color:#1a73e8;border-radius:6px;padding:.1rem .4rem;
+}
+.tc-nm{font-size:.84rem;font-weight:700;color:#202124;}
+.tc-ds{font-size:.72rem;color:#9aa0a6;line-height:1.45;}
 
-/* ══ SECTION HEADER ══ */
-.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.5rem;}
-.section-title{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);
-  letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;}
-.section-title::before{content:'';width:4px;height:18px;background:var(--gold);border-radius:2px;}
-.view-all{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold2);
-  text-decoration:none;letter-spacing:.08em;
-  border:1px solid var(--border);border-radius:20px;padding:.22rem .8rem;
-  transition:all .2s;}
-.view-all:hover{border-color:var(--gold);background:rgba(201,168,76,0.08);}
+/* ─── MID AD ─── */
+.ad-mid{display:flex;justify-content:center;padding:.3rem;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-mid .adslot{width:468px;height:60px;}}
+@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
 
-/* ══ TOP 10 TOOLS ══ */
-.top-tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
-@media(max-width:480px){.top-tools-grid{grid-template-columns:1fr 1fr;}}
+/* ─── ALL TOOLS ─── */
+.at{display:none;}
+.at.on{display:block;}
+.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.6rem;}
+@media(max-width:440px){.ag{grid-template-columns:1fr 1fr;gap:.45rem;}}
 
-.tool-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;
-  padding:1.1rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;
-  transition:transform .22s,box-shadow .22s,border-color .22s;
-  position:relative;overflow:hidden;}
-.tool-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.06),transparent);
-  opacity:0;transition:opacity .22s;}
-.tool-card:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(201,168,76,0.18);border-color:var(--gold);}
-.tool-card:hover::after{opacity:1;}
-.tc-top{display:flex;align-items:center;justify-content:space-between;}
-.tc-icon{font-size:1.8rem;filter:drop-shadow(0 0 6px rgba(201,168,76,0.3));}
-.tc-badge{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;
-  background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);border-radius:10px;
-  padding:.12rem .5rem;color:var(--gold);}
-.tc-name{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;color:var(--gold2);letter-spacing:.04em;}
-.tc-desc{font-size:.75rem;color:var(--muted);line-height:1.5;}
-.tc-rank{position:absolute;top:.6rem;right:.65rem;font-family:'Cinzel',serif;font-size:.68rem;
-  color:rgba(201,168,76,0.4);font-weight:700;}
+.ac{
+  background:#fff;border:1.5px solid #e8eaed;border-radius:11px;
+  padding:.75rem .85rem;
+  display:flex;align-items:center;gap:.6rem;
+  transition:border-color .15s,box-shadow .15s,transform .15s;
+}
+.ac:hover{border-color:#1a73e8;box-shadow:0 2px 10px rgba(26,115,232,.1);transform:translateY(-2px);}
+.ac-ico{font-size:1.15rem;flex-shrink:0;}
+.ac-nm{font-size:.78rem;font-weight:500;color:#202124;line-height:1.3;}
 
-/* ══ RESPONSIVE MID AD ══ */
-.ad-mid-responsive{width:100%;display:flex;align-items:center;justify-content:center;
-  background:rgba(201,168,76,0.02);border:1px dashed rgba(201,168,76,0.18);
-  border-radius:10px;padding:.5rem;min-height:70px;}
-.ad-mid-responsive .ad-slot{width:728px;height:90px;max-width:100%;
-  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.12);border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
-@media(max-width:768px){.ad-mid-responsive .ad-slot{width:468px;height:60px;}}
-@media(max-width:520px){.ad-mid-responsive .ad-slot{width:320px;height:50px;}}
+.no-res{display:none;padding:2.5rem;text-align:center;font-size:.87rem;color:#9aa0a6;}
+.no-res b{color:#1a73e8;}
+.sres-info{display:none;font-size:.8rem;color:#5f6368;margin-bottom:.65rem;}
+.sres-info b{color:#202124;}
+.res-count{font-size:.78rem;color:#9aa0a6;}
 
-/* ══ CATEGORY CARDS ══ */
-.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
-@media(max-width:480px){.cat-grid{grid-template-columns:1fr 1fr;}}
-
-.cat-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;
-  padding:1.4rem 1.2rem;text-decoration:none;display:flex;flex-direction:column;gap:.7rem;
-  transition:transform .22s,box-shadow .22s,border-color .22s;position:relative;overflow:hidden;}
-.cat-card::before{content:'';position:absolute;top:-40%;left:-40%;width:80%;height:80%;
-  background:radial-gradient(circle,rgba(201,168,76,0.06),transparent 70%);
-  transition:opacity .3s;opacity:0;}
-.cat-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(201,168,76,0.16);border-color:var(--gold);}
-.cat-card:hover::before{opacity:1;}
-.cat-icon-wrap{width:44px;height:44px;border-radius:10px;
-  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);
-  display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
-.cat-name{font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;color:var(--gold2);letter-spacing:.05em;}
-.cat-desc{font-size:.76rem;color:var(--muted);line-height:1.5;}
-.cat-count{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.06em;}
-.cat-view{display:inline-flex;align-items:center;gap:.3rem;
-  font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.07em;margin-top:.2rem;}
-.cat-view::after{content:'→';}
-
-/* ══ ALL TOOLS ══ */
-.all-tools-section{display:none;}
-.all-tools-section.show{display:block;animation:fadeUp .4s ease both;}
-.all-tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.85rem;}
-@media(max-width:480px){.all-tools-grid{grid-template-columns:1fr 1fr;}}
-.sm-tool{background:var(--panel);border:1px solid var(--border);border-radius:10px;
-  padding:.9rem;text-decoration:none;display:flex;align-items:center;gap:.7rem;
-  transition:transform .2s,border-color .2s;}
-.sm-tool:hover{transform:translateY(-3px);border-color:var(--gold);}
-.sm-tool-icon{font-size:1.3rem;flex-shrink:0;}
-.sm-tool-name{font-size:.8rem;color:var(--text);font-family:'Inter',sans-serif;font-weight:500;}
-.view-all-btn{width:100%;margin-top:1rem;background:transparent;border:1px solid var(--border);
-  border-radius:8px;padding:.65rem;font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);
-  cursor:pointer;transition:all .2s;letter-spacing:.06em;}
-.view-all-btn:hover{border-color:var(--gold);background:rgba(201,168,76,0.06);}
-
-/* ══ STATS ROW ══ */
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.8rem;}
-.stat-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;
-  padding:1rem;text-align:center;}
-.stat-num{font-family:'Cinzel',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:900;
-  color:var(--gold2);line-height:1;}
-.stat-lbl{font-size:.68rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;
-  font-family:'Cinzel',serif;margin-top:.25rem;}
-
-@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-
-/* ══ HADITH ══ */
-.hadith-sec{position:relative;z-index:1;margin-top:1rem;background:rgba(7,7,14,0.99);border-top:1px solid var(--border);}
-.hadith-inner{max-width:680px;margin:0 auto;padding:3rem 1.5rem 2rem;text-align:center;}
-.h-ornament{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:1rem;text-shadow:0 0 20px rgba(201,168,76,0.5);}
-.h-arabic{font-family:'Amiri',serif;font-size:clamp(1.1rem,3vw,1.6rem);color:var(--gold2);line-height:2.2;direction:rtl;margin-bottom:1rem;text-shadow:0 1px 10px rgba(201,168,76,0.25);}
-.h-line{width:55px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1rem;}
-.h-en{font-family:'Amiri',serif;font-size:.88rem;font-style:italic;color:var(--muted);margin-bottom:.9rem;}
-.h-source{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.12em;color:var(--muted);}
-
-/* ══ FOOTER ══ */
-.footer{background:rgba(3,3,10,0.99);border-top:1px solid var(--border);padding:2.5rem 1rem 1.5rem;}
-.footer-inner{max-width:1100px;margin:0 auto;}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
-@media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
-@media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
-.footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:.5rem;display:block;}
-.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
-.footer-brand .bismillah-footer{font-family:'Amiri',serif;font-size:.95rem;color:var(--gold);
-  direction:rtl;margin-top:.5rem;display:block;}
-.footer-col h4{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);
-  letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
-.footer-col ul li a{font-size:.78rem;color:var(--muted);text-decoration:none;
-  transition:color .2s;font-family:'Inter',sans-serif;}
-.footer-col ul li a:hover{color:var(--gold2);}
-.footer-bottom{border-top:1px solid var(--border);padding-top:1.2rem;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
-.footer-copy{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.08em;}
-.footer-noor{font-family:'Amiri',serif;font-size:1rem;color:var(--gold2);
-  direction:rtl;text-shadow:0 0 14px rgba(201,168,76,0.4);}
+/* ─── FOOTER ─── */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+@media(max-width:360px){.ftr-top{grid-template-columns:1fr;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
+.ftr-lnk a:hover{color:#1a73e8;}
 </style>
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
-<nav class="nav">
-  <a href="index.html" class="nav-logo">
-    <span class="nav-logo-icon">🛠️</span>
-    <span class="nav-logo-text">ToolNex</span>
-  </a>
-  <div class="nav-right">
-    <a href="index.html" class="nav-link">🏠 Home</a>
+<!-- ═══ HEADER ═══ -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo">
+      <span>🛠️</span>
+      <span>Tool<span class="logo-accent">Nex</span></span>
+    </a>
+    <div class="sbar">
+      <input type="search" id="si" placeholder="Search 100+ tools…"
+             oninput="hs(this.value)" autocomplete="off" autocorrect="off"
+             spellcheck="false" aria-label="Search tools"/>
+      <button class="sbtn" onclick="hs(document.getElementById('si').value)">Search</button>
+    </div>
+    <nav class="hdr-links">
+      <a href="about.html" class="hdr-link">About</a>
+      <a href="contact.html" class="hdr-link">Contact</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- ══ TOP BANNER AD ══ -->
-<div class="ad-top-banner">
-  <div class="ad-slot">
-    <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
-    📢 Top Banner Ad · 728×90 Desktop / 320×100 Mobile
+<!-- ═══ TOP BANNER AD ═══ -->
+<div class="ad-top">
+  <div class="adslot">
+    <!--
+      REPLACE WITH ADSENSE:
+      <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    -->
+    📢 Top Banner Ad · 728×90 Desktop / 320×50 Mobile
   </div>
 </div>
 
-<!-- ══ HERO ══ -->
-<section class="hero">
-  <span class="bismillah-ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
-  <span class="bismillah-tr">In the name of Allah, the Most Gracious, the Most Merciful</span>
-  <div class="hero-badge">⚡ 200+ Free Tools · No Sign-up · 100% Free</div>
-  <h1 class="hero-title">ToolNex</h1>
-  <p class="hero-sub">Your all-in-one free online toolbox — calculators, converters, generators, PDF tools and more. Fast, free and private.</p>
-  <div class="gold-line"></div>
-  <div class="search-outer">
-    <div class="search-box-wrap">
-      <input class="search-input" type="text" id="searchInput" placeholder="🔍 Search tools…" oninput="filterTools()"/>
-      <button class="search-btn">Search</button>
-    </div>
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="heroSec">
+  <h1>Your Free Online <em>Toolbox</em></h1>
+  <p>100+ tools — calculators, converters, generators & PDF tools. No sign-up, always free.</p>
+  <div class="chips">
+    <div class="chip"><b>100+</b> Free Tools</div>
+    <div class="chip"><b>100%</b> Private</div>
+    <div class="chip"><b>Zero</b> Sign-up</div>
+    <div class="chip"><b>Fast</b> & Lightweight</div>
   </div>
 </section>
 
-<div class="wrap">
+<!-- ═══ MAIN ═══ -->
+<div class="main" id="mainWrap">
 
-  <!-- ══ STATS ══ -->
-  <div class="stats-row">
-    <div class="stat-box"><div class="stat-num">200+</div><div class="stat-lbl">Free Tools</div></div>
-    <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl">Private</div></div>
-  </div>
-
-  <!-- ══ TOP 10 POPULAR TOOLS ══ -->
-  <div>
-    <div class="section-head">
-      <div class="section-title">🔥 Top 10 Popular Tools</div>
-      <a href="#allTools" class="view-all" onclick="showAllTools()">View All →</a>
+  <!-- 1. CATEGORIES -->
+  <section id="catSec">
+    <div class="sh">
+      <div class="st"><span class="st-bar"></span>Browse by Category</div>
     </div>
-    <div class="top-tools-grid" id="top10Grid">
-      <a href="image-compressor.html" class="tool-card">
-        <span class="tc-rank">#1</span>
-        <div class="tc-top"><span class="tc-icon">🗜️</span><span class="tc-badge">Image</span></div>
-        <div class="tc-name">Image Compressor</div>
-        <div class="tc-desc">Compress JPG, PNG, WebP up to 90% smaller</div>
-      </a>
-      <a href="pdf-to-word.html" class="tool-card">
-        <span class="tc-rank">#2</span>
-        <div class="tc-top"><span class="tc-icon">📄</span><span class="tc-badge">PDF</span></div>
-        <div class="tc-name">PDF to Word</div>
-        <div class="tc-desc">Extract & convert PDF text to Word doc</div>
-      </a>
-      <a href="word-counter.html" class="tool-card">
-        <span class="tc-rank">#3</span>
-        <div class="tc-top"><span class="tc-icon">🔤</span><span class="tc-badge">Text</span></div>
-        <div class="tc-name">Word Counter</div>
-        <div class="tc-desc">Count words, characters & sentences</div>
-      </a>
-      <a href="password-generator.html" class="tool-card">
-        <span class="tc-rank">#4</span>
-        <div class="tc-top"><span class="tc-icon">🔑</span><span class="tc-badge">Security</span></div>
-        <div class="tc-name">Password Generator</div>
-        <div class="tc-desc">Generate strong & secure passwords</div>
-      </a>
-      <a href="qr-code.html" class="tool-card">
-        <span class="tc-rank">#5</span>
-        <div class="tc-top"><span class="tc-icon">📲</span><span class="tc-badge">Generator</span></div>
-        <div class="tc-name">QR Code Generator</div>
-        <div class="tc-desc">Create QR for URL, WiFi, vCard & more</div>
-      </a>
-      <a href="json-formatter.html" class="tool-card">
-        <span class="tc-rank">#6</span>
-        <div class="tc-top"><span class="tc-icon">{}</span><span class="tc-badge">Dev</span></div>
-        <div class="tc-name">JSON Formatter</div>
-        <div class="tc-desc">Format, validate & minify JSON code</div>
-      </a>
-      <a href="age-calculator.html" class="tool-card">
-        <span class="tc-rank">#7</span>
-        <div class="tc-top"><span class="tc-icon">🎂</span><span class="tc-badge">Calculator</span></div>
-        <div class="tc-name">Age Calculator</div>
-        <div class="tc-desc">Exact age in years, months, days & seconds</div>
-      </a>
-      <a href="meta-tag.html" class="tool-card">
-        <span class="tc-rank">#8</span>
-        <div class="tc-top"><span class="tc-icon">🏷️</span><span class="tc-badge">SEO</span></div>
-        <div class="tc-name">Meta Tag Generator</div>
-        <div class="tc-desc">Generate SEO meta tags & Open Graph</div>
-      </a>
-      <a href="bmi-calculator.html" class="tool-card">
-        <span class="tc-rank">#9</span>
-        <div class="tc-top"><span class="tc-icon">⚖️</span><span class="tc-badge">Health</span></div>
-        <div class="tc-name">BMI Calculator</div>
-        <div class="tc-desc">Calculate Body Mass Index & health status</div>
-      </a>
-      <a href="ai-writer.html" class="tool-card">
-        <span class="tc-rank">#10</span>
-        <div class="tc-top"><span class="tc-icon">🤖</span><span class="tc-badge" style="color:var(--blue);border-color:rgba(90,180,224,.3);background:rgba(90,180,224,.08)">AI</span></div>
-        <div class="tc-name">AI Writer</div>
-        <div class="tc-desc">Generate content with AI — articles, emails</div>
-      </a>
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc" onclick="ga('cat','Calculators')" title="Free Online Calculators – Age BMI Loan Percentage Interest"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html"       class="cc" data-c="text" onclick="ga('cat','Text')"        title="Free Text Tools – Word Counter Character Counter Grammar"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html"      class="cc" data-c="image"onclick="ga('cat','Image')"       title="Free Image Tools – Compress Resize Convert Images Online"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html"        class="cc" data-c="pdf"  onclick="ga('cat','PDF')"         title="Free PDF Tools – PDF to Word Word to PDF Image to PDF"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html"  class="cc" data-c="dev"  onclick="ga('cat','Developer')"   title="Free Developer Tools – JSON CSS JS HTML Minifier Formatter"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html"        class="cc" data-c="seo"  onclick="ga('cat','SEO')"         title="Free SEO Tools – Meta Tag Generator SEO Checker Speed Test"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html"   class="cc" data-c="sec"  onclick="ga('cat','Security')"    title="Free Security Tools – Password Hash Generator Base64 Encoder"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html"    class="cc" data-c="fin"  onclick="ga('cat','Finance')"     title="Free Finance Tools – Currency Converter Loan Interest Calculator"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html"     class="cc" data-c="des"  onclick="ga('cat','Design')"      title="Free Design Tools – Color Picker Gradient Generator Online"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html"class="cc" data-c="vid"  onclick="ga('cat','Video')"       title="Free Video Audio Tools – Cutter Converter Compressor Online"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </section>
+
+  <!-- 2. TRENDING TOOLS -->
+  <section id="trendSec">
+    <div class="sh">
+      <div class="st"><span class="st-bar"></span>🔥 Trending Tools</div>
+      <a href="#allSec" class="sa" onclick="showAll()">View All →</a>
+    </div>
+    <div class="tg">
+      <a href="image-compressor.html"   class="tc" onclick="ga('tool','Image Compressor')"  title="Free Image Compressor – Compress JPG PNG WebP Online Up to 90% Smaller"><span class="tc-rk">#1</span><div class="tc-row"><span class="tc-ico">🗜️</span><span class="tc-tg">Image</span></div><div class="tc-nm">Image Compressor</div><div class="tc-ds">Compress JPG, PNG & WebP up to 90% smaller</div></a>
+      <a href="pdf-to-word.html"        class="tc" onclick="ga('tool','PDF to Word')"        title="Free PDF to Word Converter – Convert PDF to Editable DOCX Online"><span class="tc-rk">#2</span><div class="tc-row"><span class="tc-ico">📄</span><span class="tc-tg">PDF</span></div><div class="tc-nm">PDF to Word</div><div class="tc-ds">Convert PDF to editable Word documents</div></a>
+      <a href="qr-code.html"            class="tc" onclick="ga('tool','QR Code')"            title="Free QR Code Generator – Create QR for URL WiFi vCard Online"><span class="tc-rk">#3</span><div class="tc-row"><span class="tc-ico">📲</span><span class="tc-tg">Generator</span></div><div class="tc-nm">QR Code Generator</div><div class="tc-ds">Create QR codes for URL, WiFi, vCard & more</div></a>
+      <a href="age-calculator.html"     class="tc" onclick="ga('tool','Age Calculator')"     title="Free Age Calculator – Calculate Exact Age in Years Months Days Seconds"><span class="tc-rk">#4</span><div class="tc-row"><span class="tc-ico">🎂</span><span class="tc-tg">Calc</span></div><div class="tc-nm">Age Calculator</div><div class="tc-ds">Exact age in years, months, days & seconds</div></a>
+      <a href="password-generator.html" class="tc" onclick="ga('tool','Password Generator')" title="Free Strong Password Generator – Secure Random Passwords Online"><span class="tc-rk">#5</span><div class="tc-row"><span class="tc-ico">🔑</span><span class="tc-tg">Security</span></div><div class="tc-nm">Password Generator</div><div class="tc-ds">Generate strong & secure random passwords</div></a>
+      <a href="word-counter.html"       class="tc" onclick="ga('tool','Word Counter')"       title="Free Word Counter – Count Words Characters Sentences Reading Time Online"><span class="tc-rk">#6</span><div class="tc-row"><span class="tc-ico">🔤</span><span class="tc-tg">Text</span></div><div class="tc-nm">Word Counter</div><div class="tc-ds">Count words, characters & reading time</div></a>
+      <a href="json-formatter.html"     class="tc" onclick="ga('tool','JSON Formatter')"     title="Free JSON Formatter Validator – Format Validate Minify JSON Online"><span class="tc-rk">#7</span><div class="tc-row"><span class="tc-ico">{}</span><span class="tc-tg">Dev</span></div><div class="tc-nm">JSON Formatter</div><div class="tc-ds">Format, validate & minify JSON online</div></a>
+      <a href="currency-converter.html" class="tc" onclick="ga('tool','Currency Converter')" title="Free Currency Converter – Live Exchange Rates USD PKR EUR GBP Online"><span class="tc-rk">#8</span><div class="tc-row"><span class="tc-ico">💱</span><span class="tc-tg">Finance</span></div><div class="tc-nm">Currency Converter</div><div class="tc-ds">Live exchange rates for 150+ currencies</div></a>
+      <a href="bmi-calculator.html"     class="tc" onclick="ga('tool','BMI Calculator')"     title="Free BMI Calculator – Calculate Body Mass Index Health Status Online"><span class="tc-rk">#9</span><div class="tc-row"><span class="tc-ico">⚖️</span><span class="tc-tg">Health</span></div><div class="tc-nm">BMI Calculator</div><div class="tc-ds">Calculate Body Mass Index & health status</div></a>
+      <a href="meta-tag.html"           class="tc" onclick="ga('tool','Meta Tag Generator')" title="Free Meta Tag Generator – SEO Meta Tags Open Graph Twitter Card Online"><span class="tc-rk">#10</span><div class="tc-row"><span class="tc-ico">🏷️</span><span class="tc-tg">SEO</span></div><div class="tc-nm">Meta Tag Generator</div><div class="tc-ds">Generate SEO meta tags & Open Graph</div></a>
+    </div>
+  </section>
+
+  <!-- MID RESPONSIVE AD -->
+  <div class="ad-mid">
+    <div class="adslot">
+      <!--
+        REPLACE WITH ADSENSE RESPONSIVE:
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      -->
+      📢 Responsive Mid Ad · Auto Size (728×90 → 320×50)
     </div>
   </div>
 
-  <!-- ══ RESPONSIVE MID AD ══ -->
-  <div class="ad-mid-responsive">
-    <div class="ad-slot">
-      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
-      📢 Responsive Ad · 728×90 → 468×60 → 320×50 (Auto)
+  <!-- 3. ALL TOOLS -->
+  <section id="allSec" class="at">
+    <div class="sh">
+      <div class="st"><span class="st-bar"></span><span id="allTitle">All Tools</span></div>
+      <span class="res-count" id="resCount"></span>
     </div>
-  </div>
+    <div class="sres-info" id="sresInfo"></div>
+    <div class="ag" id="ag"></div>
+    <div class="no-res" id="noRes">No results for <b id="noQ"></b> — try another keyword.</div>
+  </section>
 
-  <!-- ══ CATEGORIES ══ -->
-  <div id="categories">
-    <div class="section-head">
-      <div class="section-title">📂 Browse by Category</div>
-    </div>
-    <div class="cat-grid" id="catGrid">
-      <a href="text-tools.html#text" class="cat-card">
-        <div class="cat-icon-wrap">✍️</div>
-        <div class="cat-name">Text Tools</div>
-        <div class="cat-desc">Word counter, character counter, grammar checker and more.</div>
-        <div class="cat-count">25 tools</div>
-        <span class="cat-view">View All</span>
-      </a>
-      <a href="seo-tools.html#seo" class="cat-card">
-        <div class="cat-icon-wrap">🔍</div>
-        <div class="cat-name">SEO Tools</div>
-        <div class="cat-desc">Meta tag generator, SEO checker, speed test and more.</div>
-        <div class="cat-count">20 tools</div>
-        <span class="cat-view">View All</span>
-      </a>
-      <a href="image-tools.html#image" class="cat-card">
-        <div class="cat-icon-wrap">🖼️</div>
-        <div class="cat-name">Image Tools</div>
-        <div class="cat-desc">Image compressor, image to PDF and editing tools.</div>
-        <div class="cat-count">25 tools</div>
-        <span class="cat-view">View All</span>
-      </a>
-      <a href="ai-tools.html#ai" class="cat-card">
-        <div class="cat-icon-wrap">🤖</div>
-        <div class="cat-name">AI Tools</div>
-        <div class="cat-desc">AI Writer, Grammar Checker & Plagiarism Checker.</div>
-        <div class="cat-count">30 tools</div>
-        <span class="cat-view">View All</span>
-      </a>
-      <a href="calculator-tools.html#calc" class="cat-card">
-        <div class="cat-icon-wrap">🧮</div>
-        <div class="cat-name">Calculators</div>
-        <div class="cat-desc">Age, BMI, Loan, Interest, Percentage and more.</div>
-        <div class="cat-count">25 tools</div>
-        <span class="cat-view">View All</span>
-      </a>
-      <a href="developer-tools.html#dev" class="cat-card">
-        <div class="cat-icon-wrap">💻</div>
-        <div class="cat-name">Developer Tools</div>
-        <div class="cat-desc">CSS, JS, HTML minifiers, JSON formatter & more.</div>
-        <div class="cat-count">30 tools</div>
-        <span class="cat-view">View All</span>
-      </a>
-      <a href="pdf-tools.html#pdf" class="cat-card">
-        <div class="cat-icon-wrap">📑</div>
-        <div class="cat-name">PDF Tools</div>
-        <div class="cat-desc">PDF to Word, Word to PDF, Image to PDF.</div>
-        <div class="cat-count">3 tools</div>
-        <span class="cat-view">View All</span>
-      </a>
-      <a href="video-audio-tools.html#tools" class="cat-card">
-        <div class="cat-icon-wrap">🎬</div>
-        <div class="cat-name">Video & Audio Tools</div>
-        <div class="cat-desc">Video editor, audio cutter, converter, compressor and more.</div>
-        <div class="cat-count">20 tools</div>
-        <span class="cat-view">View All</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- ══ ALL TOOLS ══ -->
-  <div id="allTools" class="all-tools-section">
-    <div class="section-head">
-      <div class="section-title">🛠️ All Tools</div>
-    </div>
-    <div class="all-tools-grid" id="allToolsGrid"></div>
-    <p id="noResults" style="display:none;text-align:center;color:var(--muted);font-family:'Cinzel',serif;font-size:.85rem;padding:1.5rem;">No tools found. Try a different search.</p>
-  </div>
-
-</div><!-- /wrap -->
-
-<!-- ══ HADITH ══ -->
-<div class="hadith-sec">
-  <div class="hadith-inner">
-    <span class="h-ornament">❁ ☽ ❁</span>
-    <p class="h-arabic">«خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»</p>
-    <div class="h-line"></div>
-    <p class="h-en">"The best among you are those who learn the Quran and teach it to others."</p>
-    <p class="h-source">— صحيح البخاري | Sahih Al-Bukhari · 5027</p>
-  </div>
 </div>
 
-<!-- ══ FOOTER ══ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="brand-logo">🛠️ ToolNex</span>
-        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
+<!-- ═══ FOOTER ═══ -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div>
+        <span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span>
+        <p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
       </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
+      <div class="fc">
+        <h4>About</h4>
         <ul>
-          <li><a href="index.html">🏠 Home</a></li>
-          <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
-          <li><a href="image-compressor.html">🗜️ Image Compressor</a></li>
-          <li><a href="qr-code.html">📲 QR Generator</a></li>
-          <li><a href="currency-converter.html">💱 Currency</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
+      <div class="fc">
+        <h4>Popular Tools</h4>
         <ul>
+          <li><a href="age-calculator.html">Age Calculator</a></li>
+          <li><a href="image-compressor.html">Image Compressor</a></li>
+          <li><a href="qr-code.html">QR Code Generator</a></li>
           <li><a href="pdf-to-word.html">PDF to Word</a></li>
-          <li><a href="word-to-pdf.html">Word to PDF</a></li>
-          <li><a href="image-to-pdf.html">Image to PDF</a></li>
-          <li><a href="css-minifier.html">CSS Minifier</a></li>
-          <li><a href="json-formatter.html">JSON Formatter</a></li>
+          <li><a href="currency-converter.html">Currency Converter</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Company</h4>
+      <div class="fc">
+        <h4>Developer Tools</h4>
         <ul>
-          <li><a href="about.html">📖 About Us</a></li>
-          <li><a href="contact.html">✉️ Contact</a></li>
-          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
-          <li><a href="terms.html">📋 Terms of Use</a></li>
+          <li><a href="json-formatter.html">JSON Formatter</a></li>
+          <li><a href="css-minifier.html">CSS Minifier</a></li>
+          <li><a href="base64.html">Base64 Encoder</a></li>
+          <li><a href="hash-generator.html">Hash Generator</a></li>
+          <li><a href="meta-tag.html">Meta Tag Generator</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
-      <div class="footer-noor">نُورُ الہُدیٰ</div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-const ALL_TOOLS=[
-  {icon:'🎂',name:'Age Calculator',      href:'age-calculator.html'},
-  {icon:'📅',name:'Date Calculator',     href:'date-calculator.html'},
-  {icon:'⏱️',name:'Time Calculator',    href:'time-calculator.html'},
-  {icon:'⚖️',name:'BMI Calculator',     href:'bmi-calculator.html'},
-  {icon:'🏦',name:'Loan Calculator',     href:'loan-calculator.html'},
-  {icon:'💹',name:'Interest Calculator', href:'interest-calculator.html'},
-  {icon:'%', name:'Percentage Calc',     href:'percentage-calculator.html'},
-  {icon:'🧾',name:'Tip Calculator',      href:'tip-calculator.html'},
-  {icon:'🏷️',name:'Discount Calculator',href:'discount-calculator.html'},
-  {icon:'💱',name:'Currency Converter',  href:'currency-converter.html'},
-  {icon:'📏',name:'Unit Converter',      href:'unit-converter.html'},
-  {icon:'🔤',name:'Word Counter',         href:'word-counter.html'},
-  {icon:'🔡',name:'Character Counter',   href:'character-counter.html'},
-  {icon:'✅',name:'Grammar Checker',     href:'grammar-checker.html'},
-  {icon:'🕵️',name:'Plagiarism Checker', href:'plagiarism-checker.html'},
-  {icon:'🔊',name:'Text to Speech',      href:'text-to-speech.html'},
-  {icon:'🎙️',name:'Speech to Text',    href:'speech-to-text.html'},
-  {icon:'🤖',name:'AI Writer',           href:'ai-writer.html'},
-  {icon:'📄',name:'PDF to Word',         href:'pdf-to-word.html'},
-  {icon:'📝',name:'Word to PDF',         href:'word-to-pdf.html'},
-  {icon:'🖼️',name:'Image to PDF',       href:'image-to-pdf.html'},
-  {icon:'🗜️',name:'Image Compressor',   href:'image-compressor.html'},
-  {icon:'🔑',name:'Password Generator',  href:'password-generator.html'},
-  {icon:'🎲',name:'Random Number',       href:'random-number.html'},
-  {icon:'#️⃣',name:'Hash Generator',    href:'hash-generator.html'},
-  {icon:'🔢',name:'Base64 Encoder',      href:'base64.html'},
-  {icon:'📲',name:'QR Code Generator',   href:'qr-code.html'},
-  {icon:'|||',name:'Barcode Generator',  href:'barcode.html'},
-  {icon:'{}', name:'JSON Formatter',     href:'json-formatter.html'},
-  {icon:'</>', name:'HTML Minifier',     href:'html-minifier.html'},
-  {icon:'🎨',name:'CSS Minifier',        href:'css-minifier.html'},
-  {icon:'⚡',name:'JS Minifier',         href:'js-minifier.html'},
-  {icon:'🏷️',name:'Meta Tag Generator', href:'meta-tag.html'},
-  {icon:'🔍',name:'SEO Checker',         href:'seo-checker.html'},
-  {icon:'⚡',name:'Website Speed Test',  href:'website-speed.html'},
-  {icon:'🌍',name:'IP Address Finder',   href:'ip-finder.html'},
-  {icon:'🌈',name:'Gradient Generator',  href:'gradient.html'},
-  {icon:'🎨',name:'Color Picker',        href:'color-picker.html'},
-  {icon:'🌤️',name:'Weather Checker',    href:'weather.html'},
-  {icon:'✔️',name:'To-Do List',         href:'todo.html'},
+/* ══ COMPLETE TOOLS LIST ══ */
+const T=[
+  {i:'🎂',n:'Age Calculator',         u:'age-calculator.html',       c:'Calculators',tags:['age','birthday','date','years','months','born'],   k:'age calculator free online, exact age years months days'},
+  {i:'📅',n:'Date Calculator',        u:'date-calculator.html',       c:'Calculators',tags:['date','days','difference','between','calendar'],   k:'date difference calculator, days between two dates'},
+  {i:'⏱️',n:'Time Calculator',       u:'time-calculator.html',       c:'Calculators',tags:['time','hours','minutes','duration','add'],         k:'time duration calculator, add subtract hours minutes'},
+  {i:'⚖️',n:'BMI Calculator',        u:'bmi-calculator.html',        c:'Health',     tags:['bmi','body','weight','height','mass','health'],     k:'bmi calculator online free, body mass index'},
+  {i:'🏦',n:'Loan Calculator',        u:'loan-calculator.html',       c:'Finance',    tags:['loan','emi','mortgage','interest','monthly','bank'],k:'loan emi calculator free, monthly mortgage payment'},
+  {i:'💹',n:'Interest Calculator',    u:'interest-calculator.html',   c:'Finance',    tags:['interest','compound','simple','savings','rate'],    k:'simple compound interest calculator free'},
+  {i:'%', n:'Percentage Calculator',  u:'percentage-calculator.html', c:'Calculators',tags:['percentage','percent','ratio','calc','of'],        k:'percentage calculator free, calculate percent online'},
+  {i:'🧾',n:'Tip Calculator',         u:'tip-calculator.html',        c:'Finance',    tags:['tip','restaurant','bill','split','waiter'],         k:'tip calculator restaurant bill splitter free'},
+  {i:'🏷️',n:'Discount Calculator',   u:'discount-calculator.html',   c:'Finance',    tags:['discount','sale','price','saving','off','percent'], k:'discount calculator sale price online free'},
+  {i:'💱',n:'Currency Converter',     u:'currency-converter.html',    c:'Finance',    tags:['currency','exchange','usd','pkr','eur','dollar','convert','rate'],k:'currency converter live rates USD PKR dollar rupee'},
+  {i:'📏',n:'Unit Converter',         u:'unit-converter.html',        c:'Converters', tags:['unit','length','weight','temperature','speed','convert'],k:'unit converter online free length weight temperature'},
+  {i:'🔤',n:'Word Counter',           u:'word-counter.html',          c:'Text',       tags:['word','count','text','character','sentence','reading'],k:'word counter online free character count reading time'},
+  {i:'🔡',n:'Character Counter',      u:'character-counter.html',     c:'Text',       tags:['character','letter','count','text','limit'],       k:'character counter online free letter count'},
+  {i:'✅',n:'Grammar Checker',        u:'grammar-checker.html',       c:'Text',       tags:['grammar','spelling','checker','english','writing'], k:'free grammar checker online fix spelling errors'},
+  {i:'🕵️',n:'Plagiarism Checker',   u:'plagiarism-checker.html',    c:'Text',       tags:['plagiarism','duplicate','content','copy','check'],  k:'plagiarism checker free online duplicate content'},
+  {i:'🔊',n:'Text to Speech',         u:'text-to-speech.html',        c:'Text',       tags:['text','speech','tts','audio','voice','read','listen'],k:'text to speech online free tts converter'},
+  {i:'🎙️',n:'Speech to Text',       u:'speech-to-text.html',        c:'Text',       tags:['speech','voice','transcribe','stt','mic','record'], k:'speech to text free online voice to text converter'},
+  {i:'📄',n:'PDF to Word',            u:'pdf-to-word.html',           c:'PDF',        tags:['pdf','word','docx','convert','extract','document'], k:'pdf to word converter free online convert pdf to docx'},
+  {i:'📝',n:'Word to PDF',            u:'word-to-pdf.html',           c:'PDF',        tags:['word','pdf','docx','convert','document'],          k:'word to pdf converter free online docx to pdf'},
+  {i:'🖼️',n:'Image to PDF',          u:'image-to-pdf.html',          c:'PDF',        tags:['image','jpg','png','pdf','convert','merge'],       k:'image to pdf converter free online jpg png to pdf'},
+  {i:'🗜️',n:'Image Compressor',      u:'image-compressor.html',      c:'Image',      tags:['image','compress','jpg','png','webp','size','reduce'],k:'image compressor online free compress jpg png webp'},
+  {i:'🔑',n:'Password Generator',     u:'password-generator.html',    c:'Security',   tags:['password','generator','secure','strong','random','create'],k:'password generator strong secure free online'},
+  {i:'🎲',n:'Random Number Generator',u:'random-number.html',         c:'Generator',  tags:['random','number','dice','generate','lottery'],     k:'random number generator online free'},
+  {i:'#️⃣',n:'Hash Generator',       u:'hash-generator.html',        c:'Security',   tags:['hash','md5','sha','sha256','sha512','encrypt'],    k:'hash generator md5 sha256 online free'},
+  {i:'🔢',n:'Base64 Encoder/Decoder', u:'base64.html',                c:'Security',   tags:['base64','encode','decode','convert','string'],     k:'base64 encoder decoder online free'},
+  {i:'📲',n:'QR Code Generator',      u:'qr-code.html',               c:'Generator',  tags:['qr','code','url','wifi','vcard','scan','barcode'], k:'qr code generator free online URL wifi vcard'},
+  {i:'▌▌',n:'Barcode Generator',      u:'barcode.html',               c:'Generator',  tags:['barcode','code128','ean','upc','scan','product'],  k:'barcode generator free online create barcode'},
+  {i:'{}', n:'JSON Formatter',        u:'json-formatter.html',        c:'Developer',  tags:['json','format','validate','minify','beautify','dev'],k:'json formatter validator online free beautifier'},
+  {i:'</>',n:'HTML Minifier',         u:'html-minifier.html',         c:'Developer',  tags:['html','minify','compress','minifier','code'],      k:'html minifier online free compress html code'},
+  {i:'🎨',n:'CSS Minifier',           u:'css-minifier.html',          c:'Developer',  tags:['css','minify','compress','stylesheet','style'],    k:'css minifier online free compress stylesheet'},
+  {i:'⚡',n:'JS Minifier',            u:'js-minifier.html',           c:'Developer',  tags:['javascript','js','minify','compress','script'],    k:'javascript minifier online free compress js'},
+  {i:'🌍',n:'IP Address Finder',      u:'ip-finder.html',             c:'Developer',  tags:['ip','address','location','network','my ip'],       k:'ip address finder free what is my ip online'},
+  {i:'🏷️',n:'Meta Tag Generator',   u:'meta-tag.html',              c:'SEO',        tags:['meta','tag','seo','open graph','twitter','card'],  k:'meta tag generator free SEO open graph twitter card'},
+  {i:'🔍',n:'SEO Checker',            u:'seo-checker.html',           c:'SEO',        tags:['seo','checker','analyzer','on-page','audit'],      k:'seo checker free online on-page analyzer'},
+  {i:'⚡',n:'Website Speed Test',     u:'website-speed.html',         c:'SEO',        tags:['speed','test','performance','website','page','fast'],k:'website speed test free online page speed checker'},
+  {i:'🌈',n:'Gradient Generator',     u:'gradient.html',              c:'Design',     tags:['gradient','css','color','background','design'],    k:'css gradient generator free online color gradient'},
+  {i:'🎨',n:'Color Picker',           u:'color-picker.html',          c:'Design',     tags:['color','picker','hex','rgb','hsl','palette','code'],k:'color picker online free hex rgb hsl color code'},
+  {i:'🌤️',n:'Weather Checker',      u:'weather.html',               c:'Misc',       tags:['weather','temperature','forecast','city','rain'],  k:'weather checker online current weather by city free'},
+  {i:'✔️',n:'To-Do List',           u:'todo.html',                  c:'Misc',       tags:['todo','task','list','organize','note','manage'],   k:'to do list online free task manager organizer'},
 ];
 
-function buildAllTools(filter=''){
-  const grid=document.getElementById('allToolsGrid');
-  const q=filter.toLowerCase();
-  const filtered=ALL_TOOLS.filter(t=>t.name.toLowerCase().includes(q));
-  document.getElementById('noResults').style.display=filtered.length?'none':'block';
-  grid.innerHTML=filtered.map(t=>`
-    <a href="${t.href}" class="sm-tool">
-      <span class="sm-tool-icon">${t.icon}</span>
-      <span class="sm-tool-name">${t.name}</span>
-    </a>`).join('');
+/* ══ SEARCH LOGIC ══ */
+function doSearch(q){
+  const lq=q.toLowerCase().trim();
+  if(!lq) return T;
+  return T.filter(t=>
+    t.n.toLowerCase().includes(lq)||
+    t.c.toLowerCase().includes(lq)||
+    t.tags.some(x=>x.includes(lq))||
+    t.k.toLowerCase().includes(lq)
+  );
 }
 
-function showAllTools(){
-  const sec=document.getElementById('allTools');
-  sec.classList.add('show');
-  buildAllTools();
-  setTimeout(()=>sec.scrollIntoView({behavior:'smooth',block:'start'}),100);
-}
-
-function filterTools(){
-  const q=document.getElementById('searchInput').value.trim();
-  if(q.length>0){
-    showAllTools();
-    buildAllTools(q);
+/* ══ RENDER ══ */
+function render(list,q=''){
+  const g=document.getElementById('ag');
+  const nr=document.getElementById('noRes');
+  const rc=document.getElementById('resCount');
+  const si=document.getElementById('sresInfo');
+  if(!list.length){
+    g.innerHTML='';
+    nr.style.display='block';
+    document.getElementById('noQ').textContent=q;
+    rc.textContent='';si.style.display='none';
+    return;
   }
+  nr.style.display='none';
+  rc.textContent=list.length+' tools';
+  si.style.display=q?'block':'none';
+  if(q) si.innerHTML='Results for <b>"'+q+'"</b>';
+  g.innerHTML=list.map(t=>`<a href="${t.u}" class="ac" onclick="ga('tool','${t.n.replace(/'/g,'')}')" title="${t.n} — ${t.k.split(',')[0]}"><span class="ac-ico">${t.i}</span><span class="ac-nm">${t.n}</span></a>`).join('');
 }
 
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.style.opacity='1';
-      e.target.style.transform='translateY(0)';
-      io.unobserve(e.target);
-    }
-  });
-},{threshold:.08});
+/* ══ SHOW ALL ══ */
+function showAll(q=''){
+  const s=document.getElementById('allSec');
+  s.classList.add('on');
+  document.getElementById('allTitle').textContent=q?'Search Results':'All Tools';
+  render(q?doSearch(q):T,q);
+  if(!q) setTimeout(()=>s.scrollIntoView({behavior:'smooth',block:'start'}),80);
+}
 
-document.querySelectorAll('.tool-card,.cat-card').forEach((c,i)=>{
-  c.style.opacity='0';
-  c.style.transform='translateY(20px)';
-  c.style.transition=`opacity .45s ${i*.04}s ease, transform .45s ${i*.04}s ease, box-shadow .22s, border-color .22s`;
-  io.observe(c);
+/* ══ SEARCH HANDLER (search hone par sirf results dikhao) ══ */
+let _t;
+function hs(val){
+  clearTimeout(_t);
+  const q=val.trim();
+  _t=setTimeout(()=>{
+    if(!q){
+      // Clear search — show full page
+      document.getElementById('heroSec').style.display='';
+      document.getElementById('catSec').style.display='';
+      document.getElementById('trendSec').style.display='';
+      document.getElementById('allSec').classList.remove('on');
+      return;
+    }
+    // Search mode — hide hero+categories+trending, show results only
+    document.getElementById('heroSec').style.display='none';
+    document.getElementById('catSec').style.display='none';
+    document.getElementById('trendSec').style.display='none';
+    showAll(q);
+    ga('search',q);
+  },190);
+}
+
+/* ══ STAGGERED FADE IN ══ */
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ob.unobserve(e.target);}});},{threshold:.05});
+document.querySelectorAll('.cc,.tc').forEach((c,i)=>{
+  c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.022}s ease,transform .3s ${i*.022}s ease,border-color .15s,box-shadow .15s`;
+  ob.observe(c);
 });
 </script>
 </body>
