@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Video & Audio Tools – 10+ Free Media Tools | ToolNex</title>
-<meta name="description" content="10+ free online video and audio tools — Video Compressor, Audio Cutter, Video to MP3, YouTube Thumbnail Downloader, Online Video Cutter, and more. Fast, no sign-up.">
-<meta name="keywords" content="video tools, audio tools, video compressor, audio cutter, video to mp3, online video editor, audio converter, free video tools, ToolNex">
+<title>Image Tools – 10+ Free Online Image Tools | Compress, Resize, Convert | ToolNex</title>
+<meta name="description" content="10+ free online image tools — Image Compressor, Resizer, Converter, Cropper, Rotator, and more. No sign-up, fast and private. Edit images directly in browser.">
+<meta name="keywords" content="image tools, image compressor, image resizer, image converter, png to jpg, image cropper, free image tools, toolnex">
 <meta name="author" content="ToolNex">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://toolnex.site/video-audio-tools.html">
-<meta property="og:title" content="Video & Audio Tools – 10+ Free Media Tools | ToolNex">
-<meta property="og:description" content="Free online video & audio tools: compressor, cutter, converter, extractor. No registration, 100% free.">
+<link rel="canonical" href="https://toolnex.site/image-tools.html">
+<meta property="og:title" content="Image Tools – 10+ Free Online Image Tools | ToolNex">
+<meta property="og:description" content="Free image tools: compress, resize, convert, crop, rotate. Fast, private, no registration.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://toolnex.site/video-audio-tools.html">
+<meta property="og:url" content="https://toolnex.site/image-tools.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,54 +25,81 @@ body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-heigh
 a{text-decoration:none;color:inherit;}
 button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 
+/* header */
 .hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
 .hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.65rem 1.2rem;}
 .logo{display:flex;align-items:center;gap:.35rem;font-size:1.2rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
 .logo-accent{color:#1a73e8;}
-.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:background .15s,border-color .15s;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:background .15s,border-color .15s,box-shadow .15s;}
 .sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
 .sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;padding:.1rem 0;}
 .sbar input::placeholder{color:#9aa0a6;}
-.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;cursor:pointer;transition:background .15s;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;cursor:pointer;transition:background .15s;white-space:nowrap;}
 .sbtn:hover{background:#1558c0;}
-.hdr-links{display:flex;gap:.2rem;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
 .hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
 .hdr-link:hover{background:#f1f3f4;color:#202124;}
 @media(max-width:650px){.hdr-links{display:none;}}
 @media(max-width:420px){.logo span:last-child{display:none;}}
 
+/* top ad */
 .ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;}
 .adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;text-transform:uppercase;}
 .ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
 @media(max-width:740px){.ad-top .adslot{width:468px;height:60px;}}
 @media(max-width:500px){.ad-top .adslot{width:320px;height:50px;}}
 
-/* Category Hero */
-.cat-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:2.2rem 1.2rem 1.8rem;text-align:center;}
+/* breadcrumb + hero */
+.breadcrumb{font-size:.7rem;color:#9aa0a6;margin-bottom:.8rem;}
+.breadcrumb a{color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb span{color:#1a73e8;}
+.cat-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:2rem 1.2rem 1.8rem;text-align:center;}
 .cat-hero h1{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:700;color:#202124;margin-bottom:.5rem;}
 .cat-hero h1 span{color:#1a73e8;}
 .cat-hero p{font-size:.9rem;color:#5f6368;max-width:520px;margin:0 auto;line-height:1.6;}
-.cat-badge{display:inline-flex;background:#e8f0fe;color:#1a73e8;border-radius:40px;padding:.2rem .9rem;font-size:.7rem;font-weight:600;margin-top:.8rem;}
+.cat-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1rem;}
+.cat-chip{background:#f8f9fa;border:1px solid #e8eaed;border-radius:40px;padding:.2rem .8rem;font-size:.7rem;font-weight:600;color:#5f6368;}
+.cat-chip b{color:#1a73e8;}
 
 .main{max-width:1180px;margin:0 auto;padding:2rem 1.2rem 3rem;}
 
-/* Tools grid (large cards) */
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin-bottom:2rem;}
-.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:20px;padding:1.3rem 1.2rem;display:flex;flex-direction:column;gap:.7rem;transition:border-color .2s,box-shadow .2s,transform .2s;}
-.tool-card:hover{border-color:#1a73e8;box-shadow:0 8px 24px rgba(26,115,232,.12);transform:translateY(-3px);}
-.tool-icon{font-size:2.1rem;line-height:1;}
-.tool-title{font-size:1rem;font-weight:700;color:#202124;letter-spacing:-.2px;}
-.tool-desc{font-size:.75rem;color:#5f6368;line-height:1.5;}
-.tool-tag{display:inline-block;background:#f1f3f4;border-radius:6px;padding:.2rem .6rem;font-size:.6rem;font-weight:600;color:#1a73e8;width:fit-content;margin-top:.1rem;}
-.tool-link{margin-top:.2rem;display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;font-weight:600;color:#1a73e8;transition:gap .2s;}
-.tool-link:hover{gap:.6rem;}
+/* tools section header */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;margin-top:.5rem;}
+.section-title{font-size:.9rem;font-weight:700;color:#202124;display:flex;align-items:center;gap:.45rem;}
+.section-bar{width:3px;height:16px;background:#1a73e8;border-radius:2px;}
+.tools-count{font-size:.7rem;color:#9aa0a6;background:#f1f3f4;padding:.2rem .7rem;border-radius:20px;}
 
-/* Category info & stats */
-.cat-stats{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;margin:1rem 0 1.8rem;padding:.8rem 0;border-bottom:1px solid #e8eaed;}
-.stats-badge{background:#e8eaed;color:#202124;border-radius:40px;padding:.3rem 1rem;font-size:.7rem;font-weight:500;}
-.stats-badge strong{color:#1a73e8;font-size:1rem;margin-right:.2rem;}
+/* tools grid - exactly as style from image */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.9rem;margin-bottom:1.2rem;}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1rem 1rem;transition:border-color .15s,box-shadow .15s,transform .2s;}
+.tool-card:hover{border-color:#1a73e8;box-shadow:0 4px 14px rgba(26,115,232,.1);transform:translateY(-2px);}
+.tool-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;}
+.tool-icon{font-size:1.5rem;line-height:1;}
+.tool-tag{font-size:.6rem;font-weight:700;background:#e8f0fe;color:#1a73e8;border-radius:6px;padding:.15rem .5rem;text-transform:uppercase;}
+.tool-name{font-size:.85rem;font-weight:700;color:#202124;margin:.3rem 0 .2rem;}
+.tool-desc{font-size:.72rem;color:#9aa0a6;line-height:1.45;margin-bottom:.5rem;}
+.tool-link{font-size:.7rem;font-weight:600;color:#1a73e8;display:inline-flex;align-items:center;gap:.2rem;transition:gap .2s;}
+.tool-link:hover{gap:.4rem;}
 
-.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;margin-top:1rem;}
+/* mid ad - responsive */
+.ad-mid{display:flex;justify-content:center;margin:1.2rem 0 1.5rem;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-mid .adslot{width:468px;height:60px;}}
+@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
+
+/* browse other categories section (exactly as style from screenshot) */
+.other-cats{background:#fff;border:1px solid #e8eaed;border-radius:20px;padding:1.4rem 1.2rem;margin-top:1.4rem;}
+.other-title{font-size:.85rem;font-weight:700;color:#202124;display:flex;align-items:center;gap:.45rem;margin-bottom:1rem;}
+.cats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.7rem;}
+.cat-item{background:#f8f9fa;border:1px solid #e8eaed;border-radius:12px;padding:.8rem .3rem;text-align:center;transition:border-color .15s,transform .15s;display:flex;flex-direction:column;align-items:center;gap:.3rem;}
+.cat-item:hover{border-color:#1a73e8;transform:translateY(-2px);}
+.cat-ico{font-size:1.3rem;}
+.cat-name{font-size:.7rem;font-weight:600;color:#202124;}
+.cat-count{font-size:.6rem;color:#9aa0a6;}
+
+/* footer */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;margin-top:2rem;}
 .ftr-in{max-width:1180px;margin:0 auto;}
 .ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
 @media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
@@ -89,12 +116,6 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 .ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
 .ftr-lnk a:hover{color:#1a73e8;}
 
-/* breadcrumb */
-.breadcrumb{font-size:.7rem;color:#9aa0a6;margin-bottom:1rem;}
-.breadcrumb a{color:#5f6368;}
-.breadcrumb a:hover{color:#1a73e8;}
-.breadcrumb span{color:#1a73e8;}
-
 @media(max-width:480px){.tools-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -104,7 +125,7 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
   <div class="hdr-inner">
     <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
     <div class="sbar">
-      <input type="search" placeholder="Search 200+ tools…" id="searchInput" autocomplete="off">
+      <input type="search" id="searchInput" placeholder="Search 100+ tools..." autocomplete="off">
       <button class="sbtn" onclick="window.location.href='index.html'">Search</button>
     </div>
     <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
@@ -114,111 +135,105 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 <div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50</div></div>
 
 <div class="cat-hero">
-  <div class="breadcrumb"><a href="index.html">Home</a> / <span>Video & Audio Tools</span></div>
-  <h1>🎬 <span>Video & Audio</span> Tools</h1>
-  <p>Professional-grade media tools right in your browser — compress, cut, convert, and enhance videos and audio instantly. No installation, no sign-up.</p>
-  <div class="cat-badge">10+ Powerful Media Tools</div>
+  <div class="breadcrumb"><a href="index.html">Home</a> / <span>Image Tools</span></div>
+  <h1><span>IMAGE TOOLS</span></h1>
+  <p>Free Online Image Tools — Compress, resize, convert, crop & edit images. 10 powerful tools — no sign-up, always free.</p>
+  <div class="cat-badges">
+    <div class="cat-chip"><b>10</b> Image Tools</div>
+    <div class="cat-chip"><b>100%</b> Free</div>
+    <div class="cat-chip"><b>Zero</b> Sign-up</div>
+    <div class="cat-chip"><b>Fast</b> & Secure</div>
+  </div>
 </div>
 
 <div class="main">
-  <div class="cat-stats">
-    <div class="stats-badge"><strong>10</strong> Video & Audio Tools</div>
-    <div class="stats-badge">⚡ 100% Browser‑based · 🔒 Privacy First</div>
+  <div class="section-header">
+    <div class="section-title"><span class="section-bar"></span>All Image Tools</div>
+    <div class="tools-count">10 tools</div>
   </div>
 
-  <div class="tools-grid" id="toolsGrid">
-    <!-- 10 popular video & audio tools exactly as requested, no AI tools -->
-    
+  <div class="tools-grid" id="imageToolsGrid">
+    <!-- 10 Image Tools exactly as mentioned in style -->
     <div class="tool-card">
-      <div class="tool-icon">🎞️</div>
-      <div class="tool-title">Video Compressor</div>
-      <div class="tool-desc">Reduce video file size up to 80% without losing quality. Supports MP4, MOV, AVI, MKV.</div>
-      <span class="tool-tag">Compression</span>
-      <a href="video-compressor.html" class="tool-link" onclick="ga('video_tool','Video Compressor')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">🗜️</span><span class="tool-tag">Compression</span></div>
+      <div class="tool-name">Image Compressor</div>
+      <div class="tool-desc">Compress JPG, PNG & WebP up to 90% smaller</div>
+      <a href="image-compressor.html" class="tool-link" onclick="ga('image_tool','Image Compressor')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">✂️</div>
-      <div class="tool-title">Online Video Cutter</div>
-      <div class="tool-desc">Trim, crop, and cut any video clip — perfect for removing unwanted parts or creating short clips.</div>
-      <span class="tool-tag">Trim & Cut</span>
-      <a href="video-cutter.html" class="tool-link" onclick="ga('video_tool','Video Cutter')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">📏</span><span class="tool-tag">Resize</span></div>
+      <div class="tool-name">Image Resizer</div>
+      <div class="tool-desc">Resize images by pixels, percentage or preset sizes</div>
+      <a href="image-resizer.html" class="tool-link" onclick="ga('image_tool','Image Resizer')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">🔊</div>
-      <div class="tool-title">Audio Cutter & Trimmer</div>
-      <div class="tool-desc">Cut MP3, WAV, M4A audio tracks. Make ringtones, extract segments with precision.</div>
-      <span class="tool-tag">Audio Editing</span>
-      <a href="audio-cutter.html" class="tool-link" onclick="ga('video_tool','Audio Cutter')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">🔄</span><span class="tool-tag">Convert</span></div>
+      <div class="tool-name">Image Converter</div>
+      <div class="tool-desc">Convert between JPG, PNG, WebP, GIF, BMP, TIFF</div>
+      <a href="image-converter.html" class="tool-link" onclick="ga('image_tool','Image Converter')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">🎵</div>
-      <div class="tool-title">Video to MP3 Converter</div>
-      <div class="tool-desc">Extract high-quality audio from any video file — convert MP4, AVI, MOV to MP3 instantly.</div>
-      <span class="tool-tag">Converter</span>
-      <a href="video-to-mp3.html" class="tool-link" onclick="ga('video_tool','Video to MP3')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">✂️</span><span class="tool-tag">Crop</span></div>
+      <div class="tool-name">Image Cropper</div>
+      <div class="tool-desc">Crop any image to exact dimensions or freeform</div>
+      <a href="image-cropper.html" class="tool-link" onclick="ga('image_tool','Image Cropper')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">🔄</div>
-      <div class="tool-title">Audio Converter (MP3, WAV, OGG)</div>
-      <div class="tool-desc">Convert between audio formats: MP3, WAV, OGG, M4A, FLAC. Fast and lossless.</div>
-      <span class="tool-tag">Convert</span>
-      <a href="audio-converter.html" class="tool-link" onclick="ga('video_tool','Audio Converter')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">🔄</span><span class="tool-tag">Rotate & Flip</span></div>
+      <div class="tool-name">Image Rotator</div>
+      <div class="tool-desc">Rotate, flip horizontally or vertically instantly</div>
+      <a href="image-rotator.html" class="tool-link" onclick="ga('image_tool','Image Rotator')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">⏺️</div>
-      <div class="tool-title">Video Recorder (Screen + Webcam)</div>
-      <div class="tool-desc">Record your screen, webcam, or both. Ideal for tutorials, presentations, and vlogs.</div>
-      <span class="tool-tag">Recording</span>
-      <a href="video-recorder.html" class="tool-link" onclick="ga('video_tool','Video Recorder')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">💧</span><span class="tool-tag">Adjust</span></div>
+      <div class="tool-name">Image Brightness & Contrast</div>
+      <div class="tool-desc">Adjust brightness, contrast, saturation & exposure</div>
+      <a href="image-adjust.html" class="tool-link" onclick="ga('image_tool','Image Adjust')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">🖼️</div>
-      <div class="tool-title">Video to GIF Maker</div>
-      <div class="tool-desc">Turn any video clip into an animated GIF. Perfect for memes, tutorials, and social media.</div>
-      <span class="tool-tag">GIF Generator</span>
-      <a href="video-to-gif.html" class="tool-link" onclick="ga('video_tool','Video to GIF')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">🌊</span><span class="tool-tag">Filter</span></div>
+      <div class="tool-name">Image Filter Editor</div>
+      <div class="tool-desc">Apply vintage, blur, sharpen, grayscale & more filters</div>
+      <a href="image-filters.html" class="tool-link" onclick="ga('image_tool','Image Filters')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">🔄🖼️</div>
-      <div class="tool-title">Video Format Converter</div>
-      <div class="tool-desc">Convert between MP4, AVI, MOV, MKV, WebM. Compatible with any device or platform.</div>
-      <span class="tool-tag">Format Conversion</span>
-      <a href="video-converter.html" class="tool-link" onclick="ga('video_tool','Video Converter')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">🖌️</span><span class="tool-tag">Overlay</span></div>
+      <div class="tool-name">Add Text to Image</div>
+      <div class="tool-desc">Add custom text, captions or watermark on images</div>
+      <a href="add-text-to-image.html" class="tool-link" onclick="ga('image_tool','Add Text')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">⏯️</div>
-      <div class="tool-title">YouTube Thumbnail Downloader</div>
-      <div class="tool-desc">Download high-resolution YouTube video thumbnails in HD, 4K quality with one click.</div>
-      <span class="tool-tag">Downloader</span>
-      <a href="youtube-thumbnail.html" class="tool-link" onclick="ga('video_tool','YT Thumbnail')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">🖼️➡️📄</span><span class="tool-tag">Convert</span></div>
+      <div class="tool-name">Image to PDF</div>
+      <div class="tool-desc">Convert JPG/PNG images to single or merged PDF</div>
+      <a href="image-to-pdf.html" class="tool-link" onclick="ga('image_tool','Image to PDF')">Use Tool →</a>
     </div>
-
     <div class="tool-card">
-      <div class="tool-icon">🗜️🎵</div>
-      <div class="tool-title">Audio Compressor</div>
-      <div class="tool-desc">Reduce audio file size while preserving clarity. Supports MP3, WAV, OGG compression.</div>
-      <span class="tool-tag">Compression</span>
-      <a href="audio-compressor.html" class="tool-link" onclick="ga('video_tool','Audio Compressor')">Use Tool →</a>
+      <div class="tool-row"><span class="tool-icon">🧹</span><span class="tool-tag">Background</span></div>
+      <div class="tool-name">Background Remover</div>
+      <div class="tool-desc">Remove image background automatically & get transparent PNG</div>
+      <a href="background-remover.html" class="tool-link" onclick="ga('image_tool','Background Remover')">Use Tool →</a>
     </div>
   </div>
 
-  <!-- mid ad (optional but consistent) -->
-  <div style="display:flex; justify-content:center; margin: 1rem 0 1rem;">
-    <div class="adslot" style="width:728px; max-width:100%; height:90px; background:#f8f9fa;">📢 Responsive Ad · Video Tools Page</div>
+  <!-- MID RESPONSIVE AD (exactly as requested - after 10 tools) -->
+  <div class="ad-mid">
+    <div class="adslot">📢 Responsive Mid Ad · 728×90 → 320×50</div>
   </div>
 
-  <div style="background:#fff; border-radius:20px; padding:1.6rem; margin-top:1rem; border:1px solid #e8eaed;">
-    <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:space-between; align-items:center;">
-      <div><span style="font-weight:700;">⚡ All video & audio tools work directly in browser</span><span style="font-size:.7rem; color:#5f6368; margin-left:.8rem;">No upload limits, private processing</span></div>
-      <a href="index.html" style="background:#1a73e8; color:#fff; padding:.4rem 1rem; border-radius:30px; font-size:.7rem; font-weight:600;">← Back to Home</a>
+  <!-- Browse Other Categories Section (exactly style from screenshot) -->
+  <div class="other-cats">
+    <div class="other-title"><span class="section-bar"></span>Browse Other Categories</div>
+    <div class="cats-grid">
+      <a href="calculator-tools.html" class="cat-item" onclick="ga('category','Calculators')"><span class="cat-ico">🧮</span><span class="cat-name">Calculators</span><span class="cat-count">10 tools</span></a>
+      <a href="text-tools.html" class="cat-item" onclick="ga('category','Text')"><span class="cat-ico">✍️</span><span class="cat-name">Text Tools</span><span class="cat-count">10 tools</span></a>
+      <a href="pdf-tools.html" class="cat-item" onclick="ga('category','PDF')"><span class="cat-ico">📑</span><span class="cat-name">PDF Tools</span><span class="cat-count">10 tools</span></a>
+      <a href="developer-tools.html" class="cat-item" onclick="ga('category','Developer')"><span class="cat-ico">💻</span><span class="cat-name">Developer</span><span class="cat-count">10 tools</span></a>
+      <a href="seo-tools.html" class="cat-item" onclick="ga('category','SEO')"><span class="cat-ico">🔍</span><span class="cat-name">SEO Tools</span><span class="cat-count">10 tools</span></a>
+      <a href="security-tools.html" class="cat-item" onclick="ga('category','Security')"><span class="cat-ico">🔐</span><span class="cat-name">Security</span><span class="cat-count">10 tools</span></a>
+      <a href="finance-tools.html" class="cat-item" onclick="ga('category','Finance')"><span class="cat-ico">💰</span><span class="cat-name">Finance</span><span class="cat-count">10 tools</span></a>
+      <a href="design-tools.html" class="cat-item" onclick="ga('category','Design')"><span class="cat-ico">🎨</span><span class="cat-name">Design</span><span class="cat-count">10 tools</span></a>
+      <a href="video-audio-tools.html" class="cat-item" onclick="ga('category','Video & Audio')"><span class="cat-ico">🎬</span><span class="cat-name">Video & Audio</span><span class="cat-count">10 tools</span></a>
     </div>
   </div>
 </div>
@@ -226,24 +241,24 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 <footer class="ftr">
   <div class="ftr-in">
     <div class="ftr-top">
-      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required.</p></div>
-      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
-      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="image-compressor.html">Image Compressor</a></li><li><a href="qr-code.html">QR Generator</a></li><li><a href="pdf-to-word.html">PDF to Word</a></li></ul></div>
-      <div class="fc"><h4>Resources</h4><ul><li><a href="sitemap.html">Sitemap</a></li><li><a href="blog.html">Blog</a></li><li><a href="feedback.html">Feedback</a></li></ul></div>
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
+      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="image-compressor.html">Image Compressor</a></li><li><a href="qr-code.html">QR Code Generator</a></li><li><a href="pdf-to-word.html">PDF to Word</a></li></ul></div>
+      <div class="fc"><h4>Resources</h4><ul><li><a href="sitemap.html">Sitemap</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
     </div>
     <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div></div>
   </div>
 </footer>
 
 <script>
-// GA4 simulation (matches homepage pattern)
+// GA4 simulation (consistent with homepage)
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'G-535630536');
 function ga(ev, lbl){ gtag('event', ev, { event_category: 'ToolNex', event_label: lbl }); }
 
-// live search redirect to homepage's global search (optional)
+// simple search redirect (keep consistent)
 document.getElementById('searchInput')?.addEventListener('keypress', function(e){
   if(e.key === 'Enter'){
     let val = this.value.trim();
@@ -252,8 +267,8 @@ document.getElementById('searchInput')?.addEventListener('keypress', function(e)
   }
 });
 
-// small animation on cards + impression tracking for video tools
-const cards = document.querySelectorAll('.tool-card');
+// fade in animation for cards + category items
+const fadeItems = document.querySelectorAll('.tool-card, .cat-item');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
@@ -263,15 +278,15 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.05 });
-cards.forEach((card, idx) => {
-  card.style.opacity = '0';
-  card.style.transform = 'translateY(12px)';
-  card.style.transition = `opacity 0.25s ${idx * 0.03}s ease, transform 0.25s ${idx * 0.03}s ease, border-color 0.2s`;
-  observer.observe(card);
+fadeItems.forEach((el, idx) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(10px)';
+  el.style.transition = `opacity 0.25s ${idx * 0.02}s ease, transform 0.25s ${idx * 0.02}s ease, border-color 0.15s`;
+  observer.observe(el);
 });
 
-// also track category view event
-gtag('event', 'view_category', { event_category: 'ToolNex', event_label: 'Video_Audio_Category' });
+// track page view for image category
+gtag('event', 'view_category', { event_category: 'ToolNex', event_label: 'Image_Tools' });
 </script>
 </body>
 </html>
