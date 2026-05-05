@@ -10,9 +10,6 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://toolnex.site/video-audio-tools.html">
-<meta property="og:title" content="Video & Audio Tools – 10+ Free Media Tools | ToolNex">
-<meta property="og:description" content="Free online video & audio tools: compressor, cutter, converter, extractor. No registration, 100% free.">
-<meta name="twitter:card" content="summary_large_image">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
@@ -80,8 +77,10 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 .section-bar{width:3px;height:16px;background:#1a73e8;border-radius:2px;}
 .tools-count{font-size:.7rem;color:#9aa0a6;background:#f1f3f4;padding:.2rem .7rem;border-radius:20px;}
 
-/* tools grid - 2 lines mein */
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.9rem;margin-bottom:.5rem;}
+/* tools grid - 2 LINES MEIN (2 columns on desktop) */
+.tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:.5rem;}
+@media(max-width:600px){.tools-grid{grid-template-columns:1fr;}}
+
 .tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1rem 1rem;transition:border-color .15s,box-shadow .15s,transform .2s;}
 .tool-card:hover{border-color:#1a73e8;box-shadow:0 4px 14px rgba(26,115,232,.1);transform:translateY(-2px);}
 .tool-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;}
@@ -93,15 +92,16 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 .tool-link:hover{gap:.4rem;}
 
 /* mid ad - responsive */
-.ad-mid{display:flex;justify-content:center;margin:1.2rem 0 1.5rem;}
+.ad-mid{display:flex;justify-content:center;margin:1.5rem 0 1.8rem;}
 .ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
 @media(max-width:740px){.ad-mid .adslot{width:468px;height:60px;}}
 @media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
 
-/* browse other categories - 3 lines mein */
+/* browse other categories - 3 LINES MEIN (3 columns on desktop) */
 .other-cats{background:#fff;border:1px solid #e8eaed;border-radius:20px;padding:1.4rem 1.2rem;margin-top:1.2rem;}
 .other-title{font-size:.85rem;font-weight:700;color:#202124;display:flex;align-items:center;gap:.45rem;margin-bottom:1rem;}
-.cats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:.6rem;}
+.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;}
+@media(max-width:500px){.cats-grid{grid-template-columns:repeat(2,1fr);}}
 .cat-item{background:#f8f9fa;border:1px solid #e8eaed;border-radius:12px;padding:.7rem .2rem;text-align:center;transition:border-color .15s,transform .15s;display:flex;flex-direction:column;align-items:center;gap:.2rem;}
 .cat-item:hover{border-color:#1a73e8;transform:translateY(-2px);}
 .cat-ico{font-size:1.2rem;}
@@ -160,7 +160,7 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
     <div class="tools-count">10 tools</div>
   </div>
 
-  <!-- 10 Video & Audio Tools - 2 lines mein grid -->
+  <!-- 10 Video & Audio Tools - 2 LINES MEIN GRID (2 columns) -->
   <div class="tools-grid">
     <div class="tool-card">
       <div class="tool-row"><span class="tool-icon">🎞️</span><span class="tool-tag">Compress</span></div>
@@ -229,7 +229,7 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
     <div class="adslot">📢 Responsive Mid Ad · 728×90 → 320×50</div>
   </div>
 
-  <!-- Browse Other Categories - 3 lines mein -->
+  <!-- Browse Other Categories - 3 LINES MEIN GRID (3 columns) -->
   <div class="other-cats">
     <div class="other-title"><span class="section-bar"></span>Browse Other Categories</div>
     <div class="cats-grid">
@@ -259,13 +259,6 @@ button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 </footer>
 
 <script>
-// Google Analytics
-window.dataLayer = window.dataLayer || [];
-function gtag(){ dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', 'G-535630536');
-function ga(ev, lbl){ gtag('event', ev, { event_category: 'ToolNex', event_label: lbl }); }
-
 // search redirect
 document.getElementById('searchInput')?.addEventListener('keypress', function(e){
   if(e.key === 'Enter'){
@@ -292,9 +285,6 @@ fadeItems.forEach((el, idx) => {
   el.style.transition = `opacity 0.25s ${idx * 0.02}s ease, transform 0.25s ${idx * 0.02}s ease`;
   observer.observe(el);
 });
-
-// track category view
-gtag('event', 'view_category', { event_category: 'ToolNex', event_label: 'Video_Audio_Tools' });
 </script>
 </body>
 </html>
