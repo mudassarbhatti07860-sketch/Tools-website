@@ -4,287 +4,184 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <title>Video & Audio Tools – 10+ Free Media Tools | ToolNex</title>
-<meta name="description" content="10+ free online video and audio tools — Video Compressor, Audio Cutter, Video to MP3, YouTube Thumbnail Downloader, Online Video Cutter, and more. Fast, no sign-up.">
-<meta name="keywords" content="video tools, audio tools, video compressor, audio cutter, video to mp3, online video editor, audio converter, free video tools">
-<meta name="author" content="ToolNex">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#ffffff">
-<link rel="canonical" href="https://toolnex.site/video-audio-tools.html">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){ dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', 'G-535630536');
-function ga(ev, lbl){ gtag('event', ev, { event_category: 'ToolNex', event_label: lbl }); }
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;}
-a{text-decoration:none;color:inherit;}
-button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+/* RESET & BASE */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;}
 
-/* header */
+/* HEADER (same as before) */
 .hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
 .hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.65rem 1.2rem;}
-.logo{display:flex;align-items:center;gap:.35rem;font-size:1.2rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.2rem;font-weight:700;color:#202124;}
 .logo-accent{color:#1a73e8;}
-.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:background .15s,border-color .15s,box-shadow .15s;}
-.sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
-.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;padding:.1rem 0;}
-.sbar input::placeholder{color:#9aa0a6;}
-.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;cursor:pointer;transition:background .15s;white-space:nowrap;}
-.sbtn:hover{background:#1558c0;}
-.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
-.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
-.hdr-link:hover{background:#f1f3f4;color:#202124;}
+.sbar{flex:1;max-width:580px;display:flex;background:#f1f3f4;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-weight:600;cursor:pointer;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
 @media(max-width:650px){.hdr-links{display:none;}}
-@media(max-width:420px){.logo span:last-child{display:none;}}
 
-/* top ad */
+/* TOP AD */
 .ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;}
-.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;text-transform:uppercase;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;}
 .ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
 @media(max-width:740px){.ad-top .adslot{width:468px;height:60px;}}
 @media(max-width:500px){.ad-top .adslot{width:320px;height:50px;}}
 
-/* breadcrumb + hero */
-.breadcrumb{font-size:.7rem;color:#9aa0a6;margin-bottom:.8rem;}
-.breadcrumb a{color:#5f6368;}
-.breadcrumb a:hover{color:#1a73e8;}
-.breadcrumb span{color:#1a73e8;}
-.cat-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:2rem 1.2rem 1.8rem;text-align:center;}
-.cat-hero h1{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:700;color:#202124;margin-bottom:.5rem;}
+/* HERO */
+.cat-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:2rem 1.2rem;text-align:center;}
 .cat-hero h1 span{color:#1a73e8;}
-.cat-hero p{font-size:.9rem;color:#5f6368;max-width:520px;margin:0 auto;line-height:1.6;}
-.cat-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1rem;}
-.cat-chip{background:#f8f9fa;border:1px solid #e8eaed;border-radius:40px;padding:.2rem .8rem;font-size:.7rem;font-weight:600;color:#5f6368;}
-.cat-chip b{color:#1a73e8;}
+.cat-badges{display:flex;justify-content:center;gap:.5rem;margin-top:1rem;}
+.cat-chip{background:#f8f9fa;border:1px solid #e8eaed;border-radius:40px;padding:.2rem .8rem;font-size:.7rem;}
 
-.main{max-width:1180px;margin:0 auto;padding:2rem 1.2rem 3rem;}
+/* MAIN */
+.main{max-width:1180px;margin:0 auto;padding:2rem 1.2rem;}
 
-/* section header */
-.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;margin-top:.5rem;}
-.section-title{font-size:.9rem;font-weight:700;color:#202124;display:flex;align-items:center;gap:.45rem;}
-.section-bar{width:3px;height:16px;background:#1a73e8;border-radius:2px;}
-.tools-count{font-size:.7rem;color:#9aa0a6;background:#f1f3f4;padding:.2rem .7rem;border-radius:20px;}
+/* ---------- TOOLS GRID : FORCE 2 COLUMNS ---------- */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 600px) {
+  .tools-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+.tool-card {
+  background: #fff;
+  border: 1.5px solid #e8eaed;
+  border-radius: 14px;
+  padding: 1rem;
+  transition: 0.2s;
+}
+.tool-card:hover { border-color: #1a73e8; transform: translateY(-2px); }
+.tool-row { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+.tool-icon { font-size: 1.5rem; }
+.tool-tag { font-size: 0.6rem; background: #e8f0fe; color: #1a73e8; border-radius: 6px; padding: 0.15rem 0.5rem; }
+.tool-name { font-size: 0.85rem; font-weight: 700; margin: 0.3rem 0 0.2rem; }
+.tool-desc { font-size: 0.72rem; color: #5f6368; margin-bottom: 0.5rem; }
+.tool-link { font-size: 0.7rem; color: #1a73e8; font-weight: 600; text-decoration: none; }
 
-/* tools grid - 2 LINES MEIN (2 columns on desktop) */
-.tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:.5rem;}
-@media(max-width:600px){.tools-grid{grid-template-columns:1fr;}}
+/* MID AD */
+.ad-mid { display: flex; justify-content: center; margin: 1.5rem 0; }
+.ad-mid .adslot { width: 728px; max-width: 100%; height: 90px; }
+@media (max-width:740px){ .ad-mid .adslot { width: 468px; height: 60px; } }
+@media (max-width:500px){ .ad-mid .adslot { width: 320px; height: 50px; } }
 
-.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1rem 1rem;transition:border-color .15s,box-shadow .15s,transform .2s;}
-.tool-card:hover{border-color:#1a73e8;box-shadow:0 4px 14px rgba(26,115,232,.1);transform:translateY(-2px);}
-.tool-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;}
-.tool-icon{font-size:1.5rem;line-height:1;}
-.tool-tag{font-size:.6rem;font-weight:700;background:#e8f0fe;color:#1a73e8;border-radius:6px;padding:.15rem .5rem;text-transform:uppercase;}
-.tool-name{font-size:.85rem;font-weight:700;color:#202124;margin:.3rem 0 .2rem;}
-.tool-desc{font-size:.72rem;color:#9aa0a6;line-height:1.45;margin-bottom:.5rem;}
-.tool-link{font-size:.7rem;font-weight:600;color:#1a73e8;display:inline-flex;align-items:center;gap:.2rem;transition:gap .2s;}
-.tool-link:hover{gap:.4rem;}
+/* ---------- CATEGORIES GRID : FORCE 3 COLUMNS ---------- */
+.other-cats {
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 20px;
+  padding: 1.4rem;
+  margin-top: 1.2rem;
+}
+.other-title { font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.45rem; }
+.section-bar { width: 3px; height: 16px; background: #1a73e8; border-radius: 2px; }
+.cats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0.6rem;
+}
+@media (max-width: 600px) {
+  .cats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 400px) {
+  .cats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+.cat-item {
+  background: #f8f9fa;
+  border: 1px solid #e8eaed;
+  border-radius: 12px;
+  padding: 0.7rem 0.2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-decoration: none;
+}
+.cat-item:hover { border-color: #1a73e8; transform: translateY(-2px); }
+.cat-ico { font-size: 1.2rem; }
+.cat-name { font-size: 0.68rem; font-weight: 600; color: #202124; }
+.cat-count { font-size: 0.6rem; color: #9aa0a6; }
 
-/* mid ad - responsive */
-.ad-mid{display:flex;justify-content:center;margin:1.5rem 0 1.8rem;}
-.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
-@media(max-width:740px){.ad-mid .adslot{width:468px;height:60px;}}
-@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
-
-/* browse other categories - 3 LINES MEIN (3 columns on desktop) */
-.other-cats{background:#fff;border:1px solid #e8eaed;border-radius:20px;padding:1.4rem 1.2rem;margin-top:1.2rem;}
-.other-title{font-size:.85rem;font-weight:700;color:#202124;display:flex;align-items:center;gap:.45rem;margin-bottom:1rem;}
-.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;}
-@media(max-width:500px){.cats-grid{grid-template-columns:repeat(2,1fr);}}
-.cat-item{background:#f8f9fa;border:1px solid #e8eaed;border-radius:12px;padding:.7rem .2rem;text-align:center;transition:border-color .15s,transform .15s;display:flex;flex-direction:column;align-items:center;gap:.2rem;}
-.cat-item:hover{border-color:#1a73e8;transform:translateY(-2px);}
-.cat-ico{font-size:1.2rem;}
-.cat-name{font-size:.68rem;font-weight:600;color:#202124;}
-.cat-count{font-size:.6rem;color:#9aa0a6;}
-
-/* footer */
-.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;margin-top:2rem;}
+/* FOOTER */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem;margin-top:2rem;}
 .ftr-in{max-width:1180px;margin:0 auto;}
-.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
-@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
-.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;}}
+.ftr-brand-nm{font-weight:700;}
 .ftr-brand-nm span{color:#1a73e8;}
-.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
-.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
-.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
-.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
-.fc ul li a:hover{color:#1a73e8;}
-.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
-.ftr-copy{font-size:.68rem;color:#9aa0a6;}
-.ftr-lnk{display:flex;gap:.8rem;}
-.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
-.ftr-lnk a:hover{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;margin-top:.4rem;}
+.fc h4{font-size:.69rem;margin-bottom:.6rem;}
+.fc ul{list-style:none;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.ftr-bot{display:flex;justify-content:space-between;margin-top:1rem;padding-top:.9rem;border-top:1px solid #e8eaed;font-size:.68rem;}
 </style>
 </head>
 <body>
 
 <header class="hdr">
   <div class="hdr-inner">
-    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
-    <div class="sbar">
-      <input type="search" id="searchInput" placeholder="Search 100+ tools..." autocomplete="off">
-      <button class="sbtn" onclick="window.location.href='index.html'">Search</button>
-    </div>
+    <a href="index.html" class="logo">🛠️ Tool<span class="logo-accent">Nex</span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..."></div>
+    <button class="sbtn" onclick="window.location.href='index.html'">Search</button>
     <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
   </div>
 </header>
 
-<div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50</div></div>
+<div class="ad-top"><div class="adslot">📢 Top Banner Ad</div></div>
 
 <div class="cat-hero">
-  <div class="breadcrumb"><a href="index.html">Home</a> / <span>Video & Audio Tools</span></div>
   <h1><span>VIDEO & AUDIO</span> TOOLS</h1>
-  <p>Free Online Video & Audio Tools — Compress, cut, convert, extract & edit media. 10 powerful tools — no sign-up, always free.</p>
-  <div class="cat-badges">
-    <div class="cat-chip"><b>10</b> Media Tools</div>
-    <div class="cat-chip"><b>100%</b> Free</div>
-    <div class="cat-chip"><b>Zero</b> Sign-up</div>
-    <div class="cat-chip"><b>Fast</b> & Secure</div>
-  </div>
+  <p>10 powerful media tools — compress, cut, convert. No sign-up.</p>
+  <div class="cat-badges"><div class="cat-chip">10 Tools</div><div class="cat-chip">100% Free</div></div>
 </div>
 
 <div class="main">
-  <div class="section-header">
-    <div class="section-title"><span class="section-bar"></span>All Video & Audio Tools</div>
-    <div class="tools-count">10 tools</div>
-  </div>
-
-  <!-- 10 Video & Audio Tools - 2 LINES MEIN GRID (2 columns) -->
+  <!-- 10 tools - 2 COLUMNS (exactly 2 per row) -->
   <div class="tools-grid">
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">🎞️</span><span class="tool-tag">Compress</span></div>
-      <div class="tool-name">Video Compressor</div>
-      <div class="tool-desc">Reduce video file size up to 80% without losing quality</div>
-      <a href="video-compressor.html" class="tool-link" onclick="ga('video_tool','Video Compressor')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">✂️</span><span class="tool-tag">Trim & Cut</span></div>
-      <div class="tool-name">Online Video Cutter</div>
-      <div class="tool-desc">Trim, crop, and cut any video clip — remove unwanted parts</div>
-      <a href="video-cutter.html" class="tool-link" onclick="ga('video_tool','Video Cutter')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">🔊</span><span class="tool-tag">Audio</span></div>
-      <div class="tool-name">Audio Cutter & Trimmer</div>
-      <div class="tool-desc">Cut MP3, WAV, M4A audio tracks — make ringtones easily</div>
-      <a href="audio-cutter.html" class="tool-link" onclick="ga('video_tool','Audio Cutter')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">🎵</span><span class="tool-tag">Convert</span></div>
-      <div class="tool-name">Video to MP3 Converter</div>
-      <div class="tool-desc">Extract high-quality audio from any video file instantly</div>
-      <a href="video-to-mp3.html" class="tool-link" onclick="ga('video_tool','Video to MP3')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">🔄</span><span class="tool-tag">Convert</span></div>
-      <div class="tool-name">Audio Converter</div>
-      <div class="tool-desc">Convert between MP3, WAV, OGG, M4A, FLAC formats</div>
-      <a href="audio-converter.html" class="tool-link" onclick="ga('video_tool','Audio Converter')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">⏺️</span><span class="tool-tag">Record</span></div>
-      <div class="tool-name">Video Recorder</div>
-      <div class="tool-desc">Record screen, webcam, or both for tutorials & vlogs</div>
-      <a href="video-recorder.html" class="tool-link" onclick="ga('video_tool','Video Recorder')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">🖼️</span><span class="tool-tag">GIF</span></div>
-      <div class="tool-name">Video to GIF Maker</div>
-      <div class="tool-desc">Turn any video clip into an animated GIF for social media</div>
-      <a href="video-to-gif.html" class="tool-link" onclick="ga('video_tool','Video to GIF')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">🔄🖼️</span><span class="tool-tag">Format</span></div>
-      <div class="tool-name">Video Format Converter</div>
-      <div class="tool-desc">Convert MP4, AVI, MOV, MKV, WebM — any device compatible</div>
-      <a href="video-converter.html" class="tool-link" onclick="ga('video_tool','Video Converter')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">⏯️</span><span class="tool-tag">Download</span></div>
-      <div class="tool-name">YouTube Thumbnail Downloader</div>
-      <div class="tool-desc">Download HD/4K YouTube video thumbnails with one click</div>
-      <a href="youtube-thumbnail.html" class="tool-link" onclick="ga('video_tool','YT Thumbnail')">Use Tool →</a>
-    </div>
-    <div class="tool-card">
-      <div class="tool-row"><span class="tool-icon">🗜️🎵</span><span class="tool-tag">Compress</span></div>
-      <div class="tool-name">Audio Compressor</div>
-      <div class="tool-desc">Reduce audio file size while preserving sound clarity</div>
-      <a href="audio-compressor.html" class="tool-link" onclick="ga('video_tool','Audio Compressor')">Use Tool →</a>
-    </div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">🎞️</span><span class="tool-tag">Compress</span></div><div class="tool-name">Video Compressor</div><div class="tool-desc">Reduce video size up to 80%</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">✂️</span><span class="tool-tag">Cut</span></div><div class="tool-name">Video Cutter</div><div class="tool-desc">Trim & crop any video</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">🔊</span><span class="tool-tag">Audio</span></div><div class="tool-name">Audio Cutter</div><div class="tool-desc">Cut MP3, WAV, M4A</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">🎵</span><span class="tool-tag">Convert</span></div><div class="tool-name">Video to MP3</div><div class="tool-desc">Extract audio from video</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">🔄</span><span class="tool-tag">Convert</span></div><div class="tool-name">Audio Converter</div><div class="tool-desc">MP3, WAV, OGG, FLAC</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">⏺️</span><span class="tool-tag">Record</span></div><div class="tool-name">Video Recorder</div><div class="tool-desc">Screen + webcam</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">🖼️</span><span class="tool-tag">GIF</span></div><div class="tool-name">Video to GIF</div><div class="tool-desc">Make animated GIFs</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">🔄🖼️</span><span class="tool-tag">Format</span></div><div class="tool-name">Video Converter</div><div class="tool-desc">MP4, AVI, MOV, MKV</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">⏯️</span><span class="tool-tag">Download</span></div><div class="tool-name">YT Thumbnail Downloader</div><div class="tool-desc">HD/4K thumbnails</div><a href="#" class="tool-link">Use Tool →</a></div>
+    <div class="tool-card"><div class="tool-row"><span class="tool-icon">🗜️🎵</span><span class="tool-tag">Compress</span></div><div class="tool-name">Audio Compressor</div><div class="tool-desc">Reduce audio size</div><a href="#" class="tool-link">Use Tool →</a></div>
   </div>
 
-  <!-- MID RESPONSIVE AD (10 tools ke baad) -->
-  <div class="ad-mid">
-    <div class="adslot">📢 Responsive Mid Ad · 728×90 → 320×50</div>
-  </div>
+  <!-- RESPONSIVE MID AD -->
+  <div class="ad-mid"><div class="adslot">📢 Mid Ad (Responsive)</div></div>
 
-  <!-- Browse Other Categories - 3 LINES MEIN GRID (3 columns) -->
+  <!-- BROWSE CATEGORIES - 3 COLUMNS -->
   <div class="other-cats">
     <div class="other-title"><span class="section-bar"></span>Browse Other Categories</div>
     <div class="cats-grid">
-      <a href="calculator-tools.html" class="cat-item"><span class="cat-ico">🧮</span><span class="cat-name">Calculators</span><span class="cat-count">10 tools</span></a>
-      <a href="text-tools.html" class="cat-item"><span class="cat-ico">✍️</span><span class="cat-name">Text Tools</span><span class="cat-count">10 tools</span></a>
-      <a href="image-tools.html" class="cat-item"><span class="cat-ico">🖼️</span><span class="cat-name">Image Tools</span><span class="cat-count">10 tools</span></a>
-      <a href="pdf-tools.html" class="cat-item"><span class="cat-ico">📑</span><span class="cat-name">PDF Tools</span><span class="cat-count">10 tools</span></a>
-      <a href="developer-tools.html" class="cat-item"><span class="cat-ico">💻</span><span class="cat-name">Developer</span><span class="cat-count">10 tools</span></a>
-      <a href="seo-tools.html" class="cat-item"><span class="cat-ico">🔍</span><span class="cat-name">SEO Tools</span><span class="cat-count">10 tools</span></a>
-      <a href="security-tools.html" class="cat-item"><span class="cat-ico">🔐</span><span class="cat-name">Security</span><span class="cat-count">10 tools</span></a>
-      <a href="finance-tools.html" class="cat-item"><span class="cat-ico">💰</span><span class="cat-name">Finance</span><span class="cat-count">10 tools</span></a>
-      <a href="design-tools.html" class="cat-item"><span class="cat-ico">🎨</span><span class="cat-name">Design</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">🧮</span><span class="cat-name">Calculators</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">✍️</span><span class="cat-name">Text Tools</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">🖼️</span><span class="cat-name">Image Tools</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">📑</span><span class="cat-name">PDF Tools</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">💻</span><span class="cat-name">Developer</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">🔍</span><span class="cat-name">SEO Tools</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">🔐</span><span class="cat-name">Security</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">💰</span><span class="cat-name">Finance</span><span class="cat-count">10 tools</span></a>
+      <a href="#" class="cat-item"><span class="cat-ico">🎨</span><span class="cat-name">Design</span><span class="cat-count">10 tools</span></a>
     </div>
   </div>
 </div>
 
 <footer class="ftr">
-  <div class="ftr-in">
-    <div class="ftr-top">
-      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p></div>
-      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
-      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="image-compressor.html">Image Compressor</a></li><li><a href="qr-code.html">QR Code Generator</a></li><li><a href="pdf-to-word.html">PDF to Word</a></li></ul></div>
-      <div class="fc"><h4>Resources</h4><ul><li><a href="sitemap.html">Sitemap</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
-    </div>
-    <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div></div>
-  </div>
+  <div class="ftr-in"><div class="ftr-top"><div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone.</p></div><div class="fc"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Contact</a></li></ul></div><div class="fc"><h4>Popular</h4><ul><li><a href="#">Age Calculator</a></li><li><a href="#">Image Compressor</a></li></ul></div><div class="fc"><h4>Resources</h4><ul><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div></div><div class="ftr-bot"><div>© 2026 ToolNex</div><div><a href="#">Privacy</a> | <a href="#">Terms</a></div></div></div>
 </footer>
-
-<script>
-// search redirect
-document.getElementById('searchInput')?.addEventListener('keypress', function(e){
-  if(e.key === 'Enter'){
-    let val = this.value.trim();
-    if(val) window.location.href = `index.html?q=${encodeURIComponent(val)}`;
-    else window.location.href = 'index.html';
-  }
-});
-
-// fade in animation
-const fadeItems = document.querySelectorAll('.tool-card, .cat-item');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.05 });
-fadeItems.forEach((el, idx) => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(10px)';
-  el.style.transition = `opacity 0.25s ${idx * 0.02}s ease, transform 0.25s ${idx * 0.02}s ease`;
-  observer.observe(el);
-});
-</script>
 </body>
 </html>
