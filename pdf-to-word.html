@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-535630536');
+  function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}
+</script>
+
+<!-- SEO -->
+<title>PDF to Word Converter – Convert PDF to DOCX Free Online | ToolNex</title>
+<meta name="description" content="Free PDF to Word Converter online – Convert PDF to editable Word DOCX documents instantly. Extract text, preserve formatting, download as .docx. No sign-up required. Fast and free PDF to Word conversion."/>
+<meta name="keywords" content="pdf to word, pdf to word converter free online, convert pdf to docx, pdf to word online free, pdf to editable word, pdf converter, pdf to doc, convert pdf to word 2026, free pdf converter, pdf to word no sign up, pdf text extractor, pdf to docx converter"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="theme-color" content="#1a73e8"/>
+<link rel="canonical" href="https://toolnex.site/pdf-to-word.html"/>
+<meta property="og:title" content="PDF to Word Converter – Convert PDF to DOCX Free Online | ToolNex"/>
+<meta property="og:description" content="Convert PDF to editable Word DOCX documents free. Extract text, preserve formatting, instant download. No sign-up."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/pdf-to-word.html"/>
+<meta property="og:site_name" content="ToolNex"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="PDF to Word – Free PDF to DOCX Converter | ToolNex"/>
+<meta name="twitter:description" content="Convert PDF to editable Word DOCX free online. No sign-up, instant download."/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to Word Converter","url":"https://toolnex.site/pdf-to-word.html","description":"Free online PDF to Word Converter – Convert PDF files to editable DOCX Word documents.","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolNex","url":"https://toolnex.site/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://toolnex.site/"},{"@type":"ListItem","position":2,"name":"PDF Tools","item":"https://toolnex.site/pdf-tools.html"},{"@type":"ListItem","position":3,"name":"PDF to Word","item":"https://toolnex.site/pdf-to-word.html"}]}</script>
+
+<!-- PDF.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+
+/* HEADER */
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:background .15s,border-color .15s,box-shadow .15s;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;transition:background .15s;white-space:nowrap;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
+.hdr-link:hover{background:#f1f3f4;color:#202124;}
+@media(max-width:650px){.hdr-links{display:none;}}
+@media(max-width:420px){.logo span:last-child{display:none;}}
+
+/* ADS */
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+.ad-mid{display:flex;justify-content:center;padding:.5rem;margin:1.2rem 0;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}.ad-mid .adslot{width:468px;height:60px;}}
+@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+
+/* TOOL HERO */
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#ffebee;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+
+/* MAIN */
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+
+/* CARDS */
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+
+/* DROP ZONE */
+.drop-zone{border:2px dashed #fca5a5;background:linear-gradient(135deg,#fff5f5,#fff8f8);border-radius:14px;padding:2.2rem 1.5rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;}
+.drop-zone:hover,.drop-zone.dragover{border-color:#ef4444;background:linear-gradient(135deg,#fee2e2,#fff0f0);box-shadow:0 0 0 4px rgba(239,68,68,.08);}
+.drop-zone-icon{font-size:2.5rem;margin-bottom:.6rem;display:block;}
+.drop-zone-title{font-size:.95rem;font-weight:700;color:#202124;margin-bottom:.3rem;}
+.drop-zone-sub{font-size:.78rem;color:#5f6368;margin-bottom:1rem;}
+.drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.browse-btn{display:inline-flex;align-items:center;gap:.4rem;background:#ef4444;color:#fff;border:none;border-radius:10px;padding:.55rem 1.3rem;font-size:.82rem;font-weight:600;margin-top:.8rem;pointer-events:none;}
+
+/* OPTIONS */
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1rem;}
+@media(max-width:460px){.options-grid{grid-template-columns:1fr;}}
+.opt-group{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.85rem;}
+.opt-label{font-size:.73rem;font-weight:700;color:#3c4043;margin-bottom:.5rem;display:block;}
+.inp{width:100%;background:#fff;border:1.5px solid #e8eaed;border-radius:8px;padding:.52rem .75rem;font-size:.84rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .15s;}
+.inp:focus{border-color:#1a73e8;}
+select.inp{cursor:pointer;}
+
+/* OPT TOGGLE */
+.opt-toggle{display:flex;gap:.3rem;flex-wrap:wrap;}
+.opt-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:8px;padding:.28rem .7rem;font-size:.72rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;}
+.opt-btn:hover{border-color:#1a73e8;color:#1a73e8;}
+.opt-btn.active{background:#1a73e8;border-color:#1a73e8;color:#fff;}
+
+/* CHECKBOX ROW */
+.chk-row{display:flex;align-items:center;gap:.5rem;margin-top:.4rem;}
+.chk-row input[type=checkbox]{accent-color:#1a73e8;width:15px;height:15px;cursor:pointer;}
+.chk-row label{font-size:.76rem;color:#3c4043;cursor:pointer;}
+
+/* CONVERT BTN */
+.convert-btn{width:100%;background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;border:none;border-radius:12px;padding:.85rem;font-size:.93rem;font-weight:700;transition:opacity .15s,transform .1s,box-shadow .15s;margin-top:1rem;letter-spacing:.01em;}
+.convert-btn:hover:not(:disabled){opacity:.92;box-shadow:0 4px 16px rgba(239,68,68,.35);transform:translateY(-1px);}
+.convert-btn:disabled{background:#9aa0a6;cursor:not-allowed;}
+.convert-btn:active{transform:translateY(0);}
+.reset-btn{width:100%;background:#f8f9fa;color:#5f6368;border:1.5px solid #e8eaed;border-radius:12px;padding:.65rem;font-size:.83rem;font-weight:600;transition:background .15s;margin-top:.55rem;}
+.reset-btn:hover{background:#e8eaed;}
+
+/* FILE INFO */
+.file-info-bar{display:none;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.85rem;margin-top:.8rem;align-items:center;gap:.8rem;}
+.file-info-bar.show{display:flex;}
+.file-info-icon{font-size:1.8rem;flex-shrink:0;}
+.file-info-name{font-size:.82rem;font-weight:700;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px;}
+.file-info-meta{font-size:.7rem;color:#9aa0a6;margin-top:.1rem;}
+.file-info-rm{background:none;border:none;font-size:1rem;color:#9aa0a6;cursor:pointer;margin-left:auto;padding:.2rem .4rem;border-radius:5px;transition:color .13s;flex-shrink:0;}
+.file-info-rm:hover{color:#ef4444;}
+
+/* PROGRESS */
+.progress-wrap{display:none;margin-top:1rem;}
+.progress-wrap.show{display:block;}
+.progress-bar-track{height:10px;background:#e8eaed;border-radius:5px;overflow:hidden;margin:.5rem 0;}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,#ef4444,#f97316);border-radius:5px;width:0%;transition:width .3s ease;}
+.progress-steps{display:flex;flex-direction:column;gap:.35rem;margin-top:.6rem;}
+.progress-step{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:#9aa0a6;}
+.progress-step.done{color:#22c55e;}
+.progress-step.active{color:#1a73e8;font-weight:600;}
+.progress-step.active::before{content:'';display:inline-block;width:8px;height:8px;border:2px solid #1a73e8;border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0;}
+.progress-step.done::before{content:'✓';font-weight:700;color:#22c55e;font-size:.7rem;}
+.progress-step.wait::before{content:'○';color:#e8eaed;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* RESULT */
+.result-section{display:none;margin-top:1rem;}
+.result-section.show{display:block;animation:fadeUp .35s ease forwards;}
+
+/* RESULT HERO */
+.result-hero{background:linear-gradient(135deg,#1a73e8,#0d5bcd);border-radius:14px;padding:1.2rem;text-align:center;margin-bottom:1rem;position:relative;overflow:hidden;}
+.result-hero::before{content:'';position:absolute;top:-30px;right:-30px;width:110px;height:110px;background:rgba(255,255,255,.08);border-radius:50%;}
+.rh-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;position:relative;z-index:1;}
+@media(max-width:460px){.rh-grid{grid-template-columns:repeat(2,1fr);}}
+.rh-item{text-align:center;}
+.rh-label{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.2rem;}
+.rh-value{font-size:1rem;font-weight:700;color:#fff;line-height:1;}
+
+/* PREVIEW AREA */
+.preview-area{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;margin-bottom:1rem;overflow:hidden;}
+.preview-header{padding:.7rem 1rem;background:#fff;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;}
+.preview-title{font-size:.78rem;font-weight:700;color:#202124;}
+.preview-actions{display:flex;gap:.4rem;}
+.prev-btn{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:7px;padding:.28rem .7rem;font-size:.72rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;}
+.prev-btn:hover{border-color:#1a73e8;color:#1a73e8;}
+.prev-btn.active{background:#e8f0fe;border-color:#1a73e8;color:#1a73e8;}
+.preview-body{padding:1rem;max-height:320px;overflow-y:auto;}
+.preview-body.docx-view{font-family:Georgia,serif;font-size:.85rem;line-height:1.8;color:#202124;white-space:pre-wrap;word-break:break-word;}
+.preview-body.raw-view{font-family:'Courier New',monospace;font-size:.72rem;line-height:1.6;color:#5f6368;white-space:pre-wrap;word-break:break-word;}
+.page-sep{border:none;border-top:2px dashed #e8eaed;margin:1rem 0;display:flex;align-items:center;justify-content:center;}
+.page-sep::after{content:attr(data-page);font-size:.65rem;color:#9aa0a6;background:#f8f9fa;padding:.1rem .5rem;margin-top:-1px;}
+
+/* DETAIL ROWS */
+.detail-row{display:flex;align-items:center;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid #f1f3f4;}
+.detail-row:last-child{border-bottom:none;}
+.detail-label{font-size:.8rem;color:#5f6368;display:flex;align-items:center;gap:.4rem;}
+.detail-value{font-size:.82rem;font-weight:700;color:#202124;}
+.detail-value.green{color:#22c55e;}
+
+/* DOWNLOAD BTNS */
+.dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.8rem;}
+@media(max-width:400px){.dl-grid{grid-template-columns:1fr;}}
+.dl-btn{display:flex;align-items:center;justify-content:center;gap:.4rem;border:none;border-radius:11px;padding:.75rem;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .15s;}
+.dl-docx{background:#1a73e8;color:#fff;}
+.dl-docx:hover{background:#1558c0;box-shadow:0 3px 12px rgba(26,115,232,.3);}
+.dl-txt{background:#22c55e;color:#fff;}
+.dl-txt:hover{background:#15803d;box-shadow:0 3px 12px rgba(34,197,94,.3);}
+
+/* PAGE THUMBNAILS */
+.thumbnails-wrap{display:flex;gap:.5rem;overflow-x:auto;padding:.3rem 0;scrollbar-width:thin;}
+.thumb-item{flex-shrink:0;border:2px solid #e8eaed;border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .13s;}
+.thumb-item.active{border-color:#1a73e8;}
+.thumb-item:hover{border-color:#1a73e8;}
+.thumb-canvas{display:block;width:70px;height:90px;object-fit:cover;}
+.thumb-label{font-size:.58rem;text-align:center;padding:.2rem;background:#f8f9fa;color:#9aa0a6;}
+
+/* CATEGORY BROWSER */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+@media(max-width:440px){.cg{grid-template-columns:repeat(3,1fr);gap:.5rem;}}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:transform .18s;}
+.cc:hover .cc-ico{transform:scale(1.1);}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}
+[data-c="text"] .cc-ico{background:#e8f5e9;}
+[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}
+[data-c="dev"] .cc-ico{background:#e3f2fd;}
+[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}
+[data-c="fin"] .cc-ico{background:#e8f5e9;}
+[data-c="des"] .cc-ico{background:#fff8e1;}
+[data-c="vid"] .cc-ico{background:#fce4ec;}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#ffebee;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+
+/* NOTICE BANNER */
+.notice-banner{background:#fff3cd;border:1.5px solid #ffc107;border-radius:10px;padding:.75rem 1rem;margin-bottom:.8rem;font-size:.76rem;color:#856404;display:flex;gap:.5rem;align-items:flex-start;}
+.notice-banner .nb-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+
+/* FAQ */
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* FOOTER */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+@media(max-width:360px){.ftr-top{grid-template-columns:1fr;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
+.ftr-lnk a:hover{color:#1a73e8;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar">
+      <input type="search" placeholder="Search 100+ tools…" autocomplete="off" spellcheck="false" aria-label="Search tools" onkeydown="if(event.key==='Enter')window.location='index.html?q='+this.value"/>
+      <button class="sbtn" onclick="window.location='index.html'">Search</button>
+    </div>
+    <nav class="hdr-links">
+      <a href="about.html" class="hdr-link">About</a>
+      <a href="contact.html" class="hdr-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TOP BANNER AD -->
+<div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50 Mobile</div></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span>
+  <a href="pdf-tools.html">PDF Tools</a><span class="sep">›</span>
+  <span class="cur">PDF to Word</span>
+</nav>
+
+<!-- TOOL HERO -->
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">📄</div>
+    <div class="tool-hero-text">
+      <h1>PDF to Word Converter – Convert PDF to DOCX Free</h1>
+      <p>Convert PDF files to editable Word DOCX documents instantly in your browser. Extracts all text with formatting, page structure, headings and paragraphs preserved. Download as .docx or .txt. Works 100% client-side — your files never leave your device.</p>
+      <div class="tool-hero-tags">
+        <span class="tool-tag">🆓 Free</span>
+        <span class="tool-tag">⚡ Instant</span>
+        <span class="tool-tag">📝 Editable DOCX</span>
+        <span class="tool-tag">🔒 Private (Client-side)</span>
+        <span class="tool-tag">📋 Text Preserve</span>
+        <span class="tool-tag">✅ No Sign-up</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+
+  <!-- CONVERTER CARD -->
+  <div class="tool-card">
+    <div class="tool-card-header">
+      <h2>📄 PDF to Word Converter</h2>
+      <span style="font-size:.72rem;color:#22c55e;font-weight:600;">🔒 Private — PDF never leaves your device</span>
+    </div>
+    <div class="tool-card-body">
+
+      <div class="notice-banner">
+        <span class="nb-ico">ℹ️</span>
+        <span>This tool extracts text and structure from your PDF and creates an editable Word (.docx) file. Complex layouts, images and scanned PDFs may not convert perfectly — best for text-based PDFs.</span>
+      </div>
+
+      <!-- Drop Zone -->
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" accept=".pdf,application/pdf"/>
+        <span class="drop-zone-icon">📑</span>
+        <div class="drop-zone-title">Drop your PDF here or click to browse</div>
+        <div class="drop-zone-sub">Supports PDF files up to 50MB · Processed entirely in your browser</div>
+        <div class="browse-btn">📂 Browse PDF File</div>
+      </div>
+
+      <!-- File Info Bar -->
+      <div class="file-info-bar" id="fileInfoBar">
+        <span class="file-info-icon">📑</span>
+        <div style="min-width:0;flex:1;">
+          <div class="file-info-name" id="fileName">—</div>
+          <div class="file-info-meta" id="fileMeta">—</div>
+        </div>
+        <button class="file-info-rm" onclick="clearFile()" title="Remove">✕</button>
+      </div>
+
+      <!-- Options -->
+      <div class="options-grid">
+        <div class="opt-group">
+          <span class="opt-label">📝 Output Format</span>
+          <div class="opt-toggle">
+            <button class="opt-btn active" id="fmtDocx" onclick="setOutputFmt('docx',this)">📝 DOCX</button>
+            <button class="opt-btn" id="fmtTxt" onclick="setOutputFmt('txt',this)">📄 TXT</button>
+            <button class="opt-btn" id="fmtBoth" onclick="setOutputFmt('both',this)">📦 Both</button>
+          </div>
+        </div>
+        <div class="opt-group">
+          <span class="opt-label">📄 Page Range</span>
+          <div class="opt-toggle" style="margin-bottom:.5rem;">
+            <button class="opt-btn active" id="pgAll" onclick="setPageMode('all',this)">All Pages</button>
+            <button class="opt-btn" id="pgRange" onclick="setPageMode('range',this)">Custom Range</button>
+          </div>
+          <div id="pageRangeWrap" style="display:none;">
+            <input class="inp" type="text" id="pageRange" placeholder="e.g. 1-5, 8, 10-12"/>
+          </div>
+        </div>
+        <div class="opt-group">
+          <span class="opt-label">⚙️ Formatting Options</span>
+          <div class="chk-row"><input type="checkbox" id="chkHeadings" checked/><label for="chkHeadings">Detect headings</label></div>
+          <div class="chk-row"><input type="checkbox" id="chkParagraphs" checked/><label for="chkParagraphs">Preserve paragraphs</label></div>
+          <div class="chk-row"><input type="checkbox" id="chkPageBreaks" checked/><label for="chkPageBreaks">Add page breaks</label></div>
+        </div>
+        <div class="opt-group">
+          <span class="opt-label">🔡 Text Options</span>
+          <div class="chk-row"><input type="checkbox" id="chkCleanup" checked/><label for="chkCleanup">Clean up whitespace</label></div>
+          <div class="chk-row"><input type="checkbox" id="chkLineNums"/><label for="chkLineNums">Add page numbers</label></div>
+          <div class="chk-row"><input type="checkbox" id="chkMeta" checked/><label for="chkMeta">Include PDF metadata</label></div>
+        </div>
+      </div>
+
+      <!-- Convert Button -->
+      <button class="convert-btn" id="convertBtn" onclick="convertPDF()" disabled>📝 Convert PDF to Word</button>
+      <button class="reset-btn" onclick="clearAll()">↺ Clear & Reset</button>
+
+      <!-- Progress -->
+      <div class="progress-wrap" id="progressWrap">
+        <div style="font-size:.78rem;font-weight:600;color:#202124;margin-bottom:.3rem;" id="progressLabel">Processing…</div>
+        <div class="progress-bar-track"><div class="progress-bar-fill" id="progressFill"></div></div>
+        <div class="progress-steps" id="progressSteps"></div>
+      </div>
+
+      <!-- Result Section -->
+      <div class="result-section" id="resultSection">
+
+        <!-- Stats Hero -->
+        <div class="result-hero">
+          <div class="rh-grid">
+            <div class="rh-item"><div class="rh-label">Pages</div><div class="rh-value" id="rhPages">—</div></div>
+            <div class="rh-item"><div class="rh-label">Words</div><div class="rh-value" id="rhWords">—</div></div>
+            <div class="rh-item"><div class="rh-label">Characters</div><div class="rh-value" id="rhChars">—</div></div>
+            <div class="rh-item"><div class="rh-label">Paragraphs</div><div class="rh-value" id="rhParas">—</div></div>
+          </div>
+        </div>
+
+        <!-- Download Buttons -->
+        <div class="dl-grid" id="dlGrid"></div>
+
+        <!-- Page Thumbnails -->
+        <div style="font-size:.78rem;font-weight:700;color:#202124;margin-bottom:.5rem;" id="thumbTitle" style="display:none;">📋 Page Thumbnails</div>
+        <div class="thumbnails-wrap" id="thumbnailsWrap"></div>
+
+        <!-- Preview -->
+        <div class="preview-area" style="margin-top:.8rem;">
+          <div class="preview-header">
+            <span class="preview-title">📖 Extracted Content Preview</span>
+            <div class="preview-actions">
+              <button class="prev-btn active" id="viewDocx" onclick="setPreviewView('docx',this)">📝 Formatted</button>
+              <button class="prev-btn" id="viewRaw" onclick="setPreviewView('raw',this)">📋 Raw Text</button>
+            </div>
+          </div>
+          <div class="preview-body docx-view" id="previewBody"></div>
+        </div>
+
+        <!-- Metadata -->
+        <div style="font-size:.82rem;font-weight:700;color:#202124;margin:1rem 0 .6rem;">📋 PDF Information</div>
+        <div id="metaRows"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MID AD -->
+  <div class="ad-mid"><div class="adslot">📢 Responsive Mid Ad · 728×90 → 468×60 → 320×50</div></div>
+
+  <!-- CATEGORY BROWSER -->
+  <div class="tool-card">
+    <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+    <div class="tool-card-body" style="padding:1rem;">
+      <div class="cg">
+        <a href="calculator-tools.html" class="cc" data-c="calc" onclick="ga('cat','Calculators')"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+        <a href="text-tools.html" class="cc" data-c="text" onclick="ga('cat','Text')"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="image-tools.html" class="cc" data-c="image" onclick="ga('cat','Image')"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="pdf-tools.html" class="cc" data-c="pdf" onclick="ga('cat','PDF')"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="developer-tools.html" class="cc" data-c="dev" onclick="ga('cat','Developer')"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+        <a href="seo-tools.html" class="cc" data-c="seo" onclick="ga('cat','SEO')"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="security-tools.html" class="cc" data-c="sec" onclick="ga('cat','Security')"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+        <a href="finance-tools.html" class="cc" data-c="fin" onclick="ga('cat','Finance')"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+        <a href="design-tools.html" class="cc" data-c="des" onclick="ga('cat','Design')"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+        <a href="video-audio-tools.html" class="cc" data-c="vid" onclick="ga('cat','Video')"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔒 100% Private & Secure</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">✅</span><span class="tip-text">Your PDF is <strong>never uploaded</strong> to any server. Conversion happens in your browser.</span></div>
+      <div class="tip-item"><span class="tip-ico">✅</span><span class="tip-text">Confidential documents, contracts and personal files are completely safe.</span></div>
+      <div class="tip-item"><span class="tip-ico">✅</span><span class="tip-text">No watermarks added to output files.</span></div>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related PDF Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="word-to-pdf.html" class="rel-tool"><div class="rel-tool-ico">📝</div><div><div class="rel-tool-name">Word to PDF</div><div class="rel-tool-desc">Convert DOCX to PDF</div></div></a>
+      <a href="pdf-compressor.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f5e9;">📑</div><div><div class="rel-tool-name">PDF Compressor</div><div class="rel-tool-desc">Reduce PDF file size</div></div></a>
+      <a href="pdf-splitter.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e3f2fd;">✂️</div><div><div class="rel-tool-name">PDF Splitter</div><div class="rel-tool-desc">Split PDF pages</div></div></a>
+      <a href="pdf-merger.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff3e0;">🔗</div><div><div class="rel-tool-name">PDF Merger</div><div class="rel-tool-desc">Combine PDF files</div></div></a>
+      <a href="image-to-pdf.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">🖼️</div><div><div class="rel-tool-name">Image to PDF</div><div class="rel-tool-desc">JPG/PNG to PDF</div></div></a>
+      <a href="pdf-to-jpg.html" class="rel-tool"><div class="rel-tool-ico" style="background:#f3e5f5;">🔄</div><div><div class="rel-tool-name">PDF to JPG</div><div class="rel-tool-desc">Convert PDF to images</div></div></a>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 How to Use</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">1️⃣</span><span class="tip-text">Drop or browse your <strong>PDF file</strong> onto the upload area.</span></div>
+      <div class="tip-item"><span class="tip-ico">2️⃣</span><span class="tip-text">Choose output format (<strong>DOCX, TXT</strong> or both) and page range.</span></div>
+      <div class="tip-item"><span class="tip-ico">3️⃣</span><span class="tip-text">Click <strong>Convert PDF to Word</strong> and wait a few seconds.</span></div>
+      <div class="tip-item"><span class="tip-ico">4️⃣</span><span class="tip-text">Preview the extracted text and <strong>download</strong> your Word file.</span></div>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>📌 Best Results</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">✅</span><span class="tip-text"><strong>Text-based PDFs</strong> (not scanned) convert best.</span></div>
+      <div class="tip-item"><span class="tip-ico">✅</span><span class="tip-text">Simple single-column documents produce cleanest output.</span></div>
+      <div class="tip-item"><span class="tip-ico">⚠️</span><span class="tip-text"><strong>Scanned PDFs</strong> (images) need OCR — text won't be extracted.</span></div>
+      <div class="tip-item"><span class="tip-ico">⚠️</span><span class="tip-text">Complex tables, multi-column layouts may lose formatting.</span></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – PDF to Word Converter</h2>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Is this PDF to Word converter free and safe?</div>
+      <div class="faq-a">Yes, completely free and 100% safe. This converter works entirely in your browser using PDF.js — your PDF file is never uploaded to any server, never stored, and never shared. It works for confidential documents, contracts, and personal files. No watermarks are added to output files.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What types of PDFs convert best?</div>
+      <div class="faq-a">Text-based PDFs (PDFs created from Word, Google Docs, or other software that contain actual text data) convert with the best results. Simple single-column layouts produce the cleanest output. Complex multi-column layouts, tables, and graphics may not be perfectly preserved. Scanned PDFs (which are images of documents) cannot have their text extracted without OCR technology.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I convert specific pages of a PDF?</div>
+      <div class="faq-a">Yes! Select "Custom Range" in the Page Range option and enter your desired pages. You can specify individual pages (e.g. 1, 3, 5), ranges (e.g. 1-5), or a mix of both (e.g. 1-3, 7, 10-15). This is useful for extracting specific chapters or sections from large PDF documents.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What output formats are available?</div>
+      <div class="faq-a">You can download the converted content as a .docx (Microsoft Word) file, a plain .txt text file, or both simultaneously. The DOCX format preserves paragraph structure and heading detection. The TXT format is useful for pasting text into any application or editor.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Why does my converted Word file look different from the PDF?</div>
+      <div class="faq-a">PDF and Word are fundamentally different formats. PDF is a fixed-layout format designed for exact visual presentation. Word is a flow-based document format. Converting between them always involves some loss of complex formatting like multi-column layouts, precise text positioning, and embedded graphics. For text-heavy documents without complex layouts, the conversion is usually very accurate.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How large can the PDF file be?</div>
+      <div class="faq-a">This tool supports PDF files up to 50MB. For very large files, processing may take a little longer as it happens entirely in your browser. There is no page limit — you can convert PDFs with hundreds of pages.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
+      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="image-compressor.html">Image Compressor</a></li><li><a href="qr-code.html">QR Code Generator</a></li><li><a href="password-generator.html">Password Generator</a></li><li><a href="currency-converter.html">Currency Converter</a></li></ul></div>
+      <div class="fc"><h4>PDF Tools</h4><ul><li><a href="pdf-to-word.html">PDF to Word</a></li><li><a href="word-to-pdf.html">Word to PDF</a></li><li><a href="pdf-compressor.html">PDF Compressor</a></li><li><a href="pdf-splitter.html">PDF Splitter</a></li><li><a href="pdf-merger.html">PDF Merger</a></li></ul></div>
+    </div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── PDF.js setup ──
+if (typeof pdfjsLib !== 'undefined') {
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+// ── STATE ──
+let pdfFile = null;
+let pdfDoc  = null;
+let extractedPages = [];
+let outputFmt = 'docx';
+let pageMode  = 'all';
+let previewView = 'docx';
+
+// ── HELPERS ──
+function fmtBytes(b) {
+  if (b >= 1024*1024) return (b/1024/1024).toFixed(2)+' MB';
+  if (b >= 1024)       return (b/1024).toFixed(1)+' KB';
+  return b+' B';
+}
+function fmtNum(n) { return n.toLocaleString(); }
+function setOutputFmt(fmt, btn) {
+  outputFmt = fmt;
+  document.querySelectorAll('#fmtDocx,#fmtTxt,#fmtBoth').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function setPageMode(mode, btn) {
+  pageMode = mode;
+  document.querySelectorAll('#pgAll,#pgRange').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pageRangeWrap').style.display = mode === 'range' ? 'block' : 'none';
+}
+function setPreviewView(view, btn) {
+  previewView = view;
+  document.querySelectorAll('#viewDocx,#viewRaw').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPreview();
+}
+
+// ── DRAG & DROP ──
+const dropZone  = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault(); dropZone.classList.remove('dragover');
+  const f = e.dataTransfer.files[0];
+  if (f && f.type === 'application/pdf') loadFile(f);
+  else alert('⚠️ Please drop a valid PDF file.');
+});
+fileInput.addEventListener('change', e => { if (e.target.files[0]) loadFile(e.target.files[0]); e.target.value = ''; });
+
+// ── LOAD FILE ──
+function loadFile(file) {
+  if (file.size > 50 * 1024 * 1024) { alert('⚠️ File exceeds 50MB limit.'); return; }
+  pdfFile = file;
+  document.getElementById('fileInfoBar').classList.add('show');
+  document.getElementById('fileName').textContent = file.name;
+  document.getElementById('fileMeta').textContent = fmtBytes(file.size) + ' · PDF Document';
+  document.getElementById('convertBtn').disabled = false;
+  document.getElementById('resultSection').classList.remove('show');
+  document.getElementById('progressWrap').classList.remove('show');
+}
+
+function clearFile() {
+  pdfFile = null; pdfDoc = null; extractedPages = [];
+  document.getElementById('fileInfoBar').classList.remove('show');
+  document.getElementById('convertBtn').disabled = true;
+  document.getElementById('resultSection').classList.remove('show');
+  document.getElementById('progressWrap').classList.remove('show');
+}
+
+function clearAll() { clearFile(); document.getElementById('thumbnailsWrap').innerHTML = ''; }
+
+// ── PROGRESS ──
+const STEPS = [
+  { id: 'step1', label: 'Loading PDF file' },
+  { id: 'step2', label: 'Parsing document structure' },
+  { id: 'step3', label: 'Extracting text content' },
+  { id: 'step4', label: 'Detecting headings & paragraphs' },
+  { id: 'step5', label: 'Generating Word document' },
+  { id: 'step6', label: 'Preparing download' },
+];
+
+function initProgress() {
+  const pw = document.getElementById('progressWrap');
+  pw.classList.add('show');
+  document.getElementById('progressSteps').innerHTML = STEPS.map(s =>
+    `<div class="progress-step wait" id="${s.id}"><span>&nbsp;&nbsp;&nbsp;</span>${s.label}</div>`
+  ).join('');
+  setProgress(0, 'Starting…');
+}
+
+function setStep(stepIdx) {
+  STEPS.forEach((s, i) => {
+    const el = document.getElementById(s.id);
+    if (!el) return;
+    el.className = 'progress-step ' + (i < stepIdx ? 'done' : i === stepIdx ? 'active' : 'wait');
+  });
+  setProgress(Math.round((stepIdx / STEPS.length) * 100), STEPS[Math.min(stepIdx, STEPS.length-1)].label + '…');
+}
+
+function setProgress(pct, label) {
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = label;
+}
+
+// ── PARSE PAGE RANGE ──
+function parsePageRange(str, total) {
+  const pages = new Set();
+  const parts = str.split(',');
+  for (const part of parts) {
+    const trimmed = part.trim();
+    if (!trimmed) continue;
+    if (trimmed.includes('-')) {
+      const [s, e] = trimmed.split('-').map(Number);
+      for (let i = s; i <= Math.min(e, total); i++) if (i >= 1) pages.add(i);
+    } else {
+      const n = parseInt(trimmed);
+      if (n >= 1 && n <= total) pages.add(n);
+    }
+  }
+  return [...pages].sort((a, b) => a - b);
+}
+
+// ── MAIN CONVERT ──
+async function convertPDF() {
+  if (!pdfFile) return;
+  document.getElementById('convertBtn').disabled = true;
+  document.getElementById('resultSection').classList.remove('show');
+  initProgress();
+
+  try {
+    // Step 1: Load
+    setStep(0);
+    const arrayBuffer = await pdfFile.arrayBuffer();
+
+    // Step 2: Parse
+    setStep(1);
+    const loadTask = pdfjsLib.getDocument({ data: arrayBuffer });
+    pdfDoc = await loadTask.promise;
+    const totalPages = pdfDoc.numPages;
+
+    // Determine pages to process
+    let pagesToProcess;
+    if (pageMode === 'range') {
+      const rangeStr = document.getElementById('pageRange').value;
+      pagesToProcess = rangeStr.trim() ? parsePageRange(rangeStr, totalPages) : Array.from({length: totalPages}, (_, i) => i+1);
+    } else {
+      pagesToProcess = Array.from({length: totalPages}, (_, i) => i+1);
+    }
+
+    // Step 3: Extract text
+    setStep(2);
+    extractedPages = [];
+    const thumbWrap = document.getElementById('thumbnailsWrap');
+    thumbWrap.innerHTML = '';
+
+    for (let pi = 0; pi < pagesToProcess.length; pi++) {
+      const pageNum = pagesToProcess[pi];
+      const page = await pdfDoc.getPage(pageNum);
+      const textContent = await page.getTextContent();
+
+      // Group text items into lines by Y position
+      const lines = groupByLines(textContent.items);
+
+      // Render thumbnail
+      if (pagesToProcess.length <= 50) {
+        renderThumbnail(page, pageNum, thumbWrap);
+      }
+
+      extractedPages.push({ pageNum, lines, viewport: page.getViewport({scale:1}) });
+      setProgress(20 + Math.round((pi / pagesToProcess.length) * 40), `Extracting page ${pageNum}/${totalPages}…`);
+      await tick();
+    }
+
+    // Step 4: Detect structure
+    setStep(3);
+    const structured = structureContent(extractedPages);
+    await tick();
+
+    // Step 5: Generate doc
+    setStep(4);
+    const docxBlob = generateDOCX(structured, pdfFile.name, totalPages);
+    const txtBlob  = generateTXT(structured, pdfFile.name, totalPages);
+    await tick();
+
+    // Step 6: Prepare
+    setStep(5);
+    const stats = computeStats(structured);
+    await tick();
+
+    // Show results
+    showResults(docxBlob, txtBlob, stats, structured, pdfDoc, totalPages);
+    setProgress(100, '✅ Conversion complete!');
+    ga('convert', 'PDF to Word');
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById('progressLabel').textContent = '❌ Error: ' + err.message;
+    alert('⚠️ Error processing PDF: ' + err.message + '\n\nThis may be a scanned/image-based PDF or an encrypted file.');
+  }
+
+  document.getElementById('convertBtn').disabled = false;
+}
+
+// ── GROUP TEXT BY LINES ──
+function groupByLines(items) {
+  if (!items || !items.length) return [];
+  const tolerance = 3;
+  const lineMap = {};
+  items.forEach(item => {
+    const y = Math.round(item.transform[5] / tolerance) * tolerance;
+    if (!lineMap[y]) lineMap[y] = [];
+    lineMap[y].push(item);
+  });
+  return Object.keys(lineMap)
+    .sort((a, b) => parseFloat(b) - parseFloat(a))
+    .map(y => ({
+      y: parseFloat(y),
+      text: lineMap[y].map(i => i.str).join(' ').replace(/\s+/g, ' ').trim(),
+      fontSize: Math.max(...lineMap[y].map(i => i.height || 0)),
+      items: lineMap[y]
+    }))
+    .filter(l => l.text.trim());
+}
+
+// ── STRUCTURE CONTENT ──
+function structureContent(pages) {
+  const result = [];
+  const chkHeadings   = document.getElementById('chkHeadings').checked;
+  const chkParagraphs = document.getElementById('chkParagraphs').checked;
+  const chkCleanup    = document.getElementById('chkCleanup').checked;
+
+  // Find dominant font size across all pages
+  const fontSizes = [];
+  pages.forEach(p => p.lines.forEach(l => { if (l.fontSize > 0) fontSizes.push(l.fontSize); }));
+  fontSizes.sort((a, b) => a - b);
+  const bodyFontSize = fontSizes[Math.floor(fontSizes.length * 0.5)] || 12;
+
+  pages.forEach(page => {
+    const pageBlocks = [];
+    let currentPara = [];
+
+    page.lines.forEach(line => {
+      let text = line.text;
+      if (chkCleanup) text = text.replace(/\s+/g, ' ').trim();
+      if (!text) return;
+
+      let type = 'text';
+      if (chkHeadings) {
+        const ratio = line.fontSize / bodyFontSize;
+        if (ratio >= 1.6) type = 'h1';
+        else if (ratio >= 1.3) type = 'h2';
+        else if (ratio >= 1.1) type = 'h3';
+      }
+
+      if (type !== 'text') {
+        if (currentPara.length) { pageBlocks.push({type:'p', text:currentPara.join(' ')}); currentPara = []; }
+        pageBlocks.push({type, text});
+      } else if (chkParagraphs) {
+        // Detect paragraph breaks by Y gap
+        const lastLine = page.lines[page.lines.indexOf(line) - 1];
+        if (lastLine && (lastLine.y - line.y) > bodyFontSize * 1.8 && currentPara.length) {
+          pageBlocks.push({type:'p', text: currentPara.join(' ')});
+          currentPara = [];
+        }
+        currentPara.push(text);
+      } else {
+        pageBlocks.push({type:'p', text});
+      }
+    });
+
+    if (currentPara.length) pageBlocks.push({type:'p', text: currentPara.join(' ')});
+    result.push({pageNum: page.pageNum, blocks: pageBlocks});
+  });
+
+  return result;
+}
+
+// ── GENERATE DOCX (XML-based) ──
+function generateDOCX(pages, filename, totalPages) {
+  const chkMeta    = document.getElementById('chkMeta').checked;
+  const chkPageBreaks = document.getElementById('chkPageBreaks').checked;
+  const chkLineNums   = document.getElementById('chkLineNums').checked;
+
+  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+  let bodyXml = '';
+
+  // Metadata section
+  if (chkMeta) {
+    bodyXml += `<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>${esc('Converted from: ' + filename)}</w:t></w:r></w:p>`;
+    bodyXml += `<w:p><w:r><w:rPr><w:color w:val="9AA0A6"/></w:rPr><w:t>${esc('Converted by ToolNex PDF to Word Converter · toolnex.site')}</w:t></w:r></w:p>`;
+    bodyXml += `<w:p><w:r><w:rPr><w:color w:val="9AA0A6"/></w:rPr><w:t>${esc('Total pages: ' + totalPages + ' · Date: ' + new Date().toLocaleDateString())}</w:t></w:r></w:p>`;
+    bodyXml += `<w:p><w:r><w:t xml:space="preserve"> </w:t></w:r></w:p>`;
+  }
+
+  pages.forEach((page, pi) => {
+    if (chkPageBreaks && pi > 0) {
+      bodyXml += `<w:p><w:r><w:br w:type="page"/></w:r></w:p>`;
+    }
+    if (chkLineNums) {
+      bodyXml += `<w:p><w:pPr><w:jc w:val="right"/></w:pPr><w:r><w:rPr><w:color w:val="9AA0A6"/><w:sz w:val="16"/></w:rPr><w:t>— Page ${page.pageNum} —</w:t></w:r></w:p>`;
+    }
+
+    page.blocks.forEach(block => {
+      const t = esc(block.text);
+      if (block.type === 'h1') {
+        bodyXml += `<w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>${t}</w:t></w:r></w:p>`;
+      } else if (block.type === 'h2') {
+        bodyXml += `<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr><w:r><w:t>${t}</w:t></w:r></w:p>`;
+      } else if (block.type === 'h3') {
+        bodyXml += `<w:p><w:pPr><w:pStyle w:val="Heading3"/></w:pPr><w:r><w:t>${t}</w:t></w:r></w:p>`;
+      } else {
+        bodyXml += `<w:p><w:r><w:t xml:space="preserve">${t}</w:t></w:r></w:p>`;
+      }
+    });
+
+    if (page.blocks.length === 0) {
+      bodyXml += `<w:p><w:r><w:rPr><w:color w:val="9AA0A6"/><w:i/></w:rPr><w:t>[Page ${page.pageNum} — no extractable text]</w:t></w:r></w:p>`;
+    }
+  });
+
+  const docXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+  xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+  xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+<w:body>
+${bodyXml}
+<w:sectPr><w:pgSz w:w="12240" w:h="15840"/></w:sectPr>
+</w:body>
+</w:document>`;
+
+  const relsXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
+</Relationships>`;
+
+  const stylesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:style w:type="paragraph" w:styleId="Normal"><w:name w:val="Normal"/><w:pPr><w:spacing w:after="160" w:line="259" w:lineRule="auto"/></w:pPr><w:rPr><w:sz w:val="22"/></w:rPr></w:style>
+  <w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:pPr><w:outlineLvl w:val="0"/><w:spacing w:before="240" w:after="120"/></w:pPr><w:rPr><w:b/><w:sz w:val="36"/><w:color w:val="1A73E8"/></w:rPr></w:style>
+  <w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:pPr><w:outlineLvl w:val="1"/><w:spacing w:before="200" w:after="80"/></w:pPr><w:rPr><w:b/><w:sz w:val="28"/><w:color w:val="202124"/></w:rPr></w:style>
+  <w:style w:type="paragraph" w:styleId="Heading3"><w:name w:val="heading 3"/><w:basedOn w:val="Normal"/><w:pPr><w:outlineLvl w:val="2"/><w:spacing w:before="160" w:after="60"/></w:pPr><w:rPr><w:b/><w:sz w:val="24"/></w:rPr></w:style>
+</w:styles>`;
+
+  const contentTypesXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+  <Default Extension="xml" ContentType="application/xml"/>
+  <Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>
+  <Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>
+</Types>`;
+
+  const rootRelsXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
+</Relationships>`;
+
+  // Build ZIP manually using simple ZIP format
+  const files = [
+    { name: '[Content_Types].xml', data: contentTypesXml },
+    { name: '_rels/.rels',         data: rootRelsXml },
+    { name: 'word/document.xml',   data: docXml },
+    { name: 'word/styles.xml',     data: stylesXml },
+    { name: 'word/_rels/document.xml.rels', data: relsXml },
+  ];
+
+  return buildZip(files);
+}
+
+// ── SIMPLE ZIP BUILDER ──
+function buildZip(fileList) {
+  const encoder = new TextEncoder();
+  const localHeaders = [];
+  const centralHeaders = [];
+  let offset = 0;
+
+  fileList.forEach(f => {
+    const nameBytes = encoder.encode(f.name);
+    const dataBytes = encoder.encode(f.data);
+    const crc = crc32(dataBytes);
+    const now = new Date();
+    const dosDate = ((now.getFullYear()-1980)<<9)|((now.getMonth()+1)<<5)|now.getDate();
+    const dosTime = (now.getHours()<<11)|(now.getMinutes()<<5)|(now.getSeconds()>>1);
+
+    // Local file header
+    const local = new Uint8Array(30 + nameBytes.length + dataBytes.length);
+    const lv = new DataView(local.buffer);
+    lv.setUint32(0, 0x04034b50, true); // sig
+    lv.setUint16(4, 20, true);         // version needed
+    lv.setUint16(6, 0, true);          // flags
+    lv.setUint16(8, 0, true);          // no compression
+    lv.setUint16(10, dosTime, true);
+    lv.setUint16(12, dosDate, true);
+    lv.setUint32(14, crc, true);
+    lv.setUint32(18, dataBytes.length, true);
+    lv.setUint32(22, dataBytes.length, true);
+    lv.setUint16(26, nameBytes.length, true);
+    lv.setUint16(28, 0, true);
+    local.set(nameBytes, 30);
+    local.set(dataBytes, 30 + nameBytes.length);
+
+    localHeaders.push(local);
+
+    // Central dir entry
+    const central = new Uint8Array(46 + nameBytes.length);
+    const cv = new DataView(central.buffer);
+    cv.setUint32(0, 0x02014b50, true);
+    cv.setUint16(4, 20, true);
+    cv.setUint16(6, 20, true);
+    cv.setUint16(8, 0, true);
+    cv.setUint16(10, 0, true);
+    cv.setUint16(12, dosTime, true);
+    cv.setUint16(14, dosDate, true);
+    cv.setUint32(16, crc, true);
+    cv.setUint32(20, dataBytes.length, true);
+    cv.setUint32(24, dataBytes.length, true);
+    cv.setUint16(28, nameBytes.length, true);
+    cv.setUint16(30, 0, true);
+    cv.setUint16(32, 0, true);
+    cv.setUint16(34, 0, true);
+    cv.setUint16(36, 0, true);
+    cv.setUint32(38, 0, true);
+    cv.setUint32(42, offset, true);
+    central.set(nameBytes, 46);
+    centralHeaders.push(central);
+    offset += local.length;
+  });
+
+  const centralSize = centralHeaders.reduce((s, c) => s + c.length, 0);
+  const eocd = new Uint8Array(22);
+  const ev = new DataView(eocd.buffer);
+  ev.setUint32(0, 0x06054b50, true);
+  ev.setUint16(4, 0, true);
+  ev.setUint16(6, 0, true);
+  ev.setUint16(8, fileList.length, true);
+  ev.setUint16(10, fileList.length, true);
+  ev.setUint32(12, centralSize, true);
+  ev.setUint32(16, offset, true);
+  ev.setUint16(20, 0, true);
+
+  const all = [...localHeaders, ...centralHeaders, eocd];
+  const total = all.reduce((s, a) => s + a.length, 0);
+  const out = new Uint8Array(total);
+  let pos = 0;
+  all.forEach(a => { out.set(a, pos); pos += a.length; });
+  return new Blob([out], {type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+}
+
+// ── CRC32 ──
+function crc32(data) {
+  let crc = 0xFFFFFFFF;
+  for (let i = 0; i < data.length; i++) {
+    crc ^= data[i];
+    for (let j = 0; j < 8; j++) crc = (crc>>>1)^(crc&1 ? 0xEDB88320 : 0);
+  }
+  return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+
+// ── GENERATE TXT ──
+function generateTXT(pages, filename, totalPages) {
+  const chkMeta = document.getElementById('chkMeta').checked;
+  const chkLineNums = document.getElementById('chkLineNums').checked;
+  let txt = '';
+  if (chkMeta) {
+    txt += `Converted from: ${filename}\n`;
+    txt += `Converted by ToolNex PDF to Word Converter (toolnex.site)\n`;
+    txt += `Total pages: ${totalPages} | Date: ${new Date().toLocaleDateString()}\n`;
+    txt += '='.repeat(60) + '\n\n';
+  }
+  pages.forEach(page => {
+    if (chkLineNums) txt += `\n--- Page ${page.pageNum} ---\n\n`;
+    page.blocks.forEach(block => { txt += block.text + '\n\n'; });
+    if (page.blocks.length === 0) txt += `[Page ${page.pageNum} — no extractable text]\n\n`;
+  });
+  return new Blob([txt], {type:'text/plain;charset=utf-8'});
+}
+
+// ── COMPUTE STATS ──
+function computeStats(pages) {
+  let words = 0, chars = 0, paras = 0;
+  pages.forEach(p => {
+    p.blocks.forEach(b => {
+      const text = b.text.trim();
+      chars += text.length;
+      words += text.split(/\s+/).filter(Boolean).length;
+      if (b.type === 'p') paras++;
+    });
+  });
+  return { pages: pages.length, words, chars, paras };
+}
+
+// ── RENDER THUMBNAIL ──
+async function renderThumbnail(page, pageNum, container) {
+  const vp = page.getViewport({scale: 0.2});
+  const canvas = document.createElement('canvas');
+  canvas.width  = vp.width;
+  canvas.height = vp.height;
+  canvas.className = 'thumb-canvas';
+  const ctx = canvas.getContext('2d');
+  await page.render({canvasContext: ctx, viewport: vp}).promise;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'thumb-item';
+  wrap.title = 'Page ' + pageNum;
+  wrap.innerHTML = `<div class="thumb-label">P${pageNum}</div>`;
+  wrap.prepend(canvas);
+  container.appendChild(wrap);
+}
+
+// ── SHOW RESULTS ──
+function showResults(docxBlob, txtBlob, stats, structured, pdfDoc, totalPages) {
+  // Stats hero
+  document.getElementById('rhPages').textContent = fmtNum(stats.pages);
+  document.getElementById('rhWords').textContent = fmtNum(stats.words);
+  document.getElementById('rhChars').textContent = fmtNum(stats.chars);
+  document.getElementById('rhParas').textContent = fmtNum(stats.paras);
+
+  // Download buttons
+  const baseName = pdfFile.name.replace('.pdf','');
+  const dlGrid = document.getElementById('dlGrid');
+  dlGrid.innerHTML = '';
+  const showDocx = outputFmt === 'docx' || outputFmt === 'both';
+  const showTxt  = outputFmt === 'txt'  || outputFmt === 'both';
+  if (showDocx) {
+    const docxUrl = URL.createObjectURL(docxBlob);
+    dlGrid.innerHTML += `<a class="dl-btn dl-docx" href="${docxUrl}" download="${baseName}_converted.docx">📝 Download DOCX (${fmtBytes(docxBlob.size)})</a>`;
+  }
+  if (showTxt) {
+    const txtUrl = URL.createObjectURL(txtBlob);
+    dlGrid.innerHTML += `<a class="dl-btn dl-txt" href="${txtUrl}" download="${baseName}_converted.txt">📄 Download TXT (${fmtBytes(txtBlob.size)})</a>`;
+  }
+  if (!showDocx && !showTxt) {
+    const docxUrl = URL.createObjectURL(docxBlob);
+    dlGrid.innerHTML = `<a class="dl-btn dl-docx" href="${docxUrl}" download="${baseName}_converted.docx">📝 Download DOCX</a>`;
+  }
+
+  // Preview
+  window._structuredPages = structured;
+  renderPreview();
+
+  // Metadata
+  pdfDoc.getMetadata().then(meta => {
+    const info = meta.info || {};
+    document.getElementById('metaRows').innerHTML = [
+      ['📂','File Name', pdfFile.name],
+      ['📏','File Size', fmtBytes(pdfFile.size)],
+      ['📄','Total Pages', totalPages],
+      ['📝','Pages Converted', stats.pages],
+      ['✍️','Title', info.Title || '—'],
+      ['👤','Author', info.Author || '—'],
+      ['📅','Creation Date', info.CreationDate ? info.CreationDate.substring(2,10) : '—'],
+      ['🔧','Producer', info.Producer || '—'],
+      ['📊','PDF Version', meta.contentDispositionFilename || '—'],
+    ].map(([ico,lbl,val]) =>
+      `<div class="detail-row"><span class="detail-label"><span style="margin-right:.4rem;">${ico}</span>${lbl}</span><span class="detail-value">${val}</span></div>`
+    ).join('');
+  }).catch(() => {
+    document.getElementById('metaRows').innerHTML = `<div class="detail-row"><span class="detail-label">📂 File Name</span><span class="detail-value">${pdfFile.name}</span></div><div class="detail-row"><span class="detail-label">📏 File Size</span><span class="detail-value">${fmtBytes(pdfFile.size)}</span></div><div class="detail-row"><span class="detail-label">📄 Pages Converted</span><span class="detail-value">${stats.pages}</span></div>`;
+  });
+
+  document.getElementById('resultSection').classList.add('show');
+  setTimeout(() => document.getElementById('resultSection').scrollIntoView({behavior:'smooth',block:'start'}), 100);
+}
+
+// ── RENDER PREVIEW ──
+function renderPreview() {
+  const pages = window._structuredPages;
+  if (!pages) return;
+  const body = document.getElementById('previewBody');
+  if (previewView === 'docx') {
+    body.className = 'preview-body docx-view';
+    body.innerHTML = pages.map(page => {
+      const content = page.blocks.map(block => {
+        const t = block.text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        if (block.type === 'h1') return `<h2 style="color:#1a73e8;font-size:1.1rem;margin:.7rem 0 .3rem;font-family:'DM Sans',sans-serif;">${t}</h2>`;
+        if (block.type === 'h2') return `<h3 style="font-size:.95rem;margin:.6rem 0 .25rem;font-family:'DM Sans',sans-serif;">${t}</h3>`;
+        if (block.type === 'h3') return `<h4 style="font-size:.85rem;margin:.5rem 0 .2rem;font-family:'DM Sans',sans-serif;">${t}</h4>`;
+        return `<p style="margin-bottom:.5rem;">${t}</p>`;
+      }).join('');
+      return `<div style="margin-bottom:.5rem;">${content || '<p style="color:#9aa0a6;font-style:italic;">[No extractable text on this page]</p>'}</div><hr data-page="Page ${page.pageNum}" style="border:none;border-top:1px dashed #e8eaed;margin:.8rem 0;"/>`;
+    }).join('');
+  } else {
+    body.className = 'preview-body raw-view';
+    body.textContent = pages.map(p =>
+      `=== Page ${p.pageNum} ===\n` + p.blocks.map(b => b.text).join('\n\n') + '\n\n'
+    ).join('');
+  }
+}
+
+function tick() { return new Promise(r => setTimeout(r, 10)); }
+function toggleFaq(el) { el.classList.toggle('open'); }
+
+// Category animations
+const ob = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; ob.unobserve(e.target); }});
+}, { threshold: .05 });
+document.querySelectorAll('.cc').forEach((c, i) => {
+  c.style.cssText += `;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;
+  ob.observe(c);
+});
+</script>
+</body>
+</html>
