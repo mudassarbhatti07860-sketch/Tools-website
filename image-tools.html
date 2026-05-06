@@ -1,807 +1,380 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
-<title>Image Tools – Free Online Image Editor, Compressor, Converter & More | ToolNex</title>
-<meta name="description" content="25+ free online image tools — Image Resizer, Compressor, Cropper, Converter, Filters, Background Remover, Meme Generator, AI Image Generator and more. Fast, free & private."/>
-<meta name="keywords" content="free image tools, image resizer, image compressor, image converter, background remover, meme generator, ai image generator, image cropper"/>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-535630536');
+function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}
+</script>
+
+<!-- SEO -->
+<title>Free Image Tools – Compress, Resize, Convert, Crop & More | ToolNex</title>
+<meta name="description" content="10 free online image tools — Image Compressor, Image Resizer, Image Converter, Image Cropper, Image to PDF, PNG to JPG, JPG to PNG, Watermark, Flip & Rotate, Background Remover. Fast, free, no sign-up."/>
+<meta name="keywords" content="free image tools,image compressor,image resizer,image converter,image cropper,image to pdf,png to jpg,jpg to png,add watermark,flip rotate image,background remover,online image editor"/>
 <meta name="author" content="ToolNex"/>
-<meta name="robots" content="index, follow"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="theme-color" content="#ffffff"/>
 <link rel="canonical" href="https://toolnex.site/image-tools.html"/>
-<meta property="og:title" content="Image Tools – ToolNex Free Online Tools"/>
-<meta property="og:description" content="25+ free online image tools. No sign-up, 100% private, instant results."/>
+<meta property="og:title" content="Free Image Tools – ToolNex"/>
+<meta property="og:description" content="10 free online image tools. Compress, resize, convert, crop & more. No sign-up. 100% free."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://toolnex.site/image-tools.html"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Image Tools – ToolNex"/>
+<meta name="twitter:title" content="Free Image Tools – ToolNex"/>
+<meta name="twitter:description" content="10 free online image tools. Fast, private, no sign-up required."/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Image Tools – ToolNex","url":"https://toolnex.site/image-tools.html","description":"10 free online image tools — compress, resize, convert, crop and more.","isPartOf":{"@type":"WebSite","name":"ToolNex","url":"https://toolnex.site/"}}</script>
 
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+
 <style>
-:root{
-  --gold:#c9a84c;--gold2:#f0d080;--darker:#07070e;--dark:#0d0d14;
-  --panel:rgba(18,18,30,0.96);--border:rgba(201,168,76,0.28);
-  --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;
-  --blue:#5ab4e0;--orange:#e09a3a;--purple:#b07de0;--teal:#4cc9b0;
-}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),
-    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 60%),
-    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
-    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
-    var(--darker);}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
 
-/* ══ NAV ══ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:300;height:44px;
-  display:flex;align-items:center;justify-content:space-between;gap:.5rem;
-  padding:0 1.4rem;
-  background:rgba(5,5,12,0.97);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);}
-.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
-.nav-logo-icon{font-size:1.3rem;}
-.nav-logo-text{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  letter-spacing:.06em;}
-.nav-right{display:flex;align-items:center;gap:.4rem;}
-.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
-  padding:.22rem .75rem;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;
-  cursor:pointer;text-decoration:none;transition:all .2s;}
-.nav-link:hover{border-color:var(--gold);color:var(--gold2);}
+/* ─── HEADER ─── */
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.65rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.2rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:background .15s,border-color .15s,box-shadow .15s;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;letter-spacing:.01em;transition:background .15s;white-space:nowrap;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
+.hdr-link:hover{background:#f1f3f4;color:#202124;}
+@media(max-width:650px){.hdr-links{display:none;}}
+@media(max-width:420px){.logo span:last-child{display:none;}}
 
-/* ══ TOP BANNER AD ══ */
-.ad-top-banner{
-  position:fixed;top:44px;left:0;right:0;z-index:290;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(5,5,12,0.97);
-  border-bottom:1px solid var(--border);
-  padding:.35rem 1rem;
-  min-height:100px;}
-.ad-top-banner .ad-slot{
-  width:728px;height:90px;max-width:100%;
-  background:rgba(201,168,76,0.03);
-  border:1px dashed rgba(201,168,76,0.18);
-  border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;
-  letter-spacing:.1em;text-transform:uppercase;}
-@media(max-width:768px){
-  .ad-top-banner{min-height:116px;}
-  .ad-top-banner .ad-slot{width:320px;height:100px;}}
+/* ─── TOP BANNER AD ─── */
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}}
 
-/* ══ BODY OFFSET ══ */
-.page-body{padding-top:144px;}
-@media(max-width:768px){.page-body{padding-top:160px;}}
+/* ─── BREADCRUMB ─── */
+.bc{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;align-items:center;gap:.4rem;font-size:.77rem;color:#9aa0a6;}
+.bc a{color:#1a73e8;transition:color .13s;}
+.bc a:hover{color:#1558c0;}
+.bc-sep{color:#dadce0;}
 
-/* ══ HERO ══ */
-.page-hero{position:relative;z-index:1;text-align:center;padding:2.5rem 1rem 1.5rem;}
-.breadcrumb{font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);letter-spacing:.08em;margin-bottom:.8rem;}
-.breadcrumb a{color:var(--gold);text-decoration:none;}
-.breadcrumb a:hover{color:var(--gold2);}
-.page-badge{display:inline-flex;align-items:center;gap:.4rem;
-  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:20px;
-  padding:.28rem 1rem;font-size:.72rem;font-family:'Cinzel',serif;color:var(--gold);
-  letter-spacing:.08em;margin-bottom:.7rem;}
-.page-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5.5vw,3.5rem);font-weight:900;
-  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1.12;margin-bottom:.5rem;}
-.page-sub{color:var(--muted);font-size:.92rem;max-width:580px;margin:0 auto .9rem;line-height:1.7;}
-.gold-line{width:100px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.5rem auto 1.4rem;}
+/* ─── HERO ─── */
+.hero{background:#fff;border-bottom:1px solid #e8eaed;padding:2.4rem 1.2rem 2rem;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:.35rem;background:#fce4ec;color:#c2185b;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.3rem .9rem;margin-bottom:.85rem;}
+.hero h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#202124;line-height:1.2;margin-bottom:.5rem;letter-spacing:-.025em;}
+.hero h1 em{font-style:normal;color:#1a73e8;}
+.hero p{font-size:.93rem;color:#5f6368;max-width:460px;margin:0 auto 1.4rem;line-height:1.65;}
+.chips{display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;}
+.chip{background:#f8f9fa;border:1px solid #e8eaed;border-radius:20px;padding:.24rem .85rem;font-size:.73rem;font-weight:600;color:#5f6368;}
+.chip b{color:#1a73e8;}
 
-/* ══ SEARCH BAR ══ */
-.search-outer{display:flex;justify-content:center;margin-bottom:.5rem;}
-.search-box-wrap{display:flex;align-items:center;background:rgba(255,255,255,0.05);
-  border:1px solid var(--border);border-radius:30px;padding:.1rem .2rem .1rem 1rem;
-  width:min(480px,100%);transition:border-color .2s,box-shadow .2s;}
-.search-box-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,0.18);}
-.search-input{background:none;border:none;outline:none;color:var(--text);font-size:.9rem;
-  font-family:'Inter',sans-serif;width:100%;padding:.52rem 0;}
-.search-input::placeholder{color:var(--muted);}
-.search-btn{background:linear-gradient(135deg,var(--gold),#9a7020);border:none;border-radius:25px;
-  padding:.48rem 1rem;color:#000;font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;
-  cursor:pointer;white-space:nowrap;transition:all .2s;letter-spacing:.06em;}
-.search-btn:hover{transform:scale(1.04);}
+/* ─── MAIN ─── */
+.main{max-width:1180px;margin:0 auto;padding:2rem 1.2rem 3.5rem;display:flex;flex-direction:column;gap:2.4rem;}
 
-/* ══ STATS ROW ══ */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;
-  max-width:600px;margin:0 auto 0;}
-@media(max-width:480px){.stats-row{grid-template-columns:1fr 1fr;}}
-.stat-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.85rem .5rem;text-align:center;}
-.stat-num{font-family:'Cinzel',serif;font-size:clamp(1.3rem,3.5vw,1.8rem);font-weight:900;color:var(--gold2);line-height:1;}
-.stat-lbl{font-size:.62rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-family:'Cinzel',serif;margin-top:.2rem;}
+/* ─── SECTION HEAD ─── */
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.st{font-size:.88rem;font-weight:700;color:#202124;display:flex;align-items:center;gap:.45rem;}
+.st-bar{width:3px;height:16px;background:#1a73e8;border-radius:2px;flex-shrink:0;}
 
-/* ══ WRAP ══ */
-.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:1.5rem 1rem 3rem;
-  display:flex;flex-direction:column;gap:2rem;}
+/* ─── IMAGE TOOLS GRID ─── */
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:.8rem;}
+@media(max-width:440px){.tg{grid-template-columns:1fr 1fr;gap:.55rem;}}
 
-/* ══ SECTION HEADER ══ */
-.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem;flex-wrap:wrap;gap:.5rem;}
-.section-title{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);
-  letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;}
-.section-title::before{content:'';width:4px;height:18px;background:var(--gold);border-radius:2px;}
-.section-count{font-family:'Cinzel',serif;font-size:.7rem;color:var(--muted);
-  letter-spacing:.08em;background:rgba(201,168,76,0.08);border:1px solid var(--border);
-  border-radius:12px;padding:.18rem .65rem;}
+.tc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.1rem 1rem;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:.38rem;transition:border-color .15s,box-shadow .15s,transform .2s;}
+.tc:hover{border-color:#1a73e8;box-shadow:0 4px 20px rgba(26,115,232,.12);transform:translateY(-2px);}
+.tc-rk{position:absolute;top:.55rem;right:.65rem;font-size:.63rem;font-weight:700;color:#e8eaed;}
+.tc-row{display:flex;align-items:center;justify-content:space-between;}
+.tc-ico{font-size:1.5rem;line-height:1;}
+.tc-tg{font-size:.59rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fce4ec;color:#c2185b;border-radius:6px;padding:.1rem .4rem;}
+.tc-nm{font-size:.84rem;font-weight:700;color:#202124;}
+.tc-ds{font-size:.72rem;color:#9aa0a6;line-height:1.45;}
 
-/* ══ FILTER TABS ══ */
-.filter-tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1.5rem;}
-.filter-tab{padding:.35rem .9rem;border-radius:20px;border:1px solid var(--border);
-  font-family:'Cinzel',serif;font-size:.72rem;color:var(--muted);cursor:pointer;
-  background:transparent;transition:all .2s;letter-spacing:.06em;}
-.filter-tab.active{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
-.filter-tab:hover:not(.active){border-color:rgba(201,168,76,0.35);color:var(--text);}
+/* ─── MID AD ─── */
+.ad-mid{display:flex;justify-content:center;padding:.3rem;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-mid .adslot{width:468px;height:60px;}}
+@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
 
-/* ══ TOOLS GRID ══ */
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
-@media(max-width:480px){.tools-grid{grid-template-columns:1fr 1fr;gap:.75rem;}}
+/* ─── OTHER CATEGORIES ─── */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:.7rem;}
+@media(max-width:440px){.cg{grid-template-columns:repeat(3,1fr);gap:.5rem;}}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1rem .75rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:transform .18s;}
+.cc:hover .cc-ico{transform:scale(1.1);}
+.cc-nm{font-size:.74rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.63rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}
+[data-c="text"] .cc-ico{background:#e8f5e9;}
+[data-c="pdf"]  .cc-ico{background:#ffebee;}
+[data-c="dev"]  .cc-ico{background:#e3f2fd;}
+[data-c="seo"]  .cc-ico{background:#f3e5f5;}
+[data-c="sec"]  .cc-ico{background:#e0f7fa;}
+[data-c="fin"]  .cc-ico{background:#e8f5e9;}
+[data-c="des"]  .cc-ico{background:#fff8e1;}
+[data-c="vid"]  .cc-ico{background:#fce4ec;}
 
-/* ══ TOOL CARD ══ */
-.tool-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;
-  padding:1.25rem 1.1rem;text-decoration:none;display:flex;flex-direction:column;gap:.55rem;
-  transition:transform .25s,box-shadow .25s,border-color .25s;
-  position:relative;overflow:hidden;}
-.tool-card::before{content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(201,168,76,0.07),transparent 60%);
-  opacity:0;transition:opacity .25s;}
-.tool-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(201,168,76,0.18);border-color:var(--gold);}
-.tool-card:hover::before{opacity:1;}
-
-.tc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.4rem;}
-.tc-icon-wrap{width:46px;height:46px;border-radius:11px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;font-size:1.5rem;
-  background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);}
-.tc-badges{display:flex;flex-direction:column;align-items:flex-end;gap:.25rem;}
-.badge{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;
-  border-radius:8px;padding:.1rem .45rem;border:1px solid;white-space:nowrap;}
-.badge-cat{color:var(--gold);border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.08);}
-.badge-ai{color:var(--blue);border-color:rgba(90,180,224,0.35);background:rgba(90,180,224,0.08);}
-.badge-new{color:var(--green);border-color:rgba(76,175,119,0.35);background:rgba(76,175,119,0.08);}
-.badge-hot{color:var(--red);border-color:rgba(224,90,90,0.35);background:rgba(224,90,90,0.08);}
-.badge-pro{color:var(--purple);border-color:rgba(176,125,224,0.35);background:rgba(176,125,224,0.08);}
-
-.tc-name{font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;color:var(--gold2);
-  letter-spacing:.03em;line-height:1.3;}
-.tc-desc{font-size:.74rem;color:var(--muted);line-height:1.5;}
-.tc-arrow{font-size:.75rem;color:var(--gold);margin-top:auto;
-  font-family:'Cinzel',serif;letter-spacing:.06em;display:flex;align-items:center;gap:.3rem;}
-.tc-arrow::after{content:'→';transition:transform .2s;}
-.tool-card:hover .tc-arrow::after{transform:translateX(4px);}
-
-/* ══ FEATURED BANNER ══ */
-.featured-banner{background:var(--panel);border:1px solid var(--border);border-radius:16px;
-  padding:1.6rem;display:grid;grid-template-columns:1fr auto;gap:1.2rem;align-items:center;
-  position:relative;overflow:hidden;}
-.featured-banner::before{content:'';position:absolute;top:-40px;right:-40px;
-  width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,168,76,0.1),transparent 70%);}
-.fb-content{display:flex;flex-direction:column;gap:.5rem;}
-.fb-badge{display:inline-flex;align-items:center;gap:.35rem;
-  background:rgba(76,175,119,0.1);border:1px solid rgba(76,175,119,0.3);border-radius:20px;
-  padding:.2rem .75rem;font-size:.68rem;font-family:'Cinzel',serif;color:var(--green);
-  letter-spacing:.08em;width:fit-content;}
-.fb-title{font-family:'Cinzel',serif;font-size:clamp(1rem,2.5vw,1.4rem);font-weight:900;color:var(--gold2);}
-.fb-desc{font-size:.8rem;color:var(--muted);line-height:1.6;max-width:480px;}
-.fb-tools{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.3rem;}
-.fb-tool-pill{font-family:'Cinzel',serif;font-size:.65rem;color:var(--text);
-  background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:12px;
-  padding:.15rem .55rem;letter-spacing:.05em;}
-.fb-icon{font-size:3.5rem;filter:drop-shadow(0 0 16px rgba(201,168,76,0.3));}
-@media(max-width:560px){
-  .featured-banner{grid-template-columns:1fr;}
-  .fb-icon{display:none;}}
-
-/* ══ TOOL PANEL ══ */
-.tool-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:1.4rem;}
-
-/* ══ HOW TO ══ */
-.how-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.9rem;}
-.how-step{background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:12px;
-  padding:1rem;display:flex;flex-direction:column;gap:.4rem;transition:border-color .2s;}
-.how-step:hover{border-color:var(--gold);}
-.how-num{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.how-title{font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;color:var(--gold2);}
-.how-desc{font-size:.73rem;color:var(--muted);line-height:1.5;}
-
-/* ══ WHY CARDS ══ */
-.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.9rem;}
-.why-card{background:rgba(5,5,12,0.6);border:1px solid var(--border);border-radius:12px;
-  padding:1rem;display:flex;flex-direction:column;gap:.4rem;transition:border-color .2s;}
-.why-card:hover{border-color:rgba(201,168,76,0.4);}
-.why-icon{font-size:1.6rem;}
-.why-title{font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;color:var(--gold2);}
-.why-desc{font-size:.73rem;color:var(--muted);line-height:1.5;}
-
-/* ══ SECTION HEADER INSIDE PANEL ══ */
-.panel-section-title{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;color:var(--gold);
-  letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;
-  margin-bottom:1rem;}
-.panel-section-title::before{content:'';width:4px;height:15px;background:var(--gold);border-radius:2px;}
-
-/* ══ NO RESULTS ══ */
-.no-results{display:none;text-align:center;padding:2.5rem 1rem;
-  font-family:'Cinzel',serif;font-size:.88rem;color:var(--muted);letter-spacing:.06em;}
-
-/* ══ MID AD ══ */
-.ad-mid-responsive{width:100%;display:flex;align-items:center;justify-content:center;
-  background:rgba(201,168,76,0.02);border:1px dashed rgba(201,168,76,0.18);
-  border-radius:10px;padding:.5rem;min-height:70px;}
-.ad-mid-responsive .ad-slot{width:728px;height:90px;max-width:100%;
-  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.12);border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
-@media(max-width:768px){.ad-mid-responsive .ad-slot{width:468px;height:60px;}}
-@media(max-width:520px){.ad-mid-responsive .ad-slot{width:320px;height:50px;}}
-
-/* ══ RELATED CATEGORIES ══ */
-.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.85rem;}
-.cat-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;
-  padding:1.1rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;
-  transition:transform .22s,border-color .22s,box-shadow .22s;}
-.cat-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 8px 26px rgba(201,168,76,0.15);}
-.cat-icon{width:38px;height:38px;border-radius:9px;background:rgba(201,168,76,0.1);
-  border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
-.cat-name{font-family:'Cinzel',serif;font-size:.82rem;font-weight:700;color:var(--gold2);}
-.cat-count{font-family:'Cinzel',serif;font-size:.65rem;color:var(--muted);letter-spacing:.07em;}
-
-/* ══ FOOTER ══ */
-.footer{background:rgba(3,3,10,0.99);border-top:1px solid var(--border);padding:2.5rem 1rem 1.5rem;position:relative;z-index:1;}
-.footer-inner{max-width:1100px;margin:0 auto;}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
-@media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
-@media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
-.footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:.5rem;display:block;}
-.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
-.footer-col h4{font-family:'Cinzel',serif;font-size:.73rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.65rem;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.38rem;}
-.footer-col ul li a{font-size:.77rem;color:var(--muted);text-decoration:none;transition:color .2s;}
-.footer-col ul li a:hover{color:var(--gold2);}
-.footer-bottom{border-top:1px solid var(--border);padding-top:1.2rem;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
-.footer-copy{font-family:'Cinzel',serif;font-size:.67rem;color:var(--muted);letter-spacing:.08em;}
-.footer-noor{font-family:'Amiri',serif;font-size:1rem;color:var(--gold2);direction:rtl;text-shadow:0 0 14px rgba(201,168,76,0.4);}
-
-@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+/* ─── FOOTER ─── */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+@media(max-width:360px){.ftr-top{grid-template-columns:1fr;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
+.ftr-lnk a:hover{color:#1a73e8;}
 </style>
 </head>
 <body>
 
-<!-- ══ NAV ══ -->
-<nav class="nav">
-  <a href="index.html" class="nav-logo">
-    <span class="nav-logo-icon">🛠️</span>
-    <span class="nav-logo-text">ToolNex</span>
-  </a>
-  <div class="nav-right">
-    <a href="index.html" class="nav-link">🏠 Home</a>
-    <a href="index.html" class="nav-link">🗂️ All Tools</a>
+<!-- ═══ HEADER ═══ -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo">
+      <span>🛠️</span>
+      <span>Tool<span class="logo-accent">Nex</span></span>
+    </a>
+    <div class="sbar">
+      <input type="search" placeholder="Search 100+ tools…" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Search tools"/>
+      <button class="sbtn" onclick="window.location.href='index.html'">Search</button>
+    </div>
+    <nav class="hdr-links">
+      <a href="about.html" class="hdr-link">About</a>
+      <a href="contact.html" class="hdr-link">Contact</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- ══ TOP BANNER AD ══ -->
-<div class="ad-top-banner">
-  <div class="ad-slot">
-    <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
-         data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
-    📢 Top Banner Ad · 728×90 Desktop / 320×100 Mobile
+<!-- ═══ TOP BANNER AD ═══ -->
+<div class="ad-top">
+  <div class="adslot">
+    <!--
+      REPLACE WITH ADSENSE:
+      <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    -->
+    📢 Top Banner Ad · 728×90 Desktop / 320×50 Mobile
   </div>
 </div>
 
-<div class="page-body">
+<!-- ═══ BREADCRUMB ═══ -->
+<div class="bc">
+  <a href="index.html">🏠 Home</a>
+  <span class="bc-sep">›</span>
+  <span>Image Tools</span>
+</div>
 
-  <!-- ══ HERO ══ -->
-  <div class="page-hero">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a> &nbsp;›&nbsp; Image Tools
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-badge">🖼️ Image Tools</div>
+  <h1>Free Online <em>Image Tools</em></h1>
+  <p>Compress, resize, convert, crop & edit images. 10 powerful tools — no sign-up, always free.</p>
+  <div class="chips">
+    <div class="chip"><b>10</b> Image Tools</div>
+    <div class="chip"><b>100%</b> Free</div>
+    <div class="chip"><b>Zero</b> Sign-up</div>
+    <div class="chip"><b>Fast</b> & Secure</div>
+  </div>
+</section>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main">
+
+  <!-- IMAGE TOOLS LIST -->
+  <section>
+    <div class="sh">
+      <div class="st"><span class="st-bar"></span>🖼️ All Image Tools</div>
+      <span style="font-size:.78rem;color:#9aa0a6;">10 tools</span>
     </div>
-    <div class="page-badge">🖼️ 25 Free Tools · No Sign-up · 100% Private</div>
-    <h1 class="page-title">Image Tools</h1>
-    <p class="page-sub">Resize, compress, convert, crop, filter and edit images online — plus AI-powered tools like Background Remover and AI Image Generator. All free, all instant.</p>
-    <div class="gold-line"></div>
+    <div class="tg">
 
-    <!-- SEARCH -->
-    <div class="search-outer">
-      <div class="search-box-wrap">
-        <input class="search-input" type="text" id="searchInput"
-          placeholder="🔍 Search image tools…" oninput="filterTools()"/>
-        <button class="search-btn" onclick="filterTools()">Search</button>
-      </div>
+      <a href="image-compressor.html" class="tc" onclick="ga('tool','Image Compressor')" title="Free Image Compressor – Compress JPG PNG WebP Online">
+        <span class="tc-rk">#1</span>
+        <div class="tc-row"><span class="tc-ico">🗜️</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">Image Compressor</div>
+        <div class="tc-ds">Compress JPG, PNG & WebP up to 90% smaller</div>
+      </a>
+
+      <a href="image-resizer.html" class="tc" onclick="ga('tool','Image Resizer')" title="Free Image Resizer – Resize Images Online by Pixels or Percentage">
+        <span class="tc-rk">#2</span>
+        <div class="tc-row"><span class="tc-ico">📐</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">Image Resizer</div>
+        <div class="tc-ds">Resize images by pixels, percentage or preset sizes</div>
+      </a>
+
+      <a href="image-converter.html" class="tc" onclick="ga('tool','Image Converter')" title="Free Image Converter – Convert JPG PNG WebP GIF BMP Online">
+        <span class="tc-rk">#3</span>
+        <div class="tc-row"><span class="tc-ico">🔄</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">Image Converter</div>
+        <div class="tc-ds">Convert between JPG, PNG, WebP, GIF & BMP</div>
+      </a>
+
+      <a href="image-cropper.html" class="tc" onclick="ga('tool','Image Cropper')" title="Free Image Cropper – Crop Images Online Free">
+        <span class="tc-rk">#4</span>
+        <div class="tc-row"><span class="tc-ico">✂️</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">Image Cropper</div>
+        <div class="tc-ds">Crop images to any size or aspect ratio online</div>
+      </a>
+
+      <a href="png-to-jpg.html" class="tc" onclick="ga('tool','PNG to JPG')" title="Free PNG to JPG Converter – Convert PNG to JPEG Online">
+        <span class="tc-rk">#5</span>
+        <div class="tc-row"><span class="tc-ico">🖼️</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">PNG to JPG</div>
+        <div class="tc-ds">Convert PNG images to JPG/JPEG format instantly</div>
+      </a>
+
+      <a href="jpg-to-png.html" class="tc" onclick="ga('tool','JPG to PNG')" title="Free JPG to PNG Converter – Convert JPEG to PNG Online">
+        <span class="tc-rk">#6</span>
+        <div class="tc-row"><span class="tc-ico">📷</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">JPG to PNG</div>
+        <div class="tc-ds">Convert JPG/JPEG images to transparent PNG format</div>
+      </a>
+
+      <a href="image-to-pdf.html" class="tc" onclick="ga('tool','Image to PDF')" title="Free Image to PDF Converter – Convert JPG PNG to PDF Online">
+        <span class="tc-rk">#7</span>
+        <div class="tc-row"><span class="tc-ico">📑</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">Image to PDF</div>
+        <div class="tc-ds">Convert JPG, PNG & WebP images to PDF file</div>
+      </a>
+
+      <a href="watermark-image.html" class="tc" onclick="ga('tool','Watermark Image')" title="Free Image Watermark Tool – Add Text or Logo Watermark Online">
+        <span class="tc-rk">#8</span>
+        <div class="tc-row"><span class="tc-ico">💧</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">Watermark Image</div>
+        <div class="tc-ds">Add text or logo watermark to images online</div>
+      </a>
+
+      <a href="flip-rotate-image.html" class="tc" onclick="ga('tool','Flip & Rotate Image')" title="Free Image Flip & Rotate Tool – Rotate Images 90 180 270 Degrees Online">
+        <span class="tc-rk">#9</span>
+        <div class="tc-row"><span class="tc-ico">🔃</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">Flip & Rotate Image</div>
+        <div class="tc-ds">Flip horizontally, vertically or rotate 90°–270°</div>
+      </a>
+
+      <a href="background-remover.html" class="tc" onclick="ga('tool','Background Remover')" title="Free Background Remover – Remove Image Background Online">
+        <span class="tc-rk">#10</span>
+        <div class="tc-row"><span class="tc-ico">🪄</span><span class="tc-tg">Image</span></div>
+        <div class="tc-nm">Background Remover</div>
+        <div class="tc-ds">Remove image background instantly, no AI required</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- MID RESPONSIVE AD -->
+  <div class="ad-mid">
+    <div class="adslot">
+      <!--
+        REPLACE WITH ADSENSE RESPONSIVE:
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      -->
+      📢 Responsive Mid Ad · Auto Size (728×90 → 320×50)
     </div>
   </div>
 
-  <div class="wrap">
-
-    <!-- ══ STATS ══ -->
-    <div class="stats-row">
-      <div class="stat-box"><div class="stat-num">25</div><div class="stat-lbl">Tools</div></div>
-      <div class="stat-box"><div class="stat-num">2</div><div class="stat-lbl">AI Tools</div></div>
-      <div class="stat-box"><div class="stat-num">0</div><div class="stat-lbl">Sign-up</div></div>
-      <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lbl">Free</div></div>
+  <!-- OTHER CATEGORIES -->
+  <section>
+    <div class="sh">
+      <div class="st"><span class="st-bar"></span>Browse Other Categories</div>
     </div>
-
-    <!-- ══ FEATURED BANNER ══ -->
-    <div class="featured-banner">
-      <div class="fb-content">
-        <div class="fb-badge">✨ Featured AI Tools</div>
-        <div class="fb-title">Supercharge Your Images with AI</div>
-        <div class="fb-desc">Remove backgrounds instantly, generate stunning images from text, and apply smart filters — all powered by artificial intelligence, right in your browser.</div>
-        <div class="fb-tools">
-          <span class="fb-tool-pill">🤖 AI Image Generator</span>
-          <span class="fb-tool-pill">✂️ Background Remover (AI)</span>
-          <span class="fb-tool-pill">🎨 Photo Filters</span>
-          <span class="fb-tool-pill">💡 Sharpen Image</span>
-        </div>
-      </div>
-      <div class="fb-icon">🤖</div>
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc" onclick="ga('cat','Calculators')" title="Free Online Calculators"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html"       class="cc" data-c="text" onclick="ga('cat','Text')"        title="Free Text Tools"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html"        class="cc" data-c="pdf"  onclick="ga('cat','PDF')"         title="Free PDF Tools"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html"  class="cc" data-c="dev"  onclick="ga('cat','Developer')"   title="Free Developer Tools"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html"        class="cc" data-c="seo"  onclick="ga('cat','SEO')"         title="Free SEO Tools"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html"   class="cc" data-c="sec"  onclick="ga('cat','Security')"    title="Free Security Tools"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html"    class="cc" data-c="fin"  onclick="ga('cat','Finance')"     title="Free Finance Tools"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html"     class="cc" data-c="des"  onclick="ga('cat','Design')"      title="Free Design Tools"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html"class="cc" data-c="vid"  onclick="ga('cat','Video')"       title="Free Video & Audio Tools"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
     </div>
+  </section>
 
-    <!-- ══ FILTER TABS ══ -->
-    <div>
-      <div class="filter-tabs" id="filterTabs">
-        <button class="filter-tab active" onclick="filterByCategory('all',this)">🔢 All Tools (25)</button>
-        <button class="filter-tab" onclick="filterByCategory('basic',this)">⚙️ Basic Editing</button>
-        <button class="filter-tab" onclick="filterByCategory('effects',this)">🎨 Effects & Filters</button>
-        <button class="filter-tab" onclick="filterByCategory('convert',this)">🔄 Convert & Export</button>
-        <button class="filter-tab" onclick="filterByCategory('generate',this)">✨ Generate & Create</button>
-        <button class="filter-tab" onclick="filterByCategory('ai',this)">🤖 AI Tools</button>
-        <button class="filter-tab" onclick="filterByCategory('utility',this)">🔧 Utility</button>
-      </div>
+</div>
 
-      <!-- ALL TOOLS GRID -->
-      <div class="tools-grid" id="toolsGrid"></div>
-      <div class="no-results" id="noResults">
-        😔 No tools found. Try a different search.
+<!-- ═══ FOOTER ═══ -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div>
+        <span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span>
+        <p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
       </div>
-    </div>
-
-    <!-- ══ MID AD ══ -->
-    <div class="ad-mid-responsive">
-      <div class="ad-slot">
-        <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX"
-             data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
-        📢 Responsive Ad · 728×90 → 468×60 → 320×50 (Auto)
+      <div class="fc">
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
       </div>
-    </div>
-
-    <!-- ══ HOW TO USE ══ -->
-    <div class="tool-panel">
-      <div class="panel-section-title">📖 How to Use Image Tools</div>
-      <div class="how-grid">
-        <div class="how-step">
-          <div class="how-num">01</div>
-          <div class="how-title">Choose a Tool</div>
-          <div class="how-desc">Browse all 25 image tools or use the search bar to quickly find what you need.</div>
-        </div>
-        <div class="how-step">
-          <div class="how-num">02</div>
-          <div class="how-title">Upload Your Image</div>
-          <div class="how-desc">Drag & drop or click to upload. Supports JPG, PNG, WebP, GIF and more.</div>
-        </div>
-        <div class="how-step">
-          <div class="how-num">03</div>
-          <div class="how-title">Edit & Customize</div>
-          <div class="how-desc">Adjust settings, apply filters, resize dimensions or let AI do the work automatically.</div>
-        </div>
-        <div class="how-step">
-          <div class="how-num">04</div>
-          <div class="how-title">Download Result</div>
-          <div class="how-desc">Preview your result and download in your preferred format instantly. No watermark.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ WHY TOOLNEX ══ -->
-    <div class="tool-panel">
-      <div class="panel-section-title">⭐ Why Use ToolNex Image Tools?</div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">🔒</div>
-          <div class="why-title">100% Private</div>
-          <div class="why-desc">All processing done in your browser. Your images are never uploaded to any server.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">⚡</div>
-          <div class="why-title">Instant Results</div>
-          <div class="why-desc">No waiting, no queue. Tools process your images in real-time right in the browser.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">💰</div>
-          <div class="why-title">Always Free</div>
-          <div class="why-desc">Every tool is 100% free. No hidden fees, no premium plans, no credit card required.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">📱</div>
-          <div class="why-title">Works on Mobile</div>
-          <div class="why-desc">Fully responsive design. Use all tools perfectly on phones, tablets and desktops.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🚫</div>
-          <div class="why-title">No Sign-up</div>
-          <div class="why-desc">No account, no registration, no email required. Just open and use instantly.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🤖</div>
-          <div class="why-title">AI Powered</div>
-          <div class="why-desc">AI-powered tools like Background Remover and Image Generator deliver professional results.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ OTHER CATEGORIES ══ -->
-    <div>
-      <div class="section-head">
-        <div class="section-title">📂 Browse Other Categories</div>
-      </div>
-      <div class="cat-grid">
-        <a href="text-tools.html" class="cat-card">
-          <div class="cat-icon">✍️</div>
-          <div class="cat-name">Text Tools</div>
-          <div class="cat-count">8 tools</div>
-        </a>
-        <a href="seo-tools.html" class="cat-card">
-          <div class="cat-icon">🔍</div>
-          <div class="cat-name">SEO Tools</div>
-          <div class="cat-count">5 tools</div>
-        </a>
-        <a href="pdf-tools.html" class="cat-card">
-          <div class="cat-icon">📑</div>
-          <div class="cat-name">PDF Tools</div>
-          <div class="cat-count">3 tools</div>
-        </a>
-        <a href="calculators.html" class="cat-card">
-          <div class="cat-icon">🧮</div>
-          <div class="cat-name">Calculators</div>
-          <div class="cat-count">9 tools</div>
-        </a>
-        <a href="developer-tools.html" class="cat-card">
-          <div class="cat-icon">💻</div>
-          <div class="cat-name">Developer Tools</div>
-          <div class="cat-count">7 tools</div>
-        </a>
-        <a href="ai-tools.html" class="cat-card">
-          <div class="cat-icon">🤖</div>
-          <div class="cat-name">AI Tools</div>
-          <div class="cat-count">3 tools</div>
-        </a>
-        <a href="security-tools.html" class="cat-card">
-          <div class="cat-icon">🔒</div>
-          <div class="cat-name">Security Tools</div>
-          <div class="cat-count">4 tools</div>
-        </a>
-        <a href="converter-tools.html" class="cat-card">
-          <div class="cat-icon">🔄</div>
-          <div class="cat-name">Converters</div>
-          <div class="cat-count">6 tools</div>
-        </a>
-      </div>
-    </div>
-
-  </div><!-- /wrap -->
-</div><!-- /page-body -->
-
-<!-- ══ FOOTER ══ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="brand-logo">🛠️ ToolNex</span>
-        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
-      </div>
-      <div class="footer-col">
+      <div class="fc">
         <h4>Image Tools</h4>
         <ul>
-          <li><a href="image-resizer.html">📐 Image Resizer</a></li>
-          <li><a href="image-compressor.html">🗜️ Image Compressor</a></li>
-          <li><a href="image-cropper.html">✂️ Image Cropper</a></li>
-          <li><a href="image-converter.html">🔄 Image Converter</a></li>
-          <li><a href="background-remover.html">🎭 Background Remover</a></li>
+          <li><a href="image-compressor.html">Image Compressor</a></li>
+          <li><a href="image-resizer.html">Image Resizer</a></li>
+          <li><a href="image-converter.html">Image Converter</a></li>
+          <li><a href="image-cropper.html">Image Cropper</a></li>
+          <li><a href="background-remover.html">Background Remover</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
+      <div class="fc">
+        <h4>Popular Tools</h4>
         <ul>
-          <li><a href="index.html">🏠 Home</a></li>
-          <li><a href="password-generator.html">🔑 Password Generator</a></li>
-          <li><a href="currency-converter.html">💱 Currency Converter</a></li>
-          <li><a href="json-formatter.html">{} JSON Formatter</a></li>
-          <li><a href="meta-tag.html">🏷️ Meta Tag Generator</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">📖 About Us</a></li>
-          <li><a href="contact.html">✉️ Contact</a></li>
-          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
-          <li><a href="terms.html">📋 Terms of Use</a></li>
+          <li><a href="age-calculator.html">Age Calculator</a></li>
+          <li><a href="pdf-to-word.html">PDF to Word</a></li>
+          <li><a href="qr-code.html">QR Code Generator</a></li>
+          <li><a href="currency-converter.html">Currency Converter</a></li>
+          <li><a href="password-generator.html">Password Generator</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
-      <div class="footer-noor">نُورُ الہُدیٰ</div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-/* ══════════════════════════════════════
-   ALL 25 TOOLS DATA
-══════════════════════════════════════ */
-const ALL_TOOLS = [
-  /* ── BASIC EDITING ── */
-  {
-    id:1, name:'Image Resizer', icon:'📐',
-    desc:'Resize images to any custom dimension. Pixel-perfect output, maintain aspect ratio.',
-    href:'image-resizer.html', cat:'basic',
-    badges:[{text:'Basic',cls:'badge-cat'},{text:'Hot',cls:'badge-hot'}]
-  },
-  {
-    id:2, name:'Image Compressor', icon:'🗜️',
-    desc:'Compress JPG, PNG, WebP up to 90% smaller without visible quality loss.',
-    href:'image-compressor.html', cat:'basic',
-    badges:[{text:'Basic',cls:'badge-cat'},{text:'Hot',cls:'badge-hot'}]
-  },
-  {
-    id:3, name:'Image Cropper', icon:'✂️',
-    desc:'Crop images to any size or aspect ratio. Free crop, fixed ratio, or custom.',
-    href:'image-cropper.html', cat:'basic',
-    badges:[{text:'Basic',cls:'badge-cat'}]
-  },
-  {
-    id:4, name:'Image Rotator', icon:'🔄',
-    desc:'Rotate images 90°, 180°, 270° or any custom angle. Fast and lossless.',
-    href:'image-rotator.html', cat:'basic',
-    badges:[{text:'Basic',cls:'badge-cat'}]
-  },
-  {
-    id:5, name:'Image Flipper', icon:'↔️',
-    desc:'Flip images horizontally or vertically. Mirror effect in one click.',
-    href:'image-flipper.html', cat:'basic',
-    badges:[{text:'Basic',cls:'badge-cat'}]
-  },
-  {
-    id:6, name:'Add Text to Image', icon:'🔤',
-    desc:'Add custom text, captions or watermark text to images with full font control.',
-    href:'add-text-image.html', cat:'basic',
-    badges:[{text:'Basic',cls:'badge-cat'},{text:'New',cls:'badge-new'}]
-  },
-
-  /* ── EFFECTS & FILTERS ── */
-  {
-    id:7, name:'Photo Filters Tool', icon:'🎨',
-    desc:'Apply vintage, sepia, grayscale, vivid, HDR and 20+ professional photo filters.',
-    href:'photo-filters.html', cat:'effects',
-    badges:[{text:'Effects',cls:'badge-cat'},{text:'Hot',cls:'badge-hot'}]
-  },
-  {
-    id:8, name:'Blur Image Tool', icon:'🌫️',
-    desc:'Apply gaussian, motion or radial blur. Blur backgrounds, faces or entire images.',
-    href:'blur-image.html', cat:'effects',
-    badges:[{text:'Effects',cls:'badge-cat'}]
-  },
-  {
-    id:9, name:'Sharpen Image Tool', icon:'💡',
-    desc:'Enhance image sharpness and clarity. Remove blur and increase detail definition.',
-    href:'sharpen-image.html', cat:'effects',
-    badges:[{text:'Effects',cls:'badge-cat'},{text:'New',cls:'badge-new'}]
-  },
-
-  /* ── CONVERT & EXPORT ── */
-  {
-    id:10, name:'Image Converter', icon:'🔀',
-    desc:'Convert images between JPG, PNG, WebP, GIF, BMP and AVIF formats instantly.',
-    href:'image-converter.html', cat:'convert',
-    badges:[{text:'Convert',cls:'badge-cat'},{text:'Hot',cls:'badge-hot'}]
-  },
-  {
-    id:11, name:'Image to Base64', icon:'🔢',
-    desc:'Convert any image to Base64 encoded string. For HTML, CSS and data URIs.',
-    href:'image-to-base64.html', cat:'convert',
-    badges:[{text:'Convert',cls:'badge-cat'}]
-  },
-  {
-    id:12, name:'Base64 to Image', icon:'🖼️',
-    desc:'Decode Base64 strings back to images. Preview and download instantly.',
-    href:'base64-to-image.html', cat:'convert',
-    badges:[{text:'Convert',cls:'badge-cat'}]
-  },
-
-  /* ── GENERATE & CREATE ── */
-  {
-    id:13, name:'Meme Generator', icon:'😂',
-    desc:'Create funny memes with popular templates or upload your own image. Add top/bottom text.',
-    href:'meme-generator.html', cat:'generate',
-    badges:[{text:'Create',cls:'badge-cat'},{text:'Hot',cls:'badge-hot'}]
-  },
-  {
-    id:14, name:'Collage Maker', icon:'🎞️',
-    desc:'Combine multiple images into beautiful collages. Choose layouts, borders and styles.',
-    href:'collage-maker.html', cat:'generate',
-    badges:[{text:'Create',cls:'badge-cat'},{text:'New',cls:'badge-new'}]
-  },
-  {
-    id:15, name:'Thumbnail Maker', icon:'▶️',
-    desc:'Design eye-catching YouTube, social media and video thumbnails in minutes.',
-    href:'thumbnail-maker.html', cat:'generate',
-    badges:[{text:'Create',cls:'badge-cat'},{text:'Hot',cls:'badge-hot'}]
-  },
-  {
-    id:16, name:'Watermark Tool', icon:'💧',
-    desc:'Add text or image watermarks to protect your photos. Adjust opacity, position and size.',
-    href:'watermark-tool.html', cat:'generate',
-    badges:[{text:'Create',cls:'badge-cat'}]
-  },
-  {
-    id:17, name:'Icon Generator', icon:'🎯',
-    desc:'Generate icons in all standard sizes (16×16 to 512×512) for apps and websites.',
-    href:'icon-generator.html', cat:'generate',
-    badges:[{text:'Create',cls:'badge-cat'},{text:'New',cls:'badge-new'}]
-  },
-  {
-    id:18, name:'Favicon Generator', icon:'⭐',
-    desc:'Create favicons (.ico, PNG) from any image for your website browser tab icon.',
-    href:'favicon-generator.html', cat:'generate',
-    badges:[{text:'Create',cls:'badge-cat'},{text:'New',cls:'badge-new'}]
-  },
-
-  /* ── AI TOOLS ── */
-  {
-    id:19, name:'AI Image Generator', icon:'🤖',
-    desc:'Generate stunning images from text prompts using AI. Art, photos, illustrations.',
-    href:'ai-image-generator.html', cat:'ai',
-    badges:[{text:'AI',cls:'badge-ai'},{text:'New',cls:'badge-new'}]
-  },
-  {
-    id:20, name:'Background Remover', icon:'🎭',
-    desc:'Remove image backgrounds automatically with AI. One click, professional results.',
-    href:'background-remover.html', cat:'ai',
-    badges:[{text:'AI',cls:'badge-ai'},{text:'Hot',cls:'badge-hot'}]
-  },
-
-  /* ── UTILITY ── */
-  {
-    id:21, name:'Image Color Picker', icon:'🎨',
-    desc:'Pick any color from an image. Get HEX, RGB, HSL values with full palette extraction.',
-    href:'image-color-picker.html', cat:'utility',
-    badges:[{text:'Utility',cls:'badge-cat'}]
-  },
-  {
-    id:22, name:'Image Metadata Viewer', icon:'🔎',
-    desc:'View hidden EXIF metadata — camera info, GPS location, date, settings and more.',
-    href:'image-metadata.html', cat:'utility',
-    badges:[{text:'Utility',cls:'badge-cat'}]
-  },
-  {
-    id:23, name:'Screenshot Tool', icon:'📸',
-    desc:'Capture full-page screenshots of any website URL directly in your browser.',
-    href:'screenshot-tool.html', cat:'utility',
-    badges:[{text:'Utility',cls:'badge-cat'},{text:'New',cls:'badge-new'}]
-  },
-  {
-    id:24, name:'QR Code Generator', icon:'📲',
-    desc:'Generate QR codes for URLs, text, WiFi, vCards and more. Download as PNG/SVG.',
-    href:'qr-code.html', cat:'utility',
-    badges:[{text:'Utility',cls:'badge-cat'},{text:'Hot',cls:'badge-hot'}]
-  },
-  {
-    id:25, name:'QR Code Scanner', icon:'📷',
-    desc:'Scan and decode QR codes from uploaded images. Instant result, no camera needed.',
-    href:'qr-scanner.html', cat:'utility',
-    badges:[{text:'Utility',cls:'badge-cat'},{text:'New',cls:'badge-new'}]
-  },
-];
-
-/* ══════════════════════════════════════
-   RENDER TOOLS
-══════════════════════════════════════ */
-let activeCategory = 'all';
-
-function renderTools(tools) {
-  const grid = document.getElementById('toolsGrid');
-  const noRes = document.getElementById('noResults');
-
-  if (!tools.length) {
-    grid.innerHTML = '';
-    noRes.style.display = 'block';
-    return;
-  }
-  noRes.style.display = 'none';
-
-  grid.innerHTML = tools.map((t, i) => {
-    const badgesHTML = t.badges.map(b =>
-      `<span class="badge ${b.cls}">${b.text}</span>`
-    ).join('');
-
-    return `
-    <a href="${t.href}" class="tool-card" style="opacity:0;transform:translateY(20px);
-      transition:opacity .42s ${i * .04}s ease, transform .42s ${i * .04}s ease,
-      box-shadow .25s, border-color .25s, background .25s;">
-      <div class="tc-top">
-        <div class="tc-icon-wrap">${t.icon}</div>
-        <div class="tc-badges">${badgesHTML}</div>
-      </div>
-      <div class="tc-name">${t.name}</div>
-      <div class="tc-desc">${t.desc}</div>
-      <div class="tc-arrow">Open Tool</div>
-    </a>`;
-  }).join('');
-
-  // Animate in
-  requestAnimationFrame(() => {
-    grid.querySelectorAll('.tool-card').forEach(c => {
-      c.style.opacity = '1';
-      c.style.transform = 'translateY(0)';
-    });
-  });
-}
-
-/* ══════════════════════════════════════
-   FILTER BY CATEGORY
-══════════════════════════════════════ */
-function filterByCategory(cat, btn) {
-  activeCategory = cat;
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('searchInput').value = '';
-  const filtered = cat === 'all' ? ALL_TOOLS : ALL_TOOLS.filter(t => t.cat === cat);
-  renderTools(filtered);
-}
-
-/* ══════════════════════════════════════
-   SEARCH
-══════════════════════════════════════ */
-function filterTools() {
-  const q = document.getElementById('searchInput').value.toLowerCase().trim();
-  if (!q) {
-    const filtered = activeCategory === 'all' ? ALL_TOOLS : ALL_TOOLS.filter(t => t.cat === activeCategory);
-    renderTools(filtered);
-    return;
-  }
-  const filtered = ALL_TOOLS.filter(t =>
-    t.name.toLowerCase().includes(q) ||
-    t.desc.toLowerCase().includes(q) ||
-    t.cat.toLowerCase().includes(q)
-  );
-  renderTools(filtered);
-}
-
-/* ══════════════════════════════════════
-   SCROLL ANIMATION — other elements
-══════════════════════════════════════ */
-window.addEventListener('DOMContentLoaded', () => {
-  // Initial render
-  renderTools(ALL_TOOLS);
-
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: .07 });
-
-  document.querySelectorAll(
-    '.stat-box,.featured-banner,.tool-panel,.how-step,.why-card,.cat-card'
-  ).forEach((c, i) => {
-    c.style.opacity = '0';
-    c.style.transform = 'translateY(20px)';
-    c.style.transition = `opacity .45s ${i * .05}s ease, transform .45s ${i * .05}s ease`;
-    io.observe(c);
-  });
+/* ══ STAGGERED FADE IN ══ */
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ob.unobserve(e.target);}});},{threshold:.05});
+document.querySelectorAll('.cc,.tc').forEach((c,i)=>{
+  c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease,border-color .15s,box-shadow .15s`;
+  ob.observe(c);
 });
 </script>
 </body>
