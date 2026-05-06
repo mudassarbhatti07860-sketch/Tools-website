@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-535630536');
+  function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}
+</script>
+
+<!-- SEO -->
+<title>QR Code Generator – Free Online QR Code Maker | ToolNex</title>
+<meta name="description" content="Free QR Code Generator online – Create QR codes for URL, WiFi, vCard, Email, SMS, Phone, Text, Social Media and more. Customize colors, size, add logo. Download as PNG, SVG or JPEG. No sign-up required."/>
+<meta name="keywords" content="qr code generator, free qr code generator online, create qr code, qr code maker, url qr code, wifi qr code, vcard qr code, custom qr code, qr code with logo, qr code generator 2026, free qr code, qr code download, qr code png, bulk qr code, qr code scanner"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="theme-color" content="#1a73e8"/>
+<link rel="canonical" href="https://toolnex.site/qr-code.html"/>
+<meta property="og:title" content="QR Code Generator – Free Online QR Code Maker | ToolNex"/>
+<meta property="og:description" content="Create QR codes for URL, WiFi, vCard, Email, SMS and more. Customize colors, add logo, download PNG/SVG. Free, instant, no sign-up."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/qr-code.html"/>
+<meta property="og:site_name" content="ToolNex"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="QR Code Generator – Free Online | ToolNex"/>
+<meta name="twitter:description" content="Free QR code generator – URL, WiFi, vCard, Email, SMS. Custom colors, logo, PNG/SVG download. Instant, no sign-up."/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"QR Code Generator","url":"https://toolnex.site/qr-code.html","description":"Free online QR Code Generator – Create QR codes for URL, WiFi, vCard, Email, SMS, Phone and more with custom colors and logo.","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolNex","url":"https://toolnex.site/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://toolnex.site/"},{"@type":"ListItem","position":2,"name":"Security Tools","item":"https://toolnex.site/security-tools.html"},{"@type":"ListItem","position":3,"name":"QR Code Generator","item":"https://toolnex.site/qr-code.html"}]}</script>
+
+<!-- QR Code library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+
+/* HEADER */
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:background .15s,border-color .15s,box-shadow .15s;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;transition:background .15s;white-space:nowrap;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
+.hdr-link:hover{background:#f1f3f4;color:#202124;}
+@media(max-width:650px){.hdr-links{display:none;}}
+@media(max-width:420px){.logo span:last-child{display:none;}}
+
+/* ADS */
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+.ad-mid{display:flex;justify-content:center;padding:.5rem;margin:1.2rem 0;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}.ad-mid .adslot{width:468px;height:60px;}}
+@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+
+/* TOOL HERO */
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#e0f7fa;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+
+/* MAIN */
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+
+/* CARDS */
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+
+/* QR TYPE GRID */
+.qr-type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.45rem;margin-bottom:1.3rem;}
+@media(max-width:400px){.qr-type-grid{grid-template-columns:repeat(3,1fr);}}
+.qr-type-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:11px;padding:.6rem .3rem;font-size:.68rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:.3rem;text-align:center;line-height:1.2;}
+.qr-type-btn .qt-ico{font-size:1.2rem;}
+.qr-type-btn:hover{border-color:#1a73e8;color:#1a73e8;background:#f0f4ff;}
+.qr-type-btn.active{background:#e8f0fe;border-color:#1a73e8;color:#1a73e8;}
+
+/* INPUT PANELS */
+.qr-panel{display:none;}
+.qr-panel.active{display:block;}
+.input-group{margin-bottom:.9rem;}
+.input-label{font-size:.78rem;font-weight:600;color:#3c4043;margin-bottom:.4rem;display:block;}
+.input-sublabel{font-size:.7rem;color:#9aa0a6;font-weight:400;}
+.inp{width:100%;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.62rem .9rem;font-size:.88rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .15s,box-shadow .15s;}
+.inp:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);background:#fff;}
+select.inp{cursor:pointer;}
+textarea.inp{resize:vertical;min-height:80px;line-height:1.5;}
+.inp-2col{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.inp-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;}
+@media(max-width:460px){.inp-2col{grid-template-columns:1fr;}.inp-3col{grid-template-columns:1fr 1fr;}}
+
+/* CUSTOMIZATION */
+.cust-section{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:1rem;margin-top:1rem;}
+.cust-title{font-size:.78rem;font-weight:700;color:#202124;margin-bottom:.8rem;display:flex;align-items:center;justify-content:space-between;}
+.cust-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+@media(max-width:420px){.cust-grid{grid-template-columns:1fr;}}
+.cust-group{display:flex;flex-direction:column;gap:.35rem;}
+.cust-label{font-size:.72rem;font-weight:600;color:#5f6368;}
+.color-row{display:flex;align-items:center;gap:.5rem;}
+.color-pick{width:38px;height:38px;border-radius:8px;border:2px solid #e8eaed;cursor:pointer;padding:2px;background:none;}
+.color-hex{font-size:.78rem;font-weight:600;color:#202124;background:#fff;border:1.5px solid #e8eaed;border-radius:7px;padding:.3rem .55rem;width:90px;outline:none;transition:border-color .15s;}
+.color-hex:focus{border-color:#1a73e8;}
+
+/* SLIDER */
+.range{width:100%;-webkit-appearance:none;appearance:none;height:5px;border-radius:3px;background:#e8eaed;outline:none;}
+.range::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:#1a73e8;cursor:pointer;box-shadow:0 1px 4px rgba(26,115,232,.4);}
+
+/* STYLE PRESETS */
+.style-presets{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.6rem;}
+.style-preset{border:2px solid #e8eaed;background:#fff;border-radius:8px;padding:.3rem .65rem;font-size:.7rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;}
+.style-preset:hover{border-color:#1a73e8;color:#1a73e8;}
+.style-preset.active{background:#e8f0fe;border-color:#1a73e8;color:#1a73e8;}
+
+/* LOGO UPLOAD */
+.logo-upload-area{border:1.5px dashed #c5d8fb;background:#f0f7ff;border-radius:10px;padding:.8rem;text-align:center;cursor:pointer;transition:all .15s;position:relative;}
+.logo-upload-area:hover{border-color:#1a73e8;background:#e8f0fe;}
+.logo-upload-area input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.logo-preview{width:40px;height:40px;object-fit:contain;border-radius:6px;border:1px solid #e8eaed;display:none;margin:0 auto .3rem;}
+.logo-clear{font-size:.68rem;color:#ef4444;font-weight:600;background:none;border:none;cursor:pointer;display:none;margin-top:.3rem;}
+
+/* GENERATE BTN */
+.gen-btn{width:100%;background:#1a73e8;color:#fff;border:none;border-radius:12px;padding:.85rem;font-size:.93rem;font-weight:700;transition:background .15s,transform .1s,box-shadow .15s;margin-top:1rem;letter-spacing:.01em;}
+.gen-btn:hover{background:#1558c0;box-shadow:0 4px 16px rgba(26,115,232,.3);transform:translateY(-1px);}
+.gen-btn:active{transform:translateY(0);}
+.reset-btn{width:100%;background:#f8f9fa;color:#5f6368;border:1.5px solid #e8eaed;border-radius:12px;padding:.65rem;font-size:.83rem;font-weight:600;transition:background .15s;margin-top:.55rem;}
+.reset-btn:hover{background:#e8eaed;}
+
+/* QR RESULT */
+.qr-result{display:none;margin-top:1rem;}
+.qr-result.show{display:flex;gap:1.2rem;flex-wrap:wrap;animation:fadeUp .3s ease forwards;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* QR DISPLAY */
+.qr-display-wrap{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.2rem;flex-shrink:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.7rem;}
+#qrCanvas{border-radius:8px;}
+.qr-size-label{font-size:.68rem;color:#9aa0a6;font-weight:600;}
+
+/* DOWNLOAD PANEL */
+.qr-dl-panel{flex:1;min-width:200px;display:flex;flex-direction:column;gap:.7rem;}
+.dl-format-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;}
+.dl-btn{display:flex;flex-direction:column;align-items:center;gap:.2rem;border:1.5px solid #e8eaed;background:#fff;border-radius:10px;padding:.6rem .3rem;cursor:pointer;transition:all .15s;font-size:.7rem;font-weight:700;color:#5f6368;}
+.dl-btn:hover{border-color:#1a73e8;color:#1a73e8;background:#f0f4ff;}
+.dl-btn .dl-ico{font-size:1.2rem;}
+.dl-btn.primary{background:#1a73e8;border-color:#1a73e8;color:#fff;}
+.dl-btn.primary:hover{background:#1558c0;}
+
+/* QR INFO */
+.qr-info-rows{background:#f8f9fa;border-radius:10px;padding:.75rem;display:flex;flex-direction:column;gap:.3rem;}
+.qr-info-row{display:flex;justify-content:space-between;font-size:.72rem;}
+.qr-info-row span:first-child{color:#9aa0a6;}
+.qr-info-row span:last-child{font-weight:700;color:#202124;}
+
+/* COPY BTN */
+.copy-data-btn{width:100%;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:9px;padding:.5rem;font-size:.75rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.3rem;}
+.copy-data-btn:hover{border-color:#1a73e8;color:#1a73e8;}
+
+/* HISTORY */
+.history-section{margin-top:1.2rem;}
+.history-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;}
+.history-title{font-size:.78rem;font-weight:700;color:#202124;}
+.history-clear{font-size:.7rem;font-weight:600;color:#ef4444;background:none;border:none;cursor:pointer;}
+.history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:.5rem;}
+.hist-item{border:1.5px solid #e8eaed;border-radius:9px;overflow:hidden;cursor:pointer;transition:border-color .13s;text-align:center;}
+.hist-item:hover{border-color:#1a73e8;}
+.hist-item img{width:100%;height:70px;object-fit:contain;padding:4px;background:#fff;display:block;}
+.hist-item-label{font-size:.55rem;color:#9aa0a6;padding:.2rem;background:#f8f9fa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* BULK SECTION */
+.bulk-section{margin-top:1rem;display:none;}
+.bulk-section.show{display:block;}
+.bulk-rows{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.8rem;}
+.bulk-row{display:flex;gap:.5rem;align-items:center;}
+.bulk-inp{flex:1;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:8px;padding:.45rem .7rem;font-size:.82rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;}
+.bulk-inp:focus{border-color:#1a73e8;}
+.bulk-rm{background:none;border:none;color:#9aa0a6;cursor:pointer;font-size:.9rem;padding:.15rem;transition:color .13s;}
+.bulk-rm:hover{color:#ef4444;}
+.add-bulk-btn{background:none;border:1.5px dashed #e8eaed;border-radius:8px;padding:.45rem;font-size:.76rem;font-weight:600;color:#9aa0a6;width:100%;cursor:pointer;transition:all .13s;}
+.add-bulk-btn:hover{border-color:#1a73e8;color:#1a73e8;}
+
+/* CATEGORY BROWSER */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+@media(max-width:440px){.cg{grid-template-columns:repeat(3,1fr);gap:.5rem;}}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:transform .18s;}
+.cc:hover .cc-ico{transform:scale(1.1);}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}
+[data-c="text"] .cc-ico{background:#e8f5e9;}
+[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}
+[data-c="dev"] .cc-ico{background:#e3f2fd;}
+[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}
+[data-c="fin"] .cc-ico{background:#e8f5e9;}
+[data-c="des"] .cc-ico{background:#fff8e1;}
+[data-c="vid"] .cc-ico{background:#fce4ec;}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#e0f7fa;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+
+/* FAQ */
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* FOOTER */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+@media(max-width:360px){.ftr-top{grid-template-columns:1fr;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
+.ftr-lnk a:hover{color:#1a73e8;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar">
+      <input type="search" placeholder="Search 100+ tools…" autocomplete="off" spellcheck="false" aria-label="Search tools" onkeydown="if(event.key==='Enter')window.location='index.html?q='+this.value"/>
+      <button class="sbtn" onclick="window.location='index.html'">Search</button>
+    </div>
+    <nav class="hdr-links">
+      <a href="about.html" class="hdr-link">About</a>
+      <a href="contact.html" class="hdr-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TOP BANNER AD -->
+<div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50 Mobile</div></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span>
+  <a href="security-tools.html">Security Tools</a><span class="sep">›</span>
+  <span class="cur">QR Code Generator</span>
+</nav>
+
+<!-- TOOL HERO -->
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">📲</div>
+    <div class="tool-hero-text">
+      <h1>QR Code Generator – Free Online QR Maker</h1>
+      <p>Create QR codes for URLs, WiFi, vCards, Email, SMS, Phone numbers, Social Media, App links, Text and more. Customize colors, add your logo, choose size and download as PNG, SVG or JPEG. Bulk QR generation and history included — 100% free, no sign-up.</p>
+      <div class="tool-hero-tags">
+        <span class="tool-tag">🆓 Free</span>
+        <span class="tool-tag">⚡ Instant</span>
+        <span class="tool-tag">🎨 Custom Colors</span>
+        <span class="tool-tag">🖼️ Logo Support</span>
+        <span class="tool-tag">📦 Bulk Mode</span>
+        <span class="tool-tag">✅ No Sign-up</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+
+  <!-- GENERATOR CARD -->
+  <div class="tool-card">
+    <div class="tool-card-header">
+      <h2>📲 QR Code Generator</h2>
+      <span style="font-size:.72rem;color:#9aa0a6;">10 QR types · Custom colors · Logo support</span>
+    </div>
+    <div class="tool-card-body">
+
+      <!-- QR Type Selector -->
+      <div class="qr-type-grid">
+        <button class="qr-type-btn active" onclick="setType('url',this)"><span class="qt-ico">🌐</span>URL / Link</button>
+        <button class="qr-type-btn" onclick="setType('wifi',this)"><span class="qt-ico">📶</span>WiFi</button>
+        <button class="qr-type-btn" onclick="setType('vcard',this)"><span class="qt-ico">👤</span>vCard</button>
+        <button class="qr-type-btn" onclick="setType('email',this)"><span class="qt-ico">📧</span>Email</button>
+        <button class="qr-type-btn" onclick="setType('sms',this)"><span class="qt-ico">💬</span>SMS</button>
+        <button class="qr-type-btn" onclick="setType('phone',this)"><span class="qt-ico">📞</span>Phone</button>
+        <button class="qr-type-btn" onclick="setType('text',this)"><span class="qt-ico">📝</span>Plain Text</button>
+        <button class="qr-type-btn" onclick="setType('social',this)"><span class="qt-ico">📱</span>Social</button>
+        <button class="qr-type-btn" onclick="setType('app',this)"><span class="qt-ico">📲</span>App Store</button>
+        <button class="qr-type-btn" onclick="setType('geo',this)"><span class="qt-ico">📍</span>Location</button>
+      </div>
+
+      <!-- ── URL PANEL ── -->
+      <div class="qr-panel active" id="panel-url">
+        <div class="input-group">
+          <label class="input-label">Website URL</label>
+          <input class="inp" type="url" id="url-url" placeholder="https://example.com" value="https://toolnex.site" oninput="autoGenerate()"/>
+        </div>
+      </div>
+
+      <!-- ── WIFI PANEL ── -->
+      <div class="qr-panel" id="panel-wifi">
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Network Name (SSID)</label>
+            <input class="inp" type="text" id="wifi-ssid" placeholder="MyWiFiNetwork"/>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Security Type</label>
+            <select class="inp" id="wifi-enc">
+              <option value="WPA">WPA / WPA2</option>
+              <option value="WEP">WEP</option>
+              <option value="">None (Open)</option>
+            </select>
+          </div>
+        </div>
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Password</label>
+            <input class="inp" type="text" id="wifi-pass" placeholder="WiFi Password"/>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Hidden Network?</label>
+            <select class="inp" id="wifi-hidden">
+              <option value="false">No</option>
+              <option value="true">Yes</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── VCARD PANEL ── -->
+      <div class="qr-panel" id="panel-vcard">
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">First Name</label>
+            <input class="inp" type="text" id="vc-fname" placeholder="John"/>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Last Name</label>
+            <input class="inp" type="text" id="vc-lname" placeholder="Doe"/>
+          </div>
+        </div>
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Phone</label>
+            <input class="inp" type="tel" id="vc-phone" placeholder="+1 234 567 8900"/>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Email</label>
+            <input class="inp" type="email" id="vc-email" placeholder="john@example.com"/>
+          </div>
+        </div>
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Organization</label>
+            <input class="inp" type="text" id="vc-org" placeholder="Company Name"/>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Job Title</label>
+            <input class="inp" type="text" id="vc-title" placeholder="Software Engineer"/>
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Website</label>
+          <input class="inp" type="url" id="vc-web" placeholder="https://example.com"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Address <span class="input-sublabel">(optional)</span></label>
+          <input class="inp" type="text" id="vc-addr" placeholder="123 Main St, New York, USA"/>
+        </div>
+      </div>
+
+      <!-- ── EMAIL PANEL ── -->
+      <div class="qr-panel" id="panel-email">
+        <div class="input-group">
+          <label class="input-label">Email Address</label>
+          <input class="inp" type="email" id="em-to" placeholder="recipient@example.com"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Subject <span class="input-sublabel">(optional)</span></label>
+          <input class="inp" type="text" id="em-sub" placeholder="Hello from ToolNex"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Message <span class="input-sublabel">(optional)</span></label>
+          <textarea class="inp" id="em-body" placeholder="Type your message here…" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- ── SMS PANEL ── -->
+      <div class="qr-panel" id="panel-sms">
+        <div class="input-group">
+          <label class="input-label">Phone Number</label>
+          <input class="inp" type="tel" id="sms-num" placeholder="+1 234 567 8900"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Message <span class="input-sublabel">(optional)</span></label>
+          <textarea class="inp" id="sms-msg" placeholder="Type your SMS message…" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- ── PHONE PANEL ── -->
+      <div class="qr-panel" id="panel-phone">
+        <div class="input-group">
+          <label class="input-label">Phone Number</label>
+          <input class="inp" type="tel" id="ph-num" placeholder="+1 234 567 8900"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Type</label>
+          <select class="inp" id="ph-type">
+            <option value="tel">📞 Voice Call</option>
+            <option value="facetime">📹 FaceTime</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ── TEXT PANEL ── -->
+      <div class="qr-panel" id="panel-text">
+        <div class="input-group">
+          <label class="input-label">Plain Text</label>
+          <textarea class="inp" id="txt-content" placeholder="Type any text here…" rows="4" oninput="autoGenerate()"></textarea>
+        </div>
+      </div>
+
+      <!-- ── SOCIAL PANEL ── -->
+      <div class="qr-panel" id="panel-social">
+        <div class="input-group">
+          <label class="input-label">Platform</label>
+          <select class="inp" id="soc-platform" onchange="updateSocialPlaceholder()">
+            <option value="https://instagram.com/">📸 Instagram</option>
+            <option value="https://twitter.com/">🐦 Twitter / X</option>
+            <option value="https://facebook.com/">👥 Facebook</option>
+            <option value="https://linkedin.com/in/">💼 LinkedIn</option>
+            <option value="https://youtube.com/">▶️ YouTube</option>
+            <option value="https://tiktok.com/@">🎵 TikTok</option>
+            <option value="https://github.com/">💻 GitHub</option>
+            <option value="https://t.me/">✈️ Telegram</option>
+            <option value="https://wa.me/">💬 WhatsApp</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Username / Profile URL</label>
+          <input class="inp" type="text" id="soc-user" placeholder="yourusername"/>
+        </div>
+      </div>
+
+      <!-- ── APP PANEL ── -->
+      <div class="qr-panel" id="panel-app">
+        <div class="input-group">
+          <label class="input-label">Store</label>
+          <select class="inp" id="app-store">
+            <option value="https://apps.apple.com/app/">🍎 Apple App Store</option>
+            <option value="https://play.google.com/store/apps/details?id=">🤖 Google Play Store</option>
+            <option value="">🔗 Direct App URL</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label class="input-label">App ID / URL</label>
+          <input class="inp" type="text" id="app-id" placeholder="com.example.app or app ID"/>
+        </div>
+      </div>
+
+      <!-- ── GEO PANEL ── -->
+      <div class="qr-panel" id="panel-geo">
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Latitude</label>
+            <input class="inp" type="number" id="geo-lat" placeholder="40.7128" step="any"/>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Longitude</label>
+            <input class="inp" type="number" id="geo-lng" placeholder="-74.0060" step="any"/>
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Label <span class="input-sublabel">(optional)</span></label>
+          <input class="inp" type="text" id="geo-label" placeholder="New York City"/>
+        </div>
+      </div>
+
+      <!-- ── CUSTOMIZATION ── -->
+      <div class="cust-section">
+        <div class="cust-title">
+          <span>🎨 Customize QR Code</span>
+          <button class="style-preset active" id="presetDefault" onclick="applyPreset('default',this)" style="font-size:.68rem;padding:.2rem .55rem;border-radius:6px;">Default</button>
+        </div>
+
+        <!-- Style Presets -->
+        <div style="margin-bottom:.8rem;">
+          <div class="cust-label" style="margin-bottom:.4rem;">Quick Style Presets</div>
+          <div class="style-presets">
+            <button class="style-preset active" onclick="applyPreset('default',this)">◼ Classic</button>
+            <button class="style-preset" onclick="applyPreset('ocean',this)">🌊 Ocean</button>
+            <button class="style-preset" onclick="applyPreset('forest',this)">🌿 Forest</button>
+            <button class="style-preset" onclick="applyPreset('sunset',this)">🌅 Sunset</button>
+            <button class="style-preset" onclick="applyPreset('purple',this)">💜 Purple</button>
+            <button class="style-preset" onclick="applyPreset('dark',this)">🌙 Dark</button>
+            <button class="style-preset" onclick="applyPreset('gold',this)">⭐ Gold</button>
+          </div>
+        </div>
+
+        <div class="cust-grid">
+          <!-- Foreground Color -->
+          <div class="cust-group">
+            <span class="cust-label">QR Color (Foreground)</span>
+            <div class="color-row">
+              <input class="color-pick" type="color" id="colorFG" value="#000000" oninput="syncColorHex('colorFG','hexFG')"/>
+              <input class="color-hex" type="text" id="hexFG" value="#000000" oninput="syncColorPick('hexFG','colorFG')" maxlength="7"/>
+            </div>
+          </div>
+
+          <!-- Background Color -->
+          <div class="cust-group">
+            <span class="cust-label">Background Color</span>
+            <div class="color-row">
+              <input class="color-pick" type="color" id="colorBG" value="#ffffff" oninput="syncColorHex('colorBG','hexBG')"/>
+              <input class="color-hex" type="text" id="hexBG" value="#ffffff" oninput="syncColorPick('hexBG','colorBG')" maxlength="7"/>
+            </div>
+          </div>
+
+          <!-- Size -->
+          <div class="cust-group">
+            <span class="cust-label">Size: <strong id="sizeVal">256px</strong></span>
+            <input class="range" type="range" id="sizeSlider" min="128" max="1024" step="64" value="256" oninput="document.getElementById('sizeVal').textContent=this.value+'px'"/>
+            <div style="display:flex;justify-content:space-between;font-size:.6rem;color:#9aa0a6;margin-top:.2rem;"><span>128px</span><span>1024px</span></div>
+          </div>
+
+          <!-- Error Correction -->
+          <div class="cust-group">
+            <span class="cust-label">Error Correction Level</span>
+            <select class="inp" id="ecLevel" style="padding:.45rem .65rem;font-size:.8rem;">
+              <option value="L">L – Low (7%)</option>
+              <option value="M" selected>M – Medium (15%)</option>
+              <option value="Q">Q – High (25%)</option>
+              <option value="H">H – Highest (30%)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Logo Upload -->
+        <div style="margin-top:.8rem;">
+          <span class="cust-label" style="display:block;margin-bottom:.4rem;">🖼️ Add Logo / Icon <span class="input-sublabel">(optional — use H error correction for best results)</span></span>
+          <div class="logo-upload-area" id="logoUploadArea">
+            <input type="file" id="logoInput" accept="image/*" onchange="loadLogo(this)"/>
+            <img id="logoPreview" class="logo-preview" src="" alt="Logo preview"/>
+            <div id="logoPlaceholder" style="font-size:.78rem;color:#5f6368;">📂 Click to upload logo (PNG, JPG, SVG)</div>
+            <button class="logo-clear" id="logoClearBtn" onclick="clearLogo(event)">✕ Remove Logo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generate Button -->
+      <button class="gen-btn" onclick="generateQR();ga('generate','QR Code')">📲 Generate QR Code</button>
+      <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
+
+      <!-- QR Result -->
+      <div class="qr-result" id="qrResult">
+        <div class="qr-display-wrap">
+          <div id="qrCodeDiv"></div>
+          <canvas id="qrCanvas" style="display:none;"></canvas>
+          <div class="qr-size-label" id="qrSizeLabel">256 × 256 px</div>
+        </div>
+        <div class="qr-dl-panel">
+          <div style="font-size:.78rem;font-weight:700;color:#202124;margin-bottom:.2rem;">⬇️ Download</div>
+          <div class="dl-format-grid">
+            <button class="dl-btn primary" onclick="downloadQR('png')"><span class="dl-ico">🖼️</span>PNG</button>
+            <button class="dl-btn" onclick="downloadQR('svg')"><span class="dl-ico">✏️</span>SVG</button>
+            <button class="dl-btn" onclick="downloadQR('jpg')"><span class="dl-ico">📷</span>JPG</button>
+          </div>
+          <div class="qr-info-rows" id="qrInfoRows"></div>
+          <button class="copy-data-btn" onclick="copyQRData()">📋 Copy QR Data</button>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div class="history-section" id="historySection" style="display:none;">
+        <div class="history-header">
+          <span class="history-title">🕘 Recent QR Codes</span>
+          <button class="history-clear" onclick="clearHistory()">Clear All</button>
+        </div>
+        <div class="history-grid" id="historyGrid"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MID AD -->
+  <div class="ad-mid"><div class="adslot">📢 Responsive Mid Ad · 728×90 → 468×60 → 320×50</div></div>
+
+  <!-- CATEGORY BROWSER -->
+  <div class="tool-card">
+    <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+    <div class="tool-card-body" style="padding:1rem;">
+      <div class="cg">
+        <a href="calculator-tools.html" class="cc" data-c="calc" onclick="ga('cat','Calculators')"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+        <a href="text-tools.html" class="cc" data-c="text" onclick="ga('cat','Text')"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="image-tools.html" class="cc" data-c="image" onclick="ga('cat','Image')"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="pdf-tools.html" class="cc" data-c="pdf" onclick="ga('cat','PDF')"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="developer-tools.html" class="cc" data-c="dev" onclick="ga('cat','Developer')"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+        <a href="seo-tools.html" class="cc" data-c="seo" onclick="ga('cat','SEO')"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="security-tools.html" class="cc" data-c="sec" onclick="ga('cat','Security')"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+        <a href="finance-tools.html" class="cc" data-c="fin" onclick="ga('cat','Finance')"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+        <a href="design-tools.html" class="cc" data-c="des" onclick="ga('cat','Design')"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+        <a href="video-audio-tools.html" class="cc" data-c="vid" onclick="ga('cat','Video')"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 How to Use</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">1️⃣</span><span class="tip-text">Select a <strong>QR type</strong> (URL, WiFi, vCard etc.).</span></div>
+      <div class="tip-item"><span class="tip-ico">2️⃣</span><span class="tip-text">Fill in the required details for that type.</span></div>
+      <div class="tip-item"><span class="tip-ico">3️⃣</span><span class="tip-text">Customize <strong>colors, size</strong> and optionally add a <strong>logo</strong>.</span></div>
+      <div class="tip-item"><span class="tip-ico">4️⃣</span><span class="tip-text">Click <strong>Generate QR Code</strong> and download as PNG, SVG or JPG.</span></div>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="barcode.html" class="rel-tool"><div class="rel-tool-ico">▌▌</div><div><div class="rel-tool-name">Barcode Generator</div><div class="rel-tool-desc">Code128, EAN, UPC</div></div></a>
+      <a href="password-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff3e0;">🔑</div><div><div class="rel-tool-name">Password Generator</div><div class="rel-tool-desc">Strong secure passwords</div></div></a>
+      <a href="uuid-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e3f2fd;">🆔</div><div><div class="rel-tool-name">UUID Generator</div><div class="rel-tool-desc">Unique ID generator</div></div></a>
+      <a href="url-encoder.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f5e9;">🔗</div><div><div class="rel-tool-name">URL Encoder</div><div class="rel-tool-desc">Encode/decode URLs</div></div></a>
+      <a href="image-compressor.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">🗜️</div><div><div class="rel-tool-name">Image Compressor</div><div class="rel-tool-desc">Compress JPG PNG WebP</div></div></a>
+      <a href="hash-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff8e1;">#️⃣</div><div><div class="rel-tool-name">Hash Generator</div><div class="rel-tool-desc">MD5, SHA256, SHA512</div></div></a>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>📌 QR Type Guide</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">🌐</span><span class="tip-text"><strong>URL</strong> – Best for websites, landing pages, social profiles.</span></div>
+      <div class="tip-item"><span class="tip-ico">📶</span><span class="tip-text"><strong>WiFi</strong> – Scan to connect without typing password.</span></div>
+      <div class="tip-item"><span class="tip-ico">👤</span><span class="tip-text"><strong>vCard</strong> – Share contact info, save directly to phone.</span></div>
+      <div class="tip-item"><span class="tip-ico">📧</span><span class="tip-text"><strong>Email</strong> – Pre-fill recipient, subject and body.</span></div>
+      <div class="tip-item"><span class="tip-ico">💬</span><span class="tip-text"><strong>SMS</strong> – Pre-fill phone number and message text.</span></div>
+      <div class="tip-item"><span class="tip-ico">📍</span><span class="tip-text"><strong>Location</strong> – Opens Google Maps at exact coordinates.</span></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – QR Code Generator</h2>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What types of QR codes can I create?</div>
+      <div class="faq-a">This generator supports 10 QR code types: URL/Website links, WiFi network credentials, vCard contact information, Email with pre-filled details, SMS with pre-filled message, Phone numbers, Plain text, Social media profiles, App Store/Play Store links, and Geographic coordinates. Each type generates the properly formatted QR code data string.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I add my logo to the QR code?</div>
+      <div class="faq-a">Yes! You can upload any PNG, JPG or SVG image as a logo to be placed in the center of the QR code. For best results, use the "H" (Highest, 30%) error correction level — this ensures the QR code remains scannable even with the logo covering part of it. Avoid using logos that are too large as they may affect scannability.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What download formats are available?</div>
+      <div class="faq-a">You can download your QR code as PNG (ideal for web and print use), SVG (vector format — scalable to any size without quality loss, best for professional printing), or JPEG (smaller file size, suitable for general use). PNG is recommended for most uses as it supports transparency.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What is error correction level in QR codes?</div>
+      <div class="faq-a">Error correction allows a QR code to be scanned correctly even if it is partially damaged or obscured. Four levels are available: L (7% recovery), M (15% recovery), Q (25% recovery), and H (30% recovery). Higher levels create denser QR codes but are more reliable. Use H when adding a logo, and L or M for clean minimal designs.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How do I create a WiFi QR code?</div>
+      <div class="faq-a">Select the "WiFi" type, enter your network name (SSID), select the security type (WPA2 for most modern routers), and enter your WiFi password. When someone scans the QR code with their phone, they will be prompted to connect to the network automatically — no need to type the password manually.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Are the QR codes permanent? Do they expire?</div>
+      <div class="faq-a">The QR codes generated by this tool are static — they contain the data directly in the code pattern. This means they never expire and do not require an internet connection to scan. However, if you change the destination (like your website URL), the old QR code will no longer work — you would need to generate a new one.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
+      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="image-compressor.html">Image Compressor</a></li><li><a href="pdf-to-word.html">PDF to Word</a></li><li><a href="password-generator.html">Password Generator</a></li><li><a href="currency-converter.html">Currency Converter</a></li></ul></div>
+      <div class="fc"><h4>Security Tools</h4><ul><li><a href="qr-code.html">QR Code Generator</a></li><li><a href="barcode.html">Barcode Generator</a></li><li><a href="password-generator.html">Password Generator</a></li><li><a href="hash-generator.html">Hash Generator</a></li><li><a href="uuid-generator.html">UUID Generator</a></li></ul></div>
+    </div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── STATE ──
+let currentType  = 'url';
+let logoDataURL  = null;
+let qrHistory    = [];
+let currentQRData = '';
+let autoTimer    = null;
+
+const PRESETS = {
+  default: { fg:'#000000', bg:'#ffffff' },
+  ocean:   { fg:'#0284c7', bg:'#e0f7fa' },
+  forest:  { fg:'#15803d', bg:'#f0fdf4' },
+  sunset:  { fg:'#b91c1c', bg:'#fff5f5' },
+  purple:  { fg:'#6d28d9', bg:'#f5f3ff' },
+  dark:    { fg:'#e2e8f0', bg:'#1e293b' },
+  gold:    { fg:'#92400e', bg:'#fffbeb' },
+};
+
+// ── TYPE SETTER ──
+function setType(type, btn) {
+  currentType = type;
+  document.querySelectorAll('.qr-type-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.qr-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + type).classList.add('active');
+  document.getElementById('qrResult').classList.remove('show');
+}
+
+// ── BUILD QR DATA ──
+function buildQRData() {
+  const type = currentType;
+  let data = '';
+  const v = id => (document.getElementById(id)?.value || '').trim();
+
+  if (type === 'url')    data = v('url-url') || 'https://toolnex.site';
+  else if (type === 'wifi') {
+    const ssid = v('wifi-ssid'), enc = v('wifi-enc'), pass = v('wifi-pass'), hidden = v('wifi-hidden');
+    data = `WIFI:T:${enc};S:${ssid};P:${pass};H:${hidden};;`;
+  }
+  else if (type === 'vcard') {
+    data = `BEGIN:VCARD\nVERSION:3.0\n`;
+    data += `N:${v('vc-lname')};${v('vc-fname')};;;\n`;
+    data += `FN:${v('vc-fname')} ${v('vc-lname')}\n`;
+    if (v('vc-org'))   data += `ORG:${v('vc-org')}\n`;
+    if (v('vc-title')) data += `TITLE:${v('vc-title')}\n`;
+    if (v('vc-phone')) data += `TEL:${v('vc-phone')}\n`;
+    if (v('vc-email')) data += `EMAIL:${v('vc-email')}\n`;
+    if (v('vc-web'))   data += `URL:${v('vc-web')}\n`;
+    if (v('vc-addr'))  data += `ADR:;;${v('vc-addr')};;;;\n`;
+    data += `END:VCARD`;
+  }
+  else if (type === 'email') {
+    const to = v('em-to'), sub = encodeURIComponent(v('em-sub')), body = encodeURIComponent(v('em-body'));
+    data = `mailto:${to}?subject=${sub}&body=${body}`;
+  }
+  else if (type === 'sms') {
+    data = `smsto:${v('sms-num')}:${v('sms-msg')}`;
+  }
+  else if (type === 'phone') {
+    data = `${v('ph-type')}:${v('ph-num')}`;
+  }
+  else if (type === 'text') {
+    data = v('txt-content') || 'Hello from ToolNex!';
+  }
+  else if (type === 'social') {
+    const base = v('soc-platform'), user = v('soc-user');
+    data = base + user;
+  }
+  else if (type === 'app') {
+    const base = v('app-store'), id = v('app-id');
+    data = base + id;
+  }
+  else if (type === 'geo') {
+    const lat = v('geo-lat'), lng = v('geo-lng'), lbl = v('geo-label');
+    data = `geo:${lat},${lng}${lbl ? '?q=' + encodeURIComponent(lbl) : ''}`;
+  }
+  return data || 'https://toolnex.site';
+}
+
+// ── AUTO GENERATE ──
+function autoGenerate() {
+  clearTimeout(autoTimer);
+  autoTimer = setTimeout(() => {
+    if (document.getElementById('qrResult').classList.contains('show')) generateQR(true);
+  }, 400);
+}
+
+// ── GENERATE QR ──
+function generateQR(silent = false) {
+  const data    = buildQRData();
+  const fg      = document.getElementById('colorFG').value;
+  const bg      = document.getElementById('colorBG').value;
+  const size    = parseInt(document.getElementById('sizeSlider').value);
+  const ecLevel = document.getElementById('ecLevel').value;
+  currentQRData = data;
+
+  // Clear previous
+  const qrDiv = document.getElementById('qrCodeDiv');
+  qrDiv.innerHTML = '';
+
+  try {
+    // Generate using QRCode.js
+    const qr = new QRCode(qrDiv, {
+      text: data,
+      width: size,
+      height: size,
+      colorDark: fg,
+      colorLight: bg,
+      correctLevel: QRCode.CorrectLevel[ecLevel],
+    });
+
+    // After QRCode renders, add logo if needed
+    setTimeout(() => {
+      const canvas = qrDiv.querySelector('canvas');
+      if (canvas && logoDataURL) {
+        overlayLogo(canvas, logoDataURL, size);
+      }
+      // Store reference
+      window._qrCanvas = canvas;
+      showQRResult(data, size, fg, bg, ecLevel, silent);
+    }, 100);
+
+  } catch(e) {
+    alert('⚠️ QR generation failed: ' + e.message + '\n\nTry shortening your data or reducing complexity.');
+  }
+}
+
+// ── OVERLAY LOGO ──
+function overlayLogo(canvas, logoSrc, size) {
+  const ctx = canvas.getContext('2d');
+  const logo = new Image();
+  logo.onload = () => {
+    const logoSize = size * 0.22;
+    const x = (size - logoSize) / 2;
+    const y = (size - logoSize) / 2;
+    // White background circle for logo
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.roundRect(x - 6, y - 6, logoSize + 12, logoSize + 12, 8);
+    ctx.fill();
+    ctx.drawImage(logo, x, y, logoSize, logoSize);
+  };
+  logo.src = logoSrc;
+}
+
+// ── SHOW RESULT ──
+function showQRResult(data, size, fg, bg, ecLevel, silent) {
+  document.getElementById('qrSizeLabel').textContent = `${size} × ${size} px`;
+
+  const typeLabels = {
+    url:'URL', wifi:'WiFi', vcard:'vCard', email:'Email', sms:'SMS',
+    phone:'Phone', text:'Text', social:'Social', app:'App Link', geo:'Location'
+  };
+
+  document.getElementById('qrInfoRows').innerHTML = `
+    <div class="qr-info-row"><span>Type</span><span>${typeLabels[currentType]}</span></div>
+    <div class="qr-info-row"><span>Size</span><span>${size}×${size}px</span></div>
+    <div class="qr-info-row"><span>Error Level</span><span>${ecLevel} (${{'L':'7%','M':'15%','Q':'25%','H':'30%'}[ecLevel]})</span></div>
+    <div class="qr-info-row"><span>Data Length</span><span>${data.length} chars</span></div>
+    <div class="qr-info-row"><span>Logo</span><span>${logoDataURL ? '✅ Yes' : '—'}</span></div>`;
+
+  document.getElementById('qrResult').classList.add('show');
+
+  // Add to history
+  setTimeout(() => {
+    const canvas = window._qrCanvas || document.querySelector('#qrCodeDiv canvas');
+    if (canvas) {
+      addToHistory(canvas.toDataURL(), data, typeLabels[currentType]);
+    }
+  }, 200);
+
+  if (!silent) setTimeout(() => document.getElementById('qrResult').scrollIntoView({behavior:'smooth',block:'nearest'}), 100);
+}
+
+// ── DOWNLOAD ──
+function downloadQR(fmt) {
+  const canvas = window._qrCanvas || document.querySelector('#qrCodeDiv canvas');
+  if (!canvas) { alert('⚠️ Please generate a QR code first.'); return; }
+
+  const filename = `qrcode_${currentType}_toolnex.${fmt === 'jpg' ? 'jpg' : fmt}`;
+
+  if (fmt === 'svg') {
+    const data = buildQRData();
+    const size = parseInt(document.getElementById('sizeSlider').value);
+    const fg = document.getElementById('colorFG').value;
+    const bg = document.getElementById('colorBG').value;
+    // Get image data from canvas and embed in SVG
+    const imgData = canvas.toDataURL('image/png');
+    const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+  <rect width="${size}" height="${size}" fill="${bg}"/>
+  <image href="${imgData}" width="${size}" height="${size}"/>
+  <desc>QR Code generated by ToolNex - toolnex.site</desc>
+</svg>`;
+    const blob = new Blob([svgContent], {type:'image/svg+xml'});
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  } else {
+    const mime = fmt === 'jpg' ? 'image/jpeg' : 'image/png';
+    const quality = fmt === 'jpg' ? 0.95 : undefined;
+    // For JPG, fill white background
+    if (fmt === 'jpg') {
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width  = canvas.width;
+      tempCanvas.height = canvas.height;
+      const ctx = tempCanvas.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+      ctx.drawImage(canvas, 0, 0);
+      const url = tempCanvas.toDataURL(mime, quality);
+      const a   = document.createElement('a');
+      a.href    = url;
+      a.download = filename;
+      a.click();
+    } else {
+      const url = canvas.toDataURL(mime, quality);
+      const a   = document.createElement('a');
+      a.href    = url;
+      a.download = filename;
+      a.click();
+    }
+  }
+  ga('download', 'QR ' + fmt.toUpperCase());
+}
+
+// ── COPY DATA ──
+function copyQRData() {
+  navigator.clipboard.writeText(currentQRData).then(() => {
+    const btn = document.querySelector('.copy-data-btn');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '✅ Copied!';
+    setTimeout(() => btn.innerHTML = orig, 2000);
+  });
+}
+
+// ── HISTORY ──
+function addToHistory(dataUrl, data, type) {
+  qrHistory.unshift({ dataUrl, data, type, time: Date.now() });
+  if (qrHistory.length > 12) qrHistory.pop();
+  renderHistory();
+}
+
+function renderHistory() {
+  const section = document.getElementById('historySection');
+  const grid    = document.getElementById('historyGrid');
+  if (!qrHistory.length) { section.style.display = 'none'; return; }
+  section.style.display = 'block';
+  grid.innerHTML = qrHistory.map((h, i) =>
+    `<div class="hist-item" onclick="loadFromHistory(${i})" title="${h.type}: ${h.data.substring(0,30)}">
+      <img src="${h.dataUrl}" alt="${h.type}"/>
+      <div class="hist-item-label">${h.type}</div>
+    </div>`
+  ).join('');
+}
+
+function loadFromHistory(idx) {
+  const h = qrHistory[idx];
+  if (!h) return;
+  // Restore QR by redisplaying the saved image
+  const qrDiv = document.getElementById('qrCodeDiv');
+  const size  = parseInt(document.getElementById('sizeSlider').value);
+  qrDiv.innerHTML = `<img src="${h.dataUrl}" width="${size}" height="${size}" style="border-radius:8px;"/>`;
+  currentQRData = h.data;
+  document.getElementById('qrResult').classList.add('show');
+}
+
+function clearHistory() { qrHistory = []; renderHistory(); }
+
+// ── LOGO ──
+function loadLogo(input) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    logoDataURL = e.target.result;
+    document.getElementById('logoPreview').src = logoDataURL;
+    document.getElementById('logoPreview').style.display = 'block';
+    document.getElementById('logoPlaceholder').style.display = 'none';
+    document.getElementById('logoClearBtn').style.display = 'block';
+    // Auto set H error correction
+    document.getElementById('ecLevel').value = 'H';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function clearLogo(e) {
+  e.stopPropagation();
+  logoDataURL = null;
+  document.getElementById('logoPreview').style.display = 'none';
+  document.getElementById('logoPreview').src = '';
+  document.getElementById('logoPlaceholder').style.display = 'block';
+  document.getElementById('logoClearBtn').style.display = 'none';
+  document.getElementById('logoInput').value = '';
+}
+
+// ── COLOR SYNC ──
+function syncColorHex(pickId, hexId) {
+  document.getElementById(hexId).value = document.getElementById(pickId).value;
+}
+function syncColorPick(hexId, pickId) {
+  const hex = document.getElementById(hexId).value;
+  if (/^#[0-9A-Fa-f]{6}$/.test(hex)) document.getElementById(pickId).value = hex;
+}
+
+// ── PRESETS ──
+function applyPreset(name, btn) {
+  const p = PRESETS[name];
+  if (!p) return;
+  document.getElementById('colorFG').value = p.fg;
+  document.getElementById('colorBG').value = p.bg;
+  document.getElementById('hexFG').value   = p.fg;
+  document.getElementById('hexBG').value   = p.bg;
+  document.querySelectorAll('.style-preset').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── SOCIAL PLACEHOLDER ──
+function updateSocialPlaceholder() {
+  const map = {
+    'https://instagram.com/':'yourusername',
+    'https://twitter.com/':'yourusername',
+    'https://facebook.com/':'yourpage',
+    'https://linkedin.com/in/':'yourname',
+    'https://youtube.com/':'@yourchannel',
+    'https://tiktok.com/@':'yourusername',
+    'https://github.com/':'yourusername',
+    'https://t.me/':'yourusername',
+    'https://wa.me/':'1234567890',
+  };
+  const sel  = document.getElementById('soc-platform').value;
+  const inp  = document.getElementById('soc-user');
+  inp.placeholder = map[sel] || 'yourusername';
+}
+
+// ── RESET ──
+function resetAll() {
+  document.getElementById('qrResult').classList.remove('show');
+  document.getElementById('colorFG').value = '#000000';
+  document.getElementById('colorBG').value = '#ffffff';
+  document.getElementById('hexFG').value   = '#000000';
+  document.getElementById('hexBG').value   = '#ffffff';
+  document.getElementById('sizeSlider').value = 256;
+  document.getElementById('sizeVal').textContent = '256px';
+  document.getElementById('ecLevel').value = 'M';
+  clearLogo({ stopPropagation: () => {} });
+  document.querySelectorAll('.style-preset').forEach((b,i) => b.classList.toggle('active', i===0));
+  currentQRData = '';
+  logoDataURL   = null;
+}
+
+function toggleFaq(el) { el.classList.toggle('open'); }
+
+// Category animations
+const ob = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; ob.unobserve(e.target); }});
+}, { threshold:.05 });
+document.querySelectorAll('.cc').forEach((c,i) => {
+  c.style.cssText += `;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;
+  ob.observe(c);
+});
+</script>
+</body>
+</html>
