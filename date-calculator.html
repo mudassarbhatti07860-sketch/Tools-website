@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-535630536');
+  function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}
+</script>
+
+<!-- SEO -->
+<title>Date Calculator – Days Between Dates, Add/Subtract Days Free Online | ToolNex</title>
+<meta name="description" content="Free Date Calculator online – Calculate days between two dates, add or subtract days from a date, find day of the week, working days, weeks, months difference. Calculate deadlines, anniversaries, due dates & more. No sign-up required."/>
+<meta name="keywords" content="date calculator, days between dates calculator, date difference calculator, add days to date calculator, subtract days from date, days between two dates free online, date calculator 2026, working days calculator, business days calculator, how many days until, how many days since, date duration calculator, deadline calculator, anniversary calculator, due date calculator, day of week calculator, weeks between dates, months between dates"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="theme-color" content="#1a73e8"/>
+<link rel="canonical" href="https://toolnex.site/date-calculator.html"/>
+<meta property="og:title" content="Date Calculator – Days Between Dates & Date Math | ToolNex"/>
+<meta property="og:description" content="Calculate days between dates, add/subtract days, find working days, day of week & more. Free, instant, no sign-up."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/date-calculator.html"/>
+<meta property="og:site_name" content="ToolNex"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Date Calculator – Days Between Dates | ToolNex"/>
+<meta name="twitter:description" content="Free date calculator – days between dates, add/subtract days, working days, day of week & more. Instant results."/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Date Calculator","url":"https://toolnex.site/date-calculator.html","description":"Free online Date Calculator – Calculate days between two dates, add or subtract days from a date, find working days and day of week.","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolNex","url":"https://toolnex.site/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://toolnex.site/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://toolnex.site/calculator-tools.html"},{"@type":"ListItem","position":3,"name":"Date Calculator","item":"https://toolnex.site/date-calculator.html"}]}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+
+/* HEADER */
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:background .15s,border-color .15s,box-shadow .15s;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;transition:background .15s;white-space:nowrap;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
+.hdr-link:hover{background:#f1f3f4;color:#202124;}
+@media(max-width:650px){.hdr-links{display:none;}}
+@media(max-width:420px){.logo span:last-child{display:none;}}
+
+/* ADS */
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+.ad-mid{display:flex;justify-content:center;padding:.5rem;margin:1.2rem 0;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}.ad-mid .adslot{width:468px;height:60px;}}
+@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+
+/* TOOL HERO */
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#e8f0fe;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+
+/* MAIN LAYOUT */
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+
+/* CARDS */
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+
+/* MODE TABS */
+.mode-tabs{display:flex;gap:.35rem;margin-bottom:1.3rem;flex-wrap:wrap;}
+.mode-tab{border:1.5px solid #e8eaed;background:#fff;border-radius:10px;padding:.5rem 1rem;font-size:.78rem;font-weight:600;color:#5f6368;transition:all .15s;display:flex;align-items:center;gap:.4rem;white-space:nowrap;}
+.mode-tab:hover{border-color:#1a73e8;color:#1a73e8;background:#f0f4ff;}
+.mode-tab.active{background:#e8f0fe;border-color:#1a73e8;color:#1a73e8;}
+
+/* PANELS */
+.calc-panel{display:none;}
+.calc-panel.active{display:block;}
+
+/* INPUTS */
+.input-group{margin-bottom:1rem;}
+.input-label{font-size:.78rem;font-weight:600;color:#3c4043;margin-bottom:.45rem;display:block;}
+.inp{width:100%;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.62rem .9rem;font-size:.88rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .15s,box-shadow .15s;}
+.inp:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);background:#fff;}
+.inp-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+@media(max-width:460px){.inp-row{grid-template-columns:1fr;}}
+.inp-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;}
+@media(max-width:460px){.inp-3col{grid-template-columns:1fr 1fr;}}
+.inp-wrap{position:relative;}
+.inp-suffix{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);font-size:.75rem;font-weight:600;color:#9aa0a6;pointer-events:none;}
+.inp-pr{padding-right:3.2rem;}
+select.inp{cursor:pointer;}
+
+/* DATE SWAP BTN */
+.swap-btn{width:100%;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.5rem;font-size:.8rem;font-weight:600;color:#5f6368;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.4rem;margin:.3rem 0;}
+.swap-btn:hover{border-color:#1a73e8;color:#1a73e8;background:#e8f0fe;}
+
+/* CALC BTN */
+.calc-btn{width:100%;background:#1a73e8;color:#fff;border:none;border-radius:12px;padding:.82rem;font-size:.92rem;font-weight:700;transition:background .15s,transform .1s,box-shadow .15s;letter-spacing:.01em;}
+.calc-btn:hover{background:#1558c0;box-shadow:0 4px 16px rgba(26,115,232,.28);transform:translateY(-1px);}
+.calc-btn:active{transform:translateY(0);}
+.reset-btn{width:100%;background:#f8f9fa;color:#5f6368;border:1.5px solid #e8eaed;border-radius:12px;padding:.65rem;font-size:.83rem;font-weight:600;transition:background .15s;margin-top:.55rem;}
+.reset-btn:hover{background:#e8eaed;}
+
+/* RESULT SECTION */
+.result-section{display:none;}
+.result-section.show{display:block;}
+.result-divider{border:none;border-top:1px solid #f1f3f4;margin:1.2rem 0;}
+
+/* RESULT HERO */
+.result-hero{border-radius:14px;padding:1.4rem;text-align:center;margin-bottom:1rem;position:relative;overflow:hidden;}
+.result-hero::before{content:'';position:absolute;top:-30px;right:-30px;width:110px;height:110px;background:rgba(255,255,255,.08);border-radius:50%;}
+.result-hero::after{content:'';position:absolute;bottom:-20px;left:-20px;width:75px;height:75px;background:rgba(255,255,255,.06);border-radius:50%;}
+.rh-label{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem;position:relative;z-index:1;}
+.rh-value{font-size:2.8rem;font-weight:700;color:#fff;line-height:1;letter-spacing:-.03em;margin-bottom:.3rem;position:relative;z-index:1;}
+.rh-sub{font-size:.82rem;color:rgba(255,255,255,.8);position:relative;z-index:1;}
+
+/* STATS GRID */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem;}
+@media(max-width:460px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+.stat-box{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.85rem .7rem;text-align:center;}
+.stat-box-value{font-size:1.2rem;font-weight:700;color:#1a73e8;line-height:1;margin-bottom:.25rem;}
+.stat-box-label{font-size:.63rem;font-weight:600;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;}
+
+/* DETAIL ROWS */
+.detail-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid #f1f3f4;}
+.detail-row:last-child{border-bottom:none;}
+.detail-label{font-size:.8rem;color:#5f6368;display:flex;align-items:center;gap:.4rem;}
+.detail-ico{font-size:.95rem;}
+.detail-value{font-size:.84rem;font-weight:700;color:#202124;text-align:right;max-width:55%;}
+
+/* TIMELINE */
+.timeline{position:relative;margin:1rem 0;}
+.timeline::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#1a73e8,#e8eaed);}
+.tl-item{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:.85rem;position:relative;}
+.tl-dot{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;border:2px solid #fff;box-shadow:0 0 0 2px #e8eaed;}
+.tl-dot.past{background:#e8f0fe;box-shadow:0 0 0 2px #1a73e8;}
+.tl-dot.today{background:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.3);}
+.tl-dot.future{background:#f8f9fa;box-shadow:0 0 0 2px #e8eaed;}
+.tl-content{padding-top:.4rem;}
+.tl-title{font-size:.8rem;font-weight:700;color:#202124;}
+.tl-sub{font-size:.72rem;color:#9aa0a6;margin-top:.1rem;}
+
+/* CALENDAR MINI */
+.cal-mini{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;overflow:hidden;margin-top:.8rem;}
+.cal-header{background:#1a73e8;padding:.6rem 1rem;display:flex;align-items:center;justify-content:space-between;}
+.cal-title{font-size:.82rem;font-weight:700;color:#fff;}
+.cal-nav{background:none;border:none;color:rgba(255,255,255,.8);font-size:.9rem;cursor:pointer;padding:.1rem .3rem;border-radius:5px;transition:background .13s;}
+.cal-nav:hover{background:rgba(255,255,255,.15);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:.6rem;}
+.cal-day-name{font-size:.62rem;font-weight:700;color:#9aa0a6;text-align:center;padding:.2rem 0;text-transform:uppercase;}
+.cal-day{font-size:.72rem;font-weight:500;color:#5f6368;text-align:center;padding:.28rem .1rem;border-radius:5px;cursor:default;}
+.cal-day.today{background:#1a73e8;color:#fff;font-weight:700;border-radius:50%;}
+.cal-day.selected{background:#e8f0fe;color:#1a73e8;font-weight:700;}
+.cal-day.in-range{background:#f0f7ff;}
+.cal-day.other-month{color:#dadce0;}
+.cal-day.start-date{background:#1a73e8;color:#fff;font-weight:700;border-radius:50%;}
+.cal-day.end-date{background:#0d5bcd;color:#fff;font-weight:700;border-radius:50%;}
+
+/* PROGRESS BAR */
+.progress-section{margin:1rem 0;}
+.progress-label{display:flex;justify-content:space-between;font-size:.75rem;font-weight:600;color:#5f6368;margin-bottom:.4rem;}
+.progress-track{height:8px;background:#e8eaed;border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.34,1.56,.64,1);}
+
+/* WORKDAY CHECKLIST */
+.holiday-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem;}
+.holiday-row label{font-size:.78rem;color:#3c4043;cursor:pointer;}
+.holiday-row input[type=checkbox]{accent-color:#1a73e8;cursor:pointer;width:15px;height:15px;}
+
+/* TABS */
+.tabs{display:flex;gap:.3rem;margin-bottom:1rem;background:#f8f9fa;padding:.25rem;border-radius:10px;flex-wrap:wrap;}
+.tab-btn{flex:1;border:none;background:none;padding:.42rem .3rem;border-radius:8px;font-size:.72rem;font-weight:600;color:#5f6368;transition:background .15s,color .15s;cursor:pointer;white-space:nowrap;min-width:70px;}
+.tab-btn.active{background:#fff;color:#1a73e8;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+
+/* CATEGORY BROWSER */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+@media(max-width:440px){.cg{grid-template-columns:repeat(3,1fr);gap:.5rem;}}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:transform .18s;}
+.cc:hover .cc-ico{transform:scale(1.1);}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}
+[data-c="text"] .cc-ico{background:#e8f5e9;}
+[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}
+[data-c="dev"] .cc-ico{background:#e3f2fd;}
+[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}
+[data-c="fin"] .cc-ico{background:#e8f5e9;}
+[data-c="des"] .cc-ico{background:#fff8e1;}
+[data-c="vid"] .cc-ico{background:#fce4ec;}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#e8f0fe;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+
+/* TODAY CARD */
+.today-card{background:linear-gradient(135deg,#1a73e8,#0d5bcd);border-radius:12px;padding:1rem;color:#fff;text-align:center;}
+.today-card-date{font-size:1.5rem;font-weight:700;line-height:1;margin-bottom:.2rem;}
+.today-card-day{font-size:.8rem;opacity:.85;margin-bottom:.5rem;}
+.today-card-info{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;}
+.tci{background:rgba(255,255,255,.12);border-radius:8px;padding:.4rem;}
+.tci-val{font-size:.82rem;font-weight:700;}
+.tci-lbl{font-size:.58rem;opacity:.75;text-transform:uppercase;letter-spacing:.05em;}
+
+/* FAQ */
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* FOOTER */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+@media(max-width:360px){.ftr-top{grid-template-columns:1fr;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
+.ftr-lnk a:hover{color:#1a73e8;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{animation:fadeUp .35s ease forwards;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar">
+      <input type="search" placeholder="Search 100+ tools…" autocomplete="off" spellcheck="false" aria-label="Search tools" onkeydown="if(event.key==='Enter')window.location='index.html?q='+this.value"/>
+      <button class="sbtn" onclick="window.location='index.html'">Search</button>
+    </div>
+    <nav class="hdr-links">
+      <a href="about.html" class="hdr-link">About</a>
+      <a href="contact.html" class="hdr-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TOP BANNER AD -->
+<div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50 Mobile</div></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span>
+  <a href="calculator-tools.html">Calculators</a><span class="sep">›</span>
+  <span class="cur">Date Calculator</span>
+</nav>
+
+<!-- TOOL HERO -->
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">📅</div>
+    <div class="tool-hero-text">
+      <h1>Date Calculator – Days Between Dates & Date Math</h1>
+      <p>Calculate the exact number of days, weeks, months and years between two dates. Add or subtract days from any date. Find working days, day of the week, upcoming events countdown and much more — all in one free tool.</p>
+      <div class="tool-hero-tags">
+        <span class="tool-tag">🆓 Free</span>
+        <span class="tool-tag">⚡ Instant</span>
+        <span class="tool-tag">📅 5 Modes</span>
+        <span class="tool-tag">💼 Working Days</span>
+        <span class="tool-tag">✅ No Sign-up</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+
+  <!-- CALCULATOR CARD -->
+  <div class="tool-card">
+    <div class="tool-card-header">
+      <h2>📅 Date Calculator</h2>
+      <span style="font-size:.72rem;color:#9aa0a6;">5 calculation modes</span>
+    </div>
+    <div class="tool-card-body">
+
+      <!-- MODE TABS -->
+      <div class="mode-tabs">
+        <button class="mode-tab active" onclick="setMode('diff',this)">📏 Date Difference</button>
+        <button class="mode-tab" onclick="setMode('add',this)">➕ Add / Subtract</button>
+        <button class="mode-tab" onclick="setMode('workdays',this)">💼 Working Days</button>
+        <button class="mode-tab" onclick="setMode('dayof',this)">📆 Day of Week</button>
+        <button class="mode-tab" onclick="setMode('countdown',this)">⏳ Countdown</button>
+      </div>
+
+      <!-- ── PANEL 1: DATE DIFFERENCE ── -->
+      <div class="calc-panel active" id="panel-diff">
+        <div class="input-group">
+          <label class="input-label">Start Date</label>
+          <input class="inp" type="date" id="diff-start"/>
+        </div>
+        <button class="swap-btn" onclick="swapDates('diff-start','diff-end')">⇅ Swap Dates</button>
+        <div class="input-group">
+          <label class="input-label">End Date</label>
+          <input class="inp" type="date" id="diff-end"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Exclude Weekends from count?</label>
+          <select class="inp" id="diff-exclude">
+            <option value="no">No – Count all days</option>
+            <option value="yes">Yes – Count weekdays only</option>
+          </select>
+        </div>
+        <button class="calc-btn" onclick="calcDiff();ga('calculate','Date Difference')">📏 Calculate Difference</button>
+        <button class="reset-btn" onclick="resetPanel('diff')">↺ Reset</button>
+      </div>
+
+      <!-- ── PANEL 2: ADD / SUBTRACT ── -->
+      <div class="calc-panel" id="panel-add">
+        <div class="input-group">
+          <label class="input-label">Start Date</label>
+          <input class="inp" type="date" id="add-date"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Operation</label>
+          <select class="inp" id="add-op">
+            <option value="add">➕ Add to date</option>
+            <option value="sub">➖ Subtract from date</option>
+          </select>
+        </div>
+        <div class="inp-3col" style="margin-bottom:1rem;">
+          <div class="input-group" style="margin:0;">
+            <label class="input-label" style="margin-bottom:.35rem;">Years</label>
+            <div class="inp-wrap"><input class="inp inp-pr" type="number" id="add-yr" placeholder="0" min="0"/><span class="inp-suffix">yr</span></div>
+          </div>
+          <div class="input-group" style="margin:0;">
+            <label class="input-label" style="margin-bottom:.35rem;">Months</label>
+            <div class="inp-wrap"><input class="inp inp-pr" type="number" id="add-mo" placeholder="0" min="0"/><span class="inp-suffix">mo</span></div>
+          </div>
+          <div class="input-group" style="margin:0;">
+            <label class="input-label" style="margin-bottom:.35rem;">Days</label>
+            <div class="inp-wrap"><input class="inp inp-pr" type="number" id="add-dy" placeholder="0" min="0"/><span class="inp-suffix">d</span></div>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcAdd();ga('calculate','Add Subtract Date')">➕ Calculate New Date</button>
+        <button class="reset-btn" onclick="resetPanel('add')">↺ Reset</button>
+      </div>
+
+      <!-- ── PANEL 3: WORKING DAYS ── -->
+      <div class="calc-panel" id="panel-workdays">
+        <div class="input-group">
+          <label class="input-label">Start Date</label>
+          <input class="inp" type="date" id="wd-start"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">End Date</label>
+          <input class="inp" type="date" id="wd-end"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label" style="margin-bottom:.6rem;">Exclude from count</label>
+          <div style="display:flex;flex-direction:column;gap:.5rem;">
+            <div class="holiday-row"><input type="checkbox" id="wd-sat" checked/><label for="wd-sat">Saturdays</label></div>
+            <div class="holiday-row"><input type="checkbox" id="wd-sun" checked/><label for="wd-sun">Sundays</label></div>
+            <div class="holiday-row"><input type="checkbox" id="wd-hol"/><label for="wd-hol">Public Holidays (enter dates below)</label></div>
+          </div>
+        </div>
+        <div class="input-group" id="holidayWrap" style="display:none;">
+          <label class="input-label">Holiday Dates <span style="color:#9aa0a6;font-weight:400;">(comma-separated, e.g. 2026-01-01, 2026-12-25)</span></label>
+          <input class="inp" type="text" id="wd-holidays" placeholder="YYYY-MM-DD, YYYY-MM-DD"/>
+        </div>
+        <button class="calc-btn" onclick="calcWorkdays();ga('calculate','Working Days')">💼 Calculate Working Days</button>
+        <button class="reset-btn" onclick="resetPanel('workdays')">↺ Reset</button>
+      </div>
+
+      <!-- ── PANEL 4: DAY OF WEEK ── -->
+      <div class="calc-panel" id="panel-dayof">
+        <div class="input-group">
+          <label class="input-label">Select any Date</label>
+          <input class="inp" type="date" id="dow-date"/>
+        </div>
+        <button class="calc-btn" onclick="calcDayOf();ga('calculate','Day of Week')">📆 Find Day of Week</button>
+        <button class="reset-btn" onclick="resetPanel('dayof')">↺ Reset</button>
+      </div>
+
+      <!-- ── PANEL 5: COUNTDOWN ── -->
+      <div class="calc-panel" id="panel-countdown">
+        <div class="input-group">
+          <label class="input-label">Event Name <span style="color:#9aa0a6;font-weight:400;">(optional)</span></label>
+          <input class="inp" type="text" id="cd-name" placeholder="e.g. Birthday, Exam, Wedding…"/>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Event Date</label>
+          <input class="inp" type="date" id="cd-date"/>
+        </div>
+        <button class="calc-btn" onclick="calcCountdown();ga('calculate','Countdown')">⏳ Start Countdown</button>
+        <button class="reset-btn" onclick="resetPanel('countdown')">↺ Reset</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESULTS CARD -->
+  <div class="tool-card result-section" id="resultSection">
+    <div class="tool-card-header">
+      <h2>📊 Results</h2>
+      <span style="font-size:.72rem;color:#1a73e8;font-weight:600;" id="resultModeLabel"></span>
+    </div>
+    <div class="tool-card-body">
+
+      <!-- Hero -->
+      <div class="result-hero" id="resultHero">
+        <div class="rh-label" id="rhLabel">Result</div>
+        <div class="rh-value" id="rhValue">—</div>
+        <div class="rh-sub" id="rhSub">—</div>
+      </div>
+
+      <!-- Stats grid (for diff mode) -->
+      <div class="stats-grid" id="statsGrid" style="display:none;">
+        <div class="stat-box"><div class="stat-box-value" id="sYears">—</div><div class="stat-box-label">Years</div></div>
+        <div class="stat-box"><div class="stat-box-value" id="sMonths">—</div><div class="stat-box-label">Months</div></div>
+        <div class="stat-box"><div class="stat-box-value" id="sWeeks">—</div><div class="stat-box-label">Weeks</div></div>
+        <div class="stat-box"><div class="stat-box-value" id="sDays">—</div><div class="stat-box-label">Days</div></div>
+        <div class="stat-box"><div class="stat-box-value" id="sHours">—</div><div class="stat-box-label">Hours</div></div>
+        <div class="stat-box"><div class="stat-box-value" id="sMinutes">—</div><div class="stat-box-label">Minutes</div></div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" id="resultTabs" style="display:none;">
+        <button class="tab-btn active" id="tabDetail" onclick="switchTab('detail',this)">📋 Details</button>
+        <button class="tab-btn" id="tabTimeline" onclick="switchTab('timeline',this)">🗓️ Timeline</button>
+        <button class="tab-btn" id="tabCalendar" onclick="switchTab('calendar',this)">📆 Calendar</button>
+        <button class="tab-btn" id="tabProgress" onclick="switchTab('progress',this)">📊 Progress</button>
+      </div>
+
+      <!-- Tab: Details -->
+      <div id="tab-detail">
+        <div id="detailRows"></div>
+      </div>
+
+      <!-- Tab: Timeline -->
+      <div id="tab-timeline" style="display:none;">
+        <div class="timeline" id="timelineWrap"></div>
+      </div>
+
+      <!-- Tab: Calendar -->
+      <div id="tab-calendar" style="display:none;">
+        <div class="cal-mini">
+          <div class="cal-header">
+            <button class="cal-nav" onclick="calNav(-1)">‹</button>
+            <span class="cal-title" id="calTitle"></span>
+            <button class="cal-nav" onclick="calNav(1)">›</button>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+      </div>
+
+      <!-- Tab: Progress -->
+      <div id="tab-progress" style="display:none;">
+        <div class="progress-section" id="progressWrap"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MID AD -->
+  <div class="ad-mid"><div class="adslot">📢 Responsive Mid Ad · 728×90 → 468×60 → 320×50</div></div>
+
+  <!-- CATEGORY BROWSER -->
+  <div class="tool-card">
+    <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+    <div class="tool-card-body" style="padding:1rem;">
+      <div class="cg">
+        <a href="calculator-tools.html" class="cc" data-c="calc" onclick="ga('cat','Calculators')"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+        <a href="text-tools.html" class="cc" data-c="text" onclick="ga('cat','Text')"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="image-tools.html" class="cc" data-c="image" onclick="ga('cat','Image')"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="pdf-tools.html" class="cc" data-c="pdf" onclick="ga('cat','PDF')"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="developer-tools.html" class="cc" data-c="dev" onclick="ga('cat','Developer')"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+        <a href="seo-tools.html" class="cc" data-c="seo" onclick="ga('cat','SEO')"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="security-tools.html" class="cc" data-c="sec" onclick="ga('cat','Security')"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+        <a href="finance-tools.html" class="cc" data-c="fin" onclick="ga('cat','Finance')"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+        <a href="design-tools.html" class="cc" data-c="des" onclick="ga('cat','Design')"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+        <a href="video-audio-tools.html" class="cc" data-c="vid" onclick="ga('cat','Video')"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <!-- Today card -->
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>📅 Today's Info</h3></div>
+    <div class="sidebar-card-body" id="todayCard"></div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="age-calculator.html" class="rel-tool"><div class="rel-tool-ico">🎂</div><div><div class="rel-tool-name">Age Calculator</div><div class="rel-tool-desc">Exact age from DOB</div></div></a>
+      <a href="time-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff3e0;">⏱️</div><div><div class="rel-tool-name">Time Calculator</div><div class="rel-tool-desc">Add & subtract time</div></div></a>
+      <a href="sleep-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e3f2fd;">⏰</div><div><div class="rel-tool-name">Sleep Calculator</div><div class="rel-tool-desc">Best bedtime & wake</div></div></a>
+      <a href="loan-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f5e9;">🏦</div><div><div class="rel-tool-name">Loan Calculator</div><div class="rel-tool-desc">EMI & amortization</div></div></a>
+      <a href="bmi-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">⚖️</div><div><div class="rel-tool-name">BMI Calculator</div><div class="rel-tool-desc">Body mass index</div></div></a>
+      <a href="percentage-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff8e1;">%</div><div><div class="rel-tool-name">Percentage Calculator</div><div class="rel-tool-desc">8 calculation modes</div></div></a>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 How to Use</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">1️⃣</span><span class="tip-text">Choose one of the <strong>5 calculation modes</strong> at the top.</span></div>
+      <div class="tip-item"><span class="tip-ico">2️⃣</span><span class="tip-text"><strong>Date Difference</strong> – Enter start & end date to find gap.</span></div>
+      <div class="tip-item"><span class="tip-ico">3️⃣</span><span class="tip-text"><strong>Add/Subtract</strong> – Add or subtract years, months & days.</span></div>
+      <div class="tip-item"><span class="tip-ico">4️⃣</span><span class="tip-text"><strong>Working Days</strong> – Exclude weekends & holidays.</span></div>
+      <div class="tip-item"><span class="tip-ico">5️⃣</span><span class="tip-text"><strong>Countdown</strong> – Set any event to track days remaining.</span></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – Date Calculator</h2>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How do I calculate the number of days between two dates?</div>
+      <div class="faq-a">Select the "Date Difference" mode, enter your Start Date and End Date, then click Calculate Difference. The tool instantly shows the exact number of days, weeks, months and years between the two dates. You can also choose to exclude weekends for a weekday-only count.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How do I add or subtract days from a date?</div>
+      <div class="faq-a">Select the "Add / Subtract" mode, choose your start date, select whether to add or subtract, then enter the number of years, months and/or days. Click Calculate New Date to find the resulting date. This is useful for deadline calculations, project planning, or finding dates in the past.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What are working days and how are they calculated?</div>
+      <div class="faq-a">Working days (business days) are days excluding weekends (Saturday and Sunday) and optionally public holidays. In the Working Days mode, select your start and end dates, check which days to exclude, and optionally enter specific holiday dates. The calculator counts only the remaining days in between.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What day of the week was a specific date?</div>
+      <div class="faq-a">Use the "Day of Week" mode. Enter any date — past, present or future — and the calculator will tell you which day of the week it falls on (Monday, Tuesday, etc.), along with the week number of the year and other useful information about that date.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How does the event countdown work?</div>
+      <div class="faq-a">Select the "Countdown" mode, optionally enter an event name (like "Birthday" or "Exam"), and pick the event date. The calculator shows exactly how many days, hours, minutes and seconds remain until that event, along with a progress bar showing how far through the year you are.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Does this calculator account for leap years?</div>
+      <div class="faq-a">Yes. The Date Calculator fully accounts for leap years in all calculations. Whether calculating date differences, adding months, or counting working days, the tool uses the actual calendar — including the extra day in February every 4 years — to ensure accurate results.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
+      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="bmi-calculator.html">BMI Calculator</a></li><li><a href="loan-calculator.html">Loan Calculator</a></li><li><a href="percentage-calculator.html">Percentage Calculator</a></li><li><a href="currency-converter.html">Currency Converter</a></li></ul></div>
+      <div class="fc"><h4>Calculator Tools</h4><ul><li><a href="date-calculator.html">Date Calculator</a></li><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="time-calculator.html">Time Calculator</a></li><li><a href="scientific-calculator.html">Scientific Calculator</a></li><li><a href="unit-converter.html">Unit Converter</a></li></ul></div>
+    </div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── CONSTANTS ──
+const DAYS_LONG  = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const DAYS_SHORT = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTHS_LONG = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+// ── STATE ──
+let currentMode = 'diff';
+let calViewDate  = new Date();
+let calStartDate = null;
+let calEndDate   = null;
+
+// ── INIT ──
+window.addEventListener('DOMContentLoaded', () => {
+  const today = new Date();
+  const todayStr = today.toISOString().split('T')[0];
+  document.getElementById('diff-start').value = todayStr;
+  document.getElementById('diff-end').value   = todayStr;
+  document.getElementById('wd-start').value   = todayStr;
+  document.getElementById('wd-end').value     = todayStr;
+  document.getElementById('dow-date').value   = todayStr;
+  document.getElementById('add-date').value   = todayStr;
+  document.getElementById('cd-date').value    = todayStr;
+  document.getElementById('wd-hol').addEventListener('change', e => {
+    document.getElementById('holidayWrap').style.display = e.target.checked ? 'block' : 'none';
+  });
+  renderTodayCard();
+});
+
+// ── MODE SWITCHER ──
+function setMode(mode, btn) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + mode).classList.add('active');
+  document.getElementById('resultSection').classList.remove('show');
+}
+
+// ── HELPERS ──
+function parseDate(str) {
+  if (!str) return null;
+  const [y,m,d] = str.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+function fmt(n)    { return Math.abs(n).toLocaleString(); }
+function fmtDate(d){ return DAYS_LONG[d.getDay()] + ', ' + MONTHS_LONG[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear(); }
+function daysBetween(a,b){ return Math.round((b-a)/(1000*60*60*24)); }
+
+function dateDiff(a, b) {
+  let y = b.getFullYear() - a.getFullYear();
+  let m = b.getMonth()   - a.getMonth();
+  let d = b.getDate()    - a.getDate();
+  if (d < 0) { m--; const prev = new Date(b.getFullYear(), b.getMonth(), 0); d += prev.getDate(); }
+  if (m < 0) { y--; m += 12; }
+  return { years: y, months: m, days: d };
+}
+
+function weekNumber(d) {
+  const jan1 = new Date(d.getFullYear(), 0, 1);
+  return Math.ceil(((d - jan1) / 86400000 + jan1.getDay() + 1) / 7);
+}
+
+function isLeapYear(y) { return (y%4===0 && y%100!==0) || y%400===0; }
+
+function detailRow(ico, label, value) {
+  return `<div class="detail-row">
+    <span class="detail-label"><span class="detail-ico">${ico}</span>${label}</span>
+    <span class="detail-value">${value}</span>
+  </div>`;
+}
+
+function showResult(heroGrad, label, value, sub) {
+  document.getElementById('resultHero').style.background = heroGrad;
+  document.getElementById('rhLabel').textContent = label;
+  document.getElementById('rhValue').textContent = value;
+  document.getElementById('rhSub').textContent   = sub;
+  const rs = document.getElementById('resultSection');
+  rs.classList.add('show','fade-up');
+  setTimeout(() => rs.scrollIntoView({behavior:'smooth',block:'start'}), 80);
+}
+
+// ── SWAP DATES ──
+function swapDates(a, b) {
+  const va = document.getElementById(a).value;
+  const vb = document.getElementById(b).value;
+  document.getElementById(a).value = vb;
+  document.getElementById(b).value = va;
+}
+
+// ── PANEL 1: DATE DIFFERENCE ──
+function calcDiff() {
+  const s = parseDate(document.getElementById('diff-start').value);
+  const e = parseDate(document.getElementById('diff-end').value);
+  if (!s || !e) { alert('⚠️ Please enter both dates.'); return; }
+  const excl = document.getElementById('diff-exclude').value === 'yes';
+
+  const forward  = e >= s;
+  const [d1, d2] = forward ? [s, e] : [e, s];
+  const totalDays = daysBetween(d1, d2);
+  const diff      = dateDiff(d1, d2);
+  const totalWeeks= Math.floor(totalDays / 7);
+  const remDays   = totalDays % 7;
+  const totalHours= totalDays * 24;
+  const totalMins = totalHours * 60;
+
+  // Count weekdays
+  let weekdays = 0;
+  for (let dt = new Date(d1); dt <= d2; dt.setDate(dt.getDate()+1)) {
+    if (dt.getDay() !== 0 && dt.getDay() !== 6) weekdays++;
+  }
+  const weekends = totalDays - weekdays + 1;
+
+  document.getElementById('statsGrid').style.display = 'grid';
+  document.getElementById('resultTabs').style.display = 'flex';
+  document.getElementById('sYears').textContent   = diff.years;
+  document.getElementById('sMonths').textContent  = diff.months;
+  document.getElementById('sWeeks').textContent   = totalWeeks;
+  document.getElementById('sDays').textContent    = totalDays;
+  document.getElementById('sHours').textContent   = fmt(totalHours);
+  document.getElementById('sMinutes').textContent = fmt(totalMins);
+
+  showResult(
+    'linear-gradient(135deg,#1a73e8,#0d5bcd)',
+    forward ? 'Days Between Dates' : 'Days Between Dates (reversed)',
+    totalDays.toLocaleString() + ' Days',
+    `${fmtDate(d1)}  →  ${fmtDate(d2)}`
+  );
+
+  document.getElementById('resultModeLabel').textContent = '📏 Date Difference';
+
+  // Detail rows
+  document.getElementById('detailRows').innerHTML =
+    detailRow('📅','Start Date', fmtDate(d1)) +
+    detailRow('📅','End Date',   fmtDate(d2)) +
+    detailRow('📆','Direction',  forward ? '⬆️ Future' : '⬇️ Past') +
+    detailRow('🗓️','Exact Difference', `${diff.years}y ${diff.months}m ${diff.days}d`) +
+    detailRow('📊','Total Days',       totalDays.toLocaleString()) +
+    detailRow('📅','Total Weeks',      `${totalWeeks} weeks, ${remDays} days`) +
+    detailRow('⏰','Total Hours',      fmt(totalHours)) +
+    detailRow('⏱️','Total Minutes',   fmt(totalMins)) +
+    detailRow('💼','Weekdays',         weekdays.toLocaleString()) +
+    detailRow('🏖️','Weekend Days',    weekends.toLocaleString()) +
+    detailRow('📌','Week # of Start',  'Week ' + weekNumber(d1)) +
+    detailRow('📌','Week # of End',    'Week ' + weekNumber(d2));
+
+  // Timeline
+  const today = new Date(); today.setHours(0,0,0,0);
+  const daysToEnd = daysBetween(today, d2);
+  document.getElementById('timelineWrap').innerHTML = `
+    <div class="tl-item"><div class="tl-dot past">📅</div><div class="tl-content"><div class="tl-title">${fmtDate(d1)}</div><div class="tl-sub">Start date · Week ${weekNumber(d1)}</div></div></div>
+    <div class="tl-item"><div class="tl-dot today">📍</div><div class="tl-content"><div class="tl-title">Today – ${fmtDate(today)}</div><div class="tl-sub">Current date · Week ${weekNumber(today)}</div></div></div>
+    <div class="tl-item"><div class="tl-dot ${daysToEnd >= 0 ? 'future' : 'past'}">🏁</div><div class="tl-content"><div class="tl-title">${fmtDate(d2)}</div><div class="tl-sub">End date · ${Math.abs(daysToEnd)} days ${daysToEnd >= 0 ? 'from now' : 'ago'}</div></div></div>`;
+
+  // Calendar
+  calStartDate = d1; calEndDate = d2;
+  calViewDate  = new Date(d1.getFullYear(), d1.getMonth(), 1);
+  renderCalendar();
+
+  // Progress
+  const yearStart = new Date(d1.getFullYear(), 0, 1);
+  const yearEnd   = new Date(d1.getFullYear(), 11, 31);
+  const yearPct   = Math.round((d1 - yearStart) / (yearEnd - yearStart) * 100);
+  const spanPct   = totalDays > 0 ? Math.min(100, Math.round(Math.max(0, daysBetween(d1,today)) / totalDays * 100)) : 100;
+  document.getElementById('progressWrap').innerHTML = `
+    <div class="progress-label"><span>📅 Year Progress (${d1.getFullYear()})</span><span>${yearPct}%</span></div>
+    <div class="progress-track" style="margin-bottom:1rem;"><div class="progress-fill" style="width:${yearPct}%;background:linear-gradient(90deg,#1a73e8,#34d399);"></div></div>
+    <div class="progress-label"><span>⏳ Span Progress</span><span>${spanPct}%</span></div>
+    <div class="progress-track"><div class="progress-fill" style="width:${spanPct}%;background:linear-gradient(90deg,#f59e0b,#ef4444);"></div></div>
+    <div style="font-size:.72rem;color:#9aa0a6;margin-top:.6rem;text-align:center;">${spanPct}% of the date span has elapsed as of today</div>`;
+
+  switchTab('detail', document.getElementById('tabDetail'));
+}
+
+// ── PANEL 2: ADD / SUBTRACT ──
+function calcAdd() {
+  const base = parseDate(document.getElementById('add-date').value);
+  if (!base) { alert('⚠️ Please enter a start date.'); return; }
+  const op  = document.getElementById('add-op').value;
+  const yr  = parseInt(document.getElementById('add-yr').value) || 0;
+  const mo  = parseInt(document.getElementById('add-mo').value) || 0;
+  const dy  = parseInt(document.getElementById('add-dy').value) || 0;
+  if (!yr && !mo && !dy) { alert('⚠️ Please enter at least one value to add/subtract.'); return; }
+
+  const sign = op === 'add' ? 1 : -1;
+  const res  = new Date(base);
+  res.setFullYear(res.getFullYear() + sign * yr);
+  res.setMonth(res.getMonth() + sign * mo);
+  res.setDate(res.getDate() + sign * dy);
+
+  const totalDays = daysBetween(base, res);
+  document.getElementById('statsGrid').style.display = 'none';
+  document.getElementById('resultTabs').style.display = 'none';
+  document.getElementById('resultModeLabel').textContent = '➕ Add / Subtract';
+
+  showResult(
+    op === 'add'
+      ? 'linear-gradient(135deg,#22c55e,#15803d)'
+      : 'linear-gradient(135deg,#f59e0b,#b45309)',
+    op === 'add' ? 'Resulting Date (Added)' : 'Resulting Date (Subtracted)',
+    fmtDate(res),
+    `${DAYS_LONG[res.getDay()]} · Week ${weekNumber(res)} · ${res.getFullYear()}`
+  );
+
+  document.getElementById('detailRows').innerHTML =
+    detailRow('📅','Start Date',      fmtDate(base)) +
+    detailRow('🔢','Operation',       op === 'add' ? `➕ Add ${yr}y ${mo}m ${dy}d` : `➖ Subtract ${yr}y ${mo}m ${dy}d`) +
+    detailRow('🏁','Result Date',     fmtDate(res)) +
+    detailRow('📆','Day of Week',     DAYS_LONG[res.getDay()]) +
+    detailRow('📌','Week Number',     'Week ' + weekNumber(res)) +
+    detailRow('📊','Days Difference', Math.abs(totalDays).toLocaleString() + ' days') +
+    detailRow('🗓️','Quarter',        'Q' + (Math.floor(res.getMonth()/3)+1)) +
+    detailRow('🌙','Is Leap Year',    isLeapYear(res.getFullYear()) ? '✅ Yes' : '❌ No');
+
+  calStartDate = base; calEndDate = res;
+  calViewDate  = new Date(Math.min(base,res));
+  calViewDate.setDate(1);
+  renderCalendar();
+}
+
+// ── PANEL 3: WORKING DAYS ──
+function calcWorkdays() {
+  const s = parseDate(document.getElementById('wd-start').value);
+  const e = parseDate(document.getElementById('wd-end').value);
+  if (!s || !e) { alert('⚠️ Please enter both dates.'); return; }
+  const [d1,d2] = s <= e ? [s,e] : [e,s];
+
+  const exSat  = document.getElementById('wd-sat').checked;
+  const exSun  = document.getElementById('wd-sun').checked;
+  const exHol  = document.getElementById('wd-hol').checked;
+  const holRaw = document.getElementById('wd-holidays').value;
+  const holidays = exHol
+    ? holRaw.split(',').map(h => h.trim()).filter(Boolean)
+    : [];
+
+  let workdays = 0, weekendDays = 0, holDays = 0;
+  for (let dt = new Date(d1); dt <= d2; dt.setDate(dt.getDate()+1)) {
+    const dow     = dt.getDay();
+    const dtStr   = dt.toISOString().split('T')[0];
+    const isHol   = holidays.includes(dtStr);
+    const isSat   = dow === 6;
+    const isSun   = dow === 0;
+    if ((exSat && isSat) || (exSun && isSun)) { weekendDays++; continue; }
+    if (isHol) { holDays++; continue; }
+    workdays++;
+  }
+
+  const total = daysBetween(d1,d2);
+  document.getElementById('statsGrid').style.display = 'none';
+  document.getElementById('resultTabs').style.display = 'none';
+  document.getElementById('resultModeLabel').textContent = '💼 Working Days';
+
+  showResult(
+    'linear-gradient(135deg,#7c3aed,#5b21b6)',
+    'Working Days Between Dates',
+    workdays.toLocaleString() + ' Working Days',
+    `${fmtDate(d1)}  →  ${fmtDate(d2)}`
+  );
+
+  document.getElementById('detailRows').innerHTML =
+    detailRow('📅','Start Date',      fmtDate(d1)) +
+    detailRow('📅','End Date',        fmtDate(d2)) +
+    detailRow('📊','Total Days',      total.toLocaleString()) +
+    detailRow('💼','Working Days',    workdays.toLocaleString()) +
+    detailRow('🏖️','Weekend Days',   weekendDays.toLocaleString()) +
+    detailRow('🎉','Holiday Days',    holDays.toLocaleString()) +
+    detailRow('📊','Work %',          total > 0 ? Math.round(workdays/total*100)+'%' : '—') +
+    detailRow('📅','Full Weeks',      Math.floor(total/7).toLocaleString());
+
+  calStartDate = d1; calEndDate = d2;
+  calViewDate  = new Date(d1.getFullYear(), d1.getMonth(), 1);
+  renderCalendar();
+}
+
+// ── PANEL 4: DAY OF WEEK ──
+function calcDayOf() {
+  const d = parseDate(document.getElementById('dow-date').value);
+  if (!d) { alert('⚠️ Please enter a date.'); return; }
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const diff  = daysBetween(today, d);
+  const relStr = diff === 0 ? 'Today' : diff > 0 ? `${diff} days from now` : `${Math.abs(diff)} days ago`;
+
+  document.getElementById('statsGrid').style.display = 'none';
+  document.getElementById('resultTabs').style.display = 'none';
+  document.getElementById('resultModeLabel').textContent = '📆 Day of Week';
+
+  const dayColors = ['linear-gradient(135deg,#ef4444,#b91c1c)','linear-gradient(135deg,#1a73e8,#0d5bcd)','linear-gradient(135deg,#22c55e,#15803d)','linear-gradient(135deg,#7c3aed,#5b21b6)','linear-gradient(135deg,#f59e0b,#b45309)','linear-gradient(135deg,#0891b2,#0e7490)','linear-gradient(135deg,#ec4899,#be185d)'];
+
+  showResult(
+    dayColors[d.getDay()],
+    'Day of the Week',
+    DAYS_LONG[d.getDay()],
+    fmtDate(d)
+  );
+
+  const daysInMonth = new Date(d.getFullYear(), d.getMonth()+1, 0).getDate();
+  const dayOfYear   = Math.ceil((d - new Date(d.getFullYear(),0,1)) / 86400000) + 1;
+  const daysInYear  = isLeapYear(d.getFullYear()) ? 366 : 365;
+
+  document.getElementById('detailRows').innerHTML =
+    detailRow('📅','Full Date',       fmtDate(d)) +
+    detailRow('📆','Day of Week',     DAYS_LONG[d.getDay()] + ' (#' + d.getDay() + ')') +
+    detailRow('📌','Week Number',     'Week ' + weekNumber(d)) +
+    detailRow('🗓️','Day of Year',    dayOfYear + ' of ' + daysInYear) +
+    detailRow('📅','Days in Month',   daysInMonth) +
+    detailRow('🗂️','Quarter',        'Q' + (Math.floor(d.getMonth()/3)+1)) +
+    detailRow('🌙','Leap Year',       isLeapYear(d.getFullYear()) ? '✅ Yes' : '❌ No') +
+    detailRow('⏰','Relative',        relStr) +
+    detailRow('🔢','Unix Timestamp',  Math.floor(d.getTime()/1000).toLocaleString());
+
+  calStartDate = d; calEndDate = d;
+  calViewDate  = new Date(d.getFullYear(), d.getMonth(), 1);
+  renderCalendar();
+}
+
+// ── PANEL 5: COUNTDOWN ──
+let cdInterval = null;
+function calcCountdown() {
+  const d = parseDate(document.getElementById('cd-date').value);
+  if (!d) { alert('⚠️ Please enter an event date.'); return; }
+  const name = document.getElementById('cd-name').value.trim() || 'Event';
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const diff  = daysBetween(today, d);
+  const isPast = d < today;
+  const isTod  = diff === 0;
+
+  document.getElementById('statsGrid').style.display = 'none';
+  document.getElementById('resultTabs').style.display = 'none';
+  document.getElementById('resultModeLabel').textContent = '⏳ Countdown';
+
+  showResult(
+    isTod ? 'linear-gradient(135deg,#22c55e,#15803d)'
+          : isPast ? 'linear-gradient(135deg,#9ca3af,#6b7280)'
+          : 'linear-gradient(135deg,#f59e0b,#b45309)',
+    isTod ? '🎉 Today!' : isPast ? '⏮️ Days Since' : '⏳ Days Until',
+    Math.abs(diff).toLocaleString() + ' Days',
+    (isTod ? name + ' is today!' : isPast ? name + ' was ' + fmtDate(d) : name + ' on ' + fmtDate(d))
+  );
+
+  const yearStart = new Date(today.getFullYear(), 0, 1);
+  const yearEnd   = new Date(today.getFullYear(), 11, 31);
+  const yearPct   = Math.round((today - yearStart) / (yearEnd - yearStart) * 100);
+  const weeks     = Math.floor(Math.abs(diff) / 7);
+  const remD      = Math.abs(diff) % 7;
+  const months    = Math.floor(Math.abs(diff) / 30.44);
+
+  document.getElementById('detailRows').innerHTML =
+    detailRow('🎯','Event',           name) +
+    detailRow('📅','Event Date',      fmtDate(d)) +
+    detailRow('📆','Day of Week',     DAYS_LONG[d.getDay()]) +
+    detailRow('⏳',isPast?'Days Since':'Days Until', Math.abs(diff).toLocaleString()) +
+    detailRow('📅','In Weeks',        `${weeks} weeks, ${remD} days`) +
+    detailRow('🌙','In Months',       `~${months} months`) +
+    detailRow('⏰','In Hours',        (Math.abs(diff)*24).toLocaleString()) +
+    detailRow('📌','Week Number',     'Week ' + weekNumber(d)) +
+    detailRow('🗂️','Quarter',        'Q' + (Math.floor(d.getMonth()/3)+1)) +
+    `<div class="progress-section" style="margin-top:.8rem;">
+      <div class="progress-label"><span>📅 Year Progress</span><span>${yearPct}%</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:${yearPct}%;background:linear-gradient(90deg,#1a73e8,#34d399);"></div></div>
+    </div>`;
+
+  calStartDate = today; calEndDate = d;
+  calViewDate  = new Date(today.getFullYear(), today.getMonth(), 1);
+  renderCalendar();
+}
+
+// ── CALENDAR ──
+function renderCalendar() {
+  const y = calViewDate.getFullYear();
+  const m = calViewDate.getMonth();
+  document.getElementById('calTitle').textContent = MONTHS_LONG[m] + ' ' + y;
+
+  const firstDay = new Date(y, m, 1).getDay();
+  const daysInM  = new Date(y, m+1, 0).getDate();
+  const today    = new Date(); today.setHours(0,0,0,0);
+
+  let html = DAYS_SHORT.map(d => `<div class="cal-day-name">${d}</div>`).join('');
+  for (let i=0; i<firstDay; i++) html += '<div class="cal-day other-month"></div>';
+
+  for (let d=1; d<=daysInM; d++) {
+    const dt = new Date(y, m, d);
+    let cls = 'cal-day';
+    if (calStartDate && dt.getTime() === calStartDate.getTime()) cls += ' start-date';
+    else if (calEndDate && dt.getTime() === calEndDate.getTime()) cls += ' end-date';
+    else if (calStartDate && calEndDate && dt > calStartDate && dt < calEndDate) cls += ' in-range';
+    else if (dt.getTime() === today.getTime()) cls += ' today';
+    html += `<div class="${cls}">${d}</div>`;
+  }
+
+  document.getElementById('calGrid').innerHTML = html;
+}
+
+function calNav(dir) {
+  calViewDate.setMonth(calViewDate.getMonth() + dir);
+  renderCalendar();
+}
+
+// ── TABS ──
+function switchTab(id, btn) {
+  ['detail','timeline','calendar','progress'].forEach(t => {
+    document.getElementById('tab-'+t).style.display = t===id ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── RESET ──
+function resetPanel(mode) {
+  document.getElementById('resultSection').classList.remove('show');
+  const today = new Date().toISOString().split('T')[0];
+  if (mode === 'diff')      { document.getElementById('diff-start').value = today; document.getElementById('diff-end').value = today; }
+  if (mode === 'add')       { document.getElementById('add-date').value = today; document.getElementById('add-yr').value=''; document.getElementById('add-mo').value=''; document.getElementById('add-dy').value=''; }
+  if (mode === 'workdays')  { document.getElementById('wd-start').value = today; document.getElementById('wd-end').value = today; }
+  if (mode === 'dayof')     { document.getElementById('dow-date').value = today; }
+  if (mode === 'countdown') { document.getElementById('cd-date').value = today; document.getElementById('cd-name').value = ''; }
+}
+
+// ── TODAY CARD ──
+function renderTodayCard() {
+  const now  = new Date();
+  const y    = now.getFullYear();
+  const jan1 = new Date(y, 0, 1);
+  const dec31= new Date(y, 11, 31);
+  const dayOfY = Math.ceil((now - jan1) / 86400000) + 1;
+  const daysLeft = Math.ceil((dec31 - now) / 86400000);
+  const quarter = 'Q' + (Math.floor(now.getMonth()/3)+1);
+
+  document.getElementById('todayCard').innerHTML = `
+    <div class="today-card">
+      <div class="today-card-date">${MONTHS_LONG[now.getMonth()].slice(0,3)} ${now.getDate()}, ${y}</div>
+      <div class="today-card-day">${DAYS_LONG[now.getDay()]}</div>
+      <div class="today-card-info">
+        <div class="tci"><div class="tci-val">Week ${weekNumber(now)}</div><div class="tci-lbl">Week of Year</div></div>
+        <div class="tci"><div class="tci-val">${quarter}</div><div class="tci-lbl">Quarter</div></div>
+        <div class="tci"><div class="tci-val">Day ${dayOfY}</div><div class="tci-lbl">Day of Year</div></div>
+        <div class="tci"><div class="tci-val">${daysLeft}d left</div><div class="tci-lbl">In ${y}</div></div>
+      </div>
+    </div>`;
+}
+
+function toggleFaq(el) { el.classList.toggle('open'); }
+
+// Category animations
+const ob = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; ob.unobserve(e.target); } });
+}, { threshold:.05 });
+document.querySelectorAll('.cc').forEach((c,i) => {
+  c.style.cssText += `;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;
+  ob.observe(c);
+});
+</script>
+</body>
+</html>
+
