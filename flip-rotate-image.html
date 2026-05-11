@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}</script>
+<title>Flip & Rotate Image – Free Online Image Rotator | ToolNex</title>
+<meta name="description" content="Free Flip & Rotate Image tool – Rotate images 90°, 180°, custom angle. Flip horizontal and vertical. Live preview. Download as JPG, PNG or WebP. No server upload."/>
+<meta name="keywords" content="flip image, rotate image online free, flip photo, rotate photo 90 degrees, image rotator 2026, flip horizontal vertical, custom angle rotate"/>
+<meta name="author" content="ToolNex"/><meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://toolnex.site/flip-rotate-image.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:all .15s;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;transition:background .15s;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+.hdr-link:hover{background:#f1f3f4;}
+@media(max-width:650px){.hdr-links{display:none;}}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+.ad-mid{display:flex;justify-content:center;padding:.5rem;margin:1.2rem 0;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}.ad-mid .adslot{width:468px;height:60px;}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#e8f5e9;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+.drop-zone{border:2.5px dashed #a5d6a7;background:#f1f8f1;border-radius:16px;padding:2.5rem 1rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;}
+.drop-zone:hover,.drop-zone.dragover{border-color:#2e7d32;background:#e8f5e9;}
+.drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.dz-icon{font-size:2.8rem;margin-bottom:.6rem;}
+.dz-title{font-size:.95rem;font-weight:700;color:#202124;margin-bottom:.25rem;}
+.dz-sub{font-size:.76rem;color:#9aa0a6;}
+.dz-btn{display:inline-block;margin-top:.7rem;background:#2e7d32;color:#fff;border:none;border-radius:10px;padding:.5rem 1.2rem;font-size:.8rem;font-weight:600;cursor:pointer;}
+.dz-btn:hover{background:#1b5e20;}
+.sec-hdr{display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:2px solid #f1f3f4;margin-top:.9rem;}
+.sec-hdr-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+.sec-hdr-title{font-size:.84rem;font-weight:700;color:#202124;}
+.info-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin:.6rem 0;}
+.chip{background:#e8f5e9;border:1.5px solid #a5d6a7;border-radius:8px;padding:.2rem .6rem;font-size:.68rem;font-weight:700;color:#2e7d32;font-family:'JetBrains Mono',monospace;}
+.chip.info{background:#e8f0fe;border-color:#c5d8fb;color:#1558c0;}
+.main-area{display:none;}
+.main-area.show{display:block;}
+/* LIVE PREVIEW */
+.preview-canvas-wrap{background:repeating-conic-gradient(#f1f3f4 0% 25%,#fff 0% 50%) 0 0/14px 14px;border-radius:14px;overflow:hidden;border:1.5px solid #e8eaed;text-align:center;margin-bottom:.9rem;min-height:200px;display:flex;align-items:center;justify-content:center;padding:.5rem;position:relative;}
+#previewCanvas{max-width:100%;max-height:400px;object-fit:contain;display:block;border-radius:6px;}
+.canvas-badge{position:absolute;top:.5rem;right:.5rem;background:rgba(0,0,0,.5);color:#fff;font-size:.65rem;font-weight:700;font-family:'JetBrains Mono',monospace;padding:.2rem .5rem;border-radius:6px;}
+/* TRANSFORM BUTTONS */
+.transform-section{margin-bottom:1rem;}
+/* FLIP GRID */
+.flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.8rem;}
+.action-card{border:2px solid #e8eaed;background:#fff;border-radius:13px;padding:1rem .7rem .85rem;font-size:.8rem;font-weight:700;color:#5f6368;cursor:pointer;transition:all .18s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.35rem;}
+.action-card:hover{border-color:#2e7d32;color:#2e7d32;background:#f1f8f1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.07);}
+.action-card.active-state{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;}
+.ac-icon{font-size:1.6rem;}
+/* ROTATE PRESETS */
+.rot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin-bottom:.8rem;}
+.rot-card{border:2px solid #e8eaed;background:#fff;border-radius:12px;padding:.7rem .3rem;font-size:.75rem;font-weight:700;color:#5f6368;cursor:pointer;transition:all .15s;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.2rem;}
+.rot-card:hover{border-color:#2e7d32;color:#2e7d32;background:#f1f8f1;transform:translateY(-2px);}
+.rc-icon{font-size:1.1rem;}
+/* CUSTOM ANGLE */
+.custom-angle-box{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.9rem 1rem;margin-bottom:.9rem;}
+.ca-title{font-size:.76rem;font-weight:700;color:#3c4043;margin-bottom:.7rem;}
+.ca-row{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;}
+.ca-deg{font-size:2rem;font-weight:700;color:#2e7d32;font-family:'JetBrains Mono',monospace;min-width:72px;text-align:center;}
+.ca-slider-wrap{flex:1;min-width:120px;}
+.ca-slider{width:100%;accent-color:#2e7d32;height:6px;}
+.ca-btns{display:flex;gap:.3rem;flex-wrap:wrap;}
+.ca-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:7px;padding:.3rem .6rem;font-size:.7rem;font-weight:700;color:#5f6368;cursor:pointer;transition:all .13s;white-space:nowrap;}
+.ca-btn:hover{border-color:#2e7d32;color:#2e7d32;background:#f1f8f1;}
+/* STATE BADGE */
+.state-display{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.7rem;align-items:center;}
+.state-label{font-size:.72rem;color:#9aa0a6;}
+.state-badge{background:#1a1d2e;color:#a8c8e0;font-size:.72rem;font-family:'JetBrains Mono',monospace;font-weight:700;border-radius:7px;padding:.22rem .6rem;}
+/* OPTIONS */
+.opts-box{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.75rem 1rem;margin-bottom:.9rem;}
+.opt-row{display:flex;align-items:center;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid #f1f3f4;gap:.5rem;}
+.opt-row:last-child{border-bottom:none;}
+.opt-label{font-size:.78rem;font-weight:600;color:#3c4043;flex:1;}
+.opt-sub{font-size:.66rem;color:#9aa0a6;display:block;}
+.inp-sm{background:#fff;border:1.5px solid #e8eaed;border-radius:8px;padding:.32rem .6rem;font-size:.8rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .15s;}
+.inp-sm:focus{border-color:#2e7d32;}
+select.inp-sm{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239aa0a6' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .4rem center;padding-right:1.4rem;}
+/* DOWNLOAD BUTTON */
+.dl-btn{width:100%;background:linear-gradient(135deg,#2e7d32,#1b5e20);color:#fff;border:none;border-radius:12px;padding:.85rem;font-size:.93rem;font-weight:700;transition:opacity .15s,transform .1s,box-shadow .15s;letter-spacing:.01em;}
+.dl-btn:hover{opacity:.92;box-shadow:0 4px 16px rgba(46,125,50,.4);transform:translateY(-1px);}
+.reset-btn{width:100%;background:#f8f9fa;color:#5f6368;border:1.5px solid #e8eaed;border-radius:12px;padding:.6rem;font-size:.82rem;font-weight:600;cursor:pointer;margin-top:.5rem;}
+.reset-btn:hover{background:#e8eaed;}
+/* RESULT HERO */
+.result-hero{background:linear-gradient(135deg,#2e7d32,#1b5e20);border-radius:14px;padding:1.1rem;margin-top:.9rem;animation:fadeUp .3s ease forwards;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.rh-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;}
+@media(max-width:400px){.rh-grid{grid-template-columns:repeat(2,1fr);}}
+.rh-item{text-align:center;}
+.rh-label{font-size:.58rem;font-weight:600;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.15rem;}
+.rh-value{font-size:.88rem;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace;}
+/* CATEGORY BROWSER */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#e8f5e9;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+<div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><a href="image-tools.html">Image Tools</a><span class="sep">›</span><span class="cur">Flip & Rotate Image</span></nav>
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">🔄</div>
+    <div class="tool-hero-text">
+      <h1>Flip & Rotate Image – Free Online Image Rotator</h1>
+      <p>Rotate images 90°, 180°, 270° or any custom angle. Flip horizontally or vertically. Combine multiple transforms — rotate and flip together. Live canvas preview updates instantly. Download as JPG, PNG or WebP. 100% browser-based, no upload.</p>
+      <div class="tool-hero-tags">
+        <span class="tool-tag">🆓 Free</span><span class="tool-tag">🔒 100% Private</span>
+        <span class="tool-tag">🔄 Rotate Any Angle</span><span class="tool-tag">↔️ Flip H/V</span>
+        <span class="tool-tag">⚡ Live Preview</span><span class="tool-tag">🖼️ JPG/PNG/WebP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🔄 Flip & Rotate Image</h2><span style="font-size:.72rem;color:#22c55e;font-weight:600;">🔒 No upload — browser only</span></div>
+  <div class="tool-card-body">
+
+    <div class="drop-zone" id="dropZone" ondrop="handleDrop(event)" ondragover="event.preventDefault();this.classList.add('dragover')" ondragleave="this.classList.remove('dragover')">
+      <input type="file" accept="image/*" onchange="handleFile(this.files[0])"/>
+      <div class="dz-icon">🔄</div>
+      <div class="dz-title">Drop your image here</div>
+      <div class="dz-sub">Supports JPG, PNG, WebP, GIF, BMP — up to 20MB</div>
+      <button class="dz-btn">Choose Image</button>
+    </div>
+
+    <div class="main-area" id="mainArea">
+
+      <!-- IMAGE INFO -->
+      <div class="info-chips" id="infoChips"></div>
+
+      <!-- LIVE PREVIEW -->
+      <div class="preview-canvas-wrap">
+        <canvas id="previewCanvas"></canvas>
+        <div class="canvas-badge" id="canvasBadge">—</div>
+      </div>
+
+      <!-- STATE DISPLAY -->
+      <div class="state-display">
+        <span class="state-label">Current transform:</span>
+        <span class="state-badge" id="stateDisplay">No transform</span>
+      </div>
+
+      <!-- FLIP -->
+      <div class="sec-hdr"><div class="sec-hdr-ico" style="background:#e8f5e9;">↔️</div><span class="sec-hdr-title">Flip</span></div>
+      <div class="flip-grid">
+        <button class="action-card" id="btnFlipH" onclick="toggleFlip('h')">
+          <span class="ac-icon">↔️</span>
+          <span>Flip Horizontal</span>
+          <span style="font-size:.62rem;color:#9aa0a6;">Mirror left-right</span>
+        </button>
+        <button class="action-card" id="btnFlipV" onclick="toggleFlip('v')">
+          <span class="ac-icon">↕️</span>
+          <span>Flip Vertical</span>
+          <span style="font-size:.62rem;color:#9aa0a6;">Mirror top-bottom</span>
+        </button>
+      </div>
+
+      <!-- ROTATE PRESETS -->
+      <div class="sec-hdr"><div class="sec-hdr-ico" style="background:#e3f2fd;">↩️</div><span class="sec-hdr-title">Rotate</span></div>
+      <div class="rot-grid">
+        <button class="rot-card" onclick="addRotation(90)">
+          <span class="rc-icon">↻</span><span>+90°</span><span style="font-size:.6rem;color:#9aa0a6;">Clockwise</span>
+        </button>
+        <button class="rot-card" onclick="addRotation(-90)">
+          <span class="rc-icon">↺</span><span>-90°</span><span style="font-size:.6rem;color:#9aa0a6;">Counter-CW</span>
+        </button>
+        <button class="rot-card" onclick="addRotation(180)">
+          <span class="rc-icon">🔃</span><span>180°</span><span style="font-size:.6rem;color:#9aa0a6;">Flip upside</span>
+        </button>
+        <button class="rot-card" onclick="addRotation(270)">
+          <span class="rc-icon">↻</span><span>270°</span><span style="font-size:.6rem;color:#9aa0a6;">3/4 turn</span>
+        </button>
+      </div>
+
+      <!-- CUSTOM ANGLE -->
+      <div class="custom-angle-box">
+        <div class="ca-title">🎯 Custom Rotation Angle</div>
+        <div class="ca-row">
+          <div class="ca-deg" id="angleDeg">0°</div>
+          <div class="ca-slider-wrap">
+            <input type="range" class="ca-slider" id="angleSlider" min="-180" max="180" value="0" oninput="onAngleSlider()"/>
+          </div>
+        </div>
+        <div class="ca-btns" style="margin-top:.5rem;">
+          <button class="ca-btn" onclick="setCustomAngle(-45)">-45°</button>
+          <button class="ca-btn" onclick="setCustomAngle(-30)">-30°</button>
+          <button class="ca-btn" onclick="setCustomAngle(-15)">-15°</button>
+          <button class="ca-btn" onclick="setCustomAngle(0)">0° (Reset)</button>
+          <button class="ca-btn" onclick="setCustomAngle(15)">+15°</button>
+          <button class="ca-btn" onclick="setCustomAngle(30)">+30°</button>
+          <button class="ca-btn" onclick="setCustomAngle(45)">+45°</button>
+        </div>
+        <div style="margin-top:.5rem;">
+          <label style="font-size:.72rem;font-weight:600;color:#3c4043;">Or type exact angle: </label>
+          <input type="number" id="angleInput" min="-360" max="360" value="0" style="background:#fff;border:1.5px solid #e8eaed;border-radius:7px;padding:.3rem .5rem;font-size:.82rem;font-family:'JetBrains Mono',monospace;color:#2e7d32;outline:none;width:80px;" oninput="onAngleInput()"/>
+          <span style="font-size:.78rem;color:#9aa0a6;">degrees</span>
+        </div>
+      </div>
+
+      <!-- RESET BUTTON -->
+      <div style="margin-bottom:.9rem;">
+        <button class="ca-btn" onclick="resetAllTransforms()" style="width:100%;padding:.45rem;font-size:.8rem;background:#fff8f8;border-color:#f48fb1;color:#c62828;">↺ Reset All Transforms</button>
+      </div>
+
+      <!-- OUTPUT OPTIONS -->
+      <div class="sec-hdr"><div class="sec-hdr-ico" style="background:#f1f3f4;">⚙️</div><span class="sec-hdr-title">Output Options</span></div>
+      <div class="opts-box">
+        <div class="opt-row">
+          <div><span class="opt-label">📄 Output Format</span></div>
+          <select class="inp-sm" id="outputFmt">
+            <option value="jpeg">JPG</option>
+            <option value="png">PNG</option>
+            <option value="webp">WebP</option>
+          </select>
+        </div>
+        <div class="opt-row">
+          <div><span class="opt-label">🎨 Quality (JPG/WebP)</span></div>
+          <div style="display:flex;align-items:center;gap:.4rem;">
+            <input type="range" id="qualSlider" min="0.1" max="1" step="0.05" value="0.92" oninput="document.getElementById('qLabel').textContent=Math.round(this.value*100)+'%'" style="width:80px;accent-color:#2e7d32;"/>
+            <span style="font-size:.72rem;font-weight:700;color:#2e7d32;font-family:'JetBrains Mono',monospace;" id="qLabel">92%</span>
+          </div>
+        </div>
+        <div class="opt-row">
+          <div><span class="opt-label">🎨 Background fill color</span><span class="opt-sub">For rotated corners (non-90° angles)</span></div>
+          <input type="color" id="bgColor" value="#ffffff" style="width:36px;height:28px;border:1.5px solid #e8eaed;border-radius:6px;cursor:pointer;padding:2px;" onchange="drawPreview()"/>
+        </div>
+        <div class="opt-row">
+          <div><span class="opt-label">✂️ Crop to fit (remove corners)</span><span class="opt-sub">Crops canvas after rotation to remove empty corners</span></div>
+          <label style="position:relative;width:40px;height:22px;flex-shrink:0;display:inline-block;">
+            <input type="checkbox" id="cropFit" onchange="drawPreview()" style="opacity:0;width:0;height:0;"/>
+            <span id="cropSlider" style="position:absolute;inset:0;background:#e8eaed;border-radius:11px;cursor:pointer;transition:background .2s;"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- DOWNLOAD BUTTON -->
+      <button class="dl-btn" onclick="downloadResult()">⬇️ Download Image</button>
+      <button class="reset-btn" onclick="resetTool()">🔄 Flip/Rotate Another Image</button>
+
+      <!-- RESULT HERO -->
+      <div class="result-hero" id="resultHero" style="display:none;">
+        <div class="rh-grid">
+          <div class="rh-item"><div class="rh-label">Output W</div><div class="rh-value" id="rh-w">—</div></div>
+          <div class="rh-item"><div class="rh-label">Output H</div><div class="rh-value" id="rh-h">—</div></div>
+          <div class="rh-item"><div class="rh-label">Rotation</div><div class="rh-value" id="rh-rot">—</div></div>
+          <div class="rh-item"><div class="rh-label">Flip</div><div class="rh-value" id="rh-flip">—</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="ad-mid"><div class="adslot">📢 Responsive Mid Ad</div></div>
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+  <div class="tool-card-body" style="padding:1rem;">
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Transform Guide</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">↻</span><span class="tip-text"><strong>+90° Clockwise</strong> — Turn photo taken sideways to upright.</span></div>
+      <div class="tip-item"><span class="tip-ico">↺</span><span class="tip-text"><strong>-90° Counter-CW</strong> — Rotate left 90 degrees.</span></div>
+      <div class="tip-item"><span class="tip-ico">🔃</span><span class="tip-text"><strong>180°</strong> — Flip photo upside-down completely.</span></div>
+      <div class="tip-item"><span class="tip-ico">↔️</span><span class="tip-text"><strong>Flip Horizontal</strong> — Mirror image left to right (selfie correction).</span></div>
+      <div class="tip-item"><span class="tip-ico">↕️</span><span class="tip-text"><strong>Flip Vertical</strong> — Mirror image top to bottom.</span></div>
+      <div class="tip-item"><span class="tip-ico">🎯</span><span class="tip-text"><strong>Custom angle</strong> — Straighten a tilted horizon or diagonal shot.</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Tips</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">📷</span><span class="tip-text">Combine flip + rotate — flip first, then rotate.</span></div>
+      <div class="tip-item"><span class="tip-ico">✂️</span><span class="tip-text">Use "Crop to fit" for custom angles to remove white corners.</span></div>
+      <div class="tip-item"><span class="tip-ico">🖼️</span><span class="tip-text">Use PNG if image has transparency (logos, icons).</span></div>
+      <div class="tip-item"><span class="tip-ico">📐</span><span class="tip-text">90°/180°/270° rotations are lossless — no quality loss.</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Image Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="image-cropper.html" class="rel-tool"><div class="rel-tool-ico">✂️</div><div><div class="rel-tool-name">Image Cropper</div><div class="rel-tool-desc">Crop images online</div></div></a>
+      <a href="image-resizer.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e3f2fd;">📐</div><div><div class="rel-tool-name">Image Resizer</div><div class="rel-tool-desc">Resize by pixels or %</div></div></a>
+      <a href="watermark-image.html" class="rel-tool"><div class="rel-tool-ico" style="background:#ede7f6;">💧</div><div><div class="rel-tool-name">Watermark Image</div><div class="rel-tool-desc">Add watermark</div></div></a>
+      <a href="background-remover.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">✂️</div><div><div class="rel-tool-name">Background Remover</div><div class="rel-tool-desc">Remove BG online</div></div></a>
+      <a href="image-converter.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff3e0;">🔄</div><div><div class="rel-tool-name">Image Converter</div><div class="rel-tool-desc">JPG/PNG/WebP convert</div></div></a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – Flip & Rotate Image</h2>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I rotate by a custom angle like 15° or 45°?</div><div class="faq-a">Yes. Use the Custom Rotation slider to set any angle from -180° to +180°. You can also type an exact value in the input field. Common uses include straightening a tilted photo (small angles like -3° to 3°) or creating diagonal compositions (45°). For non-90° angles, white corners appear — enable "Crop to fit" to automatically remove them, or set a custom background fill color.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I combine flip and rotate?</div><div class="faq-a">Yes. Flip and rotate transforms are applied together to the final output. For example, you can flip horizontally and rotate 90° at the same time. The live preview always shows the current combination of all applied transforms. Use the state display badge to see your current transform settings at a glance.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What does Flip Horizontal do?</div><div class="faq-a">Flip Horizontal mirrors the image left-to-right, creating a mirror image. This is commonly used to correct selfie photos (where the camera flips the image), to create symmetrical compositions, or to fix text that appears backwards in an image. Flip Vertical mirrors the image top-to-bottom.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What is the Crop to Fit option?</div><div class="faq-a">When rotating by non-90° angles (like 15° or 30°), the corners of the original image extend beyond the canvas, creating white or colored triangular areas in the corners. "Crop to fit" automatically crops the rotated image to the largest rectangle that fits within the original canvas, removing the empty corner triangles. This gives a clean result without corner artifacts.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Does rotating by 90° reduce image quality?</div><div class="faq-a">When using the Canvas API (which this tool uses), rotating by any angle applies bilinear interpolation. For 90°, 180° and 270° rotations, the pixel data is essentially just rearranged without any quality loss in practice. For custom angles, slight interpolation artifacts may appear at very high zoom levels, but for normal viewing they are imperceptible at quality settings of 90%+.</div></div>
+  </div>
+</div>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools. Fast, private, no sign-up. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+      <div class="fc"><h4>Image Tools</h4><ul><li><a href="flip-rotate-image.html">Flip & Rotate</a></li><li><a href="image-cropper.html">Image Cropper</a></li><li><a href="image-resizer.html">Image Resizer</a></li><li><a href="background-remover.html">BG Remover</a></li></ul></div>
+      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="watermark-image.html">Watermark Image</a></li><li><a href="image-converter.html">Image Converter</a></li><li><a href="qr-code.html">QR Code Generator</a></li><li><a href="character-counter.html">Character Counter</a></li></ul></div>
+    </div>
+    <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+  </div>
+</footer>
+
+<script>
+// ── STATE ──
+let imgEl=null,origW=0,origH=0,origFileName='image';
+let rotation=0;  // cumulative degrees
+let flipH=false,flipV=false;
+let customAngle=0; // from slider
+let totalAngle=0;  // rotation + customAngle
+
+// ── FILE ──
+function handleDrop(e){e.preventDefault();document.getElementById('dropZone').classList.remove('dragover');const f=e.dataTransfer.files[0];if(f&&f.type.startsWith('image/'))handleFile(f);}
+function handleFile(f){
+  if(!f||!f.type.startsWith('image/')){alert('Please select a valid image.');return;}
+  origFileName=f.name.replace(/\.[^.]+$/,'');
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    const img=new Image();
+    img.onload=()=>{
+      imgEl=img;origW=img.width;origH=img.height;
+      document.getElementById('dropZone').style.display='none';
+      document.getElementById('mainArea').classList.add('show');
+      document.getElementById('infoChips').innerHTML=[
+        `<span class="chip">${origW}×${origH}px</span>`,
+        `<span class="chip">${formatBytes(f.size)}</span>`,
+        `<span class="chip info">${f.name.slice(0,20)}</span>`
+      ].join('');
+      resetAllTransforms();
+      ga('upload','image');
+    };
+    img.src=ev.target.result;
+  };
+  reader.readAsDataURL(f);
+}
+function formatBytes(b){if(b<1024)return b+'B';if(b<1048576)return(b/1024).toFixed(1)+'KB';return(b/1048576).toFixed(2)+'MB';}
+
+// ── TRANSFORMS ──
+function addRotation(deg){
+  rotation=(rotation+deg+360)%360;
+  if(rotation>180)rotation-=360;
+  syncState();
+  drawPreview();
+  ga('rotate',deg+'deg');
+}
+function toggleFlip(axis){
+  if(axis==='h'){flipH=!flipH;document.getElementById('btnFlipH').classList.toggle('active-state',flipH);}
+  else{flipV=!flipV;document.getElementById('btnFlipV').classList.toggle('active-state',flipV);}
+  syncState();
+  drawPreview();
+}
+function setCustomAngle(val){
+  customAngle=val;
+  document.getElementById('angleSlider').value=val;
+  document.getElementById('angleDeg').textContent=val+'°';
+  document.getElementById('angleInput').value=val;
+  syncState();
+  drawPreview();
+}
+function onAngleSlider(){
+  const v=parseInt(document.getElementById('angleSlider').value);
+  customAngle=v;
+  document.getElementById('angleDeg').textContent=v+'°';
+  document.getElementById('angleInput').value=v;
+  syncState();
+  drawPreview();
+}
+function onAngleInput(){
+  const v=parseInt(document.getElementById('angleInput').value)||0;
+  const clamped=Math.max(-360,Math.min(360,v));
+  customAngle=clamped;
+  const sliderVal=Math.max(-180,Math.min(180,clamped));
+  document.getElementById('angleSlider').value=sliderVal;
+  document.getElementById('angleDeg').textContent=clamped+'°';
+  syncState();
+  drawPreview();
+}
+function resetAllTransforms(){
+  rotation=0;customAngle=0;flipH=false;flipV=false;
+  document.getElementById('angleSlider').value=0;
+  document.getElementById('angleDeg').textContent='0°';
+  document.getElementById('angleInput').value=0;
+  document.getElementById('btnFlipH').classList.remove('active-state');
+  document.getElementById('btnFlipV').classList.remove('active-state');
+  syncState();
+  drawPreview();
+}
+function syncState(){
+  const total=((rotation+customAngle)%360+360)%360;
+  const parts=[];
+  if(total!==0)parts.push('Rotate '+total+'°');
+  if(flipH)parts.push('Flip H');
+  if(flipV)parts.push('Flip V');
+  document.getElementById('stateDisplay').textContent=parts.length?parts.join(' + '):'No transform';
+}
+
+// ── DRAW PREVIEW ──
+function drawPreview(){
+  if(!imgEl)return;
+  const totalRad=((rotation+customAngle)*Math.PI)/180;
+  const sin=Math.abs(Math.sin(totalRad)),cos=Math.abs(Math.cos(totalRad));
+  const cropFit=document.getElementById('cropFit').checked;
+  const bg=document.getElementById('bgColor').value;
+
+  // Output dimensions
+  let outW=Math.round(origW*cos+origH*sin);
+  let outH=Math.round(origW*sin+origH*cos);
+  if(cropFit){
+    const scale=Math.min(origW/(origH*sin+origW*cos),origH/(origW*sin+origH*cos));
+    outW=Math.round(origW*scale);outH=Math.round(origH*scale);
+  }
+
+  // Display scale
+  const maxD=660;
+  const dispScale=Math.min(1,maxD/Math.max(outW,outH));
+  const dW=Math.round(outW*dispScale),dH=Math.round(outH*dispScale);
+
+  const canvas=document.getElementById('previewCanvas');
+  canvas.width=dW;canvas.height=dH;
+  const ctx=canvas.getContext('2d');
+
+  ctx.fillStyle=bg;ctx.fillRect(0,0,dW,dH);
+  ctx.save();
+  ctx.translate(dW/2,dH/2);
+  ctx.rotate(totalRad);
+  if(flipH)ctx.scale(-1,1);
+  if(flipV)ctx.scale(1,-1);
+  ctx.drawImage(imgEl,-origW/2*dispScale,-origH/2*dispScale,origW*dispScale,origH*dispScale);
+  ctx.restore();
+
+  document.getElementById('canvasBadge').textContent=outW+'×'+outH;
+}
+
+// ── DOWNLOAD ──
+function downloadResult(){
+  if(!imgEl){alert('Please upload an image first.');return;}
+  const fmt=document.getElementById('outputFmt').value;
+  const quality=parseFloat(document.getElementById('qualSlider').value);
+  const bg=document.getElementById('bgColor').value;
+  const cropFit=document.getElementById('cropFit').checked;
+  const totalRad=((rotation+customAngle)*Math.PI)/180;
+  const sin=Math.abs(Math.sin(totalRad)),cos=Math.abs(Math.cos(totalRad));
+
+  let outW=Math.round(origW*cos+origH*sin);
+  let outH=Math.round(origW*sin+origH*cos);
+  let drawW=origW,drawH=origH;
+  if(cropFit){
+    const scale=Math.min(origW/(origH*sin+origW*cos),origH/(origW*sin+origH*cos));
+    outW=Math.round(origW*scale);outH=Math.round(origH*scale);
+    drawW=Math.round(origW*scale);drawH=Math.round(origH*scale);
+  }
+
+  const canvas=document.createElement('canvas');
+  canvas.width=outW;canvas.height=outH;
+  const ctx=canvas.getContext('2d');
+  if(fmt==='jpeg'){ctx.fillStyle=bg;ctx.fillRect(0,0,outW,outH);}
+  ctx.save();
+  ctx.translate(outW/2,outH/2);
+  ctx.rotate(totalRad);
+  if(flipH)ctx.scale(-1,1);
+  if(flipV)ctx.scale(1,-1);
+  ctx.drawImage(imgEl,-origW/2,-origH/2,origW,origH);
+  ctx.restore();
+
+  const ext=fmt==='jpeg'?'jpg':fmt;
+  const a=document.createElement('a');a.href=canvas.toDataURL('image/'+fmt,quality);a.download=origFileName+'_rotated.'+ext;a.click();
+
+  // Show result hero
+  document.getElementById('rh-w').textContent=outW+'px';
+  document.getElementById('rh-h').textContent=outH+'px';
+  const total=((rotation+customAngle)%360+360)%360;
+  document.getElementById('rh-rot').textContent=total+'°';
+  document.getElementById('rh-flip').textContent=(flipH&&flipV)?'H+V':flipH?'H':flipV?'V':'None';
+  document.getElementById('resultHero').style.display='block';
+  ga('download',total+'deg_flip'+(flipH?'H':'')+(flipV?'V':''));
+}
+
+function resetTool(){
+  imgEl=null;
+  document.getElementById('dropZone').style.display='';
+  document.getElementById('mainArea').classList.remove('show');
+  document.getElementById('resultHero').style.display='none';
+}
+// Toggle for cropFit checkbox
+document.getElementById('cropFit').addEventListener('change',function(){
+  document.getElementById('cropSlider').style.background=this.checked?'#2e7d32':'#e8eaed';
+});
+function toggleFaq(el){el.classList.toggle('open');}
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ob.unobserve(e.target);}});},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i)=>{c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;ob.observe(c);});
+</script>
+</body>
+</html>
