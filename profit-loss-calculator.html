@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-535630536');
+  function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}
+</script>
+
+<!-- SEO -->
+<title>Profit & Loss Calculator – Calculate Profit Loss % Free Online | ToolNex</title>
+<meta name="description" content="Free Profit and Loss Calculator online – Calculate profit, loss, profit percentage, loss percentage, selling price, cost price, markup, margin. Multi-item P&L. No sign-up required."/>
+<meta name="keywords" content="profit loss calculator, profit percentage calculator, loss percentage calculator, selling price calculator, cost price calculator, markup calculator, profit margin calculator, p&l calculator online free 2026, profit and loss calculator india"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="theme-color" content="#1a73e8"/>
+<link rel="canonical" href="https://toolnex.site/profit-loss-calculator.html"/>
+<meta property="og:title" content="Profit & Loss Calculator – Calculate Profit Loss % Free | ToolNex"/>
+<meta property="og:description" content="Calculate profit, loss, markup, margin, selling price, cost price. Multi-item P&L sheet. Free, instant."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/profit-loss-calculator.html"/>
+<meta property="og:site_name" content="ToolNex"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Profit Loss Calculator","url":"https://toolnex.site/profit-loss-calculator.html","description":"Free Profit and Loss Calculator – Calculate profit %, loss %, markup, margin, selling price and cost price.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolNex","url":"https://toolnex.site/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://toolnex.site/"},{"@type":"ListItem","position":2,"name":"Finance Tools","item":"https://toolnex.site/finance-tools.html"},{"@type":"ListItem","position":3,"name":"Profit & Loss Calculator","item":"https://toolnex.site/profit-loss-calculator.html"}]}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+
+/* HEADER */
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:all .15s;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;transition:background .15s;white-space:nowrap;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
+.hdr-link:hover{background:#f1f3f4;color:#202124;}
+@media(max-width:650px){.hdr-links{display:none;}}
+@media(max-width:420px){.logo span:last-child{display:none;}}
+
+/* ADS */
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+.ad-mid{display:flex;justify-content:center;padding:.5rem;margin:1.2rem 0;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}.ad-mid .adslot{width:468px;height:60px;}}
+@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+
+/* TOOL HERO */
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#e8f5e9;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+
+/* MAIN */
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+
+/* CARDS */
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+
+/* MODE TABS */
+.mode-tabs{display:flex;gap:.35rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.mode-tab{border:1.5px solid #e8eaed;background:#fff;border-radius:10px;padding:.5rem .9rem;font-size:.78rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.mode-tab:hover{border-color:#2e7d32;color:#2e7d32;background:#f1f8e9;}
+.mode-tab.active{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;}
+.mode-tab.loss-tab:hover{border-color:#c62828;color:#c62828;background:#fff8f8;}
+.mode-tab.loss-tab.active{background:#fff8f8;border-color:#c62828;color:#b71c1c;}
+
+/* MODE PANELS */
+.mode-panel{display:none;}
+.mode-panel.active{display:block;}
+
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:2px solid #f1f3f4;}
+.sec-hdr-ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+.sec-hdr-title{font-size:.86rem;font-weight:700;color:#202124;}
+
+/* INPUTS */
+.input-group{margin-bottom:.85rem;}
+.input-label{font-size:.78rem;font-weight:600;color:#3c4043;margin-bottom:.4rem;display:flex;align-items:center;justify-content:space-between;}
+.inp-hint{font-size:.68rem;color:#9aa0a6;font-weight:400;}
+.inp{width:100%;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.62rem .9rem;font-size:.9rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .15s,box-shadow .15s;}
+.inp:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);background:#fff;}
+.inp-mono{font-family:'JetBrains Mono',monospace;font-size:.92rem;}
+.inp-prefix{position:relative;}
+.inp-prefix .prefix{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);font-size:.88rem;color:#5f6368;font-weight:700;pointer-events:none;}
+.inp-prefix .inp{padding-left:2.1rem;}
+.inp-suffix{position:relative;}
+.inp-suffix .suffix{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);font-size:.88rem;color:#5f6368;font-weight:700;pointer-events:none;}
+.inp-suffix .inp{padding-right:2.1rem;}
+.inp-2col{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+@media(max-width:460px){.inp-2col{grid-template-columns:1fr;}}
+
+/* CURRENCY SELECTOR */
+.currency-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem;}
+.currency-label{font-size:.75rem;font-weight:600;color:#3c4043;white-space:nowrap;}
+.currency-sel{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:8px;padding:.35rem .7rem;font-size:.8rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;cursor:pointer;transition:border-color .15s;}
+.currency-sel:focus{border-color:#1a73e8;}
+
+/* CALC BUTTON */
+.calc-btn{width:100%;background:linear-gradient(135deg,#2e7d32,#1b5e20);color:#fff;border:none;border-radius:12px;padding:.82rem;font-size:.92rem;font-weight:700;transition:opacity .15s,transform .1s,box-shadow .15s;letter-spacing:.01em;margin-top:.4rem;}
+.calc-btn:hover{opacity:.92;box-shadow:0 4px 16px rgba(46,125,50,.35);transform:translateY(-1px);}
+.calc-btn.loss{background:linear-gradient(135deg,#c62828,#b71c1c);}
+.calc-btn.loss:hover{box-shadow:0 4px 16px rgba(198,40,40,.35);}
+.calc-btn.blue{background:linear-gradient(135deg,#1a73e8,#1558c0);}
+.calc-btn.blue:hover{box-shadow:0 4px 16px rgba(26,115,232,.35);}
+.reset-btn{width:100%;background:#f8f9fa;color:#5f6368;border:1.5px solid #e8eaed;border-radius:12px;padding:.6rem;font-size:.82rem;font-weight:600;margin-top:.5rem;cursor:pointer;transition:background .15s;}
+.reset-btn:hover{background:#e8eaed;}
+
+/* RESULT CARD */
+.result-card{display:none;margin-top:1rem;animation:fadeUp .3s ease forwards;}
+.result-card.show{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+/* RESULT HERO */
+.result-hero{border-radius:14px;padding:1.2rem;margin-bottom:.9rem;position:relative;overflow:hidden;}
+.result-hero::before{content:'';position:absolute;top:-25px;right:-25px;width:100px;height:100px;background:rgba(255,255,255,.08);border-radius:50%;}
+.rh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;position:relative;z-index:1;}
+@media(max-width:380px){.rh-grid{grid-template-columns:repeat(2,1fr);}}
+.rh-item{text-align:center;}
+.rh-label{font-size:.58rem;font-weight:600;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.18rem;}
+.rh-value{font-size:1rem;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace;line-height:1.1;}
+.rh-value.big{font-size:1.4rem;}
+
+/* BIG BADGE */
+.big-badge{display:inline-flex;align-items:center;gap:.5rem;border-radius:12px;padding:.8rem 1.4rem;font-size:1.6rem;font-weight:700;margin-bottom:.8rem;width:100%;justify-content:center;font-family:'JetBrains Mono',monospace;}
+.big-badge.profit{background:#f1f8e9;color:#2e7d32;border:2px solid #a5d6a7;}
+.big-badge.loss{background:#fff8f8;color:#c62828;border:2px solid #ef9a9a;}
+
+/* BREAKDOWN BOX */
+.breakdown-box{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;overflow:hidden;margin-bottom:.8rem;}
+.bb-header{padding:.55rem .85rem;font-size:.74rem;font-weight:700;border-bottom:1px solid #e8eaed;display:flex;justify-content:space-between;align-items:center;}
+.bb-header.profit{background:#e8f5e9;color:#1b5e20;border-bottom-color:#c8e6c9;}
+.bb-header.loss{background:#fff8f8;color:#b71c1c;border-bottom-color:#ffcdd2;}
+.bb-header.neutral{background:#e8f0fe;color:#1558c0;border-bottom-color:#c5d8fb;}
+.bb-row{display:flex;align-items:center;justify-content:space-between;padding:.52rem .85rem;border-bottom:1px solid #f1f3f4;}
+.bb-row:last-child{border-bottom:none;}
+.bb-row.total{background:#f1f8e9;font-weight:700;}
+.bb-row.total.loss{background:#fff8f8;}
+.bb-label{font-size:.8rem;color:#5f6368;display:flex;align-items:center;gap:.35rem;}
+.bb-value{font-size:.85rem;font-weight:700;color:#202124;font-family:'JetBrains Mono',monospace;}
+.bb-value.green{color:#2e7d32;}
+.bb-value.red{color:#c62828;}
+.bb-value.blue{color:#1565c0;}
+.bb-value.orange{color:#e65100;}
+
+/* VISUAL BAR */
+.vis-bar-wrap{margin:.8rem 0;}
+.vis-bar-label{font-size:.74rem;font-weight:700;color:#3c4043;margin-bottom:.45rem;}
+.vis-bar-track{height:24px;background:#e8eaed;border-radius:8px;overflow:hidden;display:flex;}
+.vis-bar-cp{height:100%;background:#1565c0;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;transition:width .6s cubic-bezier(.34,1.56,.64,1);}
+.vis-bar-pl{height:100%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;transition:width .6s cubic-bezier(.34,1.56,.64,1);}
+.vis-bar-pl.profit{background:#2e7d32;}
+.vis-bar-pl.loss{background:#c62828;}
+.vis-bar-labels{display:flex;justify-content:space-between;margin-top:.3rem;font-size:.68rem;}
+
+/* FORMULA BOX */
+.formula-box{background:#1a1d2e;border-radius:12px;padding:.85rem 1rem;margin-bottom:.8rem;}
+.formula-title{font-size:.65rem;font-weight:700;color:#5f7a9a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;}
+.formula-text{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:#a8c8e0;line-height:1.6;}
+
+/* COPY BTN */
+.copy-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:8px;padding:.3rem .7rem;font-size:.7rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;display:flex;align-items:center;gap:.3rem;}
+.copy-btn:hover{border-color:#1a73e8;color:#1a73e8;}
+.copy-btn.copied{background:#e8f0fe;border-color:#1a73e8;color:#1a73e8;}
+
+/* ── MULTI ITEM TABLE ── */
+.bill-table-wrap{overflow-x:auto;margin-bottom:.8rem;}
+.bill-table{width:100%;border-collapse:collapse;min-width:520px;}
+.bill-table th{font-size:.7rem;font-weight:700;color:#5f6368;text-align:left;padding:.42rem .55rem;border-bottom:2px solid #e8eaed;background:#f8f9fa;}
+.bill-table td{padding:.38rem .5rem;border-bottom:1px solid #f1f3f4;vertical-align:middle;}
+.bt-inp{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:7px;padding:.3rem .5rem;font-size:.78rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .13s;width:100%;}
+.bt-inp:focus{border-color:#1a73e8;background:#fff;}
+.bt-inp.num{font-family:'JetBrains Mono',monospace;text-align:right;}
+.bt-rm{background:none;border:none;color:#9aa0a6;font-size:.85rem;cursor:pointer;transition:color .13s;padding:.1rem .25rem;}
+.bt-rm:hover{color:#ef4444;}
+.bt-profit{color:#2e7d32;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;}
+.bt-loss{color:#c62828;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;}
+.bt-neutral{color:#9aa0a6;font-family:'JetBrains Mono',monospace;font-size:.78rem;}
+.add-item-btn{border:1.5px dashed #c8e6c9;background:#f9fff9;border-radius:9px;padding:.52rem;font-size:.76rem;font-weight:600;color:#2e7d32;width:100%;cursor:pointer;transition:all .13s;display:flex;align-items:center;justify-content:center;gap:.3rem;margin-bottom:.7rem;}
+.add-item-btn:hover{background:#e8f5e9;border-color:#2e7d32;}
+
+/* HISTORY */
+.history-list{display:flex;flex-direction:column;gap:.35rem;max-height:200px;overflow-y:auto;}
+.history-item{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:9px;padding:.5rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;cursor:pointer;transition:border-color .13s;}
+.history-item:hover{border-color:#2e7d32;}
+.hi-info{flex:1;min-width:0;}
+.hi-label{font-size:.76rem;font-weight:700;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hi-meta{font-size:.65rem;color:#9aa0a6;margin-top:.05rem;}
+.hi-badge{font-size:.75rem;font-weight:700;border-radius:7px;padding:.2rem .55rem;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.hi-badge.profit{background:#e8f5e9;color:#2e7d32;}
+.hi-badge.loss{background:#fff8f8;color:#c62828;}
+.hi-rm{background:none;border:none;font-size:.8rem;color:#9aa0a6;cursor:pointer;padding:.1rem .2rem;border-radius:4px;flex-shrink:0;}
+.hi-rm:hover{color:#ef4444;}
+
+/* CATEGORY BROWSER */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+@media(max-width:440px){.cg{grid-template-columns:repeat(3,1fr);gap:.5rem;}}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:transform .18s;}
+.cc:hover .cc-ico{transform:scale(1.1);}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#e8f5e9;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+
+/* FAQ */
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* FOOTER */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+@media(max-width:360px){.ftr-top{grid-template-columns:1fr;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
+.ftr-lnk a:hover{color:#1a73e8;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar">
+      <input type="search" placeholder="Search 100+ tools…" autocomplete="off" spellcheck="false" aria-label="Search tools" onkeydown="if(event.key==='Enter')window.location='index.html?q='+this.value"/>
+      <button class="sbtn" onclick="window.location='index.html'">Search</button>
+    </div>
+    <nav class="hdr-links">
+      <a href="about.html" class="hdr-link">About</a>
+      <a href="contact.html" class="hdr-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TOP AD -->
+<div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50 Mobile</div></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span>
+  <a href="finance-tools.html">Finance Tools</a><span class="sep">›</span>
+  <span class="cur">Profit &amp; Loss Calculator</span>
+</nav>
+
+<!-- TOOL HERO -->
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">📈</div>
+    <div class="tool-hero-text">
+      <h1>Profit &amp; Loss Calculator – Calculate P&amp;L Free Online</h1>
+      <p>Calculate profit, loss, profit percentage, loss percentage, selling price, cost price, markup and profit margin instantly. Supports 6 calculation modes, multi-item P&amp;L sheet, currency selection and history. 100% free, no sign-up required.</p>
+      <div class="tool-hero-tags">
+        <span class="tool-tag">🆓 Free</span>
+        <span class="tool-tag">⚡ Instant</span>
+        <span class="tool-tag">📈 Profit %</span>
+        <span class="tool-tag">📉 Loss %</span>
+        <span class="tool-tag">🏷️ Markup & Margin</span>
+        <span class="tool-tag">📋 Multi-Item</span>
+        <span class="tool-tag">📜 History</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+
+  <!-- TOOL CARD -->
+  <div class="tool-card">
+    <div class="tool-card-header">
+      <h2>📈 Profit &amp; Loss Calculator</h2>
+      <div style="display:flex;align-items:center;gap:.5rem;">
+        <span class="currency-label">Currency:</span>
+        <select class="currency-sel" id="currencySel" onchange="updateCurrency()">
+          <option value="₹">₹ INR</option>
+          <option value="$">$ USD</option>
+          <option value="€">€ EUR</option>
+          <option value="£">£ GBP</option>
+          <option value="¥">¥ JPY</option>
+          <option value="AED">AED</option>
+          <option value="SAR">SAR</option>
+        </select>
+      </div>
+    </div>
+    <div class="tool-card-body">
+
+      <!-- MODE TABS -->
+      <div class="mode-tabs">
+        <button class="mode-tab active"    onclick="setMode('pl',this)">📊 Profit / Loss</button>
+        <button class="mode-tab"           onclick="setMode('sp',this)">🏷️ Find Selling Price</button>
+        <button class="mode-tab"           onclick="setMode('cp',this)">💰 Find Cost Price</button>
+        <button class="mode-tab"           onclick="setMode('markup',this)">📐 Markup &amp; Margin</button>
+        <button class="mode-tab"           onclick="setMode('multi',this)">📋 Multi-Item</button>
+        <button class="mode-tab"           onclick="setMode('hist',this)">📜 History</button>
+      </div>
+
+      <!-- ──── MODE: PROFIT / LOSS ──── -->
+      <div class="mode-panel active" id="panel-pl">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#e8f5e9;">📊</div>
+          <span class="sec-hdr-title">Calculate Profit or Loss</span>
+        </div>
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Cost Price (CP)</label>
+            <div class="inp-prefix"><span class="prefix" id="pfx-pl-cp">₹</span>
+              <input class="inp inp-mono" type="number" id="pl-cp" placeholder="0.00" min="0" step="0.01" oninput="calcPL()"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Selling Price (SP)</label>
+            <div class="inp-prefix"><span class="prefix" id="pfx-pl-sp">₹</span>
+              <input class="inp inp-mono" type="number" id="pl-sp" placeholder="0.00" min="0" step="0.01" oninput="calcPL()"/>
+            </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Quantity <span class="inp-hint">(optional, for total P&amp;L)</span></label>
+          <input class="inp inp-mono" type="number" id="pl-qty" placeholder="1" min="1" step="1" value="1" oninput="calcPL()"/>
+        </div>
+        <button class="calc-btn" onclick="calcPL();ga('calc','P&L')">📊 Calculate</button>
+        <button class="reset-btn" onclick="resetPanel('pl')">↺ Reset</button>
+        <div class="result-card" id="res-pl"></div>
+      </div>
+
+      <!-- ──── MODE: FIND SP ──── -->
+      <div class="mode-panel" id="panel-sp">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#e3f2fd;">🏷️</div>
+          <span class="sec-hdr-title">Find Selling Price</span>
+        </div>
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Cost Price (CP)</label>
+            <div class="inp-prefix"><span class="prefix" id="pfx-sp-cp">₹</span>
+              <input class="inp inp-mono" type="number" id="sp-cp" placeholder="0.00" min="0" oninput="calcSP()"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Profit % <span class="inp-hint">(negative = loss)</span></label>
+            <div class="inp-suffix">
+              <input class="inp inp-mono" type="number" id="sp-pct" placeholder="e.g. 20" oninput="calcSP()"/>
+              <span class="suffix">%</span>
+            </div>
+          </div>
+        </div>
+        <button class="calc-btn blue" onclick="calcSP();ga('calc','Find SP')">🏷️ Find Selling Price</button>
+        <button class="reset-btn" onclick="resetPanel('sp')">↺ Reset</button>
+        <div class="result-card" id="res-sp"></div>
+      </div>
+
+      <!-- ──── MODE: FIND CP ──── -->
+      <div class="mode-panel" id="panel-cp">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#fff3e0;">💰</div>
+          <span class="sec-hdr-title">Find Cost Price</span>
+        </div>
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Selling Price (SP)</label>
+            <div class="inp-prefix"><span class="prefix" id="pfx-cp-sp">₹</span>
+              <input class="inp inp-mono" type="number" id="cp-sp" placeholder="0.00" min="0" oninput="calcCP()"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Profit % <span class="inp-hint">(negative = loss)</span></label>
+            <div class="inp-suffix">
+              <input class="inp inp-mono" type="number" id="cp-pct" placeholder="e.g. 20" oninput="calcCP()"/>
+              <span class="suffix">%</span>
+            </div>
+          </div>
+        </div>
+        <button class="calc-btn" style="background:linear-gradient(135deg,#e65100,#bf360c);" onclick="calcCP();ga('calc','Find CP')">💰 Find Cost Price</button>
+        <button class="reset-btn" onclick="resetPanel('cp')">↺ Reset</button>
+        <div class="result-card" id="res-cp"></div>
+      </div>
+
+      <!-- ──── MODE: MARKUP & MARGIN ──── -->
+      <div class="mode-panel" id="panel-markup">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#f3e5f5;">📐</div>
+          <span class="sec-hdr-title">Markup &amp; Profit Margin Calculator</span>
+        </div>
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Cost Price (CP)</label>
+            <div class="inp-prefix"><span class="prefix" id="pfx-mk-cp">₹</span>
+              <input class="inp inp-mono" type="number" id="mk-cp" placeholder="0.00" min="0" oninput="calcMarkup()"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Selling Price (SP)</label>
+            <div class="inp-prefix"><span class="prefix" id="pfx-mk-sp">₹</span>
+              <input class="inp inp-mono" type="number" id="mk-sp" placeholder="0.00" min="0" oninput="calcMarkup()"/>
+            </div>
+          </div>
+        </div>
+        <button class="calc-btn" style="background:linear-gradient(135deg,#7b1fa2,#4a148c);" onclick="calcMarkup();ga('calc','Markup')">📐 Calculate Markup &amp; Margin</button>
+        <button class="reset-btn" onclick="resetPanel('markup')">↺ Reset</button>
+        <div class="result-card" id="res-markup"></div>
+      </div>
+
+      <!-- ──── MODE: MULTI-ITEM ──── -->
+      <div class="mode-panel" id="panel-multi">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#e8f5e9;">📋</div>
+          <span class="sec-hdr-title">Multi-Item Profit &amp; Loss Sheet</span>
+        </div>
+        <div class="bill-table-wrap">
+          <table class="bill-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th style="min-width:130px;">Item</th>
+                <th style="min-width:80px;">Qty</th>
+                <th style="min-width:100px;">Cost Price</th>
+                <th style="min-width:100px;">Selling Price</th>
+                <th style="min-width:90px;">P/L Amount</th>
+                <th style="min-width:80px;">P/L %</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="multiBody"></tbody>
+            <tfoot id="multiFoot"></tfoot>
+          </table>
+        </div>
+        <button class="add-item-btn" onclick="addMultiItem()">＋ Add Item</button>
+        <div class="result-card show" id="res-multi" style="display:none;"></div>
+        <div style="display:flex;gap:.4rem;justify-content:flex-end;margin-top:.5rem;flex-wrap:wrap;">
+          <button class="copy-btn" onclick="copyMulti()">📋 Copy Summary</button>
+          <button class="copy-btn" onclick="printMulti()">🖨️ Print</button>
+        </div>
+      </div>
+
+      <!-- ──── MODE: HISTORY ──── -->
+      <div class="mode-panel" id="panel-hist">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#f3e5f5;">📜</div>
+          <span class="sec-hdr-title">Calculation History</span>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-bottom:.55rem;">
+          <button class="copy-btn" onclick="clearHistory()">🗑️ Clear All</button>
+        </div>
+        <div id="histList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MID AD -->
+  <div class="ad-mid"><div class="adslot">📢 Responsive Mid Ad · 728×90 → 468×60 → 320×50</div></div>
+
+  <!-- CATEGORY BROWSER -->
+  <div class="tool-card">
+    <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+    <div class="tool-card-body" style="padding:1rem;">
+      <div class="cg">
+        <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+        <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+        <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+        <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+        <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+        <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>📘 Key Formulas</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">📈</span><span class="tip-text"><strong>Profit</strong> = SP − CP</span></div>
+      <div class="tip-item"><span class="tip-ico">📉</span><span class="tip-text"><strong>Loss</strong> = CP − SP</span></div>
+      <div class="tip-item"><span class="tip-ico">%</span><span class="tip-text"><strong>Profit %</strong> = (Profit ÷ CP) × 100</span></div>
+      <div class="tip-item"><span class="tip-ico">%</span><span class="tip-text"><strong>Loss %</strong> = (Loss ÷ CP) × 100</span></div>
+      <div class="tip-item"><span class="tip-ico">🏷️</span><span class="tip-text"><strong>Markup %</strong> = (Profit ÷ CP) × 100</span></div>
+      <div class="tip-item"><span class="tip-ico">📐</span><span class="tip-text"><strong>Margin %</strong> = (Profit ÷ SP) × 100</span></div>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Markup vs Margin</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">🏷️</span><span class="tip-text"><strong>Markup</strong> is based on <strong>Cost Price</strong>. A 25% markup means you add 25% of cost to the price.</span></div>
+      <div class="tip-item"><span class="tip-ico">📐</span><span class="tip-text"><strong>Margin</strong> is based on <strong>Selling Price</strong>. A 25% margin means 25% of the sale goes to profit.</span></div>
+      <div class="tip-item"><span class="tip-ico">⚠️</span><span class="tip-text">A 25% markup ≠ 25% margin! 25% markup = 20% margin.</span></div>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Finance Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="discount-calculator.html" class="rel-tool"><div class="rel-tool-ico">🏷️</div><div><div class="rel-tool-name">Discount Calculator</div><div class="rel-tool-desc">Sale price & savings</div></div></a>
+      <a href="gst-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e3f2fd;">🧾</div><div><div class="rel-tool-name">GST Calculator</div><div class="rel-tool-desc">India GST amounts</div></div></a>
+      <a href="salary-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f0fe;">💼</div><div><div class="rel-tool-name">Salary Calculator</div><div class="rel-tool-desc">CTC to in-hand</div></div></a>
+      <a href="interest-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">💹</div><div><div class="rel-tool-name">Interest Calculator</div><div class="rel-tool-desc">Simple & compound</div></div></a>
+      <a href="emi-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff3e0;">🏦</div><div><div class="rel-tool-name">EMI Calculator</div><div class="rel-tool-desc">Loan EMI details</div></div></a>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – Profit & Loss Calculator</h2>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How is profit percentage calculated?</div>
+      <div class="faq-a">Profit Percentage is always calculated on the Cost Price. Formula: Profit % = (Profit ÷ Cost Price) × 100, where Profit = Selling Price − Cost Price. For example, if you buy something for ₹100 and sell it for ₹125, your profit is ₹25 and profit percentage is (25 ÷ 100) × 100 = 25%.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What is the difference between Profit % and Profit Margin?</div>
+      <div class="faq-a">Profit Percentage (also called Markup %) is calculated on Cost Price: (Profit ÷ CP) × 100. Profit Margin is calculated on Selling Price: (Profit ÷ SP) × 100. These two numbers are different. Example: CP=₹80, SP=₹100, Profit=₹20. Profit % = (20÷80)×100 = 25%. Profit Margin = (20÷100)×100 = 20%. Retail businesses usually talk in Margin, while wholesalers often use Markup.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How do I find the selling price when I know the desired profit %?</div>
+      <div class="faq-a">Use the "Find Selling Price" tab. Enter the Cost Price and your desired Profit Percentage. The formula is: SP = CP × (1 + Profit% ÷ 100). For example, if CP = ₹500 and you want 30% profit: SP = 500 × (1 + 30/100) = 500 × 1.30 = ₹650. For a loss scenario, enter a negative percentage.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How do I find the cost price when I know the selling price and profit %?</div>
+      <div class="faq-a">Use the "Find Cost Price" tab. Enter the Selling Price and known Profit Percentage. The formula is: CP = SP ÷ (1 + Profit% ÷ 100). For example, if SP = ₹650 and Profit% = 30%: CP = 650 ÷ 1.30 = ₹500. This is useful when you know what price to sell at and what profit you want, but need to determine the maximum you can pay for the product.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How do I use the Multi-Item P&L sheet?</div>
+      <div class="faq-a">Click the "Multi-Item" tab. Click "+ Add Item" to add products. For each item, enter the item name, quantity, cost price per unit and selling price per unit. The calculator automatically computes profit or loss per item and shows totals including overall profit/loss amount and percentage. You can print the sheet or copy a summary. This is ideal for small businesses managing multiple products.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="gst-calculator.html">GST Calculator</a></li><li><a href="discount-calculator.html">Discount Calculator</a></li><li><a href="currency-converter.html">Currency Converter</a></li></ul></div>
+      <div class="fc"><h4>Finance Tools</h4><ul><li><a href="profit-loss-calculator.html">Profit & Loss</a></li><li><a href="gst-calculator.html">GST Calculator</a></li><li><a href="salary-calculator.html">Salary Calculator</a></li><li><a href="interest-calculator.html">Interest Calculator</a></li></ul></div>
+    </div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── STATE ──
+let currency = '₹';
+let calcHistory = JSON.parse(localStorage.getItem('tn_pl_history') || '[]');
+let multiItems = [];
+let multiIdCounter = 0;
+
+// ── HELPERS ──
+const fmtAmt  = n => currency + parseFloat(Math.abs(n)||0).toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2});
+const fmtPct  = n => parseFloat(n||0).toFixed(2) + '%';
+const r2      = n => Math.round((n||0)*100)/100;
+
+// ── CURRENCY ──
+function updateCurrency() {
+  currency = document.getElementById('currencySel').value;
+  document.querySelectorAll('.prefix').forEach(el => el.textContent = currency);
+}
+
+// ── MODE ──
+function setMode(mode, btn) {
+  document.querySelectorAll('.mode-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.mode-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + mode).classList.add('active');
+  if (mode === 'multi' && multiItems.length === 0) { addMultiItem(); addMultiItem(); }
+  if (mode === 'hist') renderHistory();
+  ga('mode', 'PL ' + mode);
+}
+
+// ── RESET ──
+function resetPanel(id) {
+  document.querySelectorAll(`#panel-${id} input`).forEach(i => i.value = '');
+  const res = document.getElementById('res-' + id);
+  if (res) { res.classList.remove('show'); res.innerHTML = ''; }
+}
+
+// ── RESULT BUILDER ──
+function buildResult(isProfit, pl, plPct, cp, sp, qty, extra = {}) {
+  const type    = isProfit ? 'profit' : 'loss';
+  const icon    = isProfit ? '📈' : '📉';
+  const bgGrad  = isProfit
+    ? 'linear-gradient(135deg,#2e7d32,#1b5e20)'
+    : 'linear-gradient(135deg,#c62828,#b71c1c)';
+  const totalPL = r2(pl * (qty || 1));
+  const totalSP = r2(sp * (qty || 1));
+  const totalCP = r2(cp * (qty || 1));
+
+  let html = `
+    <div class="result-hero" style="background:${bgGrad};">
+      <div class="rh-grid">
+        <div class="rh-item"><div class="rh-label">Cost Price</div><div class="rh-value">${fmtAmt(cp)}</div></div>
+        <div class="rh-item"><div class="rh-label">Selling Price</div><div class="rh-value">${fmtAmt(sp)}</div></div>
+        <div class="rh-item"><div class="rh-label">${isProfit ? 'Profit %' : 'Loss %'}</div><div class="rh-value big">${fmtPct(plPct)}</div></div>
+        ${qty > 1 ? `<div class="rh-item"><div class="rh-label">Quantity</div><div class="rh-value">${qty}</div></div>` : ''}
+        <div class="rh-item"><div class="rh-label">${isProfit ? 'Total Profit' : 'Total Loss'}</div><div class="rh-value">${fmtAmt(totalPL)}</div></div>
+        ${qty > 1 ? `<div class="rh-item"><div class="rh-label">Total Revenue</div><div class="rh-value">${fmtAmt(totalSP)}</div></div>` : ''}
+      </div>
+    </div>
+
+    <div class="big-badge ${type}">${icon} ${isProfit ? 'Profit' : 'Loss'}: ${fmtAmt(pl)} (${fmtPct(plPct)})</div>
+
+    <div class="vis-bar-wrap">
+      <div class="vis-bar-label">Cost Price vs ${isProfit ? 'Profit' : 'Loss'} Proportion</div>
+      <div class="vis-bar-track">
+        <div class="vis-bar-cp" id="vb-cp" style="width:0%">CP</div>
+        <div class="vis-bar-pl ${type}" id="vb-pl" style="width:0%">${isProfit ? 'P' : 'L'}</div>
+      </div>
+      <div class="vis-bar-labels">
+        <span style="color:#1565c0;font-weight:700;">CP ${fmtPct(cp / sp * 100)}</span>
+        <span style="${isProfit ? 'color:#2e7d32' : 'color:#c62828'};font-weight:700;">${isProfit ? 'Profit' : 'Loss'} ${fmtPct(plPct)}</span>
+      </div>
+    </div>
+
+    <div class="breakdown-box">
+      <div class="bb-header ${type}"><span>📊 Detailed Breakdown</span></div>
+      <div class="bb-row"><span class="bb-label">💰 Cost Price (per unit)</span><span class="bb-value blue">${fmtAmt(cp)}</span></div>
+      <div class="bb-row"><span class="bb-label">🏷️ Selling Price (per unit)</span><span class="bb-value">${fmtAmt(sp)}</span></div>
+      <div class="bb-row"><span class="bb-label">${icon} ${isProfit ? 'Profit' : 'Loss'} (per unit)</span><span class="bb-value ${type === 'profit' ? 'green' : 'red'}">${fmtAmt(pl)}</span></div>
+      <div class="bb-row"><span class="bb-label">📊 ${isProfit ? 'Profit' : 'Loss'} Percentage</span><span class="bb-value ${type === 'profit' ? 'green' : 'red'}">${fmtPct(plPct)}</span></div>
+      ${qty > 1 ? `
+      <div class="bb-row"><span class="bb-label">🔢 Quantity</span><span class="bb-value">${qty}</span></div>
+      <div class="bb-row"><span class="bb-label">💵 Total Cost</span><span class="bb-value blue">${fmtAmt(totalCP)}</span></div>
+      <div class="bb-row"><span class="bb-label">💵 Total Revenue</span><span class="bb-value">${fmtAmt(totalSP)}</span></div>
+      <div class="bb-row total ${type}"><span class="bb-label">📈 Total ${isProfit ? 'Profit' : 'Loss'}</span><span class="bb-value ${type === 'profit' ? 'green' : 'red'}">${fmtAmt(totalPL)}</span></div>
+      ` : ''}
+      ${extra.markup !== undefined ? `<div class="bb-row"><span class="bb-label">🏷️ Markup %</span><span class="bb-value orange">${fmtPct(extra.markup)}</span></div>` : ''}
+      ${extra.margin !== undefined ? `<div class="bb-row"><span class="bb-label">📐 Profit Margin %</span><span class="bb-value">${fmtPct(extra.margin)}</span></div>` : ''}
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">⚡ Formula Used</div>
+      <div class="formula-text" id="fml-text-${type}"></div>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;margin-top:.5rem;">
+      <button class="copy-btn" onclick="copyResultText('${isProfit ? 'profit' : 'loss'}',${cp},${sp},${pl},${plPct},${qty})">📋 Copy Result</button>
+    </div>`;
+
+  return html;
+}
+
+function setFormula(selector, text) {
+  const el = document.querySelector(selector);
+  if (el) el.textContent = text;
+}
+
+function animBars(cpPct, plPct) {
+  setTimeout(() => {
+    const cpBar = document.getElementById('vb-cp');
+    const plBar = document.getElementById('vb-pl');
+    if (cpBar) cpBar.style.width = cpPct + '%';
+    if (plBar) plBar.style.width = plPct + '%';
+  }, 60);
+}
+
+// ── CALC P/L ──
+function calcPL() {
+  const cp  = parseFloat(document.getElementById('pl-cp').value);
+  const sp  = parseFloat(document.getElementById('pl-sp').value);
+  const qty = parseInt(document.getElementById('pl-qty').value) || 1;
+  if (isNaN(cp) || isNaN(sp) || cp <= 0) { document.getElementById('res-pl').classList.remove('show'); return; }
+
+  const pl      = r2(sp - cp);
+  const isProfit= pl >= 0;
+  const plPct   = r2(Math.abs(pl) / cp * 100);
+  const markup  = r2(pl / cp * 100);
+  const margin  = sp > 0 ? r2(pl / sp * 100) : 0;
+
+  const res = document.getElementById('res-pl');
+  res.innerHTML = buildResult(isProfit, Math.abs(pl), plPct, cp, sp, qty, { markup, margin });
+  res.classList.add('show');
+
+  const formula = isProfit
+    ? `Profit = SP − CP = ${fmtAmt(sp)} − ${fmtAmt(cp)} = ${fmtAmt(pl)}\nProfit % = (Profit ÷ CP) × 100 = (${fmtAmt(pl)} ÷ ${fmtAmt(cp)}) × 100 = ${fmtPct(plPct)}`
+    : `Loss = CP − SP = ${fmtAmt(cp)} − ${fmtAmt(sp)} = ${fmtAmt(Math.abs(pl))}\nLoss % = (Loss ÷ CP) × 100 = (${fmtAmt(Math.abs(pl))} ÷ ${fmtAmt(cp)}) × 100 = ${fmtPct(plPct)}`;
+  setFormula(`#res-pl .formula-text`, formula);
+
+  const cpRatio = r2(cp / sp * 100);
+  animBars(cpRatio, plPct);
+
+  saveHistory({ type: isProfit ? 'profit' : 'loss', cp, sp, pl: Math.abs(pl), plPct, qty });
+}
+
+// ── CALC SP ──
+function calcSP() {
+  const cp  = parseFloat(document.getElementById('sp-cp').value);
+  const pct = parseFloat(document.getElementById('sp-pct').value);
+  if (isNaN(cp) || isNaN(pct) || cp <= 0) { document.getElementById('res-sp').classList.remove('show'); return; }
+
+  const sp      = r2(cp * (1 + pct / 100));
+  const pl      = r2(sp - cp);
+  const isProfit= pct >= 0;
+  const plPct   = Math.abs(pct);
+
+  const res = document.getElementById('res-sp');
+  res.innerHTML = buildResult(isProfit, Math.abs(pl), plPct, cp, sp, 1);
+  res.classList.add('show');
+  setFormula('#res-sp .formula-text', `SP = CP × (1 + ${pct}÷100)\nSP = ${fmtAmt(cp)} × ${(1 + pct/100).toFixed(4)} = ${fmtAmt(sp)}`);
+  animBars(r2(cp / sp * 100), plPct);
+}
+
+// ── CALC CP ──
+function calcCP() {
+  const sp  = parseFloat(document.getElementById('cp-sp').value);
+  const pct = parseFloat(document.getElementById('cp-pct').value);
+  if (isNaN(sp) || isNaN(pct) || sp <= 0) { document.getElementById('res-cp').classList.remove('show'); return; }
+
+  const cp      = r2(sp / (1 + pct / 100));
+  const pl      = r2(sp - cp);
+  const isProfit= pct >= 0;
+  const plPct   = Math.abs(pct);
+
+  const res = document.getElementById('res-cp');
+  res.innerHTML = buildResult(isProfit, Math.abs(pl), plPct, cp, sp, 1);
+  res.classList.add('show');
+  setFormula('#res-cp .formula-text', `CP = SP ÷ (1 + ${pct}÷100)\nCP = ${fmtAmt(sp)} ÷ ${(1 + pct/100).toFixed(4)} = ${fmtAmt(cp)}`);
+  animBars(r2(cp / sp * 100), plPct);
+}
+
+// ── CALC MARKUP ──
+function calcMarkup() {
+  const cp = parseFloat(document.getElementById('mk-cp').value);
+  const sp = parseFloat(document.getElementById('mk-sp').value);
+  if (isNaN(cp) || isNaN(sp) || cp <= 0) { document.getElementById('res-markup').classList.remove('show'); return; }
+
+  const pl      = r2(sp - cp);
+  const isProfit= pl >= 0;
+  const markup  = r2(Math.abs(pl) / cp * 100);
+  const margin  = sp > 0 ? r2(Math.abs(pl) / sp * 100) : 0;
+
+  const res = document.getElementById('res-markup');
+  res.innerHTML = `
+    <div class="result-hero" style="background:linear-gradient(135deg,#7b1fa2,#4a148c);">
+      <div class="rh-grid">
+        <div class="rh-item"><div class="rh-label">Cost Price</div><div class="rh-value">${fmtAmt(cp)}</div></div>
+        <div class="rh-item"><div class="rh-label">Selling Price</div><div class="rh-value">${fmtAmt(sp)}</div></div>
+        <div class="rh-item"><div class="rh-label">${isProfit?'Profit':'Loss'}</div><div class="rh-value big">${fmtAmt(Math.abs(pl))}</div></div>
+        <div class="rh-item"><div class="rh-label">Markup %</div><div class="rh-value big">${fmtPct(markup)}</div></div>
+        <div class="rh-item"><div class="rh-label">Margin %</div><div class="rh-value big">${fmtPct(margin)}</div></div>
+        <div class="rh-item"><div class="rh-label">${isProfit?'Profit':'Loss'} %</div><div class="rh-value">${fmtPct(markup)}</div></div>
+      </div>
+    </div>
+    <div class="breakdown-box">
+      <div class="bb-header neutral"><span>📐 Markup &amp; Margin Breakdown</span></div>
+      <div class="bb-row"><span class="bb-label">💰 Cost Price (CP)</span><span class="bb-value blue">${fmtAmt(cp)}</span></div>
+      <div class="bb-row"><span class="bb-label">🏷️ Selling Price (SP)</span><span class="bb-value">${fmtAmt(sp)}</span></div>
+      <div class="bb-row"><span class="bb-label">${isProfit?'📈 Profit':'📉 Loss'}</span><span class="bb-value ${isProfit?'green':'red'}">${fmtAmt(Math.abs(pl))}</span></div>
+      <div class="bb-row"><span class="bb-label">🏷️ Markup % (on CP)</span><span class="bb-value orange">${fmtPct(markup)}</span></div>
+      <div class="bb-row total"><span class="bb-label">📐 Profit Margin % (on SP)</span><span class="bb-value blue">${fmtPct(margin)}</span></div>
+    </div>
+    <div class="formula-box">
+      <div class="formula-title">⚡ Formula</div>
+      <div class="formula-text">Markup % = (Profit ÷ CP) × 100 = (${fmtAmt(Math.abs(pl))} ÷ ${fmtAmt(cp)}) × 100 = ${fmtPct(markup)}\nMargin % = (Profit ÷ SP) × 100 = (${fmtAmt(Math.abs(pl))} ÷ ${fmtAmt(sp)}) × 100 = ${fmtPct(margin)}</div>
+    </div>`;
+  res.classList.add('show');
+}
+
+// ── MULTI-ITEM ──
+function addMultiItem() {
+  const id = ++multiIdCounter;
+  multiItems.push({ id, name: '', qty: 1, cp: 0, sp: 0 });
+  renderMultiTable();
+}
+
+function removeMultiItem(id) {
+  multiItems = multiItems.filter(i => i.id !== id);
+  renderMultiTable();
+}
+
+function updateMultiItem(id, field, val) {
+  const item = multiItems.find(i => i.id === id);
+  if (item) item[field] = field === 'name' ? val : parseFloat(val) || 0;
+  renderMultiTotals();
+}
+
+function renderMultiTable() {
+  document.getElementById('multiBody').innerHTML = multiItems.map((item, idx) => {
+    const pl     = r2((item.sp - item.cp) * item.qty);
+    const plPct  = item.cp > 0 ? r2((item.sp - item.cp) / item.cp * 100) : 0;
+    const cls    = pl > 0 ? 'bt-profit' : pl < 0 ? 'bt-loss' : 'bt-neutral';
+    const sign   = pl > 0 ? '+' : '';
+    return `<tr>
+      <td><span style="font-size:.7rem;color:#9aa0a6;">${idx + 1}</span></td>
+      <td><input class="bt-inp" type="text" value="${item.name}" placeholder="Item name" onchange="updateMultiItem(${item.id},'name',this.value)"/></td>
+      <td><input class="bt-inp num" type="number" value="${item.qty}" min="1" step="1" onchange="updateMultiItem(${item.id},'qty',this.value)"/></td>
+      <td><input class="bt-inp num" type="number" value="${item.cp || ''}" placeholder="0.00" min="0" step="0.01" onchange="updateMultiItem(${item.id},'cp',this.value)"/></td>
+      <td><input class="bt-inp num" type="number" value="${item.sp || ''}" placeholder="0.00" min="0" step="0.01" onchange="updateMultiItem(${item.id},'sp',this.value)"/></td>
+      <td class="${cls}">${sign}${currency}${Math.abs(pl).toFixed(2)}</td>
+      <td class="${cls}">${plPct >= 0 ? '+' : ''}${plPct.toFixed(2)}%</td>
+      <td><button class="bt-rm" onclick="removeMultiItem(${item.id})">✕</button></td>
+    </tr>`;
+  }).join('');
+  renderMultiTotals();
+}
+
+function renderMultiTotals() {
+  let totalCP = 0, totalSP = 0, totalPL = 0;
+  multiItems.forEach(item => {
+    totalCP += item.cp * item.qty;
+    totalSP += item.sp * item.qty;
+    totalPL += (item.sp - item.cp) * item.qty;
+  });
+  totalCP = r2(totalCP); totalSP = r2(totalSP); totalPL = r2(totalPL);
+  const isProfit = totalPL >= 0;
+  const plPct    = totalCP > 0 ? r2(Math.abs(totalPL) / totalCP * 100) : 0;
+
+  document.getElementById('multiFoot').innerHTML = `
+    <tr style="background:#f1f8e9;font-weight:700;">
+      <td colspan="3" style="font-size:.78rem;font-weight:700;padding:.42rem .55rem;">📊 TOTAL</td>
+      <td style="font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.42rem .5rem;">${currency}${totalCP.toFixed(2)}</td>
+      <td style="font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:.42rem .5rem;">${currency}${totalSP.toFixed(2)}</td>
+      <td class="${isProfit ? 'bt-profit' : 'bt-loss'}">${isProfit?'+':''}${currency}${Math.abs(totalPL).toFixed(2)}</td>
+      <td class="${isProfit ? 'bt-profit' : 'bt-loss'}">${isProfit?'+':''}${plPct.toFixed(2)}%</td>
+      <td></td>
+    </tr>`;
+
+  const res = document.getElementById('res-multi');
+  if (multiItems.length === 0) { res.style.display = 'none'; return; }
+  res.style.display = 'block';
+  res.innerHTML = `
+    <div class="result-hero" style="background:${isProfit ? 'linear-gradient(135deg,#2e7d32,#1b5e20)' : 'linear-gradient(135deg,#c62828,#b71c1c)'};">
+      <div class="rh-grid">
+        <div class="rh-item"><div class="rh-label">Total Cost</div><div class="rh-value">${fmtAmt(totalCP)}</div></div>
+        <div class="rh-item"><div class="rh-label">Total Revenue</div><div class="rh-value">${fmtAmt(totalSP)}</div></div>
+        <div class="rh-item"><div class="rh-label">Net ${isProfit ? 'Profit' : 'Loss'}</div><div class="rh-value big">${fmtAmt(totalPL)}</div></div>
+        <div class="rh-item"><div class="rh-label">Items</div><div class="rh-value">${multiItems.length}</div></div>
+        <div class="rh-item"><div class="rh-label">${isProfit ? 'Profit' : 'Loss'} %</div><div class="rh-value big">${fmtPct(plPct)}</div></div>
+        <div class="rh-item"><div class="rh-label">Status</div><div class="rh-value">${isProfit ? '✅ Profit' : '❌ Loss'}</div></div>
+      </div>
+    </div>`;
+}
+
+function copyMulti() {
+  const rows = multiItems.map((item, i) => {
+    const pl = r2((item.sp - item.cp) * item.qty);
+    const plPct = item.cp > 0 ? r2((item.sp - item.cp) / item.cp * 100) : 0;
+    return `${i + 1}. ${item.name || 'Item'} | Qty:${item.qty} | CP:${item.cp} | SP:${item.sp} | P/L:${pl >= 0 ? '+' : ''}${pl.toFixed(2)} (${plPct.toFixed(2)}%)`;
+  });
+  let totalCP = 0, totalSP = 0, totalPL = 0;
+  multiItems.forEach(i => { totalCP += i.cp * i.qty; totalSP += i.sp * i.qty; totalPL += (i.sp - i.cp) * i.qty; });
+  rows.push(`\nTOTAL | Cost:${totalCP.toFixed(2)} | Revenue:${totalSP.toFixed(2)} | Net P/L:${totalPL >= 0 ? '+' : ''}${totalPL.toFixed(2)}`);
+  navigator.clipboard.writeText(rows.join('\n')).then(() => alert('✅ Summary copied to clipboard!'));
+}
+
+function printMulti() {
+  const w = window.open('', '_blank');
+  w.document.write(`<!DOCTYPE html><html><head><title>P&L Sheet – ToolNex</title>
+  <style>body{font-family:Arial,sans-serif;padding:2rem;color:#202124;}h2{color:#2e7d32;}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;}
+  th,td{border:1px solid #e8eaed;padding:.45rem .6rem;font-size:.82rem;text-align:left;}
+  th{background:#e8f5e9;font-weight:700;}.profit{color:#2e7d32;font-weight:700;}.loss{color:#c62828;font-weight:700;}
+  .total-row{background:#f1f8e9;font-weight:700;}</style></head>
+  <body><h2>📈 Profit & Loss Sheet</h2>
+  <table><thead><tr><th>#</th><th>Item</th><th>Qty</th><th>Cost Price</th><th>Selling Price</th><th>P/L Amount</th><th>P/L %</th></tr></thead>
+  <tbody>${multiItems.map((item, i) => {
+    const pl = r2((item.sp - item.cp) * item.qty);
+    const plPct = item.cp > 0 ? r2((item.sp - item.cp) / item.cp * 100) : 0;
+    return `<tr><td>${i+1}</td><td>${item.name||'—'}</td><td>${item.qty}</td><td>${currency}${item.cp.toFixed(2)}</td><td>${currency}${item.sp.toFixed(2)}</td><td class="${pl>=0?'profit':'loss'}">${pl>=0?'+':''}${currency}${Math.abs(pl).toFixed(2)}</td><td class="${plPct>=0?'profit':'loss'}">${plPct>=0?'+':''}${plPct.toFixed(2)}%</td></tr>`;
+  }).join('')}</tbody></table>
+  <p style="font-size:.7rem;color:#9aa0a6;margin-top:1.5rem;">Generated by ToolNex.site</p></body></html>`);
+  w.document.close();
+  w.print();
+}
+
+// ── HISTORY ──
+function saveHistory(h) {
+  calcHistory.unshift({ ...h, time: new Date().toLocaleTimeString(), id: Date.now() });
+  if (calcHistory.length > 30) calcHistory = calcHistory.slice(0, 30);
+  localStorage.setItem('tn_pl_history', JSON.stringify(calcHistory));
+}
+
+function renderHistory() {
+  const list = document.getElementById('histList');
+  if (!calcHistory.length) {
+    list.innerHTML = '<div style="text-align:center;padding:1.5rem;color:#9aa0a6;font-size:.8rem;">No history yet. Make a calculation first!</div>';
+    return;
+  }
+  list.innerHTML = `<div class="history-list">${calcHistory.map(h => `
+    <div class="history-item">
+      <div class="hi-info">
+        <div class="hi-label">CP: ${currency}${h.cp?.toFixed(2)||'?'} → SP: ${currency}${h.sp?.toFixed(2)||'?'} ${h.qty>1?'× '+h.qty:''}</div>
+        <div class="hi-meta">${h.time || ''}</div>
+      </div>
+      <span class="hi-badge ${h.type}">${h.type === 'profit' ? '📈 +' : '📉 −'}${currency}${h.pl?.toFixed(2)||'?'} (${h.plPct?.toFixed(2)||'?'}%)</span>
+      <button class="hi-rm" onclick="removeHistItem(${h.id})">✕</button>
+    </div>`).join('')}</div>`;
+}
+
+function removeHistItem(id) {
+  calcHistory = calcHistory.filter(h => h.id !== id);
+  localStorage.setItem('tn_pl_history', JSON.stringify(calcHistory));
+  renderHistory();
+}
+
+function clearHistory() {
+  calcHistory = [];
+  localStorage.removeItem('tn_pl_history');
+  renderHistory();
+}
+
+function copyResultText(type, cp, sp, pl, plPct, qty) {
+  const text = `${type === 'profit' ? 'Profit' : 'Loss'} Calculation\nCost Price: ${currency}${cp}\nSelling Price: ${currency}${sp}\n${type === 'profit' ? 'Profit' : 'Loss'}: ${currency}${pl} (${plPct}%)\nQuantity: ${qty}\nTotal P/L: ${currency}${r2(pl * qty)}\nCalculated on toolnex.site`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btns = document.querySelectorAll('.copy-btn');
+    btns.forEach(btn => { if (btn.onclick?.toString().includes('copyResultText')) { btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = '📋 Copy Result', 2000); } });
+  });
+}
+
+function toggleFaq(el) { el.classList.toggle('open'); }
+
+// Category animations
+const ob = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; ob.unobserve(e.target); } });
+}, { threshold: .05 });
+document.querySelectorAll('.cc').forEach((c, i) => {
+  c.style.cssText += `;opacity:0;transform:translateY(12px);transition:opacity .3s ${i * .04}s ease,transform .3s ${i * .04}s ease`;
+  ob.observe(c);
+});
+
+// Init multi
+addMultiItem();
+addMultiItem();
+</script>
+</body>
+</html>
