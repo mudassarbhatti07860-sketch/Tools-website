@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-535630536');
+  function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}
+</script>
+
+<!-- SEO -->
+<title>ROI Calculator – Return on Investment Calculator Free Online | ToolNex</title>
+<meta name="description" content="Free ROI Calculator online – Calculate Return on Investment, annualized ROI, break-even analysis, investment comparison and net profit. Supports multiple investment types. No sign-up required."/>
+<meta name="keywords" content="roi calculator, return on investment calculator, roi formula, annualized roi calculator, investment roi calculator online free, roi percentage calculator, calculate roi, simple roi calculator, roi calculator india 2026, investment return calculator"/>
+<meta name="author" content="ToolNex"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="theme-color" content="#1a73e8"/>
+<link rel="canonical" href="https://toolnex.site/roi-calculator.html"/>
+<meta property="og:title" content="ROI Calculator – Return on Investment Calculator Free | ToolNex"/>
+<meta property="og:description" content="Calculate ROI, annualized ROI, break-even, compare investments. Free, instant, no sign-up."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://toolnex.site/roi-calculator.html"/>
+<meta property="og:site_name" content="ToolNex"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ROI Calculator","url":"https://toolnex.site/roi-calculator.html","description":"Free ROI Calculator – Calculate Return on Investment, annualized ROI, break-even and compare investments.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolNex","url":"https://toolnex.site/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://toolnex.site/"},{"@type":"ListItem","position":2,"name":"Finance Tools","item":"https://toolnex.site/finance-tools.html"},{"@type":"ListItem","position":3,"name":"ROI Calculator","item":"https://toolnex.site/roi-calculator.html"}]}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+
+/* HEADER */
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:all .15s;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;transition:background .15s;white-space:nowrap;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
+.hdr-link:hover{background:#f1f3f4;color:#202124;}
+@media(max-width:650px){.hdr-links{display:none;}}
+@media(max-width:420px){.logo span:last-child{display:none;}}
+
+/* ADS */
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+.ad-mid{display:flex;justify-content:center;padding:.5rem;margin:1.2rem 0;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}.ad-mid .adslot{width:468px;height:60px;}}
+@media(max-width:500px){.ad-mid .adslot{width:320px;height:50px;}}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+
+/* TOOL HERO */
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#e8f0fe;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+
+/* MAIN */
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+
+/* CARDS */
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+
+/* MODE TABS */
+.mode-tabs{display:flex;gap:.35rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.mode-tab{border:1.5px solid #e8eaed;background:#fff;border-radius:10px;padding:.5rem .9rem;font-size:.78rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.mode-tab:hover{border-color:#1a73e8;color:#1a73e8;background:#eff6ff;}
+.mode-tab.active{background:#e8f0fe;border-color:#1a73e8;color:#1558c0;}
+
+/* MODE PANELS */
+.mode-panel{display:none;}
+.mode-panel.active{display:block;}
+
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:2px solid #f1f3f4;}
+.sec-hdr-ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+.sec-hdr-title{font-size:.86rem;font-weight:700;color:#202124;}
+.sec-hdr-sub{font-size:.7rem;color:#9aa0a6;margin-left:auto;}
+
+/* INPUTS */
+.input-group{margin-bottom:.85rem;}
+.input-label{font-size:.78rem;font-weight:600;color:#3c4043;margin-bottom:.4rem;display:flex;align-items:center;justify-content:space-between;}
+.inp-hint{font-size:.68rem;color:#9aa0a6;font-weight:400;}
+.inp{width:100%;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.62rem .9rem;font-size:.9rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .15s,box-shadow .15s;}
+.inp:focus{border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);background:#fff;}
+select.inp{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239aa0a6' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .8rem center;padding-right:2.2rem;}
+.inp-mono{font-family:'JetBrains Mono',monospace;font-size:.92rem;}
+.inp-prefix{position:relative;}
+.inp-prefix .prefix{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);font-size:.88rem;color:#5f6368;font-weight:700;pointer-events:none;}
+.inp-prefix .inp{padding-left:2.1rem;}
+.inp-suffix{position:relative;}
+.inp-suffix .suffix{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);font-size:.88rem;color:#5f6368;font-weight:700;pointer-events:none;}
+.inp-suffix .inp{padding-right:2.5rem;}
+.inp-2col{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.inp-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;}
+@media(max-width:500px){.inp-2col,.inp-3col{grid-template-columns:1fr;}}
+
+/* CURRENCY */
+.currency-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem;}
+.currency-label{font-size:.75rem;font-weight:600;color:#3c4043;white-space:nowrap;}
+.currency-sel{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:8px;padding:.35rem .7rem;font-size:.8rem;color:#202124;outline:none;cursor:pointer;}
+
+/* CALC BTN */
+.calc-btn{width:100%;background:linear-gradient(135deg,#1a73e8,#1558c0);color:#fff;border:none;border-radius:12px;padding:.82rem;font-size:.92rem;font-weight:700;transition:opacity .15s,transform .1s,box-shadow .15s;letter-spacing:.01em;margin-top:.4rem;}
+.calc-btn:hover{opacity:.92;box-shadow:0 4px 16px rgba(26,115,232,.4);transform:translateY(-1px);}
+.reset-btn{width:100%;background:#f8f9fa;color:#5f6368;border:1.5px solid #e8eaed;border-radius:12px;padding:.6rem;font-size:.82rem;font-weight:600;margin-top:.5rem;cursor:pointer;transition:background .15s;}
+.reset-btn:hover{background:#e8eaed;}
+
+/* RESULT SECTION */
+.result-section{display:none;margin-top:1rem;animation:fadeUp .35s ease forwards;}
+.result-section.show{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+/* ROI HERO */
+.roi-hero{border-radius:14px;padding:1.3rem;margin-bottom:.9rem;position:relative;overflow:hidden;}
+.roi-hero::before{content:'';position:absolute;top:-25px;right:-25px;width:110px;height:110px;background:rgba(255,255,255,.08);border-radius:50%;}
+.roi-hero::after{content:'';position:absolute;bottom:-15px;left:-15px;width:70px;height:70px;background:rgba(255,255,255,.05);border-radius:50%;}
+.rh-main{position:relative;z-index:1;text-align:center;margin-bottom:1rem;}
+.rh-main-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem;}
+.rh-main-value{font-size:3rem;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace;line-height:1;letter-spacing:-.02em;}
+.rh-main-sub{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:.3rem;}
+.rh-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;position:relative;z-index:1;}
+@media(max-width:420px){.rh-stats{grid-template-columns:repeat(2,1fr);}}
+.rh-stat{background:rgba(255,255,255,.12);border-radius:9px;padding:.55rem .4rem;text-align:center;}
+.rh-stat-label{font-size:.58rem;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;}
+.rh-stat-val{font-size:.88rem;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace;margin-top:.15rem;}
+
+/* BREAKDOWN BOX */
+.breakdown-box{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;overflow:hidden;margin-bottom:.8rem;}
+.bb-header{padding:.55rem .85rem;font-size:.74rem;font-weight:700;border-bottom:1px solid #e8eaed;display:flex;justify-content:space-between;align-items:center;}
+.bb-header.blue{background:#e8f0fe;color:#1558c0;border-bottom-color:#c5d8fb;}
+.bb-header.green{background:#e8f5e9;color:#1b5e20;border-bottom-color:#c8e6c9;}
+.bb-header.orange{background:#fff3e0;color:#e65100;border-bottom-color:#ffe0b2;}
+.bb-row{display:flex;align-items:center;justify-content:space-between;padding:.52rem .85rem;border-bottom:1px solid #f1f3f4;}
+.bb-row:last-child{border-bottom:none;}
+.bb-row.total{background:#e8f0fe;font-weight:700;}
+.bb-row.positive{background:#f1f8e9;}
+.bb-row.negative{background:#fff8f8;}
+.bb-label{font-size:.8rem;color:#5f6368;display:flex;align-items:center;gap:.35rem;}
+.bb-value{font-size:.85rem;font-weight:700;color:#202124;font-family:'JetBrains Mono',monospace;}
+.bb-value.green{color:#2e7d32;}
+.bb-value.red{color:#c62828;}
+.bb-value.blue{color:#1565c0;}
+.bb-value.orange{color:#e65100;}
+.bb-value.purple{color:#7b1fa2;}
+
+/* PROGRESS / GAUGE */
+.gauge-wrap{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:1rem;margin-bottom:.8rem;}
+.gauge-title{font-size:.74rem;font-weight:700;color:#3c4043;margin-bottom:.7rem;}
+.gauge-row{margin-bottom:.55rem;}
+.gauge-label{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;margin-bottom:.28rem;}
+.gauge-label-name{color:#5f6368;}
+.gauge-label-val{font-family:'JetBrains Mono',monospace;font-weight:700;}
+.gauge-track{height:14px;background:#e8eaed;border-radius:7px;overflow:hidden;}
+.gauge-fill{height:100%;border-radius:7px;transition:width .7s cubic-bezier(.34,1.56,.64,1);}
+
+/* YEARLY TABLE */
+.yearly-table{width:100%;border-collapse:collapse;font-size:.76rem;}
+.yearly-table th{font-size:.7rem;font-weight:700;color:#5f6368;text-align:left;padding:.4rem .6rem;border-bottom:2px solid #e8eaed;background:#f8f9fa;}
+.yearly-table td{padding:.4rem .6rem;border-bottom:1px solid #f1f3f4;}
+.yearly-table td.mono{font-family:'JetBrains Mono',monospace;font-weight:600;}
+.yearly-table td.green{color:#2e7d32;font-weight:700;}
+.yearly-table td.blue{color:#1565c0;}
+.yearly-table tr.highlight{background:#e8f0fe;}
+
+/* COMPARE TABLE */
+.compare-table{width:100%;border-collapse:collapse;}
+.compare-table th{font-size:.7rem;font-weight:700;color:#5f6368;padding:.42rem .6rem;border-bottom:2px solid #e8eaed;background:#f8f9fa;text-align:left;}
+.compare-table td{font-size:.76rem;padding:.42rem .6rem;border-bottom:1px solid #f1f3f4;}
+.compare-table td.mono{font-family:'JetBrains Mono',monospace;font-weight:700;}
+.compare-table tr.winner{background:#f1f8e9;}
+.compare-table tr.winner td.mono{color:#2e7d32;}
+.winner-badge{background:#e8f5e9;color:#2e7d32;border-radius:5px;padding:.1rem .38rem;font-size:.62rem;font-weight:700;margin-left:.3rem;}
+
+/* FORMULA BOX */
+.formula-box{background:#1a1d2e;border-radius:12px;padding:.85rem 1rem;margin-bottom:.8rem;}
+.formula-title{font-size:.65rem;font-weight:700;color:#5f7a9a;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;}
+.formula-text{font-size:.78rem;font-family:'JetBrains Mono',monospace;color:#a8c8e0;line-height:1.7;}
+
+/* COPY BTN */
+.copy-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:8px;padding:.3rem .7rem;font-size:.7rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;display:flex;align-items:center;gap:.3rem;}
+.copy-btn:hover{border-color:#1a73e8;color:#1a73e8;}
+.copy-btn.copied{background:#e8f0fe;border-color:#1a73e8;color:#1a73e8;}
+
+/* COMPARE ITEMS */
+.compare-item{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:11px;padding:.85rem;margin-bottom:.6rem;position:relative;}
+.compare-item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;}
+.compare-item-num{font-size:.72rem;font-weight:700;color:#fff;background:#1a73e8;border-radius:6px;padding:.15rem .45rem;font-family:'JetBrains Mono',monospace;}
+.compare-item-rm{background:none;border:none;color:#9aa0a6;cursor:pointer;font-size:.85rem;padding:.1rem .2rem;border-radius:4px;transition:color .13s;}
+.compare-item-rm:hover{color:#ef4444;}
+.add-compare-btn{border:1.5px dashed #c5d8fb;background:#eff6ff;border-radius:10px;padding:.55rem;font-size:.76rem;font-weight:600;color:#1a73e8;width:100%;cursor:pointer;transition:all .13s;display:flex;align-items:center;justify-content:center;gap:.3rem;margin-bottom:.8rem;}
+.add-compare-btn:hover{background:#e8f0fe;border-color:#1a73e8;}
+
+/* BREAKEVEN */
+.be-result{background:linear-gradient(135deg,#7b1fa2,#4a148c);border-radius:14px;padding:1.1rem;text-align:center;margin-bottom:.8rem;}
+.be-units{font-size:2.5rem;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace;line-height:1.1;}
+.be-label{font-size:.78rem;color:rgba(255,255,255,.75);margin-top:.3rem;}
+
+/* HISTORY */
+.history-list{display:flex;flex-direction:column;gap:.35rem;max-height:220px;overflow-y:auto;}
+.history-item{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:9px;padding:.5rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
+.hi-info{flex:1;min-width:0;}
+.hi-label{font-size:.76rem;font-weight:700;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hi-meta{font-size:.65rem;color:#9aa0a6;margin-top:.05rem;}
+.hi-roi{font-size:.78rem;font-weight:700;font-family:'JetBrains Mono',monospace;border-radius:7px;padding:.18rem .5rem;white-space:nowrap;}
+.hi-roi.pos{background:#e8f0fe;color:#1558c0;}
+.hi-roi.neg{background:#fff8f8;color:#c62828;}
+.hi-rm{background:none;border:none;color:#9aa0a6;cursor:pointer;font-size:.8rem;flex-shrink:0;}
+.hi-rm:hover{color:#ef4444;}
+
+/* CATEGORY BROWSER */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+@media(max-width:440px){.cg{grid-template-columns:repeat(3,1fr);gap:.5rem;}}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:transform .18s;}
+.cc:hover .cc-ico{transform:scale(1.1);}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#e8f0fe;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+
+/* FAQ */
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* FOOTER */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+@media(max-width:360px){.ftr-top{grid-template-columns:1fr;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
+.ftr-lnk a:hover{color:#1a73e8;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar">
+      <input type="search" placeholder="Search 100+ tools…" autocomplete="off" spellcheck="false" aria-label="Search tools" onkeydown="if(event.key==='Enter')window.location='index.html?q='+this.value"/>
+      <button class="sbtn" onclick="window.location='index.html'">Search</button>
+    </div>
+    <nav class="hdr-links">
+      <a href="about.html" class="hdr-link">About</a>
+      <a href="contact.html" class="hdr-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TOP AD -->
+<div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50 Mobile</div></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span>
+  <a href="finance-tools.html">Finance Tools</a><span class="sep">›</span>
+  <span class="cur">ROI Calculator</span>
+</nav>
+
+<!-- TOOL HERO -->
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">📊</div>
+    <div class="tool-hero-text">
+      <h1>ROI Calculator – Return on Investment Calculator Free</h1>
+      <p>Calculate Return on Investment (ROI) instantly. Supports simple ROI, annualized ROI for time-based investments, break-even analysis, multi-investment comparison and year-by-year growth projection. Choose your currency and save calculation history.</p>
+      <div class="tool-hero-tags">
+        <span class="tool-tag">🆓 Free</span>
+        <span class="tool-tag">⚡ Instant</span>
+        <span class="tool-tag">📊 Simple ROI</span>
+        <span class="tool-tag">📅 Annualized ROI</span>
+        <span class="tool-tag">⚖️ Compare</span>
+        <span class="tool-tag">🎯 Break-Even</span>
+        <span class="tool-tag">📜 History</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+
+  <!-- TOOL CARD -->
+  <div class="tool-card">
+    <div class="tool-card-header">
+      <h2>📊 ROI Calculator</h2>
+      <div style="display:flex;align-items:center;gap:.5rem;">
+        <span class="currency-label">Currency:</span>
+        <select class="currency-sel" id="currencySel" onchange="updateCurrency()">
+          <option value="₹">₹ INR</option>
+          <option value="$">$ USD</option>
+          <option value="€">€ EUR</option>
+          <option value="£">£ GBP</option>
+          <option value="¥">¥ JPY</option>
+          <option value="AED">AED</option>
+        </select>
+      </div>
+    </div>
+    <div class="tool-card-body">
+
+      <!-- MODE TABS -->
+      <div class="mode-tabs">
+        <button class="mode-tab active" onclick="setMode('simple',this)">📊 Simple ROI</button>
+        <button class="mode-tab" onclick="setMode('annualized',this)">📅 Annualized ROI</button>
+        <button class="mode-tab" onclick="setMode('compare',this)">⚖️ Compare</button>
+        <button class="mode-tab" onclick="setMode('breakeven',this)">🎯 Break-Even</button>
+        <button class="mode-tab" onclick="setMode('history',this)">📜 History</button>
+      </div>
+
+      <!-- ──── SIMPLE ROI ──── -->
+      <div class="mode-panel active" id="panel-simple">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#e8f0fe;">📊</div>
+          <span class="sec-hdr-title">Simple ROI Calculator</span>
+          <span class="sec-hdr-sub">ROI = (Net Profit ÷ Cost) × 100</span>
+        </div>
+
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Initial Investment (Cost)</label>
+            <div class="inp-prefix"><span class="prefix" id="s-pfx1">₹</span>
+              <input class="inp inp-mono" type="number" id="s-cost" placeholder="0.00" min="0" oninput="calcSimple()"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Final Value / Return</label>
+            <div class="inp-prefix"><span class="prefix" id="s-pfx2">₹</span>
+              <input class="inp inp-mono" type="number" id="s-return" placeholder="0.00" min="0" oninput="calcSimple()"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Additional Costs <span class="inp-hint">(operating, fees, taxes — optional)</span></label>
+          <div class="inp-prefix"><span class="prefix" id="s-pfx3">₹</span>
+            <input class="inp inp-mono" type="number" id="s-addcost" placeholder="0" min="0" value="0" oninput="calcSimple()"/>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Investment Label <span class="inp-hint">(optional)</span></label>
+          <input class="inp" type="text" id="s-label" placeholder="e.g. Stock Investment, Property, Business" oninput="calcSimple()"/>
+        </div>
+
+        <button class="calc-btn" onclick="calcSimple();saveHistory('simple')">📊 Calculate ROI</button>
+        <button class="reset-btn" onclick="resetPanel('simple')">↺ Reset</button>
+
+        <div class="result-section" id="res-simple"></div>
+      </div>
+
+      <!-- ──── ANNUALIZED ROI ──── -->
+      <div class="mode-panel" id="panel-annualized">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#e8f5e9;">📅</div>
+          <span class="sec-hdr-title">Annualized ROI (Time-Weighted)</span>
+          <span class="sec-hdr-sub">Considers investment duration</span>
+        </div>
+
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Initial Investment</label>
+            <div class="inp-prefix"><span class="prefix" id="a-pfx1">₹</span>
+              <input class="inp inp-mono" type="number" id="a-cost" placeholder="0.00" min="0" oninput="calcAnnualized()"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Final Value</label>
+            <div class="inp-prefix"><span class="prefix" id="a-pfx2">₹</span>
+              <input class="inp inp-mono" type="number" id="a-return" placeholder="0.00" min="0" oninput="calcAnnualized()"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Investment Duration</label>
+            <input class="inp inp-mono" type="number" id="a-duration" placeholder="e.g. 3" min="0.01" step="0.1" oninput="calcAnnualized()"/>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Duration Unit</label>
+            <select class="inp" id="a-unit" onchange="calcAnnualized()">
+              <option value="years">Years</option>
+              <option value="months">Months</option>
+              <option value="days">Days</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Annual Costs / Fees <span class="inp-hint">(management fee, maintenance, etc.)</span></label>
+          <div class="inp-prefix"><span class="prefix" id="a-pfx3">₹</span>
+            <input class="inp inp-mono" type="number" id="a-fees" placeholder="0" min="0" value="0" oninput="calcAnnualized()"/>
+          </div>
+        </div>
+
+        <button class="calc-btn" onclick="calcAnnualized();saveHistory('annualized')">📅 Calculate Annualized ROI</button>
+        <button class="reset-btn" onclick="resetPanel('annualized')">↺ Reset</button>
+
+        <div class="result-section" id="res-annualized"></div>
+      </div>
+
+      <!-- ──── COMPARE ──── -->
+      <div class="mode-panel" id="panel-compare">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#f3e5f5;">⚖️</div>
+          <span class="sec-hdr-title">Compare Multiple Investments</span>
+          <span class="sec-hdr-sub">Find the best ROI</span>
+        </div>
+        <div id="compareItems"></div>
+        <button class="add-compare-btn" onclick="addCompareItem()">＋ Add Investment</button>
+        <button class="calc-btn" onclick="calcCompare()">⚖️ Compare All Investments</button>
+        <button class="reset-btn" onclick="resetCompare()">↺ Reset</button>
+        <div class="result-section" id="res-compare"></div>
+      </div>
+
+      <!-- ──── BREAK-EVEN ──── -->
+      <div class="mode-panel" id="panel-breakeven">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#fff3e0;">🎯</div>
+          <span class="sec-hdr-title">Break-Even Analysis</span>
+          <span class="sec-hdr-sub">Units needed to recover investment</span>
+        </div>
+
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Fixed Costs (Total)</label>
+            <div class="inp-prefix"><span class="prefix" id="be-pfx1">₹</span>
+              <input class="inp inp-mono" type="number" id="be-fixed" placeholder="e.g. 100000" min="0" oninput="calcBreakeven()"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Variable Cost per Unit</label>
+            <div class="inp-prefix"><span class="prefix" id="be-pfx2">₹</span>
+              <input class="inp inp-mono" type="number" id="be-varunit" placeholder="e.g. 50" min="0" oninput="calcBreakeven()"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="inp-2col">
+          <div class="input-group">
+            <label class="input-label">Selling Price per Unit</label>
+            <div class="inp-prefix"><span class="prefix" id="be-pfx3">₹</span>
+              <input class="inp inp-mono" type="number" id="be-price" placeholder="e.g. 150" min="0" oninput="calcBreakeven()"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Target Profit <span class="inp-hint">(optional)</span></label>
+            <div class="inp-prefix"><span class="prefix" id="be-pfx4">₹</span>
+              <input class="inp inp-mono" type="number" id="be-target" placeholder="0" min="0" value="0" oninput="calcBreakeven()"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Expected Monthly Sales (units) <span class="inp-hint">(optional)</span></label>
+          <input class="inp inp-mono" type="number" id="be-monthly" placeholder="e.g. 200" min="1" oninput="calcBreakeven()"/>
+        </div>
+
+        <button class="calc-btn" style="background:linear-gradient(135deg,#7b1fa2,#4a148c);" onclick="calcBreakeven()">🎯 Calculate Break-Even</button>
+        <button class="reset-btn" onclick="resetPanel('breakeven')">↺ Reset</button>
+
+        <div class="result-section" id="res-breakeven"></div>
+      </div>
+
+      <!-- ──── HISTORY ──── -->
+      <div class="mode-panel" id="panel-history">
+        <div class="sec-hdr">
+          <div class="sec-hdr-ico" style="background:#fce4ec;">📜</div>
+          <span class="sec-hdr-title">Calculation History</span>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-bottom:.55rem;">
+          <button class="copy-btn" onclick="clearHistory()">🗑️ Clear All</button>
+        </div>
+        <div id="histList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MID AD -->
+  <div class="ad-mid"><div class="adslot">📢 Responsive Mid Ad · 728×90 → 468×60 → 320×50</div></div>
+
+  <!-- CATEGORY BROWSER -->
+  <div class="tool-card">
+    <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+    <div class="tool-card-body" style="padding:1rem;">
+      <div class="cg">
+        <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+        <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+        <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+        <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+        <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+        <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+        <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>📘 ROI Formulas</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">📊</span><span class="tip-text"><strong>Simple ROI</strong><br/>ROI % = (Net Profit ÷ Investment) × 100</span></div>
+      <div class="tip-item"><span class="tip-ico">📅</span><span class="tip-text"><strong>Annualized ROI</strong><br/>= ((FV/IV)^(1/n) − 1) × 100<br/>where n = years</span></div>
+      <div class="tip-item"><span class="tip-ico">💰</span><span class="tip-text"><strong>Net Profit</strong><br/>= Final Value − Initial Investment − Costs</span></div>
+      <div class="tip-item"><span class="tip-ico">🎯</span><span class="tip-text"><strong>Break-Even Units</strong><br/>= Fixed Costs ÷ (Price − Variable Cost)</span></div>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 ROI Benchmarks</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">📈</span><span class="tip-text"><strong>Stock Market (avg)</strong> — 10-12% annualized ROI (S&P 500 historical)</span></div>
+      <div class="tip-item"><span class="tip-ico">🏠</span><span class="tip-text"><strong>Real Estate</strong> — 8-12% annually including rental income</span></div>
+      <div class="tip-item"><span class="tip-ico">🏦</span><span class="tip-text"><strong>Fixed Deposits (India)</strong> — 6-7.5% p.a.</span></div>
+      <div class="tip-item"><span class="tip-ico">💼</span><span class="tip-text"><strong>Business (good)</strong> — 15-30%+ ROI annually</span></div>
+      <div class="tip-item"><span class="tip-ico">⚠️</span><span class="tip-text">ROI above 20% annually is generally considered excellent.</span></div>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Finance Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="profit-loss-calculator.html" class="rel-tool"><div class="rel-tool-ico">📈</div><div><div class="rel-tool-name">Profit & Loss</div><div class="rel-tool-desc">P&L calculation</div></div></a>
+      <a href="interest-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">💹</div><div><div class="rel-tool-name">Interest Calculator</div><div class="rel-tool-desc">Simple & compound</div></div></a>
+      <a href="gst-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f5e9;">🧾</div><div><div class="rel-tool-name">GST Calculator</div><div class="rel-tool-desc">India GST amounts</div></div></a>
+      <a href="discount-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff3e0;">🏷️</div><div><div class="rel-tool-name">Discount Calculator</div><div class="rel-tool-desc">Sale price & savings</div></div></a>
+      <a href="emi-calculator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#f3e5f5;">🏦</div><div><div class="rel-tool-name">EMI Calculator</div><div class="rel-tool-desc">Loan EMI details</div></div></a>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – ROI Calculator</h2>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What is ROI and how is it calculated?</div>
+      <div class="faq-a">ROI (Return on Investment) is a percentage that measures how much profit or loss you made relative to the amount you invested. The formula is: ROI % = (Net Profit ÷ Initial Investment) × 100, where Net Profit = Final Value − Initial Investment − Additional Costs. For example, if you invest ₹1,00,000 and get back ₹1,30,000, your ROI = (30,000 ÷ 1,00,000) × 100 = 30%.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What is Annualized ROI and why is it important?</div>
+      <div class="faq-a">Simple ROI does not account for how long the investment was held. Annualized ROI (also called CAGR — Compound Annual Growth Rate) normalizes the return to a yearly rate. The formula is: Annualized ROI = ((Final Value ÷ Initial Value)^(1 ÷ Years) − 1) × 100. For example, a 50% total ROI over 4 years = 10.67% annualized — which is very different from 50% in 1 year. Always compare investments using Annualized ROI.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What is Break-Even Analysis?</div>
+      <div class="faq-a">Break-even analysis determines how many units you need to sell to cover all your costs (both fixed and variable) with zero profit or loss. Break-Even Units = Fixed Costs ÷ (Selling Price − Variable Cost per Unit). The difference (Selling Price − Variable Cost) is called the Contribution Margin per unit. This tool also calculates how many months it would take to break even based on your expected monthly sales volume.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What is a good ROI?</div>
+      <div class="faq-a">A "good" ROI depends on the type of investment and industry. As a general benchmark: Risk-free investments like FDs or bonds typically offer 5-8% annually. Stock markets average 10-12% annually over the long term. Real estate averages 8-12% annually. A business investment is generally considered good at 15-30%+ annually. Any ROI above 20% per year is excellent, though higher returns typically come with higher risk.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How does the Investment Comparison mode work?</div>
+      <div class="faq-a">The Compare mode lets you add multiple investments and see all their ROI figures side by side. Add each investment with its name, initial cost, final value and duration. The calculator computes both simple ROI and annualized ROI for each, ranks them and highlights the best performer. This is useful when choosing between mutual funds, stocks, real estate options or business projects.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="age-calculator.html">Age Calculator</a></li><li><a href="gst-calculator.html">GST Calculator</a></li><li><a href="profit-loss-calculator.html">Profit & Loss</a></li><li><a href="interest-calculator.html">Interest Calculator</a></li></ul></div>
+      <div class="fc"><h4>Finance Tools</h4><ul><li><a href="roi-calculator.html">ROI Calculator</a></li><li><a href="profit-loss-calculator.html">Profit & Loss</a></li><li><a href="gst-calculator.html">GST Calculator</a></li><li><a href="emi-calculator.html">EMI Calculator</a></li></ul></div>
+    </div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── STATE ──
+let currency = '₹';
+let calcHistory = JSON.parse(localStorage.getItem('tn_roi_history') || '[]');
+let compareItems = [];
+let compareIdCtr = 0;
+
+// ── HELPERS ──
+const fmt  = n => currency + parseFloat(Math.abs(n||0)).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+const pct  = n => (n >= 0 ? '+' : '') + parseFloat(n||0).toFixed(2) + '%';
+const r2   = n => Math.round((n||0)*100)/100;
+
+// ── CURRENCY ──
+function updateCurrency() {
+  currency = document.getElementById('currencySel').value;
+  document.querySelectorAll('.prefix').forEach(el => el.textContent = currency);
+}
+
+// ── MODE ──
+function setMode(mode, btn) {
+  document.querySelectorAll('.mode-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.mode-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + mode).classList.add('active');
+  if (mode === 'compare' && compareItems.length === 0) { addCompareItem(); addCompareItem(); }
+  if (mode === 'history') renderHistory();
+  ga('mode', 'ROI ' + mode);
+}
+
+function resetPanel(id) {
+  document.querySelectorAll(`#panel-${id} input`).forEach(i => { if(i.type!='number'||!i.defaultValue) i.value=''; else i.value=i.defaultValue||''; });
+  const res = document.getElementById('res-' + id);
+  if (res) { res.classList.remove('show'); res.innerHTML = ''; }
+}
+
+// ════════════════════════════════
+// SIMPLE ROI
+// ════════════════════════════════
+function calcSimple() {
+  const cost    = parseFloat(document.getElementById('s-cost').value) || 0;
+  const ret     = parseFloat(document.getElementById('s-return').value) || 0;
+  const addcost = parseFloat(document.getElementById('s-addcost').value) || 0;
+  const label   = document.getElementById('s-label').value || 'Investment';
+  if (!cost || !ret) { document.getElementById('res-simple').classList.remove('show'); return; }
+
+  const netProfit  = r2(ret - cost - addcost);
+  const totalCost  = r2(cost + addcost);
+  const roi        = r2(netProfit / totalCost * 100);
+  const isPos      = roi >= 0;
+  const gradColor  = isPos ? 'linear-gradient(135deg,#1a73e8,#1558c0)' : 'linear-gradient(135deg,#c62828,#b71c1c)';
+  const roiIcon    = isPos ? '📈' : '📉';
+
+  const html = `
+    <div class="roi-hero" style="background:${gradColor};">
+      <div class="rh-main">
+        <div class="rh-main-label">Return on Investment</div>
+        <div class="rh-main-value">${pct(roi)}</div>
+        <div class="rh-main-sub">${roiIcon} ${label} · ${isPos ? 'Profitable' : 'Loss'}</div>
+      </div>
+      <div class="rh-stats">
+        <div class="rh-stat"><div class="rh-stat-label">Investment</div><div class="rh-stat-val">${fmt(cost)}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Return</div><div class="rh-stat-val">${fmt(ret)}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Net Profit</div><div class="rh-stat-val">${fmt(Math.abs(netProfit))}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Total Cost</div><div class="rh-stat-val">${fmt(totalCost)}</div></div>
+      </div>
+    </div>
+
+    <div class="gauge-wrap">
+      <div class="gauge-title">📊 Investment Breakdown</div>
+      <div class="gauge-row">
+        <div class="gauge-label"><span class="gauge-label-name" style="color:#1565c0;">💰 Initial Investment</span><span class="gauge-label-val" style="color:#1565c0;">${fmt(cost)}</span></div>
+        <div class="gauge-track"><div class="gauge-fill" id="g1" style="width:0%;background:#1565c0;"></div></div>
+      </div>
+      ${addcost > 0 ? `<div class="gauge-row">
+        <div class="gauge-label"><span class="gauge-label-name" style="color:#e65100;">➕ Additional Costs</span><span class="gauge-label-val" style="color:#e65100;">${fmt(addcost)}</span></div>
+        <div class="gauge-track"><div class="gauge-fill" id="g2" style="width:0%;background:#e65100;"></div></div>
+      </div>` : ''}
+      <div class="gauge-row">
+        <div class="gauge-label"><span class="gauge-label-name" style="color:${isPos?'#2e7d32':'#c62828'};">${isPos?'📈 Net Profit':'📉 Net Loss'}</span><span class="gauge-label-val" style="color:${isPos?'#2e7d32':'#c62828'};">${fmt(Math.abs(netProfit))}</span></div>
+        <div class="gauge-track"><div class="gauge-fill" id="g3" style="width:0%;background:${isPos?'#2e7d32':'#c62828'};"></div></div>
+      </div>
+    </div>
+
+    <div class="breakdown-box">
+      <div class="bb-header blue">📊 Detailed Breakdown</div>
+      <div class="bb-row"><span class="bb-label">💰 Initial Investment</span><span class="bb-value blue">${fmt(cost)}</span></div>
+      ${addcost > 0 ? `<div class="bb-row"><span class="bb-label">➕ Additional Costs</span><span class="bb-value orange">${fmt(addcost)}</span></div>` : ''}
+      <div class="bb-row"><span class="bb-label">💵 Final Value / Return</span><span class="bb-value">${fmt(ret)}</span></div>
+      <div class="bb-row ${isPos?'positive':'negative'}"><span class="bb-label">${isPos?'📈':'📉'} Net ${isPos?'Profit':'Loss'}</span><span class="bb-value ${isPos?'green':'red'}">${fmt(Math.abs(netProfit))}</span></div>
+      <div class="bb-row total"><span class="bb-label">📊 ROI Percentage</span><span class="bb-value ${isPos?'green':'red'}">${pct(roi)}</span></div>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">⚡ Formula Used</div>
+      <div class="formula-text">ROI = (Net Profit ÷ Total Investment) × 100
+= (${fmt(Math.abs(netProfit))} ÷ ${fmt(totalCost)}) × 100
+= ${pct(roi)}</div>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;">
+      <button class="copy-btn" onclick="copyText('ROI: ${pct(roi)}\\nInvestment: ${fmt(cost)}\\nReturn: ${fmt(ret)}\\nNet Profit: ${fmt(netProfit)}\\nCalculated on toolnex.site')">📋 Copy</button>
+    </div>`;
+
+  const res = document.getElementById('res-simple');
+  res.innerHTML = html;
+  res.classList.add('show');
+
+  const maxVal = Math.max(cost, ret, addcost);
+  setTimeout(() => {
+    const g1 = document.getElementById('g1'); if(g1) g1.style.width = (cost/maxVal*100) + '%';
+    const g2 = document.getElementById('g2'); if(g2) g2.style.width = (addcost/maxVal*100) + '%';
+    const g3 = document.getElementById('g3'); if(g3) g3.style.width = (Math.abs(netProfit)/maxVal*100) + '%';
+  }, 60);
+}
+
+// ════════════════════════════════
+// ANNUALIZED ROI
+// ════════════════════════════════
+function calcAnnualized() {
+  const cost     = parseFloat(document.getElementById('a-cost').value) || 0;
+  const ret      = parseFloat(document.getElementById('a-return').value) || 0;
+  const duration = parseFloat(document.getElementById('a-duration').value) || 0;
+  const unit     = document.getElementById('a-unit').value;
+  const fees     = parseFloat(document.getElementById('a-fees').value) || 0;
+  if (!cost || !ret || !duration) { document.getElementById('res-annualized').classList.remove('show'); return; }
+
+  let years = duration;
+  if (unit === 'months') years = duration / 12;
+  if (unit === 'days')   years = duration / 365;
+
+  const totalFees   = r2(fees * years);
+  const netReturn   = r2(ret - cost - totalFees);
+  const simpleRoi   = r2(netReturn / cost * 100);
+  const annRoi      = r2(((Math.pow(ret / cost, 1 / years)) - 1) * 100);
+  const isPos       = netReturn >= 0;
+  const gradColor   = isPos ? 'linear-gradient(135deg,#2e7d32,#1b5e20)' : 'linear-gradient(135deg,#c62828,#b71c1c)';
+
+  // Year-by-year projection
+  const yearRows = [];
+  for (let y = 1; y <= Math.min(Math.ceil(years), 10); y++) {
+    const val    = r2(cost * Math.pow(1 + annRoi / 100, y));
+    const profit = r2(val - cost);
+    yearRows.push({ y, val, profit, roi: r2(profit/cost*100) });
+  }
+
+  const html = `
+    <div class="roi-hero" style="background:${gradColor};">
+      <div class="rh-main">
+        <div class="rh-main-label">Annualized ROI (CAGR)</div>
+        <div class="rh-main-value">${pct(annRoi)}</div>
+        <div class="rh-main-sub">over ${duration} ${unit} · Simple ROI: ${pct(simpleRoi)}</div>
+      </div>
+      <div class="rh-stats">
+        <div class="rh-stat"><div class="rh-stat-label">Investment</div><div class="rh-stat-val">${fmt(cost)}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Final Value</div><div class="rh-stat-val">${fmt(ret)}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Net Profit</div><div class="rh-stat-val">${fmt(Math.abs(netReturn))}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Duration</div><div class="rh-stat-val">${duration} ${unit.charAt(0).toUpperCase()}</div></div>
+      </div>
+    </div>
+
+    <div class="breakdown-box">
+      <div class="bb-header green">📅 Annualized Breakdown</div>
+      <div class="bb-row"><span class="bb-label">💰 Initial Investment</span><span class="bb-value blue">${fmt(cost)}</span></div>
+      <div class="bb-row"><span class="bb-label">💵 Final Value</span><span class="bb-value">${fmt(ret)}</span></div>
+      ${fees > 0 ? `<div class="bb-row"><span class="bb-label">💸 Total Fees (${duration} ${unit})</span><span class="bb-value orange">${fmt(totalFees)}</span></div>` : ''}
+      <div class="bb-row"><span class="bb-label">⏱ Duration</span><span class="bb-value">${years.toFixed(3)} years</span></div>
+      <div class="bb-row ${isPos?'positive':'negative'}"><span class="bb-label">Net ${isPos?'Profit':'Loss'}</span><span class="bb-value ${isPos?'green':'red'}">${fmt(Math.abs(netReturn))}</span></div>
+      <div class="bb-row"><span class="bb-label">📊 Simple ROI (total)</span><span class="bb-value">${pct(simpleRoi)}</span></div>
+      <div class="bb-row total"><span class="bb-label">📅 Annualized ROI (CAGR)</span><span class="bb-value ${isPos?'green':'red'}">${pct(annRoi)} per year</span></div>
+    </div>
+
+    <div class="breakdown-box">
+      <div class="bb-header blue">📈 Year-by-Year Projection</div>
+      <div style="overflow-x:auto;">
+        <table class="yearly-table">
+          <thead><tr><th>Year</th><th>Value</th><th>Profit</th><th>Total ROI</th></tr></thead>
+          <tbody>
+            ${yearRows.map((r,i) => `<tr ${Math.round(years)===r.y||i===yearRows.length-1?'class="highlight"':''}>
+              <td>Year ${r.y}</td>
+              <td class="mono blue">${fmt(r.val)}</td>
+              <td class="mono ${r.profit>=0?'green':'red'}">${fmt(r.profit)}</td>
+              <td class="mono ${r.roi>=0?'green':'red'}">${pct(r.roi)}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">⚡ Annualized ROI Formula</div>
+      <div class="formula-text">Annualized ROI = ((FV ÷ IV)^(1÷n) − 1) × 100
+= ((${fmt(ret)} ÷ ${fmt(cost)})^(1÷${years.toFixed(3)}) − 1) × 100
+= ${pct(annRoi)} per year</div>
+    </div>`;
+
+  const res = document.getElementById('res-annualized');
+  res.innerHTML = html;
+  res.classList.add('show');
+}
+
+// ════════════════════════════════
+// COMPARE
+// ════════════════════════════════
+function addCompareItem() {
+  const id = ++compareIdCtr;
+  compareItems.push({ id, name: '', cost: 0, ret: 0, years: 1 });
+  renderCompareItems();
+}
+
+function removeCompareItem(id) {
+  compareItems = compareItems.filter(i => i.id !== id);
+  renderCompareItems();
+}
+
+function updateCompareItem(id, field, val) {
+  const item = compareItems.find(i => i.id === id);
+  if (item) item[field] = field === 'name' ? val : parseFloat(val) || 0;
+}
+
+function renderCompareItems() {
+  document.getElementById('compareItems').innerHTML = compareItems.map((item, idx) => `
+    <div class="compare-item">
+      <div class="compare-item-header">
+        <span class="compare-item-num">#${idx + 1}</span>
+        <button class="compare-item-rm" onclick="removeCompareItem(${item.id})">✕</button>
+      </div>
+      <div class="inp-2col">
+        <div class="input-group" style="margin-bottom:.6rem;">
+          <label class="input-label" style="font-size:.72rem;">Investment Name</label>
+          <input class="inp" type="text" value="${item.name}" placeholder="e.g. Stocks, Gold" onchange="updateCompareItem(${item.id},'name',this.value)"/>
+        </div>
+        <div class="input-group" style="margin-bottom:.6rem;">
+          <label class="input-label" style="font-size:.72rem;">Duration (Years)</label>
+          <input class="inp inp-mono" type="number" value="${item.years||1}" min="0.1" step="0.1" onchange="updateCompareItem(${item.id},'years',this.value)"/>
+        </div>
+        <div class="input-group" style="margin-bottom:.6rem;">
+          <label class="input-label" style="font-size:.72rem;">Initial Investment</label>
+          <div class="inp-prefix"><span class="prefix">${currency}</span>
+            <input class="inp inp-mono" type="number" value="${item.cost||''}" placeholder="0.00" onchange="updateCompareItem(${item.id},'cost',this.value)"/>
+          </div>
+        </div>
+        <div class="input-group" style="margin-bottom:.6rem;">
+          <label class="input-label" style="font-size:.72rem;">Final Value</label>
+          <div class="inp-prefix"><span class="prefix">${currency}</span>
+            <input class="inp inp-mono" type="number" value="${item.ret||''}" placeholder="0.00" onchange="updateCompareItem(${item.id},'ret',this.value)"/>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function resetCompare() {
+  compareItems = [];
+  compareIdCtr = 0;
+  document.getElementById('compareItems').innerHTML = '';
+  document.getElementById('res-compare').classList.remove('show');
+  document.getElementById('res-compare').innerHTML = '';
+  addCompareItem(); addCompareItem();
+}
+
+function calcCompare() {
+  const valid = compareItems.filter(i => i.cost > 0 && i.ret > 0);
+  if (valid.length < 1) { alert('⚠️ Please fill in at least one investment with cost and return values.'); return; }
+
+  const results = valid.map(item => {
+    const netProfit  = r2(item.ret - item.cost);
+    const simpleRoi  = r2(netProfit / item.cost * 100);
+    const years      = item.years || 1;
+    const annRoi     = r2((Math.pow(item.ret / item.cost, 1 / years) - 1) * 100);
+    return { ...item, netProfit, simpleRoi, annRoi };
+  });
+
+  // Sort by annualized ROI
+  const sorted = [...results].sort((a, b) => b.annRoi - a.annRoi);
+  const best   = sorted[0];
+
+  const rows = sorted.map((r, i) => `
+    <tr ${i === 0 ? 'class="winner"' : ''}>
+      <td>${i + 1}</td>
+      <td><strong>${r.name || `Investment ${r.id}`}</strong>${i === 0 ? '<span class="winner-badge">🏆 Best</span>' : ''}</td>
+      <td>${fmt(r.cost)}</td>
+      <td>${fmt(r.ret)}</td>
+      <td>${r.years}y</td>
+      <td class="mono ${r.netProfit >= 0 ? 'green' : 'red'}">${fmt(r.netProfit)}</td>
+      <td class="mono ${r.simpleRoi >= 0 ? 'green' : 'red'}">${pct(r.simpleRoi)}</td>
+      <td class="mono ${r.annRoi >= 0 ? 'green' : 'red'}">${pct(r.annRoi)}</td>
+    </tr>`).join('');
+
+  const html = `
+    <div class="roi-hero" style="background:linear-gradient(135deg,#7b1fa2,#4a148c);">
+      <div class="rh-main">
+        <div class="rh-main-label">🏆 Best Investment</div>
+        <div class="rh-main-value">${pct(best.annRoi)}</div>
+        <div class="rh-main-sub">${best.name || 'Investment ' + best.id} · Annualized ROI</div>
+      </div>
+      <div class="rh-stats">
+        <div class="rh-stat"><div class="rh-stat-label">Investments</div><div class="rh-stat-val">${valid.length}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Best Simple ROI</div><div class="rh-stat-val">${pct(best.simpleRoi)}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Best Annual ROI</div><div class="rh-stat-val">${pct(best.annRoi)}</div></div>
+        <div class="rh-stat"><div class="rh-stat-label">Best Net Profit</div><div class="rh-stat-val">${fmt(best.netProfit)}</div></div>
+      </div>
+    </div>
+    <div class="breakdown-box">
+      <div class="bb-header" style="background:#f3e5f5;color:#4a148c;border-bottom-color:#ce93d8;">⚖️ Comparison Table (ranked by Annualized ROI)</div>
+      <div style="overflow-x:auto;">
+        <table class="compare-table">
+          <thead><tr><th>Rank</th><th>Investment</th><th>Cost</th><th>Return</th><th>Duration</th><th>Net Profit</th><th>Simple ROI</th><th>Ann. ROI</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>`;
+
+  const res = document.getElementById('res-compare');
+  res.innerHTML = html;
+  res.classList.add('show');
+  ga('calc', 'ROI Compare ' + valid.length);
+}
+
+// ════════════════════════════════
+// BREAK-EVEN
+// ════════════════════════════════
+function calcBreakeven() {
+  const fixed   = parseFloat(document.getElementById('be-fixed').value) || 0;
+  const varUnit = parseFloat(document.getElementById('be-varunit').value) || 0;
+  const price   = parseFloat(document.getElementById('be-price').value) || 0;
+  const target  = parseFloat(document.getElementById('be-target').value) || 0;
+  const monthly = parseFloat(document.getElementById('be-monthly').value) || 0;
+
+  if (!fixed || !price || price <= varUnit) {
+    document.getElementById('res-breakeven').classList.remove('show');
+    if (price <= varUnit && price > 0) alert('⚠️ Selling price must be higher than variable cost per unit.');
+    return;
+  }
+
+  const contribMargin = r2(price - varUnit);
+  const contribPct    = r2(contribMargin / price * 100);
+  const beUnits       = r2(fixed / contribMargin);
+  const beRevenue     = r2(beUnits * price);
+  const targetUnits   = target > 0 ? r2((fixed + target) / contribMargin) : 0;
+  const monthsToBreak = monthly > 0 ? r2(beUnits / monthly) : 0;
+
+  const html = `
+    <div class="be-result">
+      <div class="be-units">${Math.ceil(beUnits).toLocaleString('en-IN')}</div>
+      <div class="be-label">🎯 Break-Even Units · Revenue: ${fmt(beRevenue)}</div>
+    </div>
+
+    <div class="breakdown-box">
+      <div class="bb-header orange">🎯 Break-Even Analysis</div>
+      <div class="bb-row"><span class="bb-label">🏗️ Fixed Costs</span><span class="bb-value blue">${fmt(fixed)}</span></div>
+      <div class="bb-row"><span class="bb-label">📦 Variable Cost / Unit</span><span class="bb-value orange">${fmt(varUnit)}</span></div>
+      <div class="bb-row"><span class="bb-label">🏷️ Selling Price / Unit</span><span class="bb-value">${fmt(price)}</span></div>
+      <div class="bb-row positive"><span class="bb-label">💰 Contribution Margin / Unit</span><span class="bb-value green">${fmt(contribMargin)} (${contribPct.toFixed(1)}%)</span></div>
+      <div class="bb-row total"><span class="bb-label">🎯 Break-Even Units</span><span class="bb-value purple">${Math.ceil(beUnits).toLocaleString('en-IN')}</span></div>
+      <div class="bb-row"><span class="bb-label">💵 Break-Even Revenue</span><span class="bb-value">${fmt(beRevenue)}</span></div>
+      ${monthly > 0 ? `<div class="bb-row"><span class="bb-label">📅 Months to Break-Even</span><span class="bb-value blue">${monthsToBreak.toFixed(1)} months</span></div>` : ''}
+      ${target > 0 ? `<div class="bb-row positive"><span class="bb-label">🎁 Units for ${fmt(target)} Profit</span><span class="bb-value green">${Math.ceil(targetUnits).toLocaleString('en-IN')} units</span></div>` : ''}
+    </div>
+
+    <div class="gauge-wrap">
+      <div class="gauge-title">📊 Cost Structure per Unit</div>
+      <div class="gauge-row">
+        <div class="gauge-label"><span class="gauge-label-name" style="color:#e65100;">Variable Cost</span><span class="gauge-label-val" style="color:#e65100;">${fmt(varUnit)} (${((varUnit/price)*100).toFixed(1)}%)</span></div>
+        <div class="gauge-track"><div class="gauge-fill" id="be-g1" style="width:0%;background:#e65100;"></div></div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label"><span class="gauge-label-name" style="color:#2e7d32;">Contribution Margin</span><span class="gauge-label-val" style="color:#2e7d32;">${fmt(contribMargin)} (${contribPct.toFixed(1)}%)</span></div>
+        <div class="gauge-track"><div class="gauge-fill" id="be-g2" style="width:0%;background:#2e7d32;"></div></div>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">⚡ Break-Even Formula</div>
+      <div class="formula-text">Break-Even Units = Fixed Costs ÷ Contribution Margin
+= ${fmt(fixed)} ÷ (${fmt(price)} − ${fmt(varUnit)})
+= ${fmt(fixed)} ÷ ${fmt(contribMargin)}
+= ${Math.ceil(beUnits).toLocaleString('en-IN')} units</div>
+    </div>`;
+
+  const res = document.getElementById('res-breakeven');
+  res.innerHTML = html;
+  res.classList.add('show');
+
+  setTimeout(() => {
+    const g1 = document.getElementById('be-g1'); if(g1) g1.style.width = ((varUnit/price)*100) + '%';
+    const g2 = document.getElementById('be-g2'); if(g2) g2.style.width = (contribPct) + '%';
+  }, 60);
+}
+
+// ════════════════════════════════
+// HISTORY
+// ════════════════════════════════
+function saveHistory(mode) {
+  let roi = 0, cost = 0, ret = 0;
+  if (mode === 'simple') {
+    cost = parseFloat(document.getElementById('s-cost').value) || 0;
+    ret  = parseFloat(document.getElementById('s-return').value) || 0;
+    const addcost = parseFloat(document.getElementById('s-addcost').value) || 0;
+    roi  = r2((ret - cost - addcost) / (cost + addcost) * 100);
+  } else if (mode === 'annualized') {
+    cost = parseFloat(document.getElementById('a-cost').value) || 0;
+    ret  = parseFloat(document.getElementById('a-return').value) || 0;
+    const dur = parseFloat(document.getElementById('a-duration').value) || 1;
+    const unit = document.getElementById('a-unit').value;
+    let yrs = dur; if(unit==='months') yrs=dur/12; if(unit==='days') yrs=dur/365;
+    roi = r2((Math.pow(ret/cost,1/yrs)-1)*100);
+  }
+  if (!cost) return;
+  calcHistory.unshift({ mode, cost, ret, roi, time: new Date().toLocaleTimeString(), id: Date.now() });
+  if (calcHistory.length > 30) calcHistory = calcHistory.slice(0, 30);
+  localStorage.setItem('tn_roi_history', JSON.stringify(calcHistory));
+}
+
+function renderHistory() {
+  const list = document.getElementById('histList');
+  if (!calcHistory.length) {
+    list.innerHTML = '<div style="text-align:center;padding:1.5rem;color:#9aa0a6;font-size:.8rem;">No history yet. Make a calculation first!</div>';
+    return;
+  }
+  list.innerHTML = `<div class="history-list">${calcHistory.map(h => `
+    <div class="history-item">
+      <div class="hi-info">
+        <div class="hi-label">${currency}${(h.cost||0).toLocaleString('en-IN')} → ${currency}${(h.ret||0).toLocaleString('en-IN')}</div>
+        <div class="hi-meta">${h.mode?.toUpperCase()||'ROI'} · ${h.time||''}</div>
+      </div>
+      <span class="hi-roi ${h.roi>=0?'pos':'neg'}">${pct(h.roi||0)}</span>
+      <button class="hi-rm" onclick="removeHistItem(${h.id})">✕</button>
+    </div>`).join('')}</div>`;
+}
+
+function removeHistItem(id) {
+  calcHistory = calcHistory.filter(h => h.id !== id);
+  localStorage.setItem('tn_roi_history', JSON.stringify(calcHistory));
+  renderHistory();
+}
+
+function clearHistory() {
+  calcHistory = [];
+  localStorage.removeItem('tn_roi_history');
+  renderHistory();
+}
+
+// ── COPY ──
+function copyText(text) {
+  navigator.clipboard.writeText(text.replace(/\\n/g,'\n')).then(() => {
+    document.querySelectorAll('.copy-btn').forEach(b => {
+      b.textContent = '✅ Copied!'; b.classList.add('copied');
+      setTimeout(() => { b.textContent = '📋 Copy'; b.classList.remove('copied'); }, 2000);
+    });
+  });
+}
+
+function toggleFaq(el) { el.classList.toggle('open'); }
+
+// Init compare
+addCompareItem(); addCompareItem();
+
+// Category animations
+const ob = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; ob.unobserve(e.target); }});
+}, { threshold:.05 });
+document.querySelectorAll('.cc').forEach((c,i) => {
+  c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;
+  ob.observe(c);
+});
+</script>
+</body>
+</html>
+
