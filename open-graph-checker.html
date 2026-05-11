@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-535630536");function ga(ev,lbl){gtag("event",ev,{event_category:"ToolNex",event_label:lbl});}</script>
+<title>Open Graph Checker – Check OG Tags & Social Share Preview | ToolNex</title>
+<meta name="description" content="Free Open Graph Checker – Check og:title, og:description, og:image and all social sharing tags. Live preview for Facebook, Twitter, WhatsApp and Telegram."/>
+<link rel="canonical" href="https://toolnex.site/open-graph-checker.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+.hdr-link:hover{background:#f1f3f4;}
+@media(max-width:650px){.hdr-links{display:none;}}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+.ad-mid{display:flex;justify-content:center;padding:.5rem;margin:1.2rem 0;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}.ad-mid .adslot{width:468px;height:60px;}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+.url-wrap{display:flex;gap:.5rem;margin-bottom:.6rem;}
+.url-inp{flex:1;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.72rem 1rem;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .15s;}
+.url-inp::placeholder{color:#9aa0a6;}
+.go-btn{color:#fff;border:none;border-radius:12px;padding:.72rem 1.4rem;font-size:.88rem;font-weight:700;white-space:nowrap;cursor:pointer;transition:opacity .15s,transform .1s;}
+.go-btn:hover{opacity:.92;transform:translateY(-1px);}
+.go-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.check-row{display:flex;align-items:flex-start;gap:.55rem;padding:.5rem .7rem;border-radius:9px;border:1.5px solid #e8eaed;margin-bottom:.32rem;}
+.check-row.pass{border-color:#a5d6a7;background:#f0fdf4;}
+.check-row.warn{border-color:#ffcc80;background:#fffde7;}
+.check-row.fail{border-color:#ef9a9a;background:#fff5f5;}
+.check-row.info{border-color:#90caf9;background:#e3f2fd;}
+.cr-icon{font-size:.95rem;flex-shrink:0;margin-top:.05rem;}
+.cr-label{font-size:.78rem;font-weight:700;color:#202124;}
+.cr-val{font-size:.72rem;color:#5f6368;margin-top:.08rem;word-break:break-all;line-height:1.5;}
+.badge{font-size:.62rem;font-weight:700;border-radius:5px;padding:.08rem .35rem;margin-left:.25rem;}
+.badge.pass{background:#dcfce7;color:#15803d;}
+.badge.warn{background:#fef3c7;color:#92400e;}
+.badge.fail{background:#fee2e2;color:#b91c1c;}
+.badge.info{background:#dbeafe;color:#1e40af;}
+.sec-hdr{display:flex;align-items:center;gap:.5rem;margin-bottom:.65rem;padding-bottom:.45rem;border-bottom:2px solid #f1f3f4;margin-top:.8rem;}
+.sec-hdr-ico{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+.sec-hdr-title{font-size:.84rem;font-weight:700;color:#202124;}
+.err-box{background:#fff5f5;border:1.5px solid #ef9a9a;border-radius:12px;padding:1rem;font-size:.8rem;color:#c62828;line-height:1.6;}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:.4rem;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+.og-preview{background:#fff;border:1.5px solid #e8eaed;border-radius:12px;overflow:hidden;margin-bottom:.8rem;animation:fadeUp .35s ease;}
+.og-preview-img{width:100%;height:180px;object-fit:cover;background:linear-gradient(135deg,#e8eaed,#f1f3f4);display:block;position:relative;}
+.og-preview-img-placeholder{width:100%;height:180px;background:linear-gradient(135deg,#e8f0fe,#f3e5f5);display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.og-preview-body{padding:.85rem 1rem;}
+.og-preview-domain{font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2rem;}
+.og-preview-title{font-size:.88rem;font-weight:700;color:#202124;line-height:1.35;margin-bottom:.25rem;}
+.og-preview-desc{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.platform-tabs{display:flex;gap:.35rem;margin-bottom:.8rem;flex-wrap:wrap;}
+.plt-tab{border:2px solid #e8eaed;background:#fff;border-radius:9px;padding:.38rem .75rem;font-size:.74rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .15s;}
+.plt-tab:hover{border-color:#ff6d00;color:#ff6d00;}
+.plt-tab.active{background:#fff3e0;border-color:#ff6d00;color:#e65100;}
+.tag-grid{display:grid;grid-template-columns:1fr;gap:.32rem;}
+.tag-row{border-radius:9px;border:1.5px solid #e8eaed;padding:.48rem .7rem;display:flex;align-items:flex-start;gap:.5rem;}
+.tag-row.present{border-color:#a5d6a7;background:#f0fdf4;}
+.tag-row.missing{border-color:#ef9a9a;background:#fff5f5;}
+.tag-row.warn{border-color:#ffcc80;background:#fffde7;}
+.tag-icon{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tag-name{font-size:.74rem;font-weight:700;color:#202124;font-family:'JetBrains Mono',monospace;}
+.tag-value{font-size:.71rem;color:#5f6368;margin-top:.06rem;word-break:break-all;line-height:1.45;}
+.score-bar-wrap{background:#e8eaed;border-radius:8px;height:8px;margin:.4rem 0;overflow:hidden;}
+.score-bar-fill{height:100%;border-radius:8px;transition:width .8s ease;}
+</style>
+</head>
+<body>
+<header class="hdr"><div class="hdr-inner"><a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a><div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div><nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav></div></header><div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><a href="seo-tools.html">SEO Tools</a><span class="sep">›</span><span class="cur">Open Graph Checker</span></nav>
+<section class="tool-hero"><div class="tool-hero-inner">
+<div class="tool-hero-icon" style="background:#fff3e0;">📱</div>
+<div class="tool-hero-text"><h1>Open Graph Checker – Check OG & Social Share Tags</h1><p>Check all Open Graph and Twitter Card meta tags for any URL. See a live preview of how your page looks when shared on Facebook, Twitter/X, WhatsApp and Telegram. Get missing tag recommendations with copy-paste code.</p><div class="tool-hero-tags"><span class="tool-tag">🆓 Free</span><span class="tool-tag">📱 Social Preview</span><span class="tool-tag">📘 Facebook</span><span class="tool-tag">🐦 Twitter/X</span><span class="tool-tag">💬 WhatsApp</span><span class="tool-tag">✈️ Telegram</span><span class="tool-tag">📋 Copy Code</span></div></div>
+</div></section>
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+
+<div class="tool-card">
+  <div class="tool-card-header">
+    <h2>📱 Open Graph Checker</h2>
+    <span style="font-size:.72rem;color:#9aa0a6;">Check social sharing tags</span>
+  </div>
+  <div class="tool-card-body">
+
+    <div class="url-wrap">
+      <input class="url-inp" id="urlInp" type="text" placeholder="https://example.com" style="border-color:#e8eaed;"
+        onkeydown="if(event.key==='Enter')checkOG()"/>
+      <button class="go-btn" style="background:linear-gradient(135deg,#ff6d00,#e65100);" id="goBtn" onclick="checkOG()">
+        <span class="spinner" id="sp" style="display:none;"></span>Check OG Tags
+      </button>
+    </div>
+
+    <div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.6rem;">
+      <button style="border:1.5px solid #e8eaed;background:#fff;border-radius:7px;padding:.24rem .6rem;font-size:.7rem;font-weight:600;color:#5f6368;cursor:pointer;"
+        onclick="document.getElementById('urlInp').value='https://toolnex.site'">toolnex.site</button>
+      <button style="border:1.5px solid #e8eaed;background:#fff;border-radius:7px;padding:.24rem .6rem;font-size:.7rem;font-weight:600;color:#5f6368;cursor:pointer;"
+        onclick="document.getElementById('urlInp').value='https://github.com'">github.com</button>
+      <button style="border:1.5px solid #e8eaed;background:#fff;border-radius:7px;padding:.24rem .6rem;font-size:.7rem;font-weight:600;color:#5f6368;cursor:pointer;"
+        onclick="document.getElementById('urlInp').value='https://vercel.com'">vercel.com</button>
+    </div>
+
+    <div id="ogResults"></div>
+  </div>
+</div>
+
+<div class="ad-mid"><div class="adslot">📢 Responsive Mid Ad</div></div>
+<div class="tool-card"><div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div><div class="tool-card-body" style="padding:1rem;"><div class="cg">
+<a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+<a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+<a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+<a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+<a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+<a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+<a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+<a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+<a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+<a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+</div></div></div>
+</div>
+
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>📱 Essential OG Tags</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">🏷️</span><span class="tip-text"><code style="font-size:.72rem;background:#f1f3f4;padding:.1rem .3rem;border-radius:3px;">og:title</code> — Title shown when shared. Keep under 60 chars.</span></div>
+      <div class="tip-item"><span class="tip-ico">📝</span><span class="tip-text"><code style="font-size:.72rem;background:#f1f3f4;padding:.1rem .3rem;border-radius:3px;">og:description</code> — Description shown in preview. 120-160 chars.</span></div>
+      <div class="tip-item"><span class="tip-ico">🖼️</span><span class="tip-text"><code style="font-size:.72rem;background:#f1f3f4;padding:.1rem .3rem;border-radius:3px;">og:image</code> — Recommended: 1200×630px JPG/PNG.</span></div>
+      <div class="tip-item"><span class="tip-ico">🌐</span><span class="tip-text"><code style="font-size:.72rem;background:#f1f3f4;padding:.1rem .3rem;border-radius:3px;">og:url</code> — Canonical URL of the page.</span></div>
+      <div class="tip-item"><span class="tip-ico">📋</span><span class="tip-text"><code style="font-size:.72rem;background:#f1f3f4;padding:.1rem .3rem;border-radius:3px;">og:type</code> — Usually <em>website</em> or <em>article</em>.</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🐦 Twitter Card Tags</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">🃏</span><span class="tip-text"><code style="font-size:.72rem;background:#f1f3f4;padding:.1rem .3rem;border-radius:3px;">twitter:card</code> — Use <em>summary_large_image</em> for a big image card.</span></div>
+      <div class="tip-item"><span class="tip-ico">🏷️</span><span class="tip-text"><code style="font-size:.72rem;background:#f1f3f4;padding:.1rem .3rem;border-radius:3px;">twitter:title</code> — Overrides og:title on Twitter if set.</span></div>
+      <div class="tip-item"><span class="tip-ico">🖼️</span><span class="tip-text"><code style="font-size:.72rem;background:#f1f3f4;padding:.1rem .3rem;border-radius:3px;">twitter:image</code> — Min 300×157px. Max 5MB.</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related SEO Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="seo-checker.html" class="rel-tool"><div class="rel-tool-ico" style="background:#f3e5f5;">🔍</div><div><div class="rel-tool-name">SEO Checker</div><div class="rel-tool-desc">Full SEO audit</div></div></a>
+      <a href="meta-tag-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f0fe;">🏷️</div><div><div class="rel-tool-name">Meta Tag Generator</div><div class="rel-tool-desc">Generate meta & OG tags</div></div></a>
+      <a href="google-index-checker.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e3f2fd;">🔎</div><div><div class="rel-tool-name">Index Checker</div><div class="rel-tool-desc">Google indexing status</div></div></a>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="seo-section"><div class="seo-card"><h2>❓ Frequently Asked Questions</h2><div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What are Open Graph tags?</div><div class="faq-a">Open Graph (OG) tags are HTML meta tags that control how your webpage looks when shared on social media platforms like Facebook, LinkedIn, WhatsApp, and Twitter. They were created by Facebook and allow you to specify the title, description, image, and type of content that appears in social share previews. Without OG tags, platforms scrape random content from your page for the preview.</div></div><div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What is the recommended og:image size?</div><div class="faq-a">The recommended og:image size is 1200×630 pixels with a 1.91:1 aspect ratio. This works well across Facebook, LinkedIn, Twitter, and other platforms. For Twitter cards specifically, use at least 300×157px (minimum) or 1200×628px for summary_large_image cards. Always use JPG or PNG format, and keep the file under 5MB.</div></div><div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What is the difference between og:title and twitter:title?</div><div class="faq-a">og:title is used by Facebook, LinkedIn, WhatsApp, Telegram, and most platforms. twitter:title is specifically for Twitter/X. If twitter:title is not set, Twitter falls back to og:title. Setting separate twitter:title allows you to optimize the title specifically for Twitter's card format and character limits.</div></div><div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Why is my OG image not updating when I share on Facebook?</div><div class="faq-a">Facebook aggressively caches OG data. To force a refresh, use the Facebook Sharing Debugger (developers.facebook.com/tools/debug/) and click 'Scrape Again'. This clears Facebook's cache for your URL. After updating your OG tags, always use the debugger to ensure Facebook sees the new tags before sharing.</div></div></div></div>
+<footer class="ftr"><div class="ftr-in"><div class="ftr-top">
+<div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools. Fast, private, no sign-up. Built with ♥</p></div>
+<div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+<div class="fc"><h4>SEO Tools</h4><ul><li><a href="seo-checker.html">SEO Checker</a></li><li><a href="keyword-density-checker.html">Keyword Density</a></li><li><a href="sitemap-generator.html">Sitemap Generator</a></li><li><a href="open-graph-checker.html">OG Checker</a></li></ul></div>
+<div class="fc"><h4>More SEO</h4><ul><li><a href="backlink-checker.html">Backlink Checker</a></li><li><a href="domain-age-checker.html">Domain Age</a></li><li><a href="google-index-checker.html">Index Checker</a></li><li><a href="website-speed-test.html">Speed Test</a></li></ul></div>
+</div><div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div></div></footer>
+<script>
+function toggleFaq(el){el.classList.toggle('open');}
+function normalizeUrl(u){u=u.trim();if(!u.startsWith('http'))u='https://'+u;return u;}
+function escH(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+const PROXY='https://api.allorigins.win/get?url=';
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ob.unobserve(e.target);}});},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i)=>{c.style.cssText+=';opacity:0;transform:translateY(12px);transition:opacity .3s '+(i*.04)+'s ease,transform .3s '+(i*.04)+'s ease';ob.observe(c);});
+
+const PROXY = 'https://api.allorigins.win/get?url=';
+let currentPlatform = 'facebook';
+let currentOGData = {};
+
+function setPlatform(p, btn){
+  currentPlatform = p;
+  document.querySelectorAll('.plt-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(currentOGData.url) renderPreview(currentOGData);
+}
+
+function renderPreview(data){
+  const previewEl = document.getElementById('ogPreviewCard');
+  if(!previewEl) return;
+  const title = data.ogTitle || data.title || '(No title)';
+  const desc  = data.ogDesc  || data.metaDesc || '(No description)';
+  const img   = data.ogImage || '';
+  const url   = data.url || '';
+  let domain = '';
+  try{ domain = new URL(url).hostname.replace('www.',''); }catch(e){}
+
+  const platforms = {
+    facebook: { w:500, titleLen:80, descLen:160, label:'Facebook / LinkedIn', color:'#1877f2' },
+    twitter:  { w:500, titleLen:70, descLen:125, label:'Twitter / X', color:'#000' },
+    whatsapp: { w:320, titleLen:60, descLen:100, label:'WhatsApp', color:'#25d366' },
+    telegram: { w:360, titleLen:70, descLen:120, label:'Telegram', color:'#229ed9' },
+  };
+  const plt = platforms[currentPlatform] || platforms.facebook;
+  const previewTitle = title.slice(0, plt.titleLen) + (title.length > plt.titleLen ? '…' : '');
+  const previewDesc  = desc.slice(0, plt.descLen)  + (desc.length  > plt.descLen  ? '…' : '');
+
+  previewEl.innerHTML = `
+    <div style="font-size:.7rem;font-weight:700;color:${plt.color};margin-bottom:.35rem;">👁️ Preview: ${plt.label}</div>
+    <div class="og-preview" style="max-width:${plt.w}px;">
+      ${img
+        ? `<img src="${escH(img)}" alt="OG Image" class="og-preview-img" onerror="this.parentNode.innerHTML='<div class=og-preview-img-placeholder>🖼️</div>'+this.parentNode.innerHTML.replace(this.outerHTML,'')"/>`
+        : '<div class="og-preview-img-placeholder">🖼️ No og:image</div>'}
+      <div class="og-preview-body">
+        <div class="og-preview-domain">${escH(domain)}</div>
+        <div class="og-preview-title">${escH(previewTitle)}</div>
+        <div class="og-preview-desc">${escH(previewDesc)}</div>
+      </div>
+    </div>`;
+}
+
+async function checkOG(){
+  const raw = document.getElementById('urlInp').value.trim();
+  if(!raw){ alert('Please enter a URL.'); return; }
+  const url = normalizeUrl(raw);
+  document.getElementById('goBtn').disabled = true;
+  document.getElementById('sp').style.display = 'inline-block';
+  document.getElementById('ogResults').innerHTML = '<div style="text-align:center;padding:1.5rem;color:#9aa0a6;font-size:.8rem;">🔍 Fetching page and analyzing Open Graph tags...</div>';
+
+  try{
+    const r = await fetch(PROXY + encodeURIComponent(url));
+    const d = await r.json();
+    const html = d.contents || '';
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    // ── Extract all OG / Twitter / SEO tags ──
+    const get = (sel, attr='content') => doc.querySelector(sel)?.getAttribute(attr)?.trim() || '';
+    const getProp = p => get(`meta[property="${p}"]`);
+    const getName = n => get(`meta[name="${n}"]`);
+
+    const data = {
+      url,
+      title:     doc.querySelector('title')?.textContent?.trim() || '',
+      metaDesc:  getName('description'),
+      // OG
+      ogTitle:   getProp('og:title'),
+      ogDesc:    getProp('og:description'),
+      ogImage:   getProp('og:image'),
+      ogUrl:     getProp('og:url'),
+      ogType:    getProp('og:type'),
+      ogSiteName:getProp('og:site_name'),
+      ogLocale:  getProp('og:locale'),
+      ogImageW:  getProp('og:image:width'),
+      ogImageH:  getProp('og:image:height'),
+      ogImageAlt:getProp('og:image:alt'),
+      // Twitter
+      twCard:    getName('twitter:card'),
+      twTitle:   getName('twitter:title'),
+      twDesc:    getName('twitter:description'),
+      twImage:   getName('twitter:image'),
+      twSite:    getName('twitter:site'),
+      twCreator: getName('twitter:creator'),
+      // Article
+      artPubTime:getProp('article:published_time'),
+      artAuthor: getProp('article:author'),
+      artSection:getProp('article:section'),
+    };
+    currentOGData = data;
+
+    // ── Score ──
+    const essential = [data.ogTitle, data.ogDesc, data.ogImage, data.ogUrl, data.ogType];
+    const essentialScore = essential.filter(Boolean).length;
+    const twScore = [data.twCard, data.twTitle||data.ogTitle, data.twImage||data.ogImage].filter(Boolean).length;
+    const totalScore = essentialScore + Math.min(twScore, 2);
+    const maxScore = 7;
+    const pct = Math.round(totalScore/maxScore*100);
+    const grade = pct>=85?{g:'A',label:'Excellent',c:'#22c55e'}: pct>=65?{g:'B',label:'Good',c:'#84cc16'}: pct>=45?{g:'C',label:'Fair',c:'#f59e0b'}:{g:'D',label:'Poor',c:'#ef4444'};
+
+    let domain = '';
+    try{ domain = new URL(url).hostname; }catch(e){}
+
+    // ── Build HTML ──
+    const rowHtml = (icon, status, name, value, hint='') => {
+      const cls = status==='present'?'present':status==='warn'?'warn':'missing';
+      const badge = status==='present'?'<span class="badge pass">✓ Present</span>': status==='warn'?'<span class="badge warn">⚠ Present</span>':'<span class="badge fail">✗ Missing</span>';
+      return `<div class="tag-row ${cls}">
+        <span class="tag-icon">${icon}</span>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;">
+            <span class="tag-name">${escH(name)}</span>${badge}
+          </div>
+          ${value ? `<div class="tag-value">${escH(value)}</div>` : ''}
+          ${hint  ? `<div class="tag-value" style="color:#9aa0a6;font-style:italic;">${hint}</div>` : ''}
+        </div>
+      </div>`;
+    };
+
+    const ogTitleStatus = data.ogTitle ? (data.ogTitle.length>90?'warn':'present') : 'missing';
+    const ogDescStatus  = data.ogDesc  ? (data.ogDesc.length>160?'warn':'present')  : 'missing';
+    const ogImageStatus = data.ogImage ? 'present' : 'missing';
+
+    document.getElementById('ogResults').innerHTML = `
+      <!-- SCORE HERO -->
+      <div style="background:linear-gradient(135deg,#ff6d00,#e65100);border-radius:14px;padding:1.1rem;margin-bottom:.9rem;animation:fadeUp .35s ease;">
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+          <div style="width:72px;height:72px;border-radius:50%;border:4px solid rgba(255,255,255,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+            <div style="font-size:1.6rem;font-weight:700;color:#fff;line-height:1;">${grade.g}</div>
+            <div style="font-size:.55rem;color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;">Grade</div>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:.75rem;color:rgba(255,255,255,.72);word-break:break-all;">${escH(url)}</div>
+            <div style="font-size:1rem;font-weight:700;color:#fff;margin:.15rem 0;">${grade.label} Open Graph Setup</div>
+            <div class="score-bar-wrap"><div class="score-bar-fill" style="width:${pct}%;background:rgba(255,255,255,.8);"></div></div>
+            <div style="font-size:.72rem;color:rgba(255,255,255,.72);">Score: ${totalScore}/${maxScore} (${pct}%) · ${essentialScore}/5 OG · ${twScore}/3 Twitter</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLATFORM PREVIEW -->
+      <div class="sec-hdr"><div class="sec-hdr-ico" style="background:#fff3e0;">👁️</div><span class="sec-hdr-title">Social Share Preview</span></div>
+      <div class="platform-tabs">
+        <button class="plt-tab active" onclick="setPlatform('facebook',this)">📘 Facebook</button>
+        <button class="plt-tab" onclick="setPlatform('twitter',this)">🐦 Twitter/X</button>
+        <button class="plt-tab" onclick="setPlatform('whatsapp',this)">💬 WhatsApp</button>
+        <button class="plt-tab" onclick="setPlatform('telegram',this)">✈️ Telegram</button>
+      </div>
+      <div id="ogPreviewCard"></div>
+
+      <!-- OG TAGS -->
+      <div class="sec-hdr"><div class="sec-hdr-ico" style="background:#fff3e0;">📣</div><span class="sec-hdr-title">Open Graph Tags (og:)</span></div>
+      <div class="tag-grid">
+        ${rowHtml('🏷️', ogTitleStatus, 'og:title', data.ogTitle, !data.ogTitle?'Add og:title for better social sharing':data.ogTitle.length>90?'Title is long ('+data.ogTitle.length+' chars) — keep under 70':'')}
+        ${rowHtml('📝', ogDescStatus,  'og:description', data.ogDesc, !data.ogDesc?'Add og:description to control the preview text':data.ogDesc.length>160?'Description is long ('+data.ogDesc.length+' chars)':'')}
+        ${rowHtml('🖼️', ogImageStatus, 'og:image', data.ogImage, !data.ogImage?'Missing! Add og:image (1200×630px recommended)':'Image URL found')}
+        ${rowHtml('🌐', data.ogUrl?'present':'warn', 'og:url', data.ogUrl, !data.ogUrl?'Add og:url as canonical URL for this page':'')}
+        ${rowHtml('📋', data.ogType?'present':'warn', 'og:type', data.ogType, !data.ogType?'Add og:type (usually "website" or "article")':'')}
+        ${rowHtml('🏢', data.ogSiteName?'present':'warn', 'og:site_name', data.ogSiteName, !data.ogSiteName?'Add og:site_name for branding in social cards':'')}
+        ${rowHtml('🌍', data.ogLocale?'present':'warn', 'og:locale', data.ogLocale, !data.ogLocale?'Add og:locale (e.g., en_US)':'')}
+        ${data.ogImage?rowHtml('📐', data.ogImageW&&data.ogImageH?'present':'warn', 'og:image:width / height', data.ogImageW&&data.ogImageH?data.ogImageW+'×'+data.ogImageH:'Not specified', !data.ogImageW||!data.ogImageH?'Add og:image:width and og:image:height for faster rendering':''):''}
+        ${data.ogImage?rowHtml('♿', data.ogImageAlt?'present':'warn', 'og:image:alt', data.ogImageAlt, !data.ogImageAlt?'Add og:image:alt for accessibility':''):''}
+      </div>
+
+      <!-- TWITTER TAGS -->
+      <div class="sec-hdr"><div class="sec-hdr-ico" style="background:#e3f2fd;">🐦</div><span class="sec-hdr-title">Twitter / X Card Tags</span></div>
+      <div class="tag-grid">
+        ${rowHtml('🃏', data.twCard?'present':'missing', 'twitter:card', data.twCard, !data.twCard?'Add twitter:card — use "summary_large_image" for big image preview':'')}
+        ${rowHtml('🏷️', data.twTitle?'present':data.ogTitle?'warn':'missing', 'twitter:title', data.twTitle, !data.twTitle?(data.ogTitle?'Falls back to og:title: "'+data.ogTitle.slice(0,60)+'"':'Missing'):'Custom Twitter title set')}
+        ${rowHtml('📝', data.twDesc?'present':data.ogDesc?'warn':'missing', 'twitter:description', data.twDesc, !data.twDesc?(data.ogDesc?'Falls back to og:description':'Missing'):'Custom Twitter description set')}
+        ${rowHtml('🖼️', data.twImage?'present':data.ogImage?'warn':'missing', 'twitter:image', data.twImage, !data.twImage?(data.ogImage?'Falls back to og:image':'Missing — add twitter:image'):'Custom Twitter image set')}
+        ${rowHtml('🐦', data.twSite?'present':'warn', 'twitter:site', data.twSite, !data.twSite?'Add twitter:site (@handle) for Twitter attribution':'')}
+        ${rowHtml('✍️', data.twCreator?'present':'warn', 'twitter:creator', data.twCreator, !data.twCreator?'Add twitter:creator for author attribution':'')}
+      </div>
+
+      <!-- ARTICLE TAGS (if present) -->
+      ${data.artPubTime||data.artAuthor?`
+      <div class="sec-hdr"><div class="sec-hdr-ico" style="background:#fce4ec;">📰</div><span class="sec-hdr-title">Article Tags</span></div>
+      <div class="tag-grid">
+        ${data.artPubTime?rowHtml('📅','present','article:published_time',data.artPubTime,''):''}
+        ${data.artAuthor?rowHtml('✍️','present','article:author',data.artAuthor,''):''}
+        ${data.artSection?rowHtml('📂','present','article:section',data.artSection,''):''}
+      </div>`:''}
+
+      <!-- RAW CODE -->
+      <div class="sec-hdr"><div class="sec-hdr-ico" style="background:#f1f3f4;">💻</div>
+        <span class="sec-hdr-title">Recommended Tags to Add</span>
+      </div>
+      <pre style="background:#1a1d2e;color:#a8c8e0;font-family:'JetBrains Mono',monospace;font-size:.7rem;border-radius:12px;padding:1rem;overflow-x:auto;line-height:1.65;max-height:280px;overflow-y:auto;white-space:pre-wrap;">${generateMissingTags(data, url, domain)}</pre>
+      <button style="background:#ff6d00;color:#fff;border:none;border-radius:8px;padding:.38rem .9rem;font-size:.74rem;font-weight:700;cursor:pointer;margin-top:.4rem;" onclick="copyCode()">📋 Copy Code</button>
+    `;
+
+    renderPreview(data);
+    ga('check','og '+url);
+  }catch(err){
+    document.getElementById('ogResults').innerHTML = '<div class="err-box">⚠️ Could not fetch this URL.<br><br>Error: '+err.message+'</div>';
+  }
+  document.getElementById('goBtn').disabled = false;
+  document.getElementById('sp').style.display = 'none';
+}
+
+function generateMissingTags(data, url, domain){
+  const lines = ['<!-- Add these missing/recommended tags to your <head> -->'];
+  if(!data.ogTitle)    lines.push('<meta property="og:title" content="Your Page Title Here"/>');
+  if(!data.ogDesc)     lines.push('<meta property="og:description" content="Your page description (120-160 chars)"/>');
+  if(!data.ogImage)    lines.push('<meta property="og:image" content="https://'+domain+'/og-image.jpg"/>');
+  if(!data.ogUrl)      lines.push('<meta property="og:url" content="'+escH(url)+'"/>');
+  if(!data.ogType)     lines.push('<meta property="og:type" content="website"/>');
+  if(!data.ogSiteName) lines.push('<meta property="og:site_name" content="Your Site Name"/>');
+  if(!data.ogLocale)   lines.push('<meta property="og:locale" content="en_US"/>');
+  if(!data.twCard)     lines.push('<meta name="twitter:card" content="summary_large_image"/>');
+  if(!data.twSite)     lines.push('<meta name="twitter:site" content="@yourhandle"/>');
+  if(!data.twCreator)  lines.push('<meta name="twitter:creator" content="@yourhandle"/>');
+  if(lines.length===1) lines.push('<!-- ✅ All essential tags are present! -->')
+  return lines.join('\n');
+}
+
+function copyCode(){
+  const code = document.querySelector('pre').textContent;
+  navigator.clipboard.writeText(code).then(()=>alert('✅ Code copied to clipboard!'));
+}
+</script>
+</body>
+</html>
