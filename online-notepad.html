@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');function ga(ev,lbl){gtag('event',ev,{event_category:'ToolNex',event_label:lbl});}</script>
+<title>Online Notepad – Free Text Editor & Notes App | ToolNex</title>
+<meta name="description" content="Free Online Notepad – Write and save notes directly in your browser. Auto-save, multiple notes, rich formatting, dark mode, word count, find & replace. No sign-up required."/>
+<meta name="keywords" content="online notepad, free online notepad, browser notepad, text editor online, notes app online free, online text editor 2026, notepad online save, quick notes"/>
+<meta name="author" content="ToolNex"/><meta name="robots" content="index,follow"/><meta name="theme-color" content="#1a73e8"/>
+<link rel="canonical" href="https://toolnex.site/online-notepad.html"/>
+<meta property="og:title" content="Online Notepad – Free Text Editor & Notes App | ToolNex"/>
+<meta property="og:description" content="Write and save notes in your browser. Auto-save, multiple notes, dark mode, rich formatting. Free."/>
+<meta property="og:type" content="website"/><meta property="og:url" content="https://toolnex.site/online-notepad.html"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Online Notepad","url":"https://toolnex.site/online-notepad.html","applicationCategory":"ProductivityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"ToolNex","url":"https://toolnex.site/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://toolnex.site/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://toolnex.site/text-tools.html"},{"@type":"ListItem","position":3,"name":"Online Notepad","item":"https://toolnex.site/online-notepad.html"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+body.dark{background:#1a1d2e;color:#e0e0e0;}
+a{text-decoration:none;color:inherit;}
+button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+
+/* HEADER */
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+body.dark .hdr{background:#12151f;border-bottom-color:#2a2d3e;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;white-space:nowrap;}
+body.dark .logo{color:#e0e0e0;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;transition:all .15s;}
+body.dark .sbar{background:#2a2d3e;}
+.sbar:focus-within{background:#fff;border-color:#1a73e8;box-shadow:0 0 0 3px rgba(26,115,232,.1);}
+body.dark .sbar:focus-within{background:#1a1d2e;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;padding:.1rem 0;}
+body.dark .sbar input{color:#e0e0e0;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;transition:background .15s;white-space:nowrap;}
+.sbtn:hover{background:#1558c0;}
+.hdr-links{display:flex;gap:.2rem;flex-shrink:0;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;transition:background .13s;}
+.hdr-link:hover{background:#f1f3f4;color:#202124;}
+body.dark .hdr-link:hover{background:#2a2d3e;color:#e0e0e0;}
+@media(max-width:650px){.hdr-links{display:none;}}
+@media(max-width:420px){.logo span:last-child{display:none;}}
+
+/* ADS */
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;display:flex;justify-content:center;padding:.35rem;min-height:50px;}
+body.dark .ad-top{background:#12151f;border-bottom-color:#2a2d3e;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:6px;font-size:.66rem;color:#9aa0a6;letter-spacing:.07em;text-transform:uppercase;}
+body.dark .adslot{background:#1a1d2e;border-color:#2a2d3e;}
+.ad-top .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+.ad-mid{display:flex;justify-content:center;padding:.5rem;margin:1.2rem 0;}
+.ad-mid .adslot{width:728px;max-width:calc(100% - .5rem);height:90px;}
+@media(max-width:740px){.ad-top .adslot{width:320px;height:50px;}.ad-mid .adslot{width:468px;height:60px;}}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+body.dark .breadcrumb .cur{color:#e0e0e0;}
+
+/* TOOL HERO */
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+body.dark .tool-hero{background:#12151f;border-bottom-color:#2a2d3e;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#fff3e0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+body.dark .tool-hero-text h1{color:#e0e0e0;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+body.dark .tool-tag{background:#2a2d3e;color:#9aa0a6;}
+
+/* MAIN LAYOUT */
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+
+/* ===== NOTEPAD APP ===== */
+.notepad-wrap{display:grid;grid-template-columns:220px 1fr;grid-template-rows:auto 1fr;gap:0;border-radius:16px;overflow:hidden;border:1.5px solid #e8eaed;background:#fff;min-height:640px;}
+body.dark .notepad-wrap{border-color:#2a2d3e;background:#12151f;}
+@media(max-width:700px){.notepad-wrap{grid-template-columns:1fr;}}
+
+/* NOTES LIST */
+.notes-list{grid-row:1/3;background:#f8f9fa;border-right:1px solid #e8eaed;display:flex;flex-direction:column;}
+body.dark .notes-list{background:#1a1d2e;border-right-color:#2a2d3e;}
+@media(max-width:700px){.notes-list{grid-row:auto;border-right:none;border-bottom:1px solid #e8eaed;max-height:160px;}}
+.notes-top{padding:.7rem .8rem;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:.4rem;}
+body.dark .notes-top{border-bottom-color:#2a2d3e;}
+.notes-title{font-size:.78rem;font-weight:700;color:#3c4043;flex:1;}
+body.dark .notes-title{color:#b0b0b0;}
+.nl-btn{background:none;border:none;border-radius:7px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#5f6368;cursor:pointer;transition:all .13s;}
+.nl-btn:hover{background:#e8eaed;color:#1a73e8;}
+body.dark .nl-btn:hover{background:#2a2d3e;}
+.notes-search{padding:.5rem .8rem;border-bottom:1px solid #e8eaed;}
+body.dark .notes-search{border-bottom-color:#2a2d3e;}
+.notes-search input{width:100%;background:#fff;border:1.5px solid #e8eaed;border-radius:8px;padding:.32rem .6rem;font-size:.75rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;transition:border-color .15s;}
+body.dark .notes-search input{background:#2a2d3e;border-color:#3a3d4e;color:#e0e0e0;}
+.notes-search input:focus{border-color:#1a73e8;}
+.notes-items{flex:1;overflow-y:auto;padding:.3rem 0;}
+.note-item{padding:.6rem .8rem;cursor:pointer;border-left:3px solid transparent;transition:all .13s;border-bottom:1px solid #f1f3f4;}
+body.dark .note-item{border-bottom-color:#2a2d3e;}
+.note-item:hover{background:#f1f3f4;}
+body.dark .note-item:hover{background:#2a2d3e;}
+.note-item.active{border-left-color:#1a73e8;background:#e8f0fe;}
+body.dark .note-item.active{background:#1a2a4a;}
+.note-item-title{font-size:.77rem;font-weight:700;color:#202124;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:.08rem;}
+body.dark .note-item-title{color:#e0e0e0;}
+.note-item-preview{font-size:.65rem;color:#9aa0a6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.note-item-meta{display:flex;align-items:center;justify-content:space-between;margin-top:.18rem;}
+.note-item-date{font-size:.6rem;color:#c0c4cb;}
+.note-item-del{background:none;border:none;color:#dadce0;cursor:pointer;font-size:.75rem;padding:.05rem .18rem;border-radius:4px;opacity:0;transition:all .13s;}
+.note-item:hover .note-item-del{opacity:1;color:#9aa0a6;}
+.note-item-del:hover{color:#ef4444!important;}
+
+/* EDITOR TOP BAR */
+.editor-topbar{padding:.6rem .9rem;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+body.dark .editor-topbar{border-bottom-color:#2a2d3e;}
+.note-title-inp{flex:1;background:none;border:none;outline:none;font-size:.9rem;font-weight:700;color:#202124;font-family:'DM Sans',sans-serif;min-width:100px;}
+body.dark .note-title-inp{color:#e0e0e0;}
+.note-title-inp::placeholder{color:#9aa0a6;}
+.topbar-actions{display:flex;gap:.3rem;align-items:center;flex-shrink:0;}
+.top-btn{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:8px;padding:.28rem .6rem;font-size:.7rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;white-space:nowrap;}
+body.dark .top-btn{background:#2a2d3e;border-color:#3a3d4e;color:#9aa0a6;}
+.top-btn:hover{border-color:#1a73e8;color:#1a73e8;background:#eff6ff;}
+body.dark .top-btn:hover{background:#1a2a4a;}
+.top-btn.active{background:#e8f0fe;border-color:#1a73e8;color:#1558c0;}
+.save-indicator{font-size:.65rem;color:#9aa0a6;white-space:nowrap;}
+.save-indicator.saved{color:#22c55e;}
+.save-indicator.saving{color:#f59e0b;}
+
+/* FORMAT BAR */
+.format-bar{padding:.45rem .8rem;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:.2rem;flex-wrap:wrap;}
+body.dark .format-bar{border-bottom-color:#2a2d3e;}
+.fmt-btn{background:none;border:1.5px solid transparent;border-radius:6px;width:30px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.82rem;color:#5f6368;cursor:pointer;transition:all .13s;font-weight:700;}
+body.dark .fmt-btn{color:#9aa0a6;}
+.fmt-btn:hover{background:#f1f3f4;border-color:#e8eaed;color:#202124;}
+body.dark .fmt-btn:hover{background:#2a2d3e;color:#e0e0e0;}
+.fmt-btn.active{background:#e8f0fe;border-color:#1a73e8;color:#1558c0;}
+.fmt-sep{width:1px;height:20px;background:#e8eaed;margin:0 .2rem;flex-shrink:0;}
+body.dark .fmt-sep{background:#2a2d3e;}
+.font-sel{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:7px;padding:.22rem .5rem;font-size:.72rem;color:#5f6368;outline:none;cursor:pointer;}
+body.dark .font-sel{background:#2a2d3e;border-color:#3a3d4e;color:#9aa0a6;}
+.font-size-inp{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:7px;padding:.22rem .35rem;font-size:.72rem;width:46px;text-align:center;outline:none;color:#5f6368;}
+body.dark .font-size-inp{background:#2a2d3e;border-color:#3a3d4e;color:#9aa0a6;}
+
+/* EDITOR AREA */
+.editor-area{flex:1;position:relative;}
+.note-editor{width:100%;height:100%;min-height:440px;padding:1.1rem 1.2rem;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;background:#fff;border:none;outline:none;resize:none;line-height:1.8;}
+body.dark .note-editor{background:#12151f;color:#e0e0e0;}
+.note-editor::placeholder{color:#9aa0a6;}
+
+/* STATUS BAR */
+.status-bar{padding:.4rem .9rem;border-top:1px solid #e8eaed;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;}
+body.dark .status-bar{border-top-color:#2a2d3e;background:#12151f;}
+.sb-stat{font-size:.66rem;color:#9aa0a6;font-family:'JetBrains Mono',monospace;}
+.sb-stat span{color:#5f6368;font-weight:600;}
+
+/* FIND & REPLACE PANEL */
+.find-panel{display:none;background:#f8f9fa;border-top:1px solid #e8eaed;padding:.7rem 1rem;}
+body.dark .find-panel{background:#1a1d2e;border-top-color:#2a2d3e;}
+.find-panel.show{display:block;}
+.find-row{display:grid;grid-template-columns:1fr auto 1fr auto;gap:.5rem;align-items:center;margin-bottom:.4rem;}
+.find-row:last-child{margin-bottom:0;}
+.find-inp{background:#fff;border:1.5px solid #e8eaed;border-radius:8px;padding:.38rem .65rem;font-size:.8rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;width:100%;transition:border-color .15s;}
+body.dark .find-inp{background:#2a2d3e;border-color:#3a3d4e;color:#e0e0e0;}
+.find-inp:focus{border-color:#1a73e8;}
+.find-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:8px;padding:.3rem .7rem;font-size:.7rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;white-space:nowrap;}
+body.dark .find-btn{background:#2a2d3e;border-color:#3a3d4e;color:#9aa0a6;}
+.find-btn:hover{border-color:#1a73e8;color:#1a73e8;}
+.find-arrow{color:#9aa0a6;font-size:.8rem;flex-shrink:0;text-align:center;}
+.find-result{font-size:.68rem;color:#9aa0a6;margin-top:.3rem;}
+
+/* STATS PANEL */
+.stats-panel{display:none;background:#f8f9fa;border-top:1px solid #e8eaed;padding:.7rem 1rem;}
+body.dark .stats-panel{background:#1a1d2e;border-top-color:#2a2d3e;}
+.stats-panel.show{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.45rem;}
+.sp-item{background:#fff;border:1.5px solid #e8eaed;border-radius:9px;padding:.45rem .6rem;text-align:center;}
+body.dark .sp-item{background:#2a2d3e;border-color:#3a3d4e;}
+.sp-val{font-size:.95rem;font-weight:700;color:#1a73e8;font-family:'JetBrains Mono',monospace;}
+.sp-lbl{font-size:.6rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem;}
+
+/* CHECKLIST */
+.quick-checklist{display:none;background:#f8f9fa;border-top:1px solid #e8eaed;padding:.7rem 1rem;max-height:200px;overflow-y:auto;}
+body.dark .quick-checklist{background:#1a1d2e;border-top-color:#2a2d3e;}
+.quick-checklist.show{display:block;}
+.cl-title{font-size:.73rem;font-weight:700;color:#3c4043;margin-bottom:.5rem;display:flex;align-items:center;justify-content:space-between;}
+body.dark .cl-title{color:#b0b0b0;}
+.cl-item-row{display:flex;align-items:center;gap:.5rem;padding:.3rem 0;border-bottom:1px solid #f1f3f4;}
+body.dark .cl-item-row{border-bottom-color:#2a2d3e;}
+.cl-chk{width:16px;height:16px;accent-color:#1a73e8;cursor:pointer;flex-shrink:0;}
+.cl-text{font-size:.78rem;color:#202124;flex:1;background:none;border:none;outline:none;font-family:'DM Sans',sans-serif;}
+body.dark .cl-text{color:#e0e0e0;}
+.cl-rm{background:none;border:none;color:#dadce0;cursor:pointer;font-size:.75rem;}
+.cl-rm:hover{color:#ef4444;}
+.cl-add-btn{border:1.5px dashed #c5d8fb;background:#eff6ff;border-radius:8px;padding:.3rem .6rem;font-size:.72rem;font-weight:600;color:#1a73e8;cursor:pointer;width:100%;margin-top:.4rem;display:flex;align-items:center;justify-content:center;gap:.25rem;}
+.cl-add-btn:hover{background:#e8f0fe;}
+
+/* CATEGORY BROWSER */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+@media(max-width:440px){.cg{grid-template-columns:repeat(3,1fr);gap:.5rem;}}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+body.dark .cc{background:#1a1d2e;border-color:#2a2d3e;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:transform .18s;}
+.cc:hover .cc-ico{transform:scale(1.1);}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+body.dark .cc-nm{color:#e0e0e0;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+body.dark .sidebar-card{background:#12151f;border-color:#2a2d3e;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+body.dark .sidebar-card-header{border-bottom-color:#2a2d3e;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+body.dark .sidebar-card-header h3{color:#e0e0e0;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+body.dark .rel-tool{border-bottom-color:#1a1d2e;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#fff3e0;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+body.dark .rel-tool-name{color:#e0e0e0;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+body.dark .tip-item{border-bottom-color:#1a1d2e;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+
+/* FAQ */
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+body.dark .seo-card{background:#12151f;border-color:#2a2d3e;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+body.dark .seo-card h2{color:#e0e0e0;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+body.dark .faq-item{border-bottom-color:#2a2d3e;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+body.dark .faq-q{color:#e0e0e0;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* FOOTER */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+body.dark .ftr{background:#12151f;border-top-color:#2a2d3e;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+body.dark .ftr-brand-nm{color:#e0e0e0;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+body.dark .fc h4{color:#b0b0b0;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;transition:color .13s;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+body.dark .ftr-bot{border-top-color:#2a2d3e;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;transition:color .13s;}
+.ftr-lnk a:hover{color:#1a73e8;}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar">
+      <input type="search" placeholder="Search 100+ tools…" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')window.location='index.html?q='+this.value"/>
+      <button class="sbtn" onclick="window.location='index.html'">Search</button>
+    </div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+
+<div class="ad-top"><div class="adslot">📢 Top Banner Ad · 728×90 / 320×50 Mobile</div></div>
+
+<nav class="breadcrumb">
+  <a href="index.html">Home</a><span class="sep">›</span>
+  <a href="text-tools.html">Text Tools</a><span class="sep">›</span>
+  <span class="cur">Online Notepad</span>
+</nav>
+
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">📓</div>
+    <div class="tool-hero-text">
+      <h1>Online Notepad – Free Browser Notes App</h1>
+      <p>A powerful online notepad that saves your notes automatically in your browser. Create multiple notes, format text, find &amp; replace, track word count, use dark mode and quick checklists. Everything saves locally — no account, no server, completely private.</p>
+      <div class="tool-hero-tags">
+        <span class="tool-tag">🆓 Free</span>
+        <span class="tool-tag">💾 Auto-Save</span>
+        <span class="tool-tag">📋 Multiple Notes</span>
+        <span class="tool-tag">🌙 Dark Mode</span>
+        <span class="tool-tag">🔍 Find & Replace</span>
+        <span class="tool-tag">✅ Private</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+
+<!-- NOTEPAD APP -->
+<div class="notepad-wrap" id="notepadWrap">
+
+  <!-- NOTES LIST (left column) -->
+  <div class="notes-list">
+    <div class="notes-top">
+      <span class="notes-title">📋 Notes</span>
+      <button class="nl-btn" onclick="newNote()" title="New Note (Ctrl+N)">＋</button>
+      <button class="nl-btn" onclick="sortNotes()" title="Sort by Date">↕</button>
+    </div>
+    <div class="notes-search">
+      <input type="search" id="noteSearch" placeholder="🔍 Search notes…" oninput="renderNoteList()" autocomplete="off"/>
+    </div>
+    <div class="notes-items" id="notesList"></div>
+  </div>
+
+  <!-- EDITOR (right column) -->
+  <div style="display:flex;flex-direction:column;grid-column:2;">
+
+    <!-- EDITOR TOP BAR -->
+    <div class="editor-topbar">
+      <input class="note-title-inp" type="text" id="noteTitleInp" placeholder="Note title…" oninput="onTitleChange()"/>
+      <div class="topbar-actions">
+        <span class="save-indicator" id="saveIndicator">💾 Auto-save on</span>
+        <button class="top-btn" id="btnFind" onclick="togglePanel('find')" title="Find & Replace (Ctrl+H)">🔍 Find</button>
+        <button class="top-btn" id="btnStats" onclick="togglePanel('stats')" title="Word Statistics">📊 Stats</button>
+        <button class="top-btn" id="btnChecklist" onclick="togglePanel('checklist')" title="Quick Checklist">☑️ List</button>
+        <button class="top-btn" id="btnFocus" onclick="toggleFocus()" title="Focus Mode">🎯</button>
+        <button class="top-btn" id="btnDark" onclick="toggleDark()" title="Dark Mode">🌙</button>
+        <button class="top-btn" onclick="downloadNote()">⬇️</button>
+        <button class="top-btn" onclick="copyNote()">📋</button>
+        <button class="top-btn" onclick="deleteCurrentNote()" style="color:#ef4444;">🗑️</button>
+      </div>
+    </div>
+
+    <!-- FORMAT BAR -->
+    <div class="format-bar" id="formatBar">
+      <select class="font-sel" id="fontSel" onchange="changeFont()">
+        <option value="'DM Sans',sans-serif">DM Sans</option>
+        <option value="'JetBrains Mono',monospace">Mono</option>
+        <option value="Georgia,serif">Georgia</option>
+        <option value="Arial,sans-serif">Arial</option>
+        <option value="'Times New Roman',serif">Times</option>
+        <option value="Courier,monospace">Courier</option>
+      </select>
+      <input class="font-size-inp" type="number" id="fontSizeInp" value="15" min="8" max="36" onchange="changeFontSize()" title="Font size"/>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn" id="fmtBold"   onclick="insertFormat('bold')"      title="Bold (Ctrl+B)"><b>B</b></button>
+      <button class="fmt-btn" id="fmtItalic" onclick="insertFormat('italic')"    title="Italic (Ctrl+I)"><i>I</i></button>
+      <button class="fmt-btn" id="fmtCode"   onclick="insertFormat('code')"      title="Code block">`C`</button>
+      <button class="fmt-btn" id="fmtStrike" onclick="insertFormat('strike')"    title="Strikethrough"><s>S</s></button>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn" onclick="insertHeading(1)" title="Heading 1">H1</button>
+      <button class="fmt-btn" onclick="insertHeading(2)" title="Heading 2">H2</button>
+      <button class="fmt-btn" onclick="insertHeading(3)" title="Heading 3">H3</button>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn" onclick="insertPrefix('• ')"  title="Bullet list">•</button>
+      <button class="fmt-btn" onclick="insertPrefix('1. ')" title="Numbered list">1.</button>
+      <button class="fmt-btn" onclick="insertPrefix('☐ ')" title="Checkbox">☐</button>
+      <button class="fmt-btn" onclick="insertPrefix('> ')"  title="Blockquote">❝</button>
+      <button class="fmt-btn" onclick="insertHR()"          title="Horizontal rule">—</button>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn" onclick="insertDate()" title="Insert today's date">📅</button>
+    </div>
+
+    <!-- EDITOR AREA -->
+    <div class="editor-area">
+      <textarea class="note-editor" id="noteEditor"
+        placeholder="Start typing your note here…&#10;&#10;Tips:&#10;• Ctrl+S — Save&#10;• Ctrl+N — New Note&#10;• Ctrl+H — Find & Replace&#10;• Tab = 2 spaces"
+        oninput="onEditorInput()" onkeydown="handleKeydown(event)"></textarea>
+    </div>
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <span class="sb-stat" id="sb-words"><span>0</span> words</span>
+      <span class="sb-stat" id="sb-chars"><span>0</span> chars</span>
+      <span class="sb-stat" id="sb-lines"><span>0</span> lines</span>
+      <span class="sb-stat" id="sb-read"><span>0</span> min read</span>
+      <span class="sb-stat" id="sb-notes" style="margin-left:auto;"><span>0</span> notes</span>
+    </div>
+
+    <!-- FIND & REPLACE PANEL -->
+    <div class="find-panel" id="findPanel">
+      <div class="find-row">
+        <input class="find-inp" type="text" id="findInp" placeholder="Find…" oninput="doFind()"/>
+        <div class="find-arrow">→</div>
+        <input class="find-inp" type="text" id="replaceInp" placeholder="Replace with…"/>
+        <div></div>
+      </div>
+      <div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.4rem;">
+        <button class="find-btn" onclick="doReplace()">Replace All</button>
+        <button class="find-btn" onclick="closePanel('find')">✕ Close</button>
+        <span class="find-result" id="findResult"></span>
+      </div>
+    </div>
+
+    <!-- STATS PANEL -->
+    <div class="stats-panel" id="statsPanel"></div>
+
+    <!-- QUICK CHECKLIST -->
+    <div class="quick-checklist" id="checklistPanel">
+      <div class="cl-title">
+        <span>☑️ Quick Checklist</span>
+        <button class="find-btn" onclick="insertChecklistToNote()">Insert into Note</button>
+      </div>
+      <div id="checklistItems"></div>
+      <button class="cl-add-btn" onclick="addChecklistItem()">＋ Add Item</button>
+    </div>
+
+  </div>
+</div><!-- end notepad-wrap -->
+
+<div class="ad-mid"><div class="adslot">📢 Responsive Mid Ad · 728×90 → 468×60 → 320×50</div></div>
+
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+  <div class="tool-card-body" style="padding:1rem;">
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>⌨️ Keyboard Shortcuts</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">💾</span><span class="tip-text"><strong>Ctrl+S</strong> — Save current note</span></div>
+      <div class="tip-item"><span class="tip-ico">📄</span><span class="tip-text"><strong>Ctrl+N</strong> — Create new note</span></div>
+      <div class="tip-item"><span class="tip-ico">🔍</span><span class="tip-text"><strong>Ctrl+H</strong> — Find & Replace panel</span></div>
+      <div class="tip-item"><span class="tip-ico">⬇️</span><span class="tip-text"><strong>Tab key</strong> — Insert 2 spaces (no focus loss)</span></div>
+      <div class="tip-item"><span class="tip-ico">📅</span><span class="tip-text">Click 📅 in toolbar to insert today's date</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Formatting Guide</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">H1</span><span class="tip-text"><strong># Title</strong> — Heading 1 (click H1 button)</span></div>
+      <div class="tip-item"><span class="tip-ico">•</span><span class="tip-text"><strong>• Item</strong> — Bullet list item</span></div>
+      <div class="tip-item"><span class="tip-ico">☐</span><span class="tip-text"><strong>☐ Task</strong> — Checkbox item</span></div>
+      <div class="tip-item"><span class="tip-ico">❝</span><span class="tip-text"><strong>> Quote</strong> — Blockquote line</span></div>
+      <div class="tip-item"><span class="tip-ico">`</span><span class="tip-text"><strong>`code`</strong> — Inline code snippet</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Text Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="character-counter.html" class="rel-tool"><div class="rel-tool-ico">🔢</div><div><div class="rel-tool-name">Character Counter</div><div class="rel-tool-desc">Count chars & words</div></div></a>
+      <a href="case-converter.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f0fe;">🔡</div><div><div class="rel-tool-name">Case Converter</div><div class="rel-tool-desc">UPPER, lower, camelCase</div></div></a>
+      <a href="whitespace-remover.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e0f7fa;">🧹</div><div><div class="rel-tool-name">Whitespace Remover</div><div class="rel-tool-desc">Remove extra spaces</div></div></a>
+      <a href="lorem-ipsum-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#f3e5f5;">📄</div><div><div class="rel-tool-name">Lorem Ipsum</div><div class="rel-tool-desc">Placeholder text</div></div></a>
+      <a href="duplicate-remover.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">🧹</div><div><div class="rel-tool-name">Duplicate Remover</div><div class="rel-tool-desc">Remove duplicate lines</div></div></a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – Online Notepad</h2>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Are my notes saved automatically?</div><div class="faq-a">Yes, notes are auto-saved to your browser's localStorage as you type. There is no server involved — your notes stay on your device and never leave your browser. You can also press Ctrl+S to save manually. The save indicator in the top bar shows "Saved ✓" when the note is up to date. Notes persist across browser sessions as long as you don't clear your browser data.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How many notes can I create?</div><div class="faq-a">You can create as many notes as your browser's localStorage allows (typically 5-10MB). Most users can store hundreds of notes. Each note has a title and body. You can search through all notes using the search box in the left panel. Notes are sorted by last modified date by default.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Can I download my notes?</div><div class="faq-a">Yes. Click the ⬇️ button in the top bar to download the current note as a .txt file. The filename uses the note title. For longer documents, you can also copy the entire note content using the 📋 button and paste it anywhere.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What does Find & Replace do?</div><div class="faq-a">Click 🔍 Find or press Ctrl+H to open the Find & Replace panel. Type the text you want to find in the first field — the tool highlights matching occurrences and shows the count. Enter replacement text in the second field and click "Replace All" to replace every occurrence at once. This is useful for correcting repeated mistakes or updating names throughout a document.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">What is the Quick Checklist feature?</div><div class="faq-a">The Quick Checklist panel (☑️ List button) lets you create a temporary task list alongside your note. Add items, check them off, and when you're done, click "Insert into Note" to paste the checklist into your note body as checkbox symbols (☐ item / ☑ done). This is useful for todo lists, packing lists, or meeting action items.</div></div>
+  </div>
+</div>
+
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools for everyone. Fast, private, no registration required. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+      <div class="fc"><h4>Popular Tools</h4><ul><li><a href="character-counter.html">Character Counter</a></li><li><a href="case-converter.html">Case Converter</a></li><li><a href="image-compressor.html">Image Compressor</a></li><li><a href="qr-code.html">QR Code Generator</a></li></ul></div>
+      <div class="fc"><h4>Text Tools</h4><ul><li><a href="online-notepad.html">Online Notepad</a></li><li><a href="whitespace-remover.html">Whitespace Remover</a></li><li><a href="text-repeater.html">Text Repeater</a></li><li><a href="duplicate-remover.html">Duplicate Remover</a></li></ul></div>
+    </div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════
+// DATA LAYER
+// ══════════════════════════════════════════
+const STORAGE_KEY = 'tn_notepad_notes';
+const DARK_KEY    = 'tn_notepad_dark';
+let notes         = [];
+let activeNoteId  = null;
+let saveTimer     = null;
+let isDark        = false;
+let checklistData = [];
+let activePanel   = null;
+let isFocus       = false;
+
+function loadNotes() {
+  try {
+    notes = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  } catch(e) { notes = []; }
+  if (!notes.length) {
+    // Create welcome note
+    notes.push(createNote('Welcome to ToolNex Notepad 📓',
+      '# Welcome to ToolNex Notepad!\n\nThis is your free online notepad. All notes are saved automatically in your browser.\n\n## Features\n• Multiple notes — create as many as you need\n• Auto-save — notes save as you type\n• Dark mode — click 🌙 in the top bar\n• Find & Replace — Ctrl+H\n• Quick Checklist — click ☑️ List\n• Download note — click ⬇️\n\n## Keyboard Shortcuts\n• Ctrl+S — Save\n• Ctrl+N — New Note\n• Ctrl+H — Find & Replace\n• Tab — Insert 2 spaces\n\nHappy writing! ✍️'));
+  }
+}
+
+function saveNotes() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+  } catch(e) { console.error('Storage error', e); }
+}
+
+function createNote(title = 'New Note', body = '') {
+  return {
+    id:      Date.now() + Math.random(),
+    title:   title || 'New Note',
+    body:    body || '',
+    created: Date.now(),
+    updated: Date.now(),
+  };
+}
+
+function getNote(id) { return notes.find(n => n.id == id); }
+
+// ══════════════════════════════════════════
+// RENDER NOTES LIST
+// ══════════════════════════════════════════
+function renderNoteList() {
+  const q    = (document.getElementById('noteSearch').value || '').toLowerCase();
+  const list = document.getElementById('notesList');
+  const filtered = notes.filter(n =>
+    !q || n.title.toLowerCase().includes(q) || n.body.toLowerCase().includes(q)
+  ).sort((a,b) => b.updated - a.updated);
+
+  if (!filtered.length) {
+    list.innerHTML = '<div style="padding:1rem;text-align:center;font-size:.75rem;color:#9aa0a6;">No notes found</div>';
+    return;
+  }
+  list.innerHTML = filtered.map(n => {
+    const preview = n.body.replace(/\n/g,' ').slice(0, 55) || '(empty)';
+    const date    = new Date(n.updated).toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+    const active  = n.id == activeNoteId ? ' active' : '';
+    return `<div class="note-item${active}" onclick="openNote(${n.id})" id="ni-${n.id}">
+      <div class="note-item-title">${escH(n.title)}</div>
+      <div class="note-item-preview">${escH(preview)}</div>
+      <div class="note-item-meta">
+        <span class="note-item-date">${date}</span>
+        <button class="note-item-del" onclick="event.stopPropagation();deleteNote(${n.id})" title="Delete note">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Update notes count
+  document.getElementById('sb-notes').innerHTML = `<span>${notes.length}</span> notes`;
+}
+
+// ══════════════════════════════════════════
+// OPEN / CLOSE NOTE
+// ══════════════════════════════════════════
+function openNote(id) {
+  // Save current before switching
+  if (activeNoteId) saveCurrentNote(true);
+  activeNoteId = id;
+  const note = getNote(id);
+  if (!note) return;
+  document.getElementById('noteTitleInp').value = note.title;
+  document.getElementById('noteEditor').value   = note.body;
+  updateStats();
+  renderNoteList();
+}
+
+function newNote() {
+  if (activeNoteId) saveCurrentNote(true);
+  const note = createNote('New Note ' + (notes.length + 1));
+  notes.unshift(note);
+  saveNotes();
+  openNote(note.id);
+  setTimeout(() => document.getElementById('noteTitleInp').focus(), 50);
+  ga('new', 'note');
+}
+
+function deleteNote(id) {
+  if (!confirm('Delete this note?')) return;
+  notes = notes.filter(n => n.id != id);
+  saveNotes();
+  if (activeNoteId == id) {
+    activeNoteId = notes.length ? notes[0].id : null;
+    if (activeNoteId) openNote(activeNoteId);
+    else {
+      document.getElementById('noteTitleInp').value = '';
+      document.getElementById('noteEditor').value   = '';
+      updateStats();
+    }
+  }
+  renderNoteList();
+}
+
+function deleteCurrentNote() {
+  if (activeNoteId) deleteNote(activeNoteId);
+}
+
+function sortNotes() {
+  notes.sort((a,b) => b.updated - a.updated);
+  saveNotes();
+  renderNoteList();
+}
+
+// ══════════════════════════════════════════
+// SAVE
+// ══════════════════════════════════════════
+function saveCurrentNote(silent = false) {
+  if (!activeNoteId) return;
+  const note = getNote(activeNoteId);
+  if (!note) return;
+  note.title   = document.getElementById('noteTitleInp').value.trim() || 'Untitled';
+  note.body    = document.getElementById('noteEditor').value;
+  note.updated = Date.now();
+  saveNotes();
+  if (!silent) {
+    const si = document.getElementById('saveIndicator');
+    si.textContent = '✓ Saved';
+    si.className   = 'save-indicator saved';
+    setTimeout(() => { si.textContent = '💾 Auto-save on'; si.className = 'save-indicator'; }, 1500);
+  }
+  renderNoteList();
+}
+
+function scheduleSave() {
+  const si = document.getElementById('saveIndicator');
+  si.textContent = '… Saving';
+  si.className   = 'save-indicator saving';
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => saveCurrentNote(), 800);
+}
+
+function onEditorInput() {
+  updateStats();
+  scheduleSave();
+}
+
+function onTitleChange() {
+  scheduleSave();
+  renderNoteList();
+}
+
+// ══════════════════════════════════════════
+// STATS
+// ══════════════════════════════════════════
+function updateStats() {
+  const text  = document.getElementById('noteEditor').value;
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+  const chars = text.length;
+  const lines = text.split('\n').length;
+  const read  = Math.ceil(words / 200);
+  document.getElementById('sb-words').innerHTML = `<span>${words.toLocaleString()}</span> words`;
+  document.getElementById('sb-chars').innerHTML = `<span>${chars.toLocaleString()}</span> chars`;
+  document.getElementById('sb-lines').innerHTML = `<span>${lines.toLocaleString()}</span> lines`;
+  document.getElementById('sb-read').innerHTML  = `<span>${read}</span> min read`;
+
+  // Update stats panel if open
+  if (activePanel === 'stats') renderStatsPanel(text, words, chars, lines);
+}
+
+function renderStatsPanel(text, words, chars, lines) {
+  const paras   = text.split(/\n\s*\n/).filter(p => p.trim()).length;
+  const sents   = (text.match(/[.!?]+/g)||[]).length;
+  const spaces  = (text.match(/ /g)||[]).length;
+  const unique  = new Set((text.toLowerCase().match(/\b\w+\b/g)||[])).size;
+  const avgWpS  = sents > 0 ? (words/sents).toFixed(1) : '—';
+  const read    = Math.ceil(words/200);
+  const speak   = Math.ceil(words/130);
+  const sp = document.getElementById('statsPanel');
+  sp.innerHTML = [
+    {v:words,l:'Words'},{v:chars,l:'Characters'},{v:lines,l:'Lines'},{v:paras,l:'Paragraphs'},
+    {v:sents,l:'Sentences'},{v:spaces,l:'Spaces'},{v:unique,l:'Unique Words'},
+    {v:avgWpS,l:'Avg W/Sentence'},{v:read+'m',l:'Read Time'},{v:speak+'m',l:'Speak Time'},
+  ].map(s=>`<div class="sp-item"><div class="sp-val">${s.v}</div><div class="sp-lbl">${s.l}</div></div>`).join('');
+}
+
+// ══════════════════════════════════════════
+// PANELS
+// ══════════════════════════════════════════
+function togglePanel(name) {
+  if (activePanel === name) {
+    closePanel(name);
+    return;
+  }
+  ['find','stats','checklist'].forEach(p => {
+    document.getElementById(p==='find'?'findPanel':p==='stats'?'statsPanel':'checklistPanel').classList.remove('show');
+    document.getElementById('btn'+p.charAt(0).toUpperCase()+p.slice(1))?.classList.remove('active');
+  });
+  activePanel = name;
+  if (name === 'find') {
+    document.getElementById('findPanel').classList.add('show');
+    document.getElementById('btnFind').classList.add('active');
+    setTimeout(()=>document.getElementById('findInp').focus(),50);
+  } else if (name === 'stats') {
+    const text  = document.getElementById('noteEditor').value;
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    renderStatsPanel(text, words, text.length, text.split('\n').length);
+    document.getElementById('statsPanel').classList.add('show');
+    document.getElementById('btnStats').classList.add('active');
+  } else if (name === 'checklist') {
+    document.getElementById('checklistPanel').classList.add('show');
+    document.getElementById('btnChecklist').classList.add('active');
+    renderChecklist();
+  }
+}
+
+function closePanel(name) {
+  activePanel = null;
+  document.getElementById(name==='find'?'findPanel':name==='stats'?'statsPanel':'checklistPanel').classList.remove('show');
+  document.getElementById('btn'+name.charAt(0).toUpperCase()+name.slice(1))?.classList.remove('active');
+}
+
+// ══════════════════════════════════════════
+// FIND & REPLACE
+// ══════════════════════════════════════════
+function doFind() {
+  const q    = document.getElementById('findInp').value;
+  const text = document.getElementById('noteEditor').value;
+  const res  = document.getElementById('findResult');
+  if (!q) { res.textContent = ''; return; }
+  const count = (text.split(q).length - 1);
+  res.textContent = count > 0 ? `✓ ${count} occurrence${count>1?'s':''}` : '✗ Not found';
+  res.style.color = count > 0 ? '#22c55e' : '#ef4444';
+}
+
+function doReplace() {
+  const find    = document.getElementById('findInp').value;
+  const replace = document.getElementById('replaceInp').value;
+  if (!find) return;
+  const ta    = document.getElementById('noteEditor');
+  const count = (ta.value.split(find).length - 1);
+  if (!count) { document.getElementById('findResult').textContent = '✗ Not found'; return; }
+  ta.value = ta.value.split(find).join(replace);
+  document.getElementById('findResult').textContent = `✓ Replaced ${count} occurrence${count>1?'s':''}`;
+  document.getElementById('findResult').style.color = '#22c55e';
+  onEditorInput();
+}
+
+// ══════════════════════════════════════════
+// FORMAT TOOLBAR
+// ══════════════════════════════════════════
+function insertFormat(type) {
+  const ta    = document.getElementById('noteEditor');
+  const start = ta.selectionStart;
+  const end   = ta.selectionEnd;
+  const sel   = ta.value.slice(start, end);
+  let wrap = '';
+  if (type === 'bold')   wrap = `**${sel || 'bold text'}**`;
+  if (type === 'italic') wrap = `*${sel || 'italic text'}*`;
+  if (type === 'code')   wrap = `\`${sel || 'code'}\``;
+  if (type === 'strike') wrap = `~~${sel || 'strikethrough'}~~`;
+  ta.setRangeText(wrap, start, end, 'end');
+  ta.focus();
+  onEditorInput();
+}
+
+function insertHeading(level) {
+  const ta     = document.getElementById('noteEditor');
+  const prefix = '#'.repeat(level) + ' ';
+  insertLinePrefix(ta, prefix);
+}
+
+function insertPrefix(prefix) {
+  const ta = document.getElementById('noteEditor');
+  insertLinePrefix(ta, prefix);
+}
+
+function insertLinePrefix(ta, prefix) {
+  const start = ta.selectionStart;
+  const lineStart = ta.value.lastIndexOf('\n', start - 1) + 1;
+  ta.setRangeText(prefix, lineStart, lineStart, 'end');
+  ta.focus();
+  onEditorInput();
+}
+
+function insertHR() {
+  const ta    = document.getElementById('noteEditor');
+  const pos   = ta.selectionStart;
+  const text  = '\n---\n';
+  ta.setRangeText(text, pos, pos, 'end');
+  ta.focus();
+  onEditorInput();
+}
+
+function insertDate() {
+  const ta   = document.getElementById('noteEditor');
+  const pos  = ta.selectionStart;
+  const d    = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  ta.setRangeText(d, pos, pos, 'end');
+  ta.focus();
+  onEditorInput();
+}
+
+function changeFont() {
+  document.getElementById('noteEditor').style.fontFamily = document.getElementById('fontSel').value;
+}
+
+function changeFontSize() {
+  const sz = parseInt(document.getElementById('fontSizeInp').value) || 15;
+  document.getElementById('noteEditor').style.fontSize = Math.max(8, Math.min(36, sz)) + 'px';
+}
+
+// ══════════════════════════════════════════
+// CHECKLIST
+// ══════════════════════════════════════════
+function renderChecklist() {
+  const cont = document.getElementById('checklistItems');
+  if (!checklistData.length) checklistData = [{text:'',checked:false}];
+  cont.innerHTML = checklistData.map((item,i) => `
+    <div class="cl-item-row">
+      <input type="checkbox" class="cl-chk" ${item.checked?'checked':''} onchange="checklistData[${i}].checked=this.checked"/>
+      <input type="text" class="cl-text" value="${escH(item.text)}" placeholder="Task item…"
+        oninput="checklistData[${i}].text=this.value"/>
+      <button class="cl-rm" onclick="removeChecklistItem(${i})">✕</button>
+    </div>`).join('');
+}
+
+function addChecklistItem() {
+  checklistData.push({text:'',checked:false});
+  renderChecklist();
+  const inputs = document.querySelectorAll('.cl-text');
+  inputs[inputs.length-1]?.focus();
+}
+
+function removeChecklistItem(i) {
+  checklistData.splice(i,1);
+  if(!checklistData.length) checklistData=[{text:'',checked:false}];
+  renderChecklist();
+}
+
+function insertChecklistToNote() {
+  const ta   = document.getElementById('noteEditor');
+  const pos  = ta.selectionStart;
+  const text = '\n' + checklistData.filter(i=>i.text.trim()).map(i=>`${i.checked?'☑':'☐'} ${i.text}`).join('\n') + '\n';
+  ta.setRangeText(text, pos, pos, 'end');
+  ta.focus();
+  onEditorInput();
+}
+
+// ══════════════════════════════════════════
+// COPY / DOWNLOAD
+// ══════════════════════════════════════════
+function copyNote() {
+  navigator.clipboard.writeText(document.getElementById('noteEditor').value)
+    .then(() => {
+      const btn = event.target;
+      btn.textContent = '✅';
+      setTimeout(() => btn.textContent = '📋', 1500);
+    });
+}
+
+function downloadNote() {
+  const title = document.getElementById('noteTitleInp').value.trim() || 'note';
+  const text  = document.getElementById('noteEditor').value;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type:'text/plain'}));
+  a.download = title.replace(/[^a-zA-Z0-9_\-]/g,'_') + '.txt';
+  a.click();
+}
+
+// ══════════════════════════════════════════
+// DARK MODE
+// ══════════════════════════════════════════
+function toggleDark() {
+  isDark = !isDark;
+  document.body.classList.toggle('dark', isDark);
+  localStorage.setItem(DARK_KEY, isDark ? '1' : '0');
+  document.getElementById('btnDark').textContent = isDark ? '☀️' : '🌙';
+}
+
+// ══════════════════════════════════════════
+// FOCUS MODE
+// ══════════════════════════════════════════
+function toggleFocus() {
+  isFocus = !isFocus;
+  const wrap = document.getElementById('notepadWrap');
+  if (isFocus) {
+    wrap.style.gridTemplateColumns = '0 1fr';
+    document.querySelector('.notes-list').style.display = 'none';
+    document.getElementById('btnFocus').textContent = '⬅️';
+  } else {
+    wrap.style.gridTemplateColumns = '';
+    document.querySelector('.notes-list').style.display = '';
+    document.getElementById('btnFocus').textContent = '🎯';
+  }
+}
+
+// ══════════════════════════════════════════
+// KEYBOARD SHORTCUTS
+// ══════════════════════════════════════════
+function handleKeydown(e) {
+  // Tab = 2 spaces
+  if (e.key === 'Tab') {
+    e.preventDefault();
+    const ta  = e.target;
+    const pos = ta.selectionStart;
+    ta.setRangeText('  ', pos, pos, 'end');
+    onEditorInput();
+  }
+  // Ctrl+S
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    saveCurrentNote();
+  }
+}
+
+document.addEventListener('keydown', e => {
+  // Ctrl+N
+  if ((e.ctrlKey || e.metaKey) && e.key === 'n' && document.activeElement.id !== 'noteSearch') {
+    e.preventDefault();
+    newNote();
+  }
+  // Ctrl+H
+  if ((e.ctrlKey || e.metaKey) && e.key === 'h') {
+    e.preventDefault();
+    togglePanel('find');
+  }
+  // Ctrl+S (global)
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    saveCurrentNote();
+  }
+});
+
+function escH(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function toggleFaq(el){ el.classList.toggle('open'); }
+
+// Category animations
+const ob = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; ob.unobserve(e.target); }});
+},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i) => {
+  c.style.cssText += `;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;
+  ob.observe(c);
+});
+
+// ══════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════
+(function init() {
+  // Load dark preference
+  isDark = localStorage.getItem(DARK_KEY) === '1';
+  if (isDark) { document.body.classList.add('dark'); document.getElementById('btnDark').textContent = '☀️'; }
+
+  loadNotes();
+  renderNoteList();
+
+  // Open first note
+  if (notes.length) openNote(notes[0].id);
+})();
+</script>
+</body>
+</html>
