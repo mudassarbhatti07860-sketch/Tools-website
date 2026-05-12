@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');</script>
+<title>CSS Gradient Generator – Free Online | ToolNex</title>
+<meta name="description" content="Free CSS Gradient Generator. Create linear, radial and conic gradients with live preview. Copy CSS code instantly. Multiple stops, angle control, presets."/>
+<link rel="canonical" href="https://toolnex.site/gradient-generator.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+.hdr-link:hover{background:#f1f3f4;}
+@media(max-width:650px){.hdr-links{display:none;}}
+.ad-wrap{display:flex;justify-content:center;padding:.4rem 1rem;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:8px;font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;width:100%;max-width:728px;}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;padding:.35rem 0;}
+.ad-top .adslot{height:90px;}
+.ad-mid{background:#fff;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;padding:.4rem 0;margin:1.2rem 0;}
+.ad-mid .adslot{height:90px;}
+@media(max-width:740px){.ad-top .adslot{height:50px;max-width:320px;}.ad-mid .adslot{height:50px;max-width:320px;}}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}.breadcrumb .cur{color:#202124;font-weight:600;}
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+/* GRADIENT PREVIEW */
+.grad-preview{width:100%;height:200px;border-radius:16px;border:2px solid rgba(0,0,0,.06);margin-bottom:1rem;transition:background .2s;position:relative;}
+/* TYPE TABS */
+.type-tabs{display:flex;gap:.4rem;margin-bottom:.9rem;}
+.type-tab{flex:1;border:2px solid #e8eaed;background:#fff;border-radius:10px;padding:.5rem;font-size:.78rem;font-weight:700;color:#5f6368;cursor:pointer;text-align:center;transition:all .15s;}
+.type-tab:hover{border-color:#667eea;color:#667eea;}
+.type-tab.active{background:#f0f0ff;border-color:#667eea;color:#3730a3;}
+/* STOPS */
+.stops-label{font-size:.74rem;font-weight:700;color:#3c4043;margin-bottom:.5rem;}
+.stop-list{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.6rem;}
+.stop-row{display:flex;align-items:center;gap:.5rem;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.45rem .7rem;}
+.stop-color{width:34px;height:34px;border:none;border-radius:7px;cursor:pointer;padding:.1rem;}
+.stop-pos{flex:1;accent-color:#667eea;}
+.stop-pos-val{font-size:.72rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:#667eea;min-width:36px;}
+.stop-del{background:none;border:none;color:#9aa0a6;font-size:.9rem;cursor:pointer;}
+.stop-del:hover{color:#ef4444;}
+.add-stop-btn{width:100%;border:2px dashed #d1d5db;background:#fff;border-radius:10px;padding:.45rem;font-size:.78rem;font-weight:600;color:#6b7280;cursor:pointer;margin-bottom:.8rem;transition:all .15s;}
+.add-stop-btn:hover{border-color:#667eea;color:#667eea;}
+/* ANGLE */
+.ctrl-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;}
+.ctrl-label{font-size:.74rem;font-weight:700;color:#3c4043;white-space:nowrap;min-width:60px;}
+.ctrl-range{flex:1;accent-color:#667eea;}
+.ctrl-val{font-size:.74rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:#667eea;min-width:45px;}
+/* CSS OUTPUT */
+.css-output{background:#1a1d2e;border-radius:12px;padding:.85rem 1rem;font-size:.8rem;font-family:'JetBrains Mono',monospace;color:#a5b4fc;line-height:1.7;word-break:break-all;margin-bottom:.6rem;}
+.copy-css-btn{width:100%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:12px;padding:.75rem;font-size:.88rem;font-weight:700;cursor:pointer;transition:opacity .15s;}
+.copy-css-btn:hover{opacity:.9;}
+/* PRESETS */
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:.4rem;margin-top:.5rem;}
+.preset-swatch{height:52px;border-radius:10px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;}
+.preset-swatch:hover{transform:scale(1.07);border-color:#667eea;}
+.sec-hdr{font-size:.8rem;font-weight:700;color:#202124;margin:.9rem 0 .5rem;display:flex;align-items:center;gap:.4rem;}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#f0f0ff;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:#202124;color:#fff;padding:.55rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;opacity:0;transition:all .25s;pointer-events:none;z-index:9999;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+<div class="ad-top ad-wrap"><div class="adslot">📢 Top Banner Ad · 728×90</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><a href="design-tools.html">Design Tools</a><span class="sep">›</span><span class="cur">Gradient Generator</span></nav>
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">🌈</div>
+    <div class="tool-hero-text">
+      <h1>CSS Gradient Generator – Free Online</h1>
+      <p>Create stunning linear, radial and conic CSS gradients with live preview. Add multiple color stops, control angle and position. Copy the CSS code instantly. Includes beautiful presets.</p>
+      <div class="tool-hero-tags"><span class="tool-tag">🆓 Free</span><span class="tool-tag">Linear Radial Conic</span><span class="tool-tag">Multiple Stops</span><span class="tool-tag">⬇️ Copy CSS</span></div>
+    </div>
+  </div>
+</section>
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🌈 CSS Gradient Generator</h2><span style="font-size:.72rem;color:#22c55e;font-weight:600;">Live Preview</span></div>
+  <div class="tool-card-body">
+    <div class="grad-preview" id="gradPreview"></div>
+    <div class="type-tabs">
+      <button class="type-tab active" onclick="setType('linear',this)">Linear</button>
+      <button class="type-tab" onclick="setType('radial',this)">Radial</button>
+      <button class="type-tab" onclick="setType('conic',this)">Conic</button>
+    </div>
+    <div class="ctrl-row" id="angleRow">
+      <span class="ctrl-label">Angle</span>
+      <input type="range" class="ctrl-range" id="angleRange" min="0" max="360" value="135" oninput="document.getElementById('angleVal').textContent=this.value+'°';buildGradient()"/>
+      <span class="ctrl-val" id="angleVal">135°</span>
+    </div>
+    <div class="stops-label">Color Stops</div>
+    <div class="stop-list" id="stopList"></div>
+    <button class="add-stop-btn" onclick="addStop()">＋ Add Color Stop</button>
+    <div class="css-output" id="cssOutput"></div>
+    <button class="copy-css-btn" onclick="copyCss()">📋 Copy CSS Code</button>
+    <div class="sec-hdr">✨ Presets</div>
+    <div class="preset-grid" id="presetGrid"></div>
+  </div>
+</div>
+<div class="ad-mid ad-wrap"><div class="adslot">📢 Responsive Mid Ad · 728×90 / 320×50</div></div>
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🗂️ Browse All Categories</h2></div>
+  <div class="tool-card-body" style="padding:1rem;">
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Gradient Tips</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">📐</span><span class="tip-text"><strong>Linear</strong> gradients go in a straight line. Use 0° for top-to-bottom, 90° for left-to-right.</span></div>
+      <div class="tip-item"><span class="tip-ico">🔵</span><span class="tip-text"><strong>Radial</strong> gradients emanate from a center point outward in a circle or ellipse.</span></div>
+      <div class="tip-item"><span class="tip-ico">🌀</span><span class="tip-text"><strong>Conic</strong> gradients rotate colors around a center point — great for pie charts and spinners.</span></div>
+      <div class="tip-item"><span class="tip-ico">🎨</span><span class="tip-text">Add <strong>transparent</strong> stops for fade-in/out effects over backgrounds.</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Design Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="color-picker.html" class="rel-tool"><div class="rel-tool-ico">🎨</div><div><div class="rel-tool-name">Color Picker</div><div class="rel-tool-desc">HEX RGB HSL values</div></div></a>
+      <a href="color-palette-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">🎨</div><div><div class="rel-tool-name">Palette Generator</div><div class="rel-tool-desc">Generate color palettes</div></div></a>
+      <a href="box-shadow-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f5e9;">🟦</div><div><div class="rel-tool-name">Box Shadow</div><div class="rel-tool-desc">CSS box-shadow builder</div></div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the difference between linear, radial and conic gradients?</div><div class="faq-a">A linear gradient transitions colors along a straight line at a specified angle. A radial gradient radiates from a center point outward in circular or elliptical shapes. A conic gradient sweeps colors around a center point like a color wheel — perfect for pie charts, color wheels, and spinner designs. All three are supported in all modern browsers with the CSS gradient() functions.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How do I add a gradient to a CSS background?</div><div class="faq-a">Copy the generated CSS code and paste it as your background property: background: linear-gradient(135deg, #667eea, #764ba2). You can also add it as background-image. For overlays on top of images, combine with background syntax: background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(image.jpg).</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I use gradients as text colors in CSS?</div><div class="faq-a">Yes, using the clip technique: set background to your gradient, then add -webkit-background-clip: text and -webkit-text-fill-color: transparent (or background-clip: text and color: transparent for modern browsers). This clips the gradient to the text shape, creating colorful gradient text effects widely used in modern web design.</div></div>
+  </div>
+</div>
+<footer class="ftr"><div class="ftr-in">
+  <div class="ftr-top">
+    <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools. Fast, private, no sign-up.</p></div>
+    <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="fc"><h4>Design Tools</h4><ul><li><a href="gradient-generator.html">Gradient Generator</a></li><li><a href="color-picker.html">Color Picker</a></li><li><a href="color-palette-generator.html">Palette Generator</a></li><li><a href="contrast-checker.html">Contrast Checker</a></li></ul></div>
+    <div class="fc"><h4>CSS Tools</h4><ul><li><a href="box-shadow-generator.html">Box Shadow</a></li><li><a href="border-radius-generator.html">Border Radius</a></li><li><a href="css-flexbox-generator.html">Flexbox</a></li><li><a href="css-grid-generator.html">Grid Generator</a></li></ul></div>
+  </div>
+  <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+</div></footer>
+<div class="toast" id="toast"></div>
+<script>
+let gradType='linear';
+let stops=[{color:'#667eea',pos:0},{color:'#764ba2',pos:100}];
+const PRESETS=[
+  ['#667eea','#764ba2'],['#f093fb','#f5576c'],['#4facfe','#00f2fe'],
+  ['#43e97b','#38f9d7'],['#fa709a','#fee140'],['#a18cd1','#fbc2eb'],
+  ['#ffecd2','#fcb69f'],['#ff9a9e','#fecfef'],['#a1c4fd','#c2e9fb'],
+  ['#fddb92','#d1fdff'],['#30cfd0','#330867'],['#f77062','#fe5196'],
+];
+function setType(t,btn){gradType=t;document.querySelectorAll('.type-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('angleRow').style.display=t==='linear'?'flex':'none';buildGradient();}
+function renderStops(){
+  document.getElementById('stopList').innerHTML=stops.map((s,i)=>`
+    <div class="stop-row">
+      <input type="color" class="stop-color" value="${s.color}" oninput="stops[${i}].color=this.value;buildGradient()"/>
+      <input type="range" class="stop-pos" min="0" max="100" value="${s.pos}" oninput="stops[${i}].pos=parseInt(this.value);document.querySelectorAll('.stop-pos-val')[${i}].textContent=this.value+'%';buildGradient()"/>
+      <span class="stop-pos-val">${s.pos}%</span>
+      ${stops.length>2?`<button class="stop-del" onclick="stops.splice(${i},1);renderStops();buildGradient()">✕</button>`:''}
+    </div>`).join('');
+}
+function addStop(){stops.push({color:'#ffffff',pos:50});renderStops();buildGradient();}
+function buildGradient(){
+  const sorted=[...stops].sort((a,b)=>a.pos-b.pos);
+  const stopsStr=sorted.map(s=>`${s.color} ${s.pos}%`).join(', ');
+  const angle=document.getElementById('angleRange').value;
+  let css;
+  if(gradType==='linear')css=`linear-gradient(${angle}deg, ${stopsStr})`;
+  else if(gradType==='radial')css=`radial-gradient(circle, ${stopsStr})`;
+  else css=`conic-gradient(from ${angle}deg, ${stopsStr})`;
+  document.getElementById('gradPreview').style.background=css;
+  document.getElementById('cssOutput').textContent=`background: ${css};`;
+}
+function copyCss(){const t=document.getElementById('cssOutput').textContent;navigator.clipboard.writeText(t).then(()=>showToast('CSS copied!'));}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
+// Presets
+document.getElementById('presetGrid').innerHTML=PRESETS.map(([a,b])=>`<div class="preset-swatch" style="background:linear-gradient(135deg,${a},${b})" onclick="stops=[{color:'${a}',pos:0},{color:'${b}',pos:100}];renderStops();buildGradient()"></div>`).join('');
+renderStops();buildGradient();
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ob.unobserve(e.target);}});},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i)=>{c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;ob.observe(c);});
+</script>
+</body>
+</html>
