@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');</script>
+<title>Font Pairer – Google Font Combinations & Pairings | ToolNex</title>
+<meta name="description" content="Free Font Pairer. Discover beautiful Google Fonts pairings for heading and body text. Preview live, customize sizes, copy CSS. 50+ curated pairings."/>
+<link rel="canonical" href="https://toolnex.site/font-pairer.html"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;}
+a{text-decoration:none;color:inherit;}button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;color:#202124;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+@media(max-width:650px){.hdr-links{display:none;}}
+.ad-wrap{display:flex;justify-content:center;padding:.4rem 1rem;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:8px;font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;width:100%;max-width:728px;}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;padding:.35rem 0;}
+.ad-top .adslot{height:90px;}
+.ad-mid{background:#fff;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;padding:.4rem 0;margin:1.2rem 0;}
+.ad-mid .adslot{height:90px;}
+@media(max-width:740px){.ad-top .adslot{height:50px;max-width:320px;}.ad-mid .adslot{height:50px;max-width:320px;}}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}.breadcrumb .cur{color:#202124;font-weight:600;}
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#ede7f6;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+/* FILTERS */
+.filter-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;}
+.filter-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:8px;padding:.28rem .7rem;font-size:.73rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;}
+.filter-btn:hover,.filter-btn.active{background:#ede7f6;border-color:#7c3aed;color:#4c1d95;}
+/* CUSTOM PAIR */
+.custom-pair{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:14px;padding:.9rem 1rem;margin-bottom:1rem;}
+.cp-title{font-size:.76rem;font-weight:700;color:#3c4043;margin-bottom:.6rem;}
+.cp-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.5rem;}
+.cp-item label{display:block;font-size:.68rem;font-weight:700;color:#5f6368;margin-bottom:.25rem;}
+.cp-select{width:100%;background:#fff;border:1.5px solid #e8eaed;border-radius:8px;padding:.42rem .65rem;font-size:.78rem;font-family:'DM Sans',sans-serif;color:#202124;outline:none;}
+.cp-select:focus{border-color:#7c3aed;}
+.preview-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;margin-bottom:1rem;transition:box-shadow .15s;}
+.preview-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);}
+.pc-heading{font-weight:700;color:#202124;line-height:1.25;margin-bottom:.5rem;}
+.pc-body{color:#5f6368;line-height:1.7;}
+.pc-meta{display:flex;align-items:center;justify-content:space-between;margin-top:.8rem;flex-wrap:wrap;gap:.4rem;}
+.pc-fonts{font-size:.7rem;color:#9aa0a6;}
+.pc-fonts strong{color:#7c3aed;}
+.pc-copy{border:1.5px solid #7c3aed;background:#fff;color:#7c3aed;border-radius:8px;padding:.25rem .65rem;font-size:.7rem;font-weight:700;cursor:pointer;transition:all .13s;}
+.pc-copy:hover{background:#7c3aed;color:#fff;}
+/* PAIRINGS GRID */
+.pairings-grid{display:flex;flex-direction:column;gap:.8rem;}
+/* SIZE CONTROLS */
+.size-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;flex-wrap:wrap;}
+.size-item{display:flex;align-items:center;gap:.4rem;}
+.size-item label{font-size:.7rem;font-weight:700;color:#3c4043;}
+.size-range{accent-color:#7c3aed;width:80px;}
+.size-val{font-size:.7rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:#7c3aed;min-width:32px;}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#ede7f6;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:#202124;color:#fff;padding:.55rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;opacity:0;transition:all .25s;pointer-events:none;z-index:9999;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+<div class="ad-top ad-wrap"><div class="adslot">📢 Top Banner Ad · 728×90</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><a href="design-tools.html">Design Tools</a><span class="sep">›</span><span class="cur">Font Pairer</span></nav>
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">✏️</div>
+    <div class="tool-hero-text">
+      <h1>Font Pairer – Google Fonts Combinations & Pairings</h1>
+      <p>Discover beautiful Google Fonts pairings for headings and body text. Browse 50+ curated combinations, build your own custom pairing, preview live text and copy the CSS code instantly.</p>
+      <div class="tool-hero-tags"><span class="tool-tag">🆓 Free</span><span class="tool-tag">Google Fonts</span><span class="tool-tag">50+ Pairings</span><span class="tool-tag">Live Preview</span><span class="tool-tag">Copy CSS</span></div>
+    </div>
+  </div>
+</section>
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+<div class="tool-card">
+  <div class="tool-card-header"><h2>✏️ Font Pairer</h2><span style="font-size:.72rem;color:#7c3aed;font-weight:600;">50+ Curated Google Font Pairs</span></div>
+  <div class="tool-card-body">
+    <div class="filter-row" id="filterRow"></div>
+    <div class="size-row">
+      <div class="size-item"><label>Heading Size</label><input type="range" class="size-range" id="hSize" min="18" max="48" value="32" oninput="document.getElementById('hSizeVal').textContent=this.value+'px';renderPairings()"/><span class="size-val" id="hSizeVal">32px</span></div>
+      <div class="size-item"><label>Body Size</label><input type="range" class="size-range" id="bSize" min="12" max="22" value="15" oninput="document.getElementById('bSizeVal').textContent=this.value+'px';renderPairings()"/><span class="size-val" id="bSizeVal">15px</span></div>
+    </div>
+    <div class="custom-pair">
+      <div class="cp-title">🎛️ Build Your Own Pairing</div>
+      <div class="cp-grid">
+        <div class="cp-item"><label>Heading Font</label><select class="cp-select" id="customH" onchange="previewCustom()"><option>Loading...</option></select></div>
+        <div class="cp-item"><label>Body Font</label><select class="cp-select" id="customB" onchange="previewCustom()"><option>Loading...</option></select></div>
+      </div>
+      <div class="preview-card" id="customPreview" style="display:none;"></div>
+    </div>
+    <div class="pairings-grid" id="pairingsGrid"></div>
+  </div>
+</div>
+<div class="ad-mid ad-wrap"><div class="adslot">📢 Responsive Mid Ad · 728×90 / 320×50</div></div>
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🗂️ Browse All Categories</h2></div>
+  <div class="tool-card-body" style="padding:1rem;">
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Font Pairing Tips</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">🎨</span><span class="tip-text"><strong>Contrast styles</strong> — Pair a serif heading with a sans-serif body for classic elegance.</span></div>
+      <div class="tip-item"><span class="tip-ico">📏</span><span class="tip-text"><strong>Limit to 2 fonts</strong> — More than 2 typefaces creates visual clutter.</span></div>
+      <div class="tip-item"><span class="tip-ico">⚖️</span><span class="tip-text"><strong>Size contrast</strong> — Make headings significantly larger than body (2–3x) for clear hierarchy.</span></div>
+      <div class="tip-item"><span class="tip-ico">🔤</span><span class="tip-text"><strong>Same family</strong> — Using different weights of the same typeface also creates great pairings.</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Design Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="color-picker.html" class="rel-tool"><div class="rel-tool-ico">🎨</div><div><div class="rel-tool-name">Color Picker</div><div class="rel-tool-desc">Pick text colors</div></div></a>
+      <a href="contrast-checker.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f5e9;">👁️</div><div><div class="rel-tool-name">Contrast Checker</div><div class="rel-tool-desc">WCAG accessibility</div></div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ FAQ – Font Pairer</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What makes a good font pairing?</div><div class="faq-a">Good font pairings create contrast and harmony simultaneously. The most reliable approach is pairing a serif font (with decorative strokes) for headings with a sans-serif font (clean, no strokes) for body text. This creates visual contrast while maintaining readability. You can also pair fonts from the same superfamily at different weights (e.g. bold display + regular text version). Avoid pairing fonts that are too similar — they blend together without creating useful hierarchy.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How do I add Google Fonts to my website?</div><div class="faq-a">Add the Google Fonts link tag to your HTML head section, then use the font in CSS. Example: &lt;link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet"&gt;. Then in CSS: h1 { font-family: 'Playfair Display', serif; } p { font-family: 'Lato', sans-serif; }. Use display=swap to prevent invisible text during font load.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How many fonts should I use on a website?</div><div class="faq-a">Two fonts is the golden rule for most websites — one for headings and one for body text. Three can work if the third is used sparingly (e.g. a monospace font for code). More than three fonts usually creates visual chaos and slows page load (each Google Font is an additional HTTP request). Stick to 2 fonts and create hierarchy through size, weight, and color instead.</div></div>
+  </div>
+</div>
+<footer class="ftr"><div class="ftr-in">
+  <div class="ftr-top">
+    <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools. Fast, private, no sign-up.</p></div>
+    <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="fc"><h4>Design Tools</h4><ul><li><a href="font-pairer.html">Font Pairer</a></li><li><a href="color-picker.html">Color Picker</a></li><li><a href="gradient-generator.html">Gradient</a></li><li><a href="favicon-generator.html">Favicon Generator</a></li></ul></div>
+    <div class="fc"><h4>CSS Tools</h4><ul><li><a href="box-shadow-generator.html">Box Shadow</a></li><li><a href="border-radius-generator.html">Border Radius</a></li><li><a href="css-flexbox-generator.html">Flexbox</a></li><li><a href="css-grid-generator.html">Grid Generator</a></li></ul></div>
+  </div>
+  <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+</div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const PAIRINGS=[
+  {h:'Playfair Display',b:'Lato',cat:'Elegant'},
+  {h:'Merriweather',b:'Open Sans',cat:'Classic'},
+  {h:'Oswald',b:'Roboto',cat:'Modern'},
+  {h:'Raleway',b:'Merriweather',cat:'Elegant'},
+  {h:'Montserrat',b:'Georgia',cat:'Modern'},
+  {h:'Abril Fatface',b:'Lato',cat:'Bold'},
+  {h:'Poppins',b:'Roboto',cat:'Modern'},
+  {h:'Playfair Display',b:'Source Sans Pro',cat:'Elegant'},
+  {h:'Josefin Sans',b:'Cardo',cat:'Minimal'},
+  {h:'Raleway',b:'Lato',cat:'Minimal'},
+  {h:'Nunito',b:'Nunito',cat:'Friendly'},
+  {h:'Lobster',b:'Cabin',cat:'Bold'},
+  {h:'EB Garamond',b:'Open Sans',cat:'Classic'},
+  {h:'Ubuntu',b:'Ubuntu',cat:'Modern'},
+  {h:'Arvo',b:'Lato',cat:'Classic'},
+];
+const CATS=['All','Elegant','Classic','Modern','Bold','Minimal','Friendly'];
+const FONTS=['Open Sans','Roboto','Lato','Montserrat','Oswald','Raleway','Poppins','Merriweather','Playfair Display','Ubuntu','Source Sans Pro','Nunito','Josefin Sans','Arvo','Cabin','Cardo','EB Garamond','Abril Fatface','Lobster'];
+let activeFilter='All';
+let loadedFonts=new Set();
+function loadFont(name){if(loadedFonts.has(name))return;loadedFonts.add(name);const link=document.createElement('link');link.rel='stylesheet';link.href=`https://fonts.googleapis.com/css2?family=${name.replace(/ /g,'+')}:wght@400;700&display=swap`;document.head.appendChild(link);}
+function renderPairings(){
+  const hSz=document.getElementById('hSize').value+'px';
+  const bSz=document.getElementById('bSize').value+'px';
+  const pairs=activeFilter==='All'?PAIRINGS:PAIRINGS.filter(p=>p.cat===activeFilter);
+  document.getElementById('pairingsGrid').innerHTML=pairs.map(p=>{
+    loadFont(p.h);loadFont(p.b);
+    const css=`@import url('https://fonts.googleapis.com/css2?family=${p.h.replace(/ /g,'+')}:wght@700&family=${p.b.replace(/ /g,'+')}:wght@400&display=swap');\n\nh1 { font-family: '${p.h}', serif; font-weight: 700; }\np { font-family: '${p.b}', sans-serif; }`;
+    return `<div class="preview-card">
+      <div class="pc-heading" style="font-family:'${p.h}',serif;font-size:${hSz}">The quick brown fox jumps</div>
+      <div class="pc-body" style="font-family:'${p.b}',sans-serif;font-size:${bSz}">Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed.</div>
+      <div class="pc-meta">
+        <div class="pc-fonts">Heading: <strong>${p.h}</strong> &nbsp;·&nbsp; Body: <strong>${p.b}</strong> &nbsp;·&nbsp; <span style="background:#ede7f6;border-radius:5px;padding:.1rem .4rem;font-size:.63rem;">${p.cat}</span></div>
+        <button class="pc-copy" onclick="copyCss(\`${css.replace(/`/g,'\\`')}\`)">Copy CSS</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+// Populate custom selects
+[document.getElementById('customH'),document.getElementById('customB')].forEach((sel,i)=>{sel.innerHTML=FONTS.map(f=>`<option>${f}</option>`).join('');if(i===0)sel.value='Playfair Display';else sel.value='Lato';});
+function previewCustom(){
+  const h=document.getElementById('customH').value;
+  const b=document.getElementById('customB').value;
+  loadFont(h);loadFont(b);
+  const hSz=document.getElementById('hSize').value+'px';
+  const bSz=document.getElementById('bSize').value+'px';
+  const p=document.getElementById('customPreview');
+  p.style.display='block';
+  p.innerHTML=`<div class="pc-heading" style="font-family:'${h}',serif;font-size:${hSz}">Your Custom Font Pairing</div>
+    <div class="pc-body" style="font-family:'${b}',sans-serif;font-size:${bSz}">This is how your chosen heading and body fonts look together in a real design context. Typography shapes how readers experience your content.</div>
+    <div class="pc-meta"><div class="pc-fonts">Heading: <strong>${h}</strong> &nbsp;·&nbsp; Body: <strong>${b}</strong></div><button class="pc-copy" onclick="copyCss(\"h1 { font-family: '${h}', serif; font-weight:700; }\\np { font-family: '${b}', sans-serif; }\")" >Copy CSS</button></div>`;
+}
+// Filters
+document.getElementById('filterRow').innerHTML=CATS.map(c=>`<button class="filter-btn${c==='All'?' active':''}" onclick="activeFilter='${c}';document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');renderPairings()">${c}</button>`).join('');
+function copyCss(t){navigator.clipboard.writeText(t).then(()=>showToast('CSS copied!'));}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
+FONTS.forEach(loadFont);renderPairings();previewCustom();
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ob.unobserve(e.target);}});},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i)=>{c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;ob.observe(c);});
+</script>
+</body>
+</html>
