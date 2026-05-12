@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');</script>
+<title>Color Picker – HEX RGB HSL Color Picker Free Online | ToolNex</title>
+<meta name="description" content="Free online Color Picker. Pick any color and get HEX, RGB, HSL, CMYK values instantly. Color history, shades, tints, complementary colors. No sign-up."/>
+<link rel="canonical" href="https://toolnex.site/color-picker.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+.hdr-link:hover{background:#f1f3f4;}
+@media(max-width:650px){.hdr-links{display:none;}}
+/* ADS - RESPONSIVE */
+.ad-wrap{display:flex;justify-content:center;padding:.4rem 1rem;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:8px;font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;width:100%;max-width:728px;}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;padding:.35rem 0;}
+.ad-top .adslot{height:90px;}
+.ad-mid{background:#fff;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;padding:.4rem 0;margin:1.2rem 0;}
+.ad-mid .adslot{height:90px;}
+@media(max-width:740px){.ad-top .adslot{height:50px;max-width:320px;}.ad-mid .adslot{height:50px;max-width:320px;}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:linear-gradient(135deg,#ff6b6b,#ffd93d,#6bcb77,#4d96ff);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+/* COLOR PICKER */
+.picker-center{display:flex;flex-direction:column;align-items:center;gap:1rem;}
+.color-preview-big{width:100%;height:160px;border-radius:16px;border:2px solid rgba(0,0,0,.08);transition:background .15s;position:relative;display:flex;align-items:flex-end;padding:.7rem;}
+.color-preview-hex{font-size:1.1rem;font-weight:700;font-family:'JetBrains Mono',monospace;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.native-picker{width:100%;height:54px;border:2px solid #e8eaed;border-radius:12px;cursor:pointer;padding:.25rem;background:#fff;}
+.native-picker::-webkit-color-swatch-wrapper{padding:0;}
+.native-picker::-webkit-color-swatch{border-radius:8px;border:none;}
+/* VALUES GRID */
+.val-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.5rem;width:100%;}
+.val-item{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.55rem .75rem;cursor:pointer;transition:all .13s;}
+.val-item:hover{border-color:#1a73e8;background:#e8f0fe;}
+.val-label{font-size:.62rem;font-weight:700;color:#9aa0a6;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem;}
+.val-value{font-size:.82rem;font-weight:700;font-family:'JetBrains Mono',monospace;color:#202124;}
+/* HEX INPUT */
+.hex-row{display:flex;gap:.5rem;width:100%;}
+.hex-inp{flex:1;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.55rem .85rem;font-size:.9rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:#202124;outline:none;transition:border-color .15s;}
+.hex-inp:focus{border-color:#1a73e8;background:#fff;}
+.hex-btn{background:#1a73e8;color:#fff;border:none;border-radius:10px;padding:.55rem 1rem;font-size:.8rem;font-weight:700;}
+.hex-btn:hover{background:#1558c0;}
+/* SHADES */
+.sec-hdr{font-size:.8rem;font-weight:700;color:#202124;margin:.9rem 0 .5rem;display:flex;align-items:center;gap:.4rem;}
+.shades-row{display:flex;gap:.3rem;flex-wrap:wrap;}
+.shade-swatch{width:40px;height:40px;border-radius:8px;cursor:pointer;border:2px solid rgba(0,0,0,.06);transition:transform .15s,box-shadow .15s;flex-shrink:0;}
+.shade-swatch:hover{transform:scale(1.15);box-shadow:0 4px 12px rgba(0,0,0,.2);}
+/* HISTORY */
+.history-row{display:flex;gap:.35rem;flex-wrap:wrap;}
+.hist-swatch{width:32px;height:32px;border-radius:7px;cursor:pointer;border:2px solid rgba(0,0,0,.06);transition:transform .13s;}
+.hist-swatch:hover{transform:scale(1.18);}
+/* CATEGORY */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#fff8e1;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:#202124;color:#fff;padding:.55rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;opacity:0;transition:all .25s;pointer-events:none;z-index:9999;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+<div class="ad-top ad-wrap"><div class="adslot">📢 Top Banner Ad · 728×90</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><a href="design-tools.html">Design Tools</a><span class="sep">›</span><span class="cur">Color Picker</span></nav>
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">🎨</div>
+    <div class="tool-hero-text">
+      <h1>Color Picker – HEX, RGB, HSL Color Picker Online</h1>
+      <p>Pick any color and instantly get HEX, RGB, HSL, and CMYK values. Explore shades, tints, complementary colors, and save your color history. Copy any value with one click.</p>
+      <div class="tool-hero-tags"><span class="tool-tag">🆓 Free</span><span class="tool-tag">HEX RGB HSL CMYK</span><span class="tool-tag">🎨 Shades & Tints</span><span class="tool-tag">📜 History</span></div>
+    </div>
+  </div>
+</section>
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🎨 Color Picker</h2><span style="font-size:.72rem;color:#22c55e;font-weight:600;">Click any value to copy</span></div>
+  <div class="tool-card-body">
+    <div class="picker-center">
+      <div class="color-preview-big" id="previewBig" style="background:#1a73e8;">
+        <span class="color-preview-hex" id="previewHex">#1a73e8</span>
+      </div>
+      <input type="color" class="native-picker" id="colorPicker" value="#1a73e8" oninput="updateColor(this.value)"/>
+      <div class="hex-row">
+        <input class="hex-inp" type="text" id="hexInp" value="#1a73e8" placeholder="#000000" oninput="onHexInput()"/>
+        <button class="hex-btn" onclick="applyHex()">Apply</button>
+      </div>
+      <div class="val-grid" id="valGrid"></div>
+    </div>
+    <div class="sec-hdr">🎨 Shades & Tints</div>
+    <div class="shades-row" id="shadesRow"></div>
+    <div class="sec-hdr">🔄 Complementary Colors</div>
+    <div class="shades-row" id="compRow"></div>
+    <div class="sec-hdr">📜 Color History</div>
+    <div class="history-row" id="historyRow"><span style="font-size:.74rem;color:#9aa0a6;">Pick colors to build history</span></div>
+  </div>
+</div>
+<div class="ad-mid ad-wrap"><div class="adslot">📢 Responsive Mid Ad · 728×90 / 320×50</div></div>
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🗂️ Browse All Categories</h2></div>
+  <div class="tool-card-body" style="padding:1rem;">
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Color Tips</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">🎨</span><span class="tip-text"><strong>HEX</strong> is most common in web/CSS. Format: #RRGGBB.</span></div>
+      <div class="tip-item"><span class="tip-ico">🔴</span><span class="tip-text"><strong>RGB</strong> (0–255 per channel) is used in digital screens and CSS.</span></div>
+      <div class="tip-item"><span class="tip-ico">🌈</span><span class="tip-text"><strong>HSL</strong> (Hue 0–360°, Saturation, Lightness) is most human-readable for design.</span></div>
+      <div class="tip-item"><span class="tip-ico">🖨️</span><span class="tip-text"><strong>CMYK</strong> is for print. Convert to CMYK when designing for physical media.</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Design Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="gradient-generator.html" class="rel-tool"><div class="rel-tool-ico">🌈</div><div><div class="rel-tool-name">Gradient Generator</div><div class="rel-tool-desc">CSS gradient builder</div></div></a>
+      <a href="color-palette-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">🎨</div><div><div class="rel-tool-name">Palette Generator</div><div class="rel-tool-desc">Generate color palettes</div></div></a>
+      <a href="contrast-checker.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e8f5e9;">👁️</div><div><div class="rel-tool-name">Contrast Checker</div><div class="rel-tool-desc">WCAG accessibility</div></div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the difference between HEX, RGB and HSL?</div><div class="faq-a">HEX uses a 6-digit hexadecimal code (#RRGGBB) and is the most common format in web CSS. RGB specifies red, green, and blue channels each from 0–255. HSL (Hue, Saturation, Lightness) is the most intuitive for designers — hue is the color angle (0–360°), saturation is intensity, and lightness controls brightness from black to white. All three represent the same color space and can be converted between each other.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How do I use a color code in CSS?</div><div class="faq-a">In CSS you can use HEX directly: color: #1a73e8. Or RGB: color: rgb(26, 115, 232). Or HSL: color: hsl(217, 79%, 51%). Modern CSS also supports oklch() and color() for wider gamut displays. Click any value in this tool to copy it directly to your clipboard, then paste it into your CSS file.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What are complementary colors?</div><div class="faq-a">Complementary colors sit opposite each other on the color wheel (180° apart in HSL hue). They create strong contrast and visual interest when used together. For example, blue and orange are complementary. This tool shows you the complement plus triadic and analogous colors to help build harmonious color schemes for your designs.</div></div>
+  </div>
+</div>
+<footer class="ftr"><div class="ftr-in">
+  <div class="ftr-top">
+    <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools. Fast, private, no sign-up.</p></div>
+    <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="fc"><h4>Design Tools</h4><ul><li><a href="color-picker.html">Color Picker</a></li><li><a href="gradient-generator.html">Gradient Generator</a></li><li><a href="color-palette-generator.html">Palette Generator</a></li><li><a href="contrast-checker.html">Contrast Checker</a></li></ul></div>
+    <div class="fc"><h4>More Tools</h4><ul><li><a href="box-shadow-generator.html">Box Shadow</a></li><li><a href="border-radius-generator.html">Border Radius</a></li><li><a href="css-flexbox-generator.html">Flexbox Generator</a></li><li><a href="css-grid-generator.html">Grid Generator</a></li></ul></div>
+  </div>
+  <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+</div></footer>
+<div class="toast" id="toast"></div>
+<script>
+let colorHistory=[];
+function hexToRgb(hex){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return{r,g,b};}
+function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b);let h,s,l=(max+min)/2;if(max===min){h=s=0;}else{const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;case b:h=(r-g)/d+4;break;}h/=6;}return{h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};}
+function rgbToCmyk(r,g,b){r/=255;g/=255;b/=255;const k=1-Math.max(r,g,b);if(k===1)return{c:0,m:0,y:0,k:100};return{c:Math.round((1-r-k)/(1-k)*100),m:Math.round((1-g-k)/(1-k)*100),y:Math.round((1-b-k)/(1-k)*100),k:Math.round(k*100)};}
+function hslToHex(h,s,l){s/=100;l/=100;const a=s*Math.min(l,1-l);const f=n=>{const k=(n+h/30)%12;const color=l-a*Math.max(Math.min(k-3,9-k,1),-1);return Math.round(255*color).toString(16).padStart(2,'0');};return'#'+f(0)+f(8)+f(4);}
+function getLuminance(r,g,b){const [rs,gs,bs]=[r,g,b].map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);});return.2126*rs+.7152*gs+.0722*bs;}
+function updateColor(hex){
+  if(!/^#[0-9a-fA-F]{6}$/.test(hex))return;
+  const {r,g,b}=hexToRgb(hex);
+  const {h,s,l}=rgbToHsl(r,g,b);
+  const {c,m,y,k}=rgbToCmyk(r,g,b);
+  document.getElementById('previewBig').style.background=hex;
+  document.getElementById('previewHex').textContent=hex.toUpperCase();
+  document.getElementById('hexInp').value=hex.toUpperCase();
+  document.getElementById('colorPicker').value=hex;
+  const lum=getLuminance(r,g,b);
+  document.getElementById('previewHex').style.color=lum>.4?'#202124':'#fff';
+  // Values
+  const vals=[
+    {label:'HEX',value:hex.toUpperCase()},
+    {label:'RGB',value:`rgb(${r}, ${g}, ${b})`},
+    {label:'HSL',value:`hsl(${h}, ${s}%, ${l}%)`},
+    {label:'CMYK',value:`cmyk(${c}%, ${m}%, ${y}%, ${k}%)`},
+    {label:'R',value:r},{label:'G',value:g},{label:'B',value:b},
+    {label:'Hue',value:h+'°'},{label:'Saturation',value:s+'%'},{label:'Lightness',value:l+'%'},
+  ];
+  document.getElementById('valGrid').innerHTML=vals.map(v=>`<div class="val-item" onclick="copy('${v.value}')"><div class="val-label">${v.label}</div><div class="val-value">${v.value}</div></div>`).join('');
+  // Shades
+  const shades=[];
+  for(let i=10;i<=90;i+=10)shades.push(hslToHex(h,s,i));
+  document.getElementById('shadesRow').innerHTML=shades.map(c=>`<div class="shade-swatch" style="background:${c}" title="${c}" onclick="updateColor('${c}');copy('${c}')"></div>`).join('');
+  // Complementary
+  const comps=[hslToHex((h+180)%360,s,l),hslToHex((h+120)%360,s,l),hslToHex((h+240)%360,s,l),hslToHex((h+30)%360,s,l),hslToHex((h+60)%360,s,l)];
+  document.getElementById('compRow').innerHTML=comps.map(c=>`<div class="shade-swatch" style="background:${c}" title="${c}" onclick="updateColor('${c}');copy('${c}')"></div>`).join('');
+  // History
+  if(!colorHistory.includes(hex)){colorHistory.unshift(hex);if(colorHistory.length>20)colorHistory.pop();}
+  document.getElementById('historyRow').innerHTML=colorHistory.map(c=>`<div class="hist-swatch" style="background:${c}" title="${c}" onclick="updateColor('${c}')"></div>`).join('');
+}
+function onHexInput(){const v=document.getElementById('hexInp').value.trim();if(/^#?[0-9a-fA-F]{6}$/.test(v))updateColor(v.startsWith('#')?v:'#'+v);}
+function applyHex(){onHexInput();}
+function copy(txt){navigator.clipboard.writeText(txt).then(()=>showToast('Copied: '+txt));}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
+updateColor('#1a73e8');
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ob.unobserve(e.target);}});},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i)=>{c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;ob.observe(c);});
+</script>
+</body>
+</html>
