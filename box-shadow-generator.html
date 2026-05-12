@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');</script>
+<title>CSS Box Shadow Generator – Free Online | ToolNex</title>
+<meta name="description" content="Free CSS Box Shadow Generator. Create, preview and copy CSS box-shadow code instantly. Multiple shadows, inset support, presets. Live preview on real element."/>
+<link rel="canonical" href="https://toolnex.site/box-shadow-generator.html"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;}
+a{text-decoration:none;color:inherit;}button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;color:#202124;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+@media(max-width:650px){.hdr-links{display:none;}}
+.ad-wrap{display:flex;justify-content:center;padding:.4rem 1rem;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:8px;font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;width:100%;max-width:728px;}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;padding:.35rem 0;}
+.ad-top .adslot{height:90px;}
+.ad-mid{background:#fff;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;padding:.4rem 0;margin:1.2rem 0;}
+.ad-mid .adslot{height:90px;}
+@media(max-width:740px){.ad-top .adslot{height:50px;max-width:320px;}.ad-mid .adslot{height:50px;max-width:320px;}}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}.breadcrumb .cur{color:#202124;font-weight:600;}
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#e3f2fd;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+/* PREVIEW AREA */
+.preview-area{background:linear-gradient(135deg,#e0e7ff,#f0fdfa);border-radius:16px;height:200px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.preview-box{width:140px;height:100px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:600;color:#5f6368;transition:box-shadow .2s;}
+/* CONTROLS */
+.shadow-layers{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.6rem;}
+.shadow-layer{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.7rem .9rem;}
+.sl-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;}
+.sl-title{font-size:.78rem;font-weight:700;color:#202124;}
+.sl-del{background:none;border:none;color:#9aa0a6;cursor:pointer;font-size:.85rem;}
+.sl-del:hover{color:#ef4444;}
+.sl-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
+.sl-item label{display:block;font-size:.66rem;font-weight:700;color:#5f6368;margin-bottom:.2rem;}
+.sl-range{width:100%;accent-color:#1565c0;}
+.sl-val{font-size:.68rem;font-family:'JetBrains Mono',monospace;font-weight:700;color:#1565c0;}
+.sl-color{width:100%;height:34px;border:1.5px solid #e8eaed;border-radius:7px;padding:.1rem;cursor:pointer;}
+.sl-inset{display:flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;color:#5f6368;cursor:pointer;}
+.sl-inset input{accent-color:#1565c0;}
+.add-shadow-btn{width:100%;border:2px dashed #bfdbfe;background:#fff;border-radius:10px;padding:.42rem;font-size:.78rem;font-weight:600;color:#3b82f6;cursor:pointer;margin-bottom:.8rem;}
+.add-shadow-btn:hover{border-color:#1565c0;background:#eff6ff;}
+/* BG CONTROL */
+.bg-row{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;}
+.bg-row label{font-size:.72rem;font-weight:700;color:#3c4043;}
+.bg-inp{width:44px;height:34px;border:1.5px solid #e8eaed;border-radius:7px;padding:.1rem;cursor:pointer;}
+.bg-text{font-size:.72rem;font-family:'JetBrains Mono',monospace;color:#5f6368;}
+/* CSS OUTPUT */
+.css-output{background:#1a1d2e;border-radius:12px;padding:.85rem 1rem;font-size:.78rem;font-family:'JetBrains Mono',monospace;color:#93c5fd;line-height:1.7;word-break:break-all;margin-bottom:.6rem;}
+.copy-btn{width:100%;background:linear-gradient(135deg,#1565c0,#0d47a1);color:#fff;border:none;border-radius:12px;padding:.72rem;font-size:.88rem;font-weight:700;cursor:pointer;}
+.copy-btn:hover{opacity:.9;}
+/* PRESETS */
+.preset-row{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem;}
+.preset-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:9px;padding:.3rem .7rem;font-size:.72rem;font-weight:600;color:#5f6368;cursor:pointer;transition:all .13s;}
+.preset-btn:hover{border-color:#1565c0;color:#1565c0;}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#e3f2fd;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:#202124;color:#fff;padding:.55rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;opacity:0;transition:all .25s;pointer-events:none;z-index:9999;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+<div class="ad-top ad-wrap"><div class="adslot">📢 Top Banner Ad · 728×90</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><a href="design-tools.html">Design Tools</a><span class="sep">›</span><span class="cur">Box Shadow Generator</span></nav>
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">🟦</div>
+    <div class="tool-hero-text">
+      <h1>CSS Box Shadow Generator – Free Online</h1>
+      <p>Create beautiful CSS box shadows with live preview. Add multiple shadow layers, control offset, blur, spread and color. Inset shadows, opacity, presets — copy the CSS in one click.</p>
+      <div class="tool-hero-tags"><span class="tool-tag">🆓 Free</span><span class="tool-tag">Multiple Layers</span><span class="tool-tag">Inset Support</span><span class="tool-tag">Live Preview</span><span class="tool-tag">Copy CSS</span></div>
+    </div>
+  </div>
+</section>
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🟦 Box Shadow Generator</h2><span style="font-size:.72rem;color:#22c55e;font-weight:600;">Live Preview</span></div>
+  <div class="tool-card-body">
+    <div class="preview-area" id="previewArea">
+      <div class="preview-box" id="previewBox">Preview</div>
+    </div>
+    <div class="bg-row">
+      <label>Preview BG:</label>
+      <input type="color" class="bg-inp" id="bgInp" value="#e0e7ff" oninput="document.getElementById('previewArea').style.background=this.value"/>
+      <span class="bg-text">Box BG:</span>
+      <input type="color" class="bg-inp" id="boxBgInp" value="#ffffff" oninput="document.getElementById('previewBox').style.background=this.value"/>
+    </div>
+    <div class="shadow-layers" id="shadowLayers"></div>
+    <button class="add-shadow-btn" onclick="addLayer()">＋ Add Shadow Layer</button>
+    <div style="font-size:.74rem;font-weight:700;color:#3c4043;margin-bottom:.35rem;">Presets</div>
+    <div class="preset-row" id="presetRow"></div>
+    <div style="font-size:.74rem;font-weight:700;color:#3c4043;margin:.8rem 0 .35rem;">CSS Output</div>
+    <div class="css-output" id="cssOutput"></div>
+    <button class="copy-btn" onclick="copyCss()">📋 Copy CSS</button>
+  </div>
+</div>
+<div class="ad-mid ad-wrap"><div class="adslot">📢 Responsive Mid Ad · 728×90 / 320×50</div></div>
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🗂️ Browse All Categories</h2></div>
+  <div class="tool-card-body" style="padding:1rem;">
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Box Shadow Tips</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">📐</span><span class="tip-text"><strong>Offset X/Y</strong>: horizontal and vertical shadow distance. Negative values flip direction.</span></div>
+      <div class="tip-item"><span class="tip-ico">🌫️</span><span class="tip-text"><strong>Blur</strong>: higher value = softer shadow. 0 = hard edge.</span></div>
+      <div class="tip-item"><span class="tip-ico">📏</span><span class="tip-text"><strong>Spread</strong>: positive grows the shadow, negative shrinks it.</span></div>
+      <div class="tip-item"><span class="tip-ico">🔄</span><span class="tip-text"><strong>Inset</strong> makes the shadow appear inside the element, like a pressed state.</span></div>
+      <div class="tip-item"><span class="tip-ico">🎨</span><span class="tip-text">Use <strong>rgba</strong> colors with low opacity (0.1–0.3) for realistic, subtle shadows.</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related CSS Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="border-radius-generator.html" class="rel-tool"><div class="rel-tool-ico">🔲</div><div><div class="rel-tool-name">Border Radius</div><div class="rel-tool-desc">CSS border-radius</div></div></a>
+      <a href="gradient-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#f0f0ff;">🌈</div><div><div class="rel-tool-name">Gradient Generator</div><div class="rel-tool-desc">CSS gradients</div></div></a>
+      <a href="css-flexbox-generator.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff8e1;">📦</div><div><div class="rel-tool-name">Flexbox Generator</div><div class="rel-tool-desc">CSS flex layout</div></div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ FAQ – Box Shadow Generator</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How does the CSS box-shadow property work?</div><div class="faq-a">The box-shadow property takes: offset-x offset-y blur-radius spread-radius color. Example: box-shadow: 0 4px 24px rgba(0,0,0,0.15). You can stack multiple shadows separated by commas. The inset keyword makes the shadow appear inside the element. Blur creates the soft edge, spread grows or shrinks the total shadow size.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I add multiple box shadows?</div><div class="faq-a">Yes. CSS box-shadow accepts multiple comma-separated shadow values: box-shadow: 0 2px 8px rgba(0,0,0,.1), 0 0 0 3px #e3f2fd. Layered shadows create richer depth effects. This generator supports adding multiple layers and combines them into a single CSS declaration automatically.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is an inset shadow?</div><div class="faq-a">An inset shadow appears inside the element's border rather than outside. It creates a "pressed in" or "embossed" look. Add the inset keyword before the offsets: box-shadow: inset 0 2px 4px rgba(0,0,0,0.2). Inset shadows are commonly used for inputs, buttons in pressed states, and neumorphic design effects.</div></div>
+  </div>
+</div>
+<footer class="ftr"><div class="ftr-in">
+  <div class="ftr-top">
+    <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools. Fast, private, no sign-up.</p></div>
+    <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    <div class="fc"><h4>CSS Tools</h4><ul><li><a href="box-shadow-generator.html">Box Shadow</a></li><li><a href="border-radius-generator.html">Border Radius</a></li><li><a href="css-flexbox-generator.html">Flexbox</a></li><li><a href="css-grid-generator.html">Grid Generator</a></li></ul></div>
+    <div class="fc"><h4>Design Tools</h4><ul><li><a href="color-picker.html">Color Picker</a></li><li><a href="gradient-generator.html">Gradient</a></li><li><a href="contrast-checker.html">Contrast Checker</a></li><li><a href="color-palette-generator.html">Palette</a></li></ul></div>
+  </div>
+  <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+</div></footer>
+<div class="toast" id="toast"></div>
+<script>
+let layers=[{x:0,y:8,blur:24,spread:0,color:'#000000',opacity:.15,inset:false}];
+const PRESETS=[
+  {name:'Soft',l:[{x:0,y:4,blur:20,spread:0,color:'#000000',opacity:.1,inset:false}]},
+  {name:'Card',l:[{x:0,y:2,blur:8,spread:0,color:'#000000',opacity:.08,inset:false},{x:0,y:8,blur:24,spread:-4,color:'#000000',opacity:.12,inset:false}]},
+  {name:'Lifted',l:[{x:0,y:20,blur:40,spread:-10,color:'#000000',opacity:.2,inset:false}]},
+  {name:'Glow Blue',l:[{x:0,y:0,blur:20,spread:2,color:'#3b82f6',opacity:.5,inset:false}]},
+  {name:'Inset',l:[{x:0,y:2,blur:8,spread:0,color:'#000000',opacity:.2,inset:true}]},
+  {name:'Neumorphic',l:[{x:8,y:8,blur:16,spread:0,color:'#a0aec0',opacity:.6,inset:false},{x:-8,y:-8,blur:16,spread:0,color:'#ffffff',opacity:.8,inset:false}]},
+  {name:'Sharp',l:[{x:4,y:4,blur:0,spread:0,color:'#000000',opacity:.3,inset:false}]},
+  {name:'Flat',l:[{x:6,y:6,blur:0,spread:0,color:'#1a73e8',opacity:1,inset:false}]},
+];
+document.getElementById('presetRow').innerHTML=PRESETS.map((p,i)=>`<button class="preset-btn" onclick="applyPreset(${i})">${p.name}</button>`).join('');
+function applyPreset(i){layers=PRESETS[i].l.map(l=>({...l}));renderLayers();buildShadow();}
+function toRgba(hex,op){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return`rgba(${r},${g},${b},${op})`;}
+function buildShadow(){
+  const css=layers.map(l=>`${l.inset?'inset ':''} ${l.x}px ${l.y}px ${l.blur}px ${l.spread}px ${toRgba(l.color,l.opacity)}`).join(',\n    ');
+  document.getElementById('previewBox').style.boxShadow=css;
+  document.getElementById('cssOutput').textContent=`box-shadow: ${css};`;
+}
+function addLayer(){layers.push({x:0,y:4,blur:12,spread:0,color:'#000000',opacity:.15,inset:false});renderLayers();buildShadow();}
+function renderLayers(){
+  document.getElementById('shadowLayers').innerHTML=layers.map((l,i)=>`
+    <div class="shadow-layer">
+      <div class="sl-header"><span class="sl-title">Shadow Layer ${i+1}</span>${layers.length>1?`<button class="sl-del" onclick="layers.splice(${i},1);renderLayers();buildShadow()">✕ Remove</button>`:''}</div>
+      <div class="sl-grid">
+        <div class="sl-item"><label>Offset X <span class="sl-val" id="vx${i}">${l.x}px</span></label><input type="range" class="sl-range" min="-50" max="50" value="${l.x}" oninput="layers[${i}].x=parseInt(this.value);document.getElementById('vx${i}').textContent=this.value+'px';buildShadow()"/></div>
+        <div class="sl-item"><label>Offset Y <span class="sl-val" id="vy${i}">${l.y}px</span></label><input type="range" class="sl-range" min="-50" max="50" value="${l.y}" oninput="layers[${i}].y=parseInt(this.value);document.getElementById('vy${i}').textContent=this.value+'px';buildShadow()"/></div>
+        <div class="sl-item"><label>Blur <span class="sl-val" id="vb${i}">${l.blur}px</span></label><input type="range" class="sl-range" min="0" max="100" value="${l.blur}" oninput="layers[${i}].blur=parseInt(this.value);document.getElementById('vb${i}').textContent=this.value+'px';buildShadow()"/></div>
+        <div class="sl-item"><label>Spread <span class="sl-val" id="vs${i}">${l.spread}px</span></label><input type="range" class="sl-range" min="-50" max="50" value="${l.spread}" oninput="layers[${i}].spread=parseInt(this.value);document.getElementById('vs${i}').textContent=this.value+'px';buildShadow()"/></div>
+        <div class="sl-item"><label>Color</label><input type="color" class="sl-color" value="${l.color}" oninput="layers[${i}].color=this.value;buildShadow()"/></div>
+        <div class="sl-item"><label>Opacity <span class="sl-val" id="vo${i}">${l.opacity}</span></label><input type="range" class="sl-range" min="0" max="1" step=".01" value="${l.opacity}" oninput="layers[${i}].opacity=parseFloat(this.value);document.getElementById('vo${i}').textContent=parseFloat(this.value).toFixed(2);buildShadow()"/></div>
+      </div>
+      <label class="sl-inset"><input type="checkbox" ${l.inset?'checked':''} onchange="layers[${i}].inset=this.checked;buildShadow()"/> Inset Shadow</label>
+    </div>`).join('');
+}
+function copyCss(){const t=document.getElementById('cssOutput').textContent;navigator.clipboard.writeText(t).then(()=>showToast('CSS copied!'));}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
+renderLayers();buildShadow();
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ob.unobserve(e.target);}});},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i)=>{c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;ob.observe(c);});
+</script>
+</body>
+</html>
