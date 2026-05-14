@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');</script>
+<title>Markdown Editor – Live Preview Online Free | ToolNex</title>
+<meta name="description" content="Free online Markdown Editor with live HTML preview. Toolbar for quick formatting, export to HTML, copy rendered output. No sign-up required."/>
+<link rel="canonical" href="https://toolnex.site/markdown-editor.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;color:#202124;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+.hdr-link:hover{background:#f1f3f4;}
+@media(max-width:650px){.hdr-links{display:none;}}
+.ad-wrap{display:flex;justify-content:center;padding:.4rem 1rem;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:8px;font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;width:100%;max-width:728px;}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;padding:.35rem 0;}
+.ad-top .adslot{height:90px;}
+.ad-mid{background:#fff;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;padding:.4rem 0;margin:1.2rem 0;}
+.ad-mid .adslot{height:90px;}
+@media(max-width:740px){.ad-top .adslot{height:50px;max-width:320px;}.ad-mid .adslot{height:50px;max-width:320px;}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#f3e5f5;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+.toolbar{display:flex;gap:.3rem;flex-wrap:wrap;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:10px;padding:.4rem .5rem;margin-bottom:.8rem;}
+.tb-btn{border:none;background:none;border-radius:6px;padding:.3rem .55rem;font-size:.78rem;font-weight:700;color:#5f6368;cursor:pointer;transition:all .13s;font-family:'JetBrains Mono',monospace;}
+.tb-btn:hover{background:#e8f0fe;color:#1a73e8;}
+.tb-sep{width:1px;background:#e8eaed;margin:.1rem .2rem;flex-shrink:0;}
+.action-bar{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.8rem;}
+.act-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:9px;padding:.35rem .85rem;font-size:.76rem;font-weight:700;color:#5f6368;cursor:pointer;transition:all .13s;}
+.act-btn:hover{border-color:#1a73e8;color:#1a73e8;background:#e8f0fe;}
+.act-btn.primary{background:#1a73e8;color:#fff;border-color:#1a73e8;}
+.act-btn.primary:hover{background:#1558c0;}
+.editor-pane{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+@media(max-width:700px){.editor-pane{grid-template-columns:1fr;}}
+.pane-label{font-size:.72rem;font-weight:700;color:#3c4043;margin-bottom:.3rem;display:flex;align-items:center;gap:.4rem;}
+.stat-info{font-size:.65rem;color:#9aa0a6;margin-left:auto;font-family:'JetBrains Mono',monospace;}
+.md-editor{width:100%;min-height:380px;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.9rem;font-size:.84rem;font-family:'JetBrains Mono',monospace;color:#202124;outline:none;resize:vertical;transition:border-color .15s;line-height:1.7;}
+.md-editor:focus{border-color:#1a73e8;background:#fff;}
+.md-preview{min-height:380px;background:#fff;border:1.5px solid #e8eaed;border-radius:12px;padding:1rem 1.2rem;overflow:auto;line-height:1.7;font-size:.88rem;}
+.md-preview h1{font-size:1.5rem;font-weight:700;color:#202124;margin:0 0 .7rem;border-bottom:2px solid #e8eaed;padding-bottom:.4rem;}
+.md-preview h2{font-size:1.2rem;font-weight:700;color:#202124;margin:1rem 0 .5rem;}
+.md-preview h3{font-size:1rem;font-weight:700;color:#202124;margin:.8rem 0 .4rem;}
+.md-preview p{margin-bottom:.7rem;color:#3c4043;}
+.md-preview strong{font-weight:700;color:#202124;}
+.md-preview em{font-style:italic;}
+.md-preview code{background:#f1f3f4;border-radius:4px;padding:.1rem .35rem;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#ea4335;}
+.md-preview pre{background:#1e1e2e;border-radius:10px;padding:.8rem 1rem;margin:.6rem 0;overflow:auto;}
+.md-preview pre code{background:none;color:#cdd6f4;padding:0;font-size:.8rem;}
+.md-preview blockquote{border-left:4px solid #1a73e8;padding:.4rem .8rem;background:#e8f0fe;border-radius:0 8px 8px 0;margin:.5rem 0;color:#1565c0;font-style:italic;}
+.md-preview ul,.md-preview ol{margin:.4rem 0 .7rem 1.4rem;}
+.md-preview li{margin-bottom:.2rem;color:#3c4043;}
+.md-preview a{color:#1a73e8;text-decoration:underline;}
+.md-preview hr{border:none;border-top:2px solid #e8eaed;margin:1rem 0;}
+.md-preview table{width:100%;border-collapse:collapse;margin:.5rem 0;}
+.md-preview th{background:#f8f9fa;font-weight:700;padding:.4rem .6rem;border:1px solid #e8eaed;font-size:.82rem;}
+.md-preview td{padding:.35rem .6rem;border:1px solid #e8eaed;font-size:.82rem;}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#f3e5f5;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:#202124;color:#fff;padding:.55rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;opacity:0;transition:all .25s;pointer-events:none;z-index:9999;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+<div class="ad-top ad-wrap"><div class="adslot">📢 Top Banner Ad · 728×90</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><a href="developer-tools.html">Developer Tools</a><span class="sep">›</span><span class="cur">Markdown Editor</span></nav>
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">Md</div>
+    <div class="tool-hero-text">
+      <h1>Markdown Editor – Live Preview Online Free</h1>
+      <p>Write Markdown with a real-time HTML preview side-by-side. Toolbar for quick formatting, export to HTML file, copy rendered output. Supports all standard Markdown syntax. No sign-up required.</p>
+      <div class="tool-hero-tags"><span class="tool-tag">🆓 Free</span><span class="tool-tag">📝 Live Preview</span><span class="tool-tag">💾 Export HTML</span><span class="tool-tag">⚡ Real-time</span></div>
+    </div>
+  </div>
+</section>
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+<div class="tool-card">
+  <div class="tool-card-header"><h2>📝 Markdown Editor</h2><span style="font-size:.72rem;color:#22c55e;font-weight:600;">⚡ Live preview</span></div>
+  <div class="tool-card-body">
+    <div class="toolbar">
+      <button class="tb-btn" onclick="wrap('**','**')" title="Bold"><b>B</b></button>
+      <button class="tb-btn" onclick="wrap('*','*')" title="Italic"><i>I</i></button>
+      <button class="tb-btn" onclick="wrap('~~','~~')" title="Strikethrough">S̶</button>
+      <button class="tb-btn" onclick="wrap('`','`')" title="Inline code">`</button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" onclick="insertLine('# ')" title="H1">H1</button>
+      <button class="tb-btn" onclick="insertLine('## ')" title="H2">H2</button>
+      <button class="tb-btn" onclick="insertLine('### ')" title="H3">H3</button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" onclick="insertLine('- ')" title="Bullet list">• List</button>
+      <button class="tb-btn" onclick="insertLine('1. ')" title="Numbered list">1. List</button>
+      <button class="tb-btn" onclick="insertLine('> ')" title="Blockquote">❝</button>
+      <button class="tb-btn" onclick="insertLine('---')" title="Horizontal rule">—</button>
+      <div class="tb-sep"></div>
+      <button class="tb-btn" onclick="insertLink()" title="Link">🔗</button>
+      <button class="tb-btn" onclick="wrap('\n```\n','\n```')" title="Code block">⌨️</button>
+    </div>
+    <div class="action-bar">
+      <button class="act-btn primary" onclick="copyHTML()">📋 Copy HTML</button>
+      <button class="act-btn" onclick="exportHTML()">💾 Export HTML</button>
+      <button class="act-btn" onclick="loadSample()">📄 Sample</button>
+      <button class="act-btn" onclick="clearAll()">🗑️ Clear</button>
+    </div>
+    <div class="editor-pane">
+      <div>
+        <div class="pane-label">📝 Markdown <span class="stat-info" id="statInfo">0 words · 0 chars</span></div>
+        <textarea class="md-editor" id="mdEditor" oninput="renderPreview()" placeholder="# Hello World&#10;&#10;Start writing **Markdown** here..."></textarea>
+      </div>
+      <div>
+        <div class="pane-label">👁️ Preview</div>
+        <div class="md-preview" id="mdPreview"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ad-mid ad-wrap"><div class="adslot">📢 Responsive Mid Ad · 728×90 / 320×50</div></div>
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+  <div class="tool-card-body" style="padding:1rem;">
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>📖 Quick Reference</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">#</span><span class="tip-text"><code># H1</code> &nbsp;<code>## H2</code> &nbsp;<code>### H3</code></span></div>
+      <div class="tip-item"><span class="tip-ico"><b>B</b></span><span class="tip-text"><code>**bold**</code> and <code>*italic*</code></span></div>
+      <div class="tip-item"><span class="tip-ico">•</span><span class="tip-text"><code>- item</code> for bullet list</span></div>
+      <div class="tip-item"><span class="tip-ico">1.</span><span class="tip-text"><code>1. item</code> for numbered list</span></div>
+      <div class="tip-item"><span class="tip-ico">❝</span><span class="tip-text"><code>> quote</code> for blockquote</span></div>
+      <div class="tip-item"><span class="tip-ico">`</span><span class="tip-text"><code>`code`</code> and triple backtick for blocks</span></div>
+      <div class="tip-item"><span class="tip-ico">🔗</span><span class="tip-text"><code>[text](url)</code> for links</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="diff-checker.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fff8e1;">⟺</div><div><div class="rel-tool-name">Diff Checker</div><div class="rel-tool-desc">Compare text versions</div></div></a>
+      <a href="code-minifier.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e0f7fa;">⚡</div><div><div class="rel-tool-name">Code Minifier</div><div class="rel-tool-desc">Minify HTML/CSS/JS</div></div></a>
+      <a href="json-formatter.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e3f2fd;">{ }</div><div><div class="rel-tool-name">JSON Formatter</div><div class="rel-tool-desc">Format & validate JSON</div></div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – Markdown Editor</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What Markdown syntax is supported?</div><div class="faq-a">This editor supports standard CommonMark Markdown including headings (# to ###), bold (**text**), italic (*text*), strikethrough (~~text~~), inline code (`code`), code blocks (```), blockquotes (>), unordered lists (-), ordered lists (1.), links ([text](url)), images (![alt](url)), horizontal rules (---), and tables.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How do I export my Markdown as HTML?</div><div class="faq-a">Click "Export HTML" to download a complete HTML file with your rendered content, including a basic stylesheet for readability. This is useful for creating simple web pages or documentation. You can also click "Copy HTML" to paste the rendered HTML into another application or your own HTML files.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Is my content saved automatically?</div><div class="faq-a">The editor auto-saves your content to browser localStorage, so it persists if you refresh the page. However, closing the browser tab may clear it depending on your browser settings. For important content, always export to HTML or copy your Markdown text before closing the tab.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Where is Markdown commonly used?</div><div class="faq-a">Markdown is the standard writing format for GitHub README files, documentation (GitBook, Docusaurus), blog platforms (Ghost, Hugo), note-taking apps (Obsidian, Notion), and most developer communication tools (Slack, Discord). Learning Markdown is one of the most useful skills for developers and technical writers.</div></div>
+  </div>
+</div>
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools. Fast, private, no sign-up. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+      <div class="fc"><h4>Dev Tools</h4><ul><li><a href="markdown-editor.html">Markdown Editor</a></li><li><a href="json-formatter.html">JSON Formatter</a></li><li><a href="diff-checker.html">Diff Checker</a></li><li><a href="code-minifier.html">Code Minifier</a></li></ul></div>
+      <div class="fc"><h4>More Tools</h4><ul><li><a href="regex-tester.html">Regex Tester</a></li><li><a href="uuid-generator.html">UUID Generator</a></li><li><a href="cron-parser.html">Cron Parser</a></li><li><a href="url-encoder.html">URL Encoder</a></li></ul></div>
+    </div>
+    <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+const SAMPLE=`# Welcome to Markdown Editor
+
+## What is Markdown?
+**Markdown** is a lightweight markup language with *plain-text* formatting syntax.
+
+## Features
+- Live preview
+- Toolbar for quick formatting
+- Export to HTML
+- Syntax highlighting
+
+## Code Example
+\`\`\`javascript
+function greet(name) {
+  return \`Hello, \${name}!\`;
+}
+console.log(greet('World'));
+\`\`\`
+
+## Blockquote
+> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand." — Martin Fowler
+
+## Table
+| Tool | Language | Stars |
+|------|----------|-------|
+| React | JavaScript | ⭐⭐⭐⭐⭐ |
+| Vue | JavaScript | ⭐⭐⭐⭐ |
+| Django | Python | ⭐⭐⭐⭐ |
+
+---
+*Made with ToolNex Markdown Editor*`;
+
+function parseMarkdown(md){
+  let h=md
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/```([\s\S]*?)```/g,(_,c)=>`<pre><code>${c.trim()}</code></pre>`)
+    .replace(/`([^`]+)`/g,'<code>$1</code>')
+    .replace(/^#{3}\s+(.+)$/gm,'<h3>$1</h3>')
+    .replace(/^#{2}\s+(.+)$/gm,'<h2>$1</h2>')
+    .replace(/^#{1}\s+(.+)$/gm,'<h1>$1</h1>')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/~~(.+?)~~/g,'<del>$1</del>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1" style="max-width:100%;border-radius:8px;"/>')
+    .replace(/^---+$/gm,'<hr/>')
+    .replace(/^> (.+)$/gm,'<blockquote>$1</blockquote>')
+    .replace(/^\| (.+) \|$/gm,(_,r)=>{const cells=r.split(' | ');return `<tr>${cells.map(c=>`<td>${c}</td>`).join('')}</tr>`;})
+    .replace(/^- (.+)$/gm,'<li>$1</li>')
+    .replace(/^[0-9]+\. (.+)$/gm,'<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g,m=>`<ul>${m}</ul>`)
+    .replace(/(<tr>.*<\/tr>\n?)+/g,m=>{const rows=m.split('</tr>').filter(Boolean);const hdr=rows[0].replace(/<td>/g,'<th>').replace(/<\/td>/g,'</th>');return `<table><thead>${hdr}</tr></thead><tbody>${rows.slice(1).join('</tr>')}</tr></tbody></table>`;})
+    .replace(/\n{2,}/g,'</p><p>')
+    .replace(/^([^<\n].+)$/gm,'$1');
+  return '<p>'+h+'</p>';
+}
+function renderPreview(){
+  const md=document.getElementById('mdEditor').value;
+  document.getElementById('mdPreview').innerHTML=parseMarkdown(md);
+  const words=md.trim()?md.trim().split(/\s+/).length:0;
+  document.getElementById('statInfo').textContent=words+' words · '+md.length+' chars';
+  try{localStorage.setItem('tn_md_content',md);}catch(e){}
+}
+function wrap(pre,post){
+  const ta=document.getElementById('mdEditor');
+  const s=ta.selectionStart,e=ta.selectionEnd;
+  const sel=ta.value.substring(s,e)||'text';
+  ta.value=ta.value.substring(0,s)+pre+sel+post+ta.value.substring(e);
+  ta.focus();ta.setSelectionRange(s+pre.length,s+pre.length+sel.length);
+  renderPreview();
+}
+function insertLine(prefix){
+  const ta=document.getElementById('mdEditor');
+  const s=ta.selectionStart;
+  const before=ta.value.substring(0,s);const after=ta.value.substring(s);
+  const nl=before.endsWith('\n')||before===''?'':'\n';
+  ta.value=before+nl+prefix+after;
+  ta.focus();const pos=s+nl.length+prefix.length;ta.setSelectionRange(pos,pos);
+  renderPreview();
+}
+function insertLink(){
+  const url=prompt('Enter URL:','https://');
+  if(!url)return;
+  const text=prompt('Enter link text:','Link text')||'Link';
+  const ta=document.getElementById('mdEditor');
+  const s=ta.selectionStart;
+  ta.value=ta.value.substring(0,s)+`[${text}](${url})`+ta.value.substring(s);
+  renderPreview();
+}
+function copyHTML(){const h=document.getElementById('mdPreview').innerHTML;navigator.clipboard.writeText(h).then(()=>showToast('📋 HTML copied!'));}
+function exportHTML(){
+  const h=document.getElementById('mdPreview').innerHTML;
+  const full=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Markdown Export</title><style>body{font-family:'Segoe UI',sans-serif;max-width:800px;margin:2rem auto;padding:0 1rem;line-height:1.7;color:#202124;}h1,h2,h3{color:#202124;}code{background:#f1f3f4;padding:.1rem .35rem;border-radius:4px;font-family:monospace;}pre{background:#1e1e2e;color:#cdd6f4;padding:1rem;border-radius:8px;overflow:auto;}blockquote{border-left:4px solid #1a73e8;padding:.4rem .8rem;background:#e8f0fe;margin:.5rem 0;}table{border-collapse:collapse;width:100%;}th,td{border:1px solid #e8eaed;padding:.4rem .6rem;}th{background:#f8f9fa;}img{max-width:100%;border-radius:8px;}</style></head><body>${h}</body></html>`;
+  const a=document.createElement('a');a.href='data:text/html;charset=utf-8,'+encodeURIComponent(full);a.download='markdown-export.html';a.click();showToast('💾 HTML exported!');
+}
+function loadSample(){document.getElementById('mdEditor').value=SAMPLE;renderPreview();}
+function clearAll(){document.getElementById('mdEditor').value='';document.getElementById('mdPreview').innerHTML='';document.getElementById('statInfo').textContent='0 words · 0 chars';}
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+window.onload=()=>{try{const saved=localStorage.getItem('tn_md_content');if(saved){document.getElementById('mdEditor').value=saved;}}catch(e){}renderPreview();};
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i)=>{c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;ob.observe(c);});
+</script>
+</body>
+</html>
