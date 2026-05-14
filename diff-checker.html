@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');</script>
+<title>Diff Checker – Compare Text & Code Online Free | ToolNex</title>
+<meta name="description" content="Free online Diff Checker. Compare two blocks of text or code side by side. Highlights added, removed, and changed lines with color coding. No sign-up required."/>
+<link rel="canonical" href="https://toolnex.site/diff-checker.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;color:#202124;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+.hdr-link:hover{background:#f1f3f4;}
+@media(max-width:650px){.hdr-links{display:none;}}
+.ad-wrap{display:flex;justify-content:center;padding:.4rem 1rem;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:8px;font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;width:100%;max-width:728px;}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;padding:.35rem 0;}
+.ad-top .adslot{height:90px;}
+.ad-mid{background:#fff;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;padding:.4rem 0;margin:1.2rem 0;}
+.ad-mid .adslot{height:90px;}
+@media(max-width:740px){.ad-top .adslot{height:50px;max-width:320px;}.ad-mid .adslot{height:50px;max-width:320px;}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+.tool-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:1.8rem 1.2rem 1.5rem;}
+.tool-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;gap:1rem;}
+.tool-hero-icon{width:54px;height:54px;background:#fff8e1;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.tool-hero-text h1{font-size:clamp(1.3rem,3.5vw,1.85rem);font-weight:700;color:#202124;letter-spacing:-.02em;line-height:1.2;margin-bottom:.3rem;}
+.tool-hero-text p{font-size:.86rem;color:#5f6368;line-height:1.6;max-width:640px;}
+.tool-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;}
+.tool-tag{background:#f1f3f4;border-radius:20px;padding:.18rem .7rem;font-size:.69rem;font-weight:600;color:#5f6368;}
+.main{max-width:1180px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;overflow:hidden;}
+.tool-card-header{padding:1.1rem 1.4rem;border-bottom:1px solid #f1f3f4;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.tool-card-header h2{font-size:.95rem;font-weight:700;color:#202124;}
+.tool-card-body{padding:1.4rem;}
+.action-bar{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem;}
+.act-btn{border:1.5px solid #e8eaed;background:#fff;border-radius:9px;padding:.35rem .85rem;font-size:.76rem;font-weight:700;color:#5f6368;cursor:pointer;transition:all .13s;}
+.act-btn:hover{border-color:#1a73e8;color:#1a73e8;background:#e8f0fe;}
+.act-btn.primary{background:#1a73e8;color:#fff;border-color:#1a73e8;}
+.act-btn.primary:hover{background:#1558c0;}
+.act-btn.danger{border-color:#ea4335;color:#ea4335;}
+.act-btn.danger:hover{background:#ffebee;}
+.diff-inputs{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem;}
+@media(max-width:700px){.diff-inputs{grid-template-columns:1fr;}}
+.diff-label{font-size:.74rem;font-weight:700;color:#3c4043;margin-bottom:.3rem;display:flex;align-items:center;gap:.35rem;}
+.diff-label .badge{padding:.12rem .5rem;border-radius:12px;font-size:.65rem;}
+.badge-orig{background:#ffebee;color:#c62828;}
+.badge-new{background:#e8f5e9;color:#2e7d32;}
+.diff-textarea{width:100%;min-height:200px;background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.8rem;font-size:.82rem;font-family:'JetBrains Mono',monospace;color:#202124;outline:none;resize:vertical;transition:border-color .15s;line-height:1.7;}
+.diff-textarea:focus{border-color:#1a73e8;background:#fff;}
+.diff-stats{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.8rem;}
+.diff-stat{font-size:.73rem;font-weight:700;padding:.22rem .65rem;border-radius:20px;}
+.stat-added{background:#e8f5e9;color:#2e7d32;}
+.stat-removed{background:#ffebee;color:#c62828;}
+.stat-unchanged{background:#f1f3f4;color:#5f6368;}
+.diff-result{border:1.5px solid #e8eaed;border-radius:12px;overflow:hidden;}
+.diff-result-header{background:#f8f9fa;padding:.55rem .9rem;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;border-bottom:1px solid #e8eaed;}
+.diff-col-hdr{font-size:.72rem;font-weight:700;color:#3c4043;}
+.diff-lines{font-size:.8rem;font-family:'JetBrains Mono',monospace;line-height:1;overflow-x:auto;}
+.diff-row{display:grid;grid-template-columns:1fr 1fr;min-height:24px;}
+.diff-cell{padding:.28rem .7rem;border-bottom:1px solid #f1f3f4;white-space:pre;overflow:hidden;}
+.diff-row.removed .diff-cell:first-child{background:#fff5f5;color:#c62828;}
+.diff-row.added .diff-cell:last-child{background:#f0fff4;color:#2e7d32;}
+.diff-row.changed .diff-cell:first-child{background:#fff3cd;color:#856404;}
+.diff-row.changed .diff-cell:last-child{background:#d4edda;color:#155724;}
+.diff-row:last-child .diff-cell{border-bottom:none;}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}[data-c="text"] .cc-ico{background:#e8f5e9;}[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}[data-c="dev"] .cc-ico{background:#e3f2fd;}[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}[data-c="fin"] .cc-ico{background:#e8f5e9;}[data-c="des"] .cc-ico{background:#fff8e1;}[data-c="vid"] .cc-ico{background:#fce4ec;}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.rel-tool{display:flex;align-items:center;gap:.65rem;padding:.55rem 0;border-bottom:1px solid #f8f9fa;}
+.rel-tool:last-child{border-bottom:none;}
+.rel-tool:hover .rel-tool-name{color:#1a73e8;}
+.rel-tool-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#fff8e1;flex-shrink:0;}
+.rel-tool-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.rel-tool-desc{font-size:.68rem;color:#9aa0a6;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.seo-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.seo-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.seo-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:#202124;color:#fff;padding:.55rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;opacity:0;transition:all .25s;pointer-events:none;z-index:9999;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+<div class="ad-top ad-wrap"><div class="adslot">📢 Top Banner Ad · 728×90</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><a href="developer-tools.html">Developer Tools</a><span class="sep">›</span><span class="cur">Diff Checker</span></nav>
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="tool-hero-icon">⟺</div>
+    <div class="tool-hero-text">
+      <h1>Diff Checker – Compare Text & Code Online Free</h1>
+      <p>Compare two blocks of text or code side by side. Added lines are highlighted green, removed lines red, and changed lines yellow. Perfect for comparing code versions, config files, and documents.</p>
+      <div class="tool-hero-tags"><span class="tool-tag">🆓 Free</span><span class="tool-tag">⟺ Side-by-Side</span><span class="tool-tag">🎨 Color-coded</span><span class="tool-tag">💻 Code & Text</span></div>
+    </div>
+  </div>
+</section>
+<div class="main">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+<div class="tool-card">
+  <div class="tool-card-header"><h2>⟺ Diff Checker</h2><span style="font-size:.72rem;color:#22c55e;font-weight:600;">Line-by-line comparison</span></div>
+  <div class="tool-card-body">
+    <div class="action-bar">
+      <button class="act-btn primary" onclick="runDiff()">⟺ Compare</button>
+      <button class="act-btn" onclick="loadSample()">📄 Sample</button>
+      <button class="act-btn danger" onclick="clearAll()">🗑️ Clear</button>
+    </div>
+    <div class="diff-inputs">
+      <div>
+        <div class="diff-label">📄 Original <span class="badge badge-orig">Before</span></div>
+        <textarea class="diff-textarea" id="textA" placeholder="Paste original text here..."></textarea>
+      </div>
+      <div>
+        <div class="diff-label">📄 Modified <span class="badge badge-new">After</span></div>
+        <textarea class="diff-textarea" id="textB" placeholder="Paste modified text here..."></textarea>
+      </div>
+    </div>
+    <div class="diff-stats" id="diffStats" style="display:none;">
+      <span class="diff-stat stat-added" id="addedStat">0 added</span>
+      <span class="diff-stat stat-removed" id="removedStat">0 removed</span>
+      <span class="diff-stat stat-unchanged" id="unchangedStat">0 unchanged</span>
+    </div>
+    <div class="diff-result" id="diffResult" style="display:none;">
+      <div class="diff-result-header">
+        <div class="diff-col-hdr">🔴 Original</div>
+        <div class="diff-col-hdr">🟢 Modified</div>
+      </div>
+      <div class="diff-lines" id="diffLines"></div>
+    </div>
+  </div>
+</div>
+<div class="ad-mid ad-wrap"><div class="adslot">📢 Responsive Mid Ad · 728×90 / 320×50</div></div>
+<div class="tool-card">
+  <div class="tool-card-header"><h2>🗂️ Browse All Tool Categories</h2></div>
+  <div class="tool-card-body" style="padding:1rem;">
+    <div class="cg">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🎨 Color Legend</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico" style="color:#2e7d32;">🟢</span><span class="tip-text"><strong>Green</strong> — Line added in modified version</span></div>
+      <div class="tip-item"><span class="tip-ico" style="color:#c62828;">🔴</span><span class="tip-text"><strong>Red</strong> — Line removed from original</span></div>
+      <div class="tip-item"><span class="tip-ico" style="color:#856404;">🟡</span><span class="tip-text"><strong>Yellow</strong> — Line changed (different content)</span></div>
+      <div class="tip-item"><span class="tip-ico">⬜</span><span class="tip-text"><strong>White</strong> — Unchanged line</span></div>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔗 Related Tools</h3></div>
+    <div class="sidebar-card-body">
+      <a href="json-formatter.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e3f2fd;">{ }</div><div><div class="rel-tool-name">JSON Formatter</div><div class="rel-tool-desc">Format & compare JSON</div></div></a>
+      <a href="code-minifier.html" class="rel-tool"><div class="rel-tool-ico" style="background:#e0f7fa;">⚡</div><div><div class="rel-tool-name">Code Minifier</div><div class="rel-tool-desc">Minify code</div></div></a>
+      <a href="regex-tester.html" class="rel-tool"><div class="rel-tool-ico" style="background:#fce4ec;">.*</div><div><div class="rel-tool-name">Regex Tester</div><div class="rel-tool-desc">Test regex patterns</div></div></a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="seo-section">
+  <div class="seo-card">
+    <h2>❓ Frequently Asked Questions – Diff Checker</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What kinds of content can I compare?</div><div class="faq-a">You can compare any text content — source code (JavaScript, Python, CSS, HTML), configuration files (JSON, YAML, TOML), plain text documents, SQL queries, log files, and more. The tool does a line-by-line comparison, making it most useful for structured text.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">How does the diff algorithm work?</div><div class="faq-a">The tool uses a line-by-line comparison approach. Each line in the original is matched against lines in the modified version. Lines that exist only in the original are marked as removed (red), lines only in the modified are marked as added (green), and lines with the same position but different content are marked as changed (yellow).</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Is my content kept private?</div><div class="faq-a">Yes — all comparison processing happens entirely in your browser using JavaScript. Your text is never sent to any server. This makes the tool safe for comparing sensitive code, configuration files with credentials, or private documents.</div></div>
+    <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What is the maximum text size I can compare?</div><div class="faq-a">There's no hard limit, but very large files (thousands of lines) may be slow depending on your device. For comparing large files efficiently, command-line tools like git diff or the diff command are better suited. This tool is ideal for quick comparisons of code snippets, config sections, and medium-length documents.</div></div>
+  </div>
+</div>
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div><span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span><p class="ftr-desc">Free online tools. Fast, private, no sign-up. Built with ♥</p></div>
+      <div class="fc"><h4>About</h4><ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+      <div class="fc"><h4>Dev Tools</h4><ul><li><a href="diff-checker.html">Diff Checker</a></li><li><a href="json-formatter.html">JSON Formatter</a></li><li><a href="base64-encoder.html">Base64 Encoder</a></li><li><a href="hash-generator.html">Hash Generator</a></li></ul></div>
+      <div class="fc"><h4>More Tools</h4><ul><li><a href="regex-tester.html">Regex Tester</a></li><li><a href="code-minifier.html">Code Minifier</a></li><li><a href="uuid-generator.html">UUID Generator</a></li><li><a href="url-encoder.html">URL Encoder</a></li></ul></div>
+    </div>
+    <div class="ftr-bot"><div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div><div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+  </div>
+</footer>
+<div class="toast" id="toast"></div>
+<script>
+function runDiff(){
+  const a=document.getElementById('textA').value,b=document.getElementById('textB').value;
+  if(!a&&!b){showToast('Paste text in both boxes');return;}
+  const la=a.split('\n'),lb=b.split('\n');
+  const max=Math.max(la.length,lb.length);
+  let added=0,removed=0,unchanged=0;
+  let html='';
+  for(let i=0;i<max;i++){
+    const lineA=la[i]!==undefined?la[i]:null;
+    const lineB=lb[i]!==undefined?lb[i]:null;
+    if(lineA===null){added++;html+=`<div class="diff-row added"><div class="diff-cell"></div><div class="diff-cell">+ ${esc(lineB)}</div></div>`;}
+    else if(lineB===null){removed++;html+=`<div class="diff-row removed"><div class="diff-cell">- ${esc(lineA)}</div><div class="diff-cell"></div></div>`;}
+    else if(lineA===lineB){unchanged++;html+=`<div class="diff-row"><div class="diff-cell">${esc(lineA)}</div><div class="diff-cell">${esc(lineB)}</div></div>`;}
+    else{added++;removed++;html+=`<div class="diff-row changed"><div class="diff-cell">~ ${esc(lineA)}</div><div class="diff-cell">~ ${esc(lineB)}</div></div>`;}
+  }
+  document.getElementById('diffLines').innerHTML=html;
+  document.getElementById('diffResult').style.display='block';
+  document.getElementById('diffStats').style.display='flex';
+  document.getElementById('addedStat').textContent=added+' added';
+  document.getElementById('removedStat').textContent=removed+' removed';
+  document.getElementById('unchangedStat').textContent=unchanged+' unchanged';
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function loadSample(){
+  document.getElementById('textA').value=`function greet(name) {\n  console.log("Hello, " + name);\n  return name;\n}\n\nconst user = "Alice";\ngreet(user);`;
+  document.getElementById('textB').value=`function greet(name, title = "Dr.") {\n  console.log(\`Hello, \${title} \${name}!\`);\n  return \`\${title} \${name}\`;\n}\n\nconst user = "Alice";\nconst result = greet(user);\nconsole.log(result);`;
+  runDiff();
+}
+function clearAll(){document.getElementById('textA').value='';document.getElementById('textB').value='';document.getElementById('diffResult').style.display='none';document.getElementById('diffStats').style.display='none';}
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+const ob=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.05});
+document.querySelectorAll('.cc').forEach((c,i)=>{c.style.cssText+=`;opacity:0;transform:translateY(12px);transition:opacity .3s ${i*.04}s ease,transform .3s ${i*.04}s ease`;ob.observe(c);});
+</script>
+</body>
+</html>
