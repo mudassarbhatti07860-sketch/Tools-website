@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-535630536"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-535630536');</script>
+<title>Developer Tools – Free Online Tools for Developers | ToolNex</title>
+<meta name="description" content="Free online Developer Tools — JSON Formatter, Base64 Encoder, Hash Generator, URL Encoder, Regex Tester, Code Minifier, Diff Checker, UUID Generator, Cron Parser, and Markdown Editor. No sign-up required."/>
+<link rel="canonical" href="https://toolnex.site/developer-tools.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}button{font-family:'DM Sans',sans-serif;cursor:pointer;}
+
+/* HEADER */
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;font-family:'DM Sans',sans-serif;color:#202124;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+.hdr-link:hover{background:#f1f3f4;}
+@media(max-width:650px){.hdr-links{display:none;}}
+
+/* ADS */
+.ad-wrap{display:flex;justify-content:center;padding:.4rem 1rem;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:8px;font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;width:100%;max-width:728px;}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;padding:.35rem 0;}
+.ad-top .adslot{height:90px;}
+.ad-mid{background:#fff;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;padding:.4rem 0;margin:1.2rem 0;}
+.ad-mid .adslot{height:90px;}
+@media(max-width:740px){.ad-top .adslot{height:50px;max-width:320px;}.ad-mid .adslot{height:50px;max-width:320px;}}
+
+/* BREADCRUMB */
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+
+/* CATEGORY HERO */
+.cat-hero{background:#fff;border-bottom:1px solid #e8eaed;padding:2.2rem 1.2rem 2rem;}
+.cat-hero-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1.4rem;}
+.cat-hero-icon{width:64px;height:64px;background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;box-shadow:0 4px 18px rgba(26,115,232,.15);}
+.cat-hero-text h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:700;color:#202124;letter-spacing:-.025em;line-height:1.15;margin-bottom:.45rem;}
+.cat-hero-text p{font-size:.88rem;color:#5f6368;line-height:1.65;max-width:620px;}
+.cat-hero-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.8rem;}
+.cat-tag{background:#e3f2fd;border:1.5px solid #90caf9;border-radius:20px;padding:.2rem .75rem;font-size:.7rem;font-weight:700;color:#1565c0;}
+.cat-stats{display:flex;gap:1.5rem;margin-top:1rem;}
+.cat-stat{display:flex;flex-direction:column;}
+.cat-stat-val{font-size:1.4rem;font-weight:700;color:#1a73e8;font-family:'JetBrains Mono',monospace;line-height:1;}
+.cat-stat-lbl{font-size:.68rem;color:#9aa0a6;margin-top:.2rem;}
+
+/* MAIN LAYOUT */
+.page-wrap{max-width:1180px;margin:0 auto;padding:1.8rem 1.2rem 3.5rem;display:grid;grid-template-columns:1fr 300px;gap:1.5rem;}
+@media(max-width:960px){.page-wrap{grid-template-columns:1fr;}}
+
+/* TOOLS GRID */
+.tools-section{}
+.section-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.section-hdr h2{font-size:1rem;font-weight:700;color:#202124;}
+.section-hdr span{font-size:.75rem;color:#9aa0a6;}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.tool-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;padding:1.2rem;display:flex;flex-direction:column;gap:.7rem;transition:border-color .15s,box-shadow .2s,transform .2s;cursor:pointer;position:relative;overflow:hidden;}
+.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1a73e8,#34a853);opacity:0;transition:opacity .2s;}
+.tool-card:hover{border-color:#1a73e8;box-shadow:0 6px 24px rgba(26,115,232,.13);transform:translateY(-3px);}
+.tool-card:hover::before{opacity:1;}
+.tool-card-top{display:flex;align-items:flex-start;gap:.85rem;}
+.tool-icon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.45rem;flex-shrink:0;}
+.tool-info{}
+.tool-name{font-size:.9rem;font-weight:700;color:#202124;line-height:1.25;margin-bottom:.22rem;}
+.tool-desc{font-size:.75rem;color:#5f6368;line-height:1.55;}
+.tool-tags{display:flex;gap:.3rem;flex-wrap:wrap;}
+.tool-pill{background:#f1f3f4;border-radius:20px;padding:.12rem .55rem;font-size:.63rem;font-weight:600;color:#5f6368;}
+.tool-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.5rem;border-top:1px solid #f1f3f4;}
+.tool-badge{font-size:.62rem;font-weight:700;padding:.14rem .5rem;border-radius:20px;}
+.badge-free{background:#e8f5e9;color:#2e7d32;}
+.tool-arrow{font-size:.75rem;color:#1a73e8;font-weight:700;opacity:0;transition:opacity .15s,transform .15s;}
+.tool-card:hover .tool-arrow{opacity:1;transform:translateX(3px);}
+
+/* ALL CATEGORIES */
+.cat-section{margin-top:1.5rem;}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:.65rem;}
+.cc{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:.95rem .7rem .85rem;display:flex;flex-direction:column;align-items:center;gap:.45rem;text-align:center;transition:border-color .15s,box-shadow .15s,transform .2s;cursor:pointer;}
+.cc:hover{border-color:#1a73e8;box-shadow:0 3px 16px rgba(26,115,232,.12);transform:translateY(-2px);}
+.cc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.cc-nm{font-size:.73rem;font-weight:600;color:#202124;line-height:1.25;}
+.cc-ct{font-size:.62rem;color:#9aa0a6;}
+[data-c="calc"] .cc-ico{background:#fff3e0;}
+[data-c="text"] .cc-ico{background:#e8f5e9;}
+[data-c="image"] .cc-ico{background:#fce4ec;}
+[data-c="pdf"] .cc-ico{background:#ffebee;}
+[data-c="dev"] .cc-ico{background:#e3f2fd;}
+[data-c="seo"] .cc-ico{background:#f3e5f5;}
+[data-c="sec"] .cc-ico{background:#e0f7fa;}
+[data-c="fin"] .cc-ico{background:#e8f5e9;}
+[data-c="des"] .cc-ico{background:#fff8e1;}
+[data-c="vid"] .cc-ico{background:#fce4ec;}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.sidebar-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;overflow:hidden;}
+.sidebar-card-header{padding:.85rem 1rem;border-bottom:1px solid #f1f3f4;}
+.sidebar-card-header h3{font-size:.84rem;font-weight:700;color:#202124;}
+.sidebar-card-body{padding:.85rem 1rem;}
+.tip-item{display:flex;gap:.55rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;}
+.tip-item:last-child{border-bottom:none;}
+.tip-ico{font-size:.9rem;flex-shrink:0;margin-top:.05rem;}
+.tip-text{font-size:.76rem;color:#5f6368;line-height:1.55;}
+.popular-tool{display:flex;align-items:center;gap:.65rem;padding:.5rem 0;border-bottom:1px solid #f8f9fa;cursor:pointer;}
+.popular-tool:last-child{border-bottom:none;}
+.popular-tool:hover .pop-name{color:#1a73e8;}
+.pop-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;background:#e3f2fd;flex-shrink:0;}
+.pop-name{font-size:.8rem;font-weight:600;color:#202124;transition:color .13s;}
+.pop-desc{font-size:.68rem;color:#9aa0a6;}
+
+/* FAQ */
+.faq-section{max-width:1180px;margin:0 auto;padding:0 1.2rem 2rem;}
+.faq-card{background:#fff;border:1.5px solid #e8eaed;border-radius:14px;padding:1.4rem;}
+.faq-card h2{font-size:1.05rem;font-weight:700;color:#202124;margin-bottom:1rem;}
+.faq-item{border-bottom:1px solid #f1f3f4;padding:.85rem 0;}
+.faq-item:last-child{border-bottom:none;padding-bottom:0;}
+.faq-q{font-size:.84rem;font-weight:700;color:#202124;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.faq-q::after{content:'＋';font-size:.9rem;color:#1a73e8;flex-shrink:0;}
+.faq-item.open .faq-q::after{content:'－';}
+.faq-a{font-size:.78rem;color:#5f6368;line-height:1.7;margin-top:.5rem;display:none;}
+.faq-item.open .faq-a{display:block;}
+
+/* FOOTER */
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:2rem 1.2rem 1.3rem;}
+.ftr-in{max-width:1180px;margin:0 auto;}
+.ftr-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.4rem;}
+@media(max-width:680px){.ftr-top{grid-template-columns:1fr 1fr;gap:1rem;}}
+.ftr-brand-nm{font-size:1.1rem;font-weight:700;color:#202124;display:block;margin-bottom:.4rem;}
+.ftr-brand-nm span{color:#1a73e8;}
+.ftr-desc{font-size:.76rem;color:#9aa0a6;line-height:1.7;max-width:210px;}
+.fc h4{font-size:.69rem;font-weight:700;color:#202124;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.36rem;}
+.fc ul li a{font-size:.77rem;color:#5f6368;}
+.fc ul li a:hover{color:#1a73e8;}
+.ftr-bot{border-top:1px solid #e8eaed;padding-top:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
+.ftr-copy{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk{display:flex;gap:.8rem;}
+.ftr-lnk a{font-size:.68rem;color:#9aa0a6;}
+.ftr-lnk a:hover{color:#1a73e8;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
+  </div>
+</header>
+
+<!-- TOP AD -->
+<div class="ad-top ad-wrap"><div class="adslot">📢 Top Banner Ad · 728×90</div></div>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="sep">›</span>
+  <span class="cur">Developer Tools</span>
+</nav>
+
+<!-- CATEGORY HERO -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-hero-icon">💻</div>
+    <div class="cat-hero-text">
+      <h1>Developer Tools</h1>
+      <p>Free online tools built for developers — format, encode, decode, test, and generate code in seconds. All tools run in your browser, no sign-up required.</p>
+      <div class="cat-hero-tags">
+        <span class="cat-tag">🆓 All Free</span>
+        <span class="cat-tag">⚡ No Sign-up</span>
+        <span class="cat-tag">🔒 100% Private</span>
+        <span class="cat-tag">💻 10 Tools</span>
+      </div>
+      <div class="cat-stats">
+        <div class="cat-stat"><span class="cat-stat-val">10</span><span class="cat-stat-lbl">Dev Tools</span></div>
+        <div class="cat-stat"><span class="cat-stat-val">0</span><span class="cat-stat-lbl">Sign-ups needed</span></div>
+        <div class="cat-stat"><span class="cat-stat-val">100%</span><span class="cat-stat-lbl">Browser-based</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="page-wrap">
+<div class="tools-section">
+
+  <!-- TOOLS GRID -->
+  <div class="section-hdr">
+    <h2>💻 All Developer Tools</h2>
+    <span>10 tools available</span>
+  </div>
+  <div class="tools-grid">
+
+    <!-- 1. JSON Formatter -->
+    <a href="json-formatter.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#e3f2fd;">{ }</div>
+        <div class="tool-info">
+          <div class="tool-name">JSON Formatter & Validator</div>
+          <div class="tool-desc">Beautify, minify, and validate JSON data instantly. Syntax highlighting, error detection, and one-click copy.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">JSON</span>
+        <span class="tool-pill">Formatter</span>
+        <span class="tool-pill">Validator</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 2. Base64 Encoder -->
+    <a href="base64-encoder.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#e8f5e9;">64</div>
+        <div class="tool-info">
+          <div class="tool-name">Base64 Encoder / Decoder</div>
+          <div class="tool-desc">Encode text or files to Base64 and decode Base64 strings back. Supports URL-safe Base64 and image preview.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">Base64</span>
+        <span class="tool-pill">Encode</span>
+        <span class="tool-pill">Decode</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 3. Hash Generator -->
+    <a href="hash-generator.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#f3e5f5;">#</div>
+        <div class="tool-info">
+          <div class="tool-name">Hash Generator</div>
+          <div class="tool-desc">Generate MD5, SHA-1, SHA-256, SHA-512 hashes from text or files. Compare hashes and verify file integrity.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">MD5</span>
+        <span class="tool-pill">SHA-256</span>
+        <span class="tool-pill">Hash</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 4. URL Encoder / Decoder -->
+    <a href="url-encoder.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#fff3e0;">🔗</div>
+        <div class="tool-info">
+          <div class="tool-name">URL Encoder / Decoder</div>
+          <div class="tool-desc">Encode special characters in URLs and decode percent-encoded strings. Essential for API development and web scraping.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">URL</span>
+        <span class="tool-pill">Encode</span>
+        <span class="tool-pill">Decode</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 5. Regex Tester -->
+    <a href="regex-tester.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#fce4ec;">.*</div>
+        <div class="tool-info">
+          <div class="tool-name">Regex Tester</div>
+          <div class="tool-desc">Test and debug regular expressions in real-time. Highlights matches, shows capture groups, and supports all JS regex flags.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">Regex</span>
+        <span class="tool-pill">Pattern</span>
+        <span class="tool-pill">Test</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 6. Code Minifier -->
+    <a href="code-minifier.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#e0f7fa;">⚡</div>
+        <div class="tool-info">
+          <div class="tool-name">Code Minifier</div>
+          <div class="tool-desc">Minify HTML, CSS, and JavaScript to reduce file size. Shows size savings percentage. One-click copy of minified output.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">HTML</span>
+        <span class="tool-pill">CSS</span>
+        <span class="tool-pill">JavaScript</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 7. Diff Checker -->
+    <a href="diff-checker.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#fff8e1;">⟺</div>
+        <div class="tool-info">
+          <div class="tool-name">Diff Checker</div>
+          <div class="tool-desc">Compare two blocks of text or code side by side. Highlights added, removed, and changed lines with colour coding.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">Diff</span>
+        <span class="tool-pill">Compare</span>
+        <span class="tool-pill">Text</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 8. UUID Generator -->
+    <a href="uuid-generator.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#e8f5e9;">🔑</div>
+        <div class="tool-info">
+          <div class="tool-name">UUID Generator</div>
+          <div class="tool-desc">Generate v1, v4, and v5 UUIDs instantly. Bulk generation, uppercase/lowercase toggle, and one-click copy for each UUID.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">UUID</span>
+        <span class="tool-pill">GUID</span>
+        <span class="tool-pill">v4</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 9. Cron Expression Parser -->
+    <a href="cron-parser.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#e3f2fd;">⏰</div>
+        <div class="tool-info">
+          <div class="tool-name">Cron Expression Parser</div>
+          <div class="tool-desc">Parse and explain cron expressions in plain English. Shows next 10 execution times and validates cron syntax instantly.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">Cron</span>
+        <span class="tool-pill">Scheduler</span>
+        <span class="tool-pill">Parser</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+    <!-- 10. Markdown Editor -->
+    <a href="markdown-editor.html" class="tool-card">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:#f3e5f5;">Md</div>
+        <div class="tool-info">
+          <div class="tool-name">Markdown Editor</div>
+          <div class="tool-desc">Live Markdown editor with real-time HTML preview. Export to HTML, copy rendered output, and use a toolbar for quick formatting.</div>
+        </div>
+      </div>
+      <div class="tool-tags">
+        <span class="tool-pill">Markdown</span>
+        <span class="tool-pill">Preview</span>
+        <span class="tool-pill">HTML</span>
+      </div>
+      <div class="tool-footer">
+        <span class="tool-badge badge-free">🆓 Free</span>
+        <span class="tool-arrow">Use Tool →</span>
+      </div>
+    </a>
+
+  </div><!-- /tools-grid -->
+
+  <!-- MID AD -->
+  <div class="ad-mid ad-wrap"><div class="adslot">📢 Responsive Mid Ad · 728×90 / 320×50</div></div>
+
+  <!-- ALL CATEGORIES -->
+  <div class="cat-section">
+    <div class="section-hdr"><h2>🗂️ All Tool Categories</h2></div>
+    <div class="cat-grid">
+      <a href="calculator-tools.html" class="cc" data-c="calc"><div class="cc-ico">🧮</div><div class="cc-nm">Calculators</div><div class="cc-ct">10 tools</div></a>
+      <a href="text-tools.html" class="cc" data-c="text"><div class="cc-ico">✍️</div><div class="cc-nm">Text Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="image-tools.html" class="cc" data-c="image"><div class="cc-ico">🖼️</div><div class="cc-nm">Image Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="pdf-tools.html" class="cc" data-c="pdf"><div class="cc-ico">📑</div><div class="cc-nm">PDF Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="developer-tools.html" class="cc" data-c="dev" style="border-color:#1a73e8;background:#e8f0fe;"><div class="cc-ico">💻</div><div class="cc-nm">Developer</div><div class="cc-ct">10 tools</div></a>
+      <a href="seo-tools.html" class="cc" data-c="seo"><div class="cc-ico">🔍</div><div class="cc-nm">SEO Tools</div><div class="cc-ct">10 tools</div></a>
+      <a href="security-tools.html" class="cc" data-c="sec"><div class="cc-ico">🔐</div><div class="cc-nm">Security</div><div class="cc-ct">10 tools</div></a>
+      <a href="finance-tools.html" class="cc" data-c="fin"><div class="cc-ico">💰</div><div class="cc-nm">Finance</div><div class="cc-ct">10 tools</div></a>
+      <a href="design-tools.html" class="cc" data-c="des"><div class="cc-ico">🎨</div><div class="cc-nm">Design</div><div class="cc-ct">10 tools</div></a>
+      <a href="video-audio-tools.html" class="cc" data-c="vid"><div class="cc-ico">🎬</div><div class="cc-nm">Video & Audio</div><div class="cc-ct">10 tools</div></a>
+    </div>
+  </div>
+
+</div><!-- /tools-section -->
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>🔥 Most Popular</h3></div>
+    <div class="sidebar-card-body">
+      <a href="json-formatter.html" class="popular-tool">
+        <div class="pop-ico">{ }</div>
+        <div><div class="pop-name">JSON Formatter</div><div class="pop-desc">Format & validate JSON</div></div>
+      </a>
+      <a href="base64-encoder.html" class="popular-tool">
+        <div class="pop-ico" style="background:#e8f5e9;">64</div>
+        <div><div class="pop-name">Base64 Encoder</div><div class="pop-desc">Encode & decode Base64</div></div>
+      </a>
+      <a href="regex-tester.html" class="popular-tool">
+        <div class="pop-ico" style="background:#fce4ec;">.*</div>
+        <div><div class="pop-name">Regex Tester</div><div class="pop-desc">Test regex patterns live</div></div>
+      </a>
+      <a href="uuid-generator.html" class="popular-tool">
+        <div class="pop-ico" style="background:#e8f5e9;">🔑</div>
+        <div><div class="pop-name">UUID Generator</div><div class="pop-desc">Generate v1/v4/v5 UUIDs</div></div>
+      </a>
+      <a href="diff-checker.html" class="popular-tool">
+        <div class="pop-ico" style="background:#fff8e1;">⟺</div>
+        <div><div class="pop-name">Diff Checker</div><div class="pop-desc">Compare text & code</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-card-header"><h3>💡 Developer Tips</h3></div>
+    <div class="sidebar-card-body">
+      <div class="tip-item"><span class="tip-ico">{ }</span><span class="tip-text">Always validate JSON before sending API requests to avoid hard-to-debug 400 errors.</span></div>
+      <div class="tip-item"><span class="tip-ico">🔐</span><span class="tip-text">Use SHA-256 for checksums and file integrity — MD5 is outdated for security use.</span></div>
+      <div class="tip-item"><span class="tip-ico">⏰</span><span class="tip-text">Test cron expressions before deploying — a missed space can shift schedules by hours.</span></div>
+      <div class="tip-item"><span class="tip-ico">⚡</span><span class="tip-text">Minify CSS and JS before production to reduce load time and bandwidth.</span></div>
+    </div>
+  </div>
+
+  <div class="sidebar-card" style="background:linear-gradient(135deg,#e3f2fd,#e8f5e9);border-color:#90caf9;">
+    <div class="sidebar-card-body" style="padding:1rem;">
+      <div style="font-size:.88rem;font-weight:700;color:#1565c0;margin-bottom:.35rem;">💻 All tools work offline</div>
+      <div style="font-size:.76rem;color:#1565c0;line-height:1.55;">Once the page is loaded, all dev tools process data in your browser — no server calls, no data leaks.</div>
+    </div>
+  </div>
+
+</div><!-- /sidebar -->
+</div><!-- /page-wrap -->
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="faq-card">
+    <h2>❓ Frequently Asked Questions – Developer Tools</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Are all developer tools free to use?</div>
+      <div class="faq-a">Yes — every tool on ToolNex is completely free. There are no premium tiers, no credits system, and no sign-up required. All 10 developer tools can be used unlimited times without any cost.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Is my code or data safe when using these tools?</div>
+      <div class="faq-a">Absolutely. All tools run entirely in your browser using JavaScript. Your code, text, and data are never sent to any server. Everything is processed locally on your device, making these tools 100% private and safe for sensitive code.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Do the tools work without an internet connection?</div>
+      <div class="faq-a">Once the page is loaded in your browser, most tools will continue to work even if you go offline, since all processing happens locally. Tools that use external CDN libraries (like the Markdown editor) may need the initial page load to complete while connected.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Which tool should I use to compare two files?</div>
+      <div class="faq-a">Use the Diff Checker tool — paste the original text in the left panel and the modified version on the right. It highlights added lines in green, removed lines in red, and changed lines in yellow, making it easy to spot differences in code, config files, or any text.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div>
+        <span class="ftr-brand-nm">🛠️ Tool<span>Nex</span></span>
+        <p class="ftr-desc">Free online tools. Fast, private, no sign-up. Built with ♥</p>
+      </div>
+      <div class="fc">
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Dev Tools</h4>
+        <ul>
+          <li><a href="json-formatter.html">JSON Formatter</a></li>
+          <li><a href="base64-encoder.html">Base64 Encoder</a></li>
+          <li><a href="regex-tester.html">Regex Tester</a></li>
+          <li><a href="hash-generator.html">Hash Generator</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>More Tools</h4>
+        <ul>
+          <li><a href="uuid-generator.html">UUID Generator</a></li>
+          <li><a href="diff-checker.html">Diff Checker</a></li>
+          <li><a href="code-minifier.html">Code Minifier</a></li>
+          <li><a href="markdown-editor.html">Markdown Editor</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <div class="ftr-copy">© 2026 ToolNex · All Rights Reserved</div>
+      <div class="ftr-lnk"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Animate tool cards on scroll
+const ob = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      ob.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.05 });
+
+document.querySelectorAll('.tool-card').forEach((c, i) => {
+  c.style.cssText += `;opacity:0;transform:translateY(16px);transition:opacity .35s ${i * 0.06}s ease,transform .35s ${i * 0.06}s ease,border-color .15s,box-shadow .2s`;
+  ob.observe(c);
+});
+
+document.querySelectorAll('.cc').forEach((c, i) => {
+  c.style.cssText += `;opacity:0;transform:translateY(10px);transition:opacity .3s ${i * 0.04}s ease,transform .3s ${i * 0.04}s ease`;
+  ob.observe(c);
+});
+</script>
+</body>
+</html>
