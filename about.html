@@ -1,666 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>About Us | ToolNex – Free Online Tools</title>
-<meta name="description" content="Learn about ToolNex — our mission to provide 200+ free online tools to everyone. Fast, private, no sign-up required. Built with passion for the web."/>
-<meta name="robots" content="index, follow"/>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4K2LMKJLTV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4K2LMKJLTV');</script>
+<title>About Us – ToolNex</title>
+<meta name="description" content="Learn about ToolNex — a free online toolbox with 100+ tools for everyone. No sign-up, no fees, just tools."/>
 <link rel="canonical" href="https://toolnex.site/about.html"/>
-
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@600;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --gold:#c9a84c;--gold2:#f0d080;--darker:#07070e;--dark:#0d0d14;
-  --panel:rgba(18,18,30,0.96);--border:rgba(201,168,76,0.28);
-  --text:#e8dfc8;--muted:#9a8860;--green:#4caf77;--red:#e05a5a;--blue:#5ab4e0;--purple:#a07ad0;--orange:#e09a3a;
-}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--darker);color:var(--text);min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(201,168,76,0.08) 0%,transparent 70%),
-    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(201,168,76,0.04) 0%,transparent 60%),
-    repeating-linear-gradient(60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
-    repeating-linear-gradient(-60deg,transparent,transparent 80px,rgba(201,168,76,0.02) 80px,rgba(201,168,76,0.02) 81px),
-    var(--darker);}
-
-/* ══ NAV ══ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:300;min-height:44px;
-  display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;
-  padding:.5rem 1.4rem;background:rgba(5,5,12,0.97);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);}
-.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
-.nav-logo-icon{font-size:1.3rem;}
-.nav-logo-text{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.06em;}
-.nav-right{display:flex;align-items:center;gap:.4rem;}
-.nav-link{background:transparent;border:1px solid var(--border);border-radius:20px;
-  padding:.22rem .75rem;color:var(--muted);font-size:.82rem;text-decoration:none;transition:all .2s;}
-.nav-link:hover{border-color:var(--gold);color:var(--gold2);}
-
-/* ══ TOP BANNER AD ══ */
-.ad-top-banner{position:fixed;top:44px;left:0;right:0;z-index:290;min-height:96px;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(5,5,12,0.97);border-bottom:1px solid var(--border);padding:.35rem 1rem;}
-.ad-top-banner .ad-slot{width:728px;height:90px;max-width:calc(100% - 2rem);
-  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.18);border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
-@media(max-width:768px){.ad-top-banner{min-height:116px;}.ad-top-banner .ad-slot{width:320px;height:100px;}}
-
-/* ══ PAGE BODY ══ */
-.page-body{padding-top:160px;}
-@media(max-width:768px){.page-body{padding-top:180px;}}
-
-/* ══ HERO ══ */
-.hero{position:relative;z-index:1;padding:2.8rem 1rem 2.2rem;text-align:center;}
-.hero-badge{display:inline-flex;align-items:center;gap:.4rem;
-  background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:20px;
-  padding:.28rem 1rem;font-size:.72rem;font-family:'Cinzel',serif;color:var(--gold);
-  letter-spacing:.08em;margin-bottom:.7rem;animation:fadeDown .9s ease both;}
-.hero-title{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:900;
-  background:linear-gradient(135deg,var(--gold2) 0%,var(--gold) 50%,#7a5c10 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  line-height:1.1;margin-bottom:.5rem;animation:fadeDown .9s .1s ease both;}
-.hero-sub{color:var(--muted);font-size:clamp(.88rem,2vw,1.05rem);max-width:580px;margin:0 auto .6rem;
-  line-height:1.8;animation:fadeDown .9s .2s ease both;}
-.gold-line{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.6rem auto 0;}
-
-/* ══ BREADCRUMB ══ */
-.breadcrumb{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:.4rem 1rem 0;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
-.breadcrumb a{font-size:.75rem;color:var(--muted);text-decoration:none;font-family:'Cinzel',serif;letter-spacing:.05em;transition:color .2s;}
-.breadcrumb a:hover{color:var(--gold2);}
-.breadcrumb span{font-size:.75rem;color:rgba(201,168,76,0.4);}
-.breadcrumb .bc-cur{font-size:.75rem;color:var(--gold);font-family:'Cinzel',serif;letter-spacing:.05em;}
-
-/* ══ MAIN WRAP ══ */
-.main-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;display:flex;flex-direction:column;gap:2rem;}
-
-/* ══ SEC TITLE ══ */
-.sec-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold);
-  letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;margin-bottom:1.2rem;}
-.sec-title::before{content:'';width:4px;height:16px;background:var(--gold);border-radius:2px;}
-
-/* ══ PANEL ══ */
-.panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;}
-.panel-header{padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;
-  background:rgba(201,168,76,0.03);}
-.panel-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold2);display:flex;align-items:center;gap:.5rem;letter-spacing:.05em;}
-.panel-body{padding:1.8rem;}
-@media(max-width:520px){.panel-body{padding:1.2rem;}}
-
-/* ══ MISSION SECTION ══ */
-.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:center;}
-@media(max-width:680px){.mission-grid{grid-template-columns:1fr;}}
-.mission-text p{font-size:.9rem;color:var(--text);line-height:1.9;margin-bottom:1rem;}
-.mission-text p:last-child{margin-bottom:0;}
-.mission-text strong{color:var(--gold2);}
-.mission-visual{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.2);
-  border-radius:14px;padding:2rem;text-align:center;display:flex;flex-direction:column;gap:1rem;align-items:center;}
-.mission-logo-big{font-size:3.5rem;filter:drop-shadow(0 0 20px rgba(201,168,76,0.4));}
-.mission-tagline{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  letter-spacing:.06em;}
-.mission-sub-tag{font-size:.78rem;color:var(--muted);line-height:1.6;max-width:200px;}
-
-/* ══ STATS STRIP ══ */
-.stats-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.85rem;}
-.stat-card{background:rgba(255,255,255,0.025);border:1px solid rgba(201,168,76,0.18);
-  border-radius:12px;padding:1.2rem 1rem;text-align:center;transition:border-color .2s,transform .2s;}
-.stat-card:hover{border-color:var(--gold);transform:translateY(-3px);}
-.stat-num{font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;
-  color:var(--gold2);line-height:1;}
-.stat-lbl{font-family:'Cinzel',serif;font-size:.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem;}
-
-/* ══ VALUES GRID ══ */
-.values-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
-.value-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:14px;
-  padding:1.3rem;display:flex;flex-direction:column;gap:.5rem;
-  transition:border-color .2s,transform .2s;}
-.value-card:hover{border-color:var(--gold);transform:translateY(-3px);}
-.value-icon{font-size:1.8rem;filter:drop-shadow(0 0 8px rgba(201,168,76,0.25));}
-.value-title{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;color:var(--gold2);letter-spacing:.05em;}
-.value-text{font-size:.78rem;color:var(--muted);line-height:1.6;}
-
-/* ══ TOOLS CATEGORY SHOWCASE ══ */
-.cat-showcase{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.85rem;}
-.cat-card{background:rgba(255,255,255,0.025);border:1px solid var(--border);border-radius:12px;
-  padding:1.1rem;display:flex;flex-direction:column;gap:.4rem;
-  transition:border-color .2s,transform .2s;text-decoration:none;}
-.cat-card:hover{border-color:var(--gold);transform:translateY(-3px);}
-.cat-card-icon{font-size:1.5rem;}
-.cat-card-name{font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);letter-spacing:.04em;}
-.cat-card-count{font-size:.72rem;color:var(--muted);}
-.cat-card-tools{font-size:.72rem;color:var(--muted);line-height:1.5;margin-top:.2rem;}
-
-/* ══ TEAM / STORY ══ */
-.story-text p{font-size:.9rem;color:var(--text);line-height:1.9;margin-bottom:1rem;}
-.story-text p:last-child{margin-bottom:0;}
-.story-text strong{color:var(--gold2);}
-
-/* Timeline */
-.timeline{display:flex;flex-direction:column;gap:0;}
-.tl-item{display:flex;gap:1.2rem;position:relative;padding-bottom:1.5rem;}
-.tl-item:last-child{padding-bottom:0;}
-.tl-left{display:flex;flex-direction:column;align-items:center;gap:0;flex-shrink:0;width:44px;}
-.tl-dot{width:40px;height:40px;border-radius:50%;background:rgba(201,168,76,0.1);
-  border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;flex-shrink:0;z-index:1;}
-.tl-line{width:2px;flex:1;background:linear-gradient(180deg,var(--gold),rgba(201,168,76,0.1));
-  margin-top:4px;}
-.tl-item:last-child .tl-line{display:none;}
-.tl-right{padding-top:.5rem;padding-bottom:.5rem;}
-.tl-year{font-family:'Cinzel',serif;font-size:.7rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.2rem;}
-.tl-title{font-family:'Cinzel',serif;font-size:.88rem;color:var(--gold2);margin-bottom:.3rem;letter-spacing:.04em;}
-.tl-text{font-size:.8rem;color:var(--muted);line-height:1.6;}
-
-/* ══ HIGHLIGHT BOX ══ */
-.highlight-box{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);
-  border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
-  padding:1rem 1.2rem;font-size:.87rem;color:var(--text);line-height:1.8;}
-.highlight-box.green{background:rgba(76,175,119,0.05);border-color:rgba(76,175,119,0.2);border-left-color:var(--green);}
-.highlight-box.blue{background:rgba(90,180,224,0.05);border-color:rgba(90,180,224,0.2);border-left-color:var(--blue);}
-
-/* ══ TECH STACK ══ */
-.tech-grid{display:flex;flex-wrap:wrap;gap:.55rem;}
-.tech-chip{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;
-  padding:.3rem .9rem;font-size:.75rem;font-family:'Cinzel',serif;color:var(--muted);
-  letter-spacing:.05em;transition:all .2s;}
-.tech-chip:hover{border-color:var(--gold);color:var(--gold2);}
-
-/* ══ CTA SECTION ══ */
-.cta-box{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.25);
-  border-radius:16px;padding:2.5rem 2rem;text-align:center;display:flex;flex-direction:column;gap:1rem;align-items:center;}
-.cta-title{font-family:'Cinzel',serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  letter-spacing:.05em;}
-.cta-sub{font-size:.88rem;color:var(--muted);max-width:480px;line-height:1.7;}
-.cta-btns{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;}
-.btn-cta-primary{background:linear-gradient(135deg,var(--gold2),var(--gold),#9a7020);
-  border:none;border-radius:12px;padding:.72rem 1.8rem;
-  color:#000;font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;
-  cursor:pointer;text-decoration:none;transition:all .25s;letter-spacing:.06em;
-  display:inline-flex;align-items:center;gap:.4rem;
-  box-shadow:0 4px 18px rgba(201,168,76,0.25);}
-.btn-cta-primary:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(201,168,76,0.38);}
-.btn-cta-secondary{background:transparent;border:1px solid var(--border);border-radius:12px;
-  padding:.72rem 1.5rem;color:var(--muted);font-family:'Cinzel',serif;font-size:.85rem;
-  text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;}
-.btn-cta-secondary:hover{border-color:var(--gold);color:var(--gold2);}
-
-/* ══ FAQ ══ */
-.faq-list{display:flex;flex-direction:column;gap:.6rem;}
-.faq-item{background:rgba(255,255,255,0.025);border:1px solid rgba(201,168,76,0.15);
-  border-radius:10px;overflow:hidden;transition:border-color .2s;}
-.faq-item:hover{border-color:rgba(201,168,76,0.35);}
-.faq-q{padding:.85rem 1.1rem;font-family:'Cinzel',serif;font-size:.82rem;color:var(--gold2);
-  letter-spacing:.04em;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:.5rem;}
-.faq-arrow{color:var(--gold);font-size:.75rem;transition:transform .25s;flex-shrink:0;}
-.faq-item.open .faq-arrow{transform:rotate(180deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 1.1rem;}
-.faq-item.open .faq-a{max-height:200px;padding:0 1.1rem .85rem;}
-.faq-a p{font-size:.82rem;color:var(--muted);line-height:1.7;}
-
-/* ══ MID AD ══ */
-.ad-mid-responsive{width:100%;display:flex;align-items:center;justify-content:center;
-  background:rgba(201,168,76,0.02);border:1px dashed rgba(201,168,76,0.18);
-  border-radius:10px;padding:.5rem;min-height:70px;}
-.ad-mid-responsive .ad-slot{width:728px;height:90px;max-width:100%;
-  background:rgba(201,168,76,0.03);border:1px dashed rgba(201,168,76,0.12);border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
-@media(max-width:768px){.ad-mid-responsive .ad-slot{width:468px;height:60px;}}
-@media(max-width:520px){.ad-mid-responsive .ad-slot{width:320px;height:50px;}}
-
-/* ══ FOOTER ══ */
-.footer{background:rgba(3,3,10,0.99);border-top:1px solid var(--border);padding:2.5rem 1rem 1.5rem;}
-.footer-inner{max-width:1100px;margin:0 auto;}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
-@media(max-width:700px){.footer-top{grid-template-columns:1fr 1fr;gap:1.2rem;}}
-@media(max-width:400px){.footer-top{grid-template-columns:1fr;}}
-.footer-brand .brand-logo{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;display:block;}
-.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:220px;}
-.footer-col h4{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.7rem;}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
-.footer-col ul li a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:color .2s;font-family:'Inter',sans-serif;}
-.footer-col ul li a:hover{color:var(--gold2);}
-.footer-bottom{border-top:1px solid var(--border);padding-top:1.2rem;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;}
-.footer-copy{font-family:'Cinzel',serif;font-size:.68rem;color:var(--muted);letter-spacing:.08em;}
-
-@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+body{font-family:'DM Sans',sans-serif;background:#f8f9fa;color:#202124;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.hdr{background:#fff;border-bottom:1px solid #e8eaed;position:sticky;top:0;z-index:100;}
+.hdr-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem;}
+.logo{display:flex;align-items:center;gap:.35rem;font-size:1.05rem;font-weight:700;color:#202124;flex-shrink:0;}
+.logo-accent{color:#1a73e8;}
+.sbar{flex:1;max-width:580px;display:flex;align-items:center;background:#f1f3f4;border:1.5px solid transparent;border-radius:28px;padding:.32rem .32rem .32rem .95rem;}
+.sbar input{flex:1;background:none;border:none;outline:none;font-size:.92rem;color:#202124;}
+.sbar input::placeholder{color:#9aa0a6;}
+.sbtn{background:#1a73e8;color:#fff;border:none;border-radius:22px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;cursor:pointer;}
+.hdr-links{display:flex;gap:.2rem;}
+.hdr-link{font-size:.8rem;font-weight:500;color:#5f6368;padding:.38rem .65rem;border-radius:20px;}
+.hdr-link:hover{background:#f1f3f4;}
+@media(max-width:650px){.hdr-links{display:none;}}
+.ad-wrap{display:flex;justify-content:center;padding:.4rem 1rem;}
+.adslot{display:flex;align-items:center;justify-content:center;background:#f8f9fa;border:1px dashed #dadce0;border-radius:8px;font-size:.65rem;color:#9aa0a6;text-transform:uppercase;letter-spacing:.05em;width:100%;max-width:728px;}
+.ad-top{background:#fff;border-bottom:1px solid #e8eaed;padding:.35rem 0;}
+.ad-top .adslot{height:90px;}
+@media(max-width:740px){.ad-top .adslot{height:50px;max-width:320px;}}
+.breadcrumb{max-width:1180px;margin:0 auto;padding:.65rem 1.2rem;display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.breadcrumb a,.breadcrumb span{font-size:.75rem;color:#5f6368;}
+.breadcrumb a:hover{color:#1a73e8;}
+.breadcrumb .sep{color:#dadce0;}
+.breadcrumb .cur{color:#202124;font-weight:600;}
+.page-wrap{max-width:780px;margin:2rem auto;padding:0 1.2rem 4rem;}
+.page-card{background:#fff;border:1.5px solid #e8eaed;border-radius:16px;padding:2rem 2.2rem;}
+@media(max-width:600px){.page-card{padding:1.4rem 1.2rem;}}
+.page-hero{text-align:center;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid #f1f3f4;}
+.page-hero-ico{font-size:2.8rem;margin-bottom:.6rem;}
+.page-hero h1{font-size:1.7rem;font-weight:700;color:#202124;margin-bottom:.4rem;}
+.page-hero p{font-size:.88rem;color:#5f6368;line-height:1.65;max-width:480px;margin:0 auto;}
+.section{margin-bottom:1.8rem;}
+.section h2{font-size:1rem;font-weight:700;color:#202124;margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem;}
+.section p{font-size:.85rem;color:#5f6368;line-height:1.75;margin-bottom:.5rem;}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.8rem;margin-top:.8rem;}
+.mini-card{background:#f8f9fa;border:1.5px solid #e8eaed;border-radius:12px;padding:.9rem;text-align:center;}
+.mini-card-ico{font-size:1.5rem;margin-bottom:.3rem;}
+.mini-card-title{font-size:.78rem;font-weight:700;color:#202124;}
+.mini-card-desc{font-size:.7rem;color:#9aa0a6;margin-top:.15rem;}
+.contact-link{color:#1a73e8;font-weight:600;}
+.contact-link:hover{text-decoration:underline;}
+.ftr{background:#fff;border-top:1px solid #e8eaed;padding:1.5rem 1.2rem 1.2rem;margin-top:0;}
+.ftr-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;}
+.ftr-copy{font-size:.72rem;color:#9aa0a6;}
+.ftr-links{display:flex;gap:1rem;flex-wrap:wrap;}
+.ftr-links a{font-size:.72rem;color:#9aa0a6;}
+.ftr-links a:hover{color:#1a73e8;}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav class="nav">
-  <a href="index.html" class="nav-logo">
-    <span class="nav-logo-icon">🛠️</span>
-    <span class="nav-logo-text">ToolNex</span>
-  </a>
-  <div class="nav-right">
-    <a href="index.html" class="nav-link">🏠 Home</a>
+<header class="hdr">
+  <div class="hdr-inner">
+    <a href="index.html" class="logo"><span>🛠️</span><span>Tool<span class="logo-accent">Nex</span></span></a>
+    <div class="sbar"><input type="search" placeholder="Search 100+ tools..." autocomplete="off"/><button class="sbtn">Search</button></div>
+    <nav class="hdr-links"><a href="about.html" class="hdr-link">About</a><a href="contact.html" class="hdr-link">Contact</a></nav>
   </div>
-</nav>
+</header>
+<div class="ad-top ad-wrap"><div class="adslot">📢 Top Banner Ad · 728×90</div></div>
+<nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span class="cur">About Us</span></nav>
+<div class="page-wrap">
+  <div class="page-card">
+    <div class="page-hero">
+      <div class="page-hero-ico">🛠️</div>
+      <h1>About ToolNex</h1>
+      <p>Your free online toolbox — 100+ tools for everyday tasks. No sign-up, no fees, no hassle.</p>
+    </div>
 
-<!-- TOP BANNER AD -->
-<div class="ad-top-banner">
-  <div class="ad-slot">
-    <!-- <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX"></ins> -->
-    📢 Top Banner Ad · 728×90 Desktop / 320×100 Mobile
+    <div class="section">
+      <h2>👋 Who We Are</h2>
+      <p>ToolNex is a free online platform built to make everyday digital tasks simple and fast. We provide 100+ tools across categories like calculators, image tools, PDF utilities, developer tools, SEO, security, design, and more.</p>
+      <p>Our goal is simple — give everyone access to powerful tools without any sign-up, payment, or software installation.</p>
+    </div>
+
+    <div class="section">
+      <h2>🎯 Our Mission</h2>
+      <p>We believe useful tools should be free and accessible to everyone. Whether you're a developer, student, designer, or just someone who needs to resize an image or calculate a percentage — ToolNex has you covered.</p>
+    </div>
+
+    <div class="section">
+      <h2>✨ What Makes Us Different</h2>
+      <div class="cards-grid">
+        <div class="mini-card"><div class="mini-card-ico">🆓</div><div class="mini-card-title">Always Free</div><div class="mini-card-desc">No hidden charges ever</div></div>
+        <div class="mini-card"><div class="mini-card-ico">🔒</div><div class="mini-card-title">100% Private</div><div class="mini-card-desc">Your data stays with you</div></div>
+        <div class="mini-card"><div class="mini-card-ico">⚡</div><div class="mini-card-title">Fast & Lightweight</div><div class="mini-card-desc">Works on any device</div></div>
+        <div class="mini-card"><div class="mini-card-ico">📋</div><div class="mini-card-title">No Sign-up</div><div class="mini-card-desc">Use instantly, no account</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📬 Get in Touch</h2>
+      <p>Have a question, suggestion, or found a bug? We'd love to hear from you. Reach out at <a href="mailto:support@toolnex.site" class="contact-link">support@toolnex.site</a> or visit our <a href="contact.html" class="contact-link">Contact page</a>.</p>
+    </div>
+
   </div>
 </div>
-
-<div class="page-body">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">📖 Our Story &amp; Mission</div>
-    <h1 class="hero-title">About ToolNex</h1>
-    <p class="hero-sub">We believe powerful online tools should be free, fast and accessible to everyone — with no sign-up, no tracking and no hassle.</p>
-    <div class="gold-line"></div>
-  </section>
-
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb">
-    <a href="index.html">🏠 Home</a><span>›</span>
-    <span class="bc-cur">About Us</span>
-  </div>
-
-  <div class="main-wrap">
-
-    <!-- ══ MISSION ══ -->
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">🎯 Our Mission</div>
-      </div>
-      <div class="panel-body">
-        <div class="mission-grid">
-          <div class="mission-text">
-            <p>
-              <strong>ToolNex</strong> was born from a simple frustration — too many online tools are locked behind sign-up walls, riddled with ads, or charge money for basic features that should be free. We decided to change that.
-            </p>
-            <p>
-              Our mission is to build a <strong>free, fast and private toolbox</strong> that anyone in the world can use — whether you are a student doing homework, a developer formatting JSON, a designer compressing images, or a small business owner converting PDFs. No account needed. No personal data collected. Just tools that work.
-            </p>
-            <p>
-              We are committed to keeping every tool on ToolNex <strong>100% free</strong>, forever. Advertising helps us cover costs so you never have to pay a single rupee, dollar or euro to use any of our tools.
-            </p>
-          </div>
-          <div class="mission-visual">
-            <div class="mission-logo-big">🛠️</div>
-            <div class="mission-tagline">ToolNex</div>
-            <div class="mission-sub-tag">Free Tools for Everyone — Fast, Private, No Sign-up</div>
-            <div style="display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;">
-              <span style="background:rgba(76,175,119,0.1);border:1px solid rgba(76,175,119,0.3);border-radius:10px;padding:.18rem .65rem;font-size:.68rem;font-family:'Cinzel',serif;color:var(--green);letter-spacing:.05em;">✅ Always Free</span>
-              <span style="background:rgba(90,180,224,0.1);border:1px solid rgba(90,180,224,0.3);border-radius:10px;padding:.18rem .65rem;font-size:.68rem;font-family:'Cinzel',serif;color:var(--blue);letter-spacing:.05em;">🔒 Private</span>
-              <span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:.18rem .65rem;font-size:.68rem;font-family:'Cinzel',serif;color:var(--gold);letter-spacing:.05em;">⚡ Fast</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ STATS ══ -->
-    <div>
-      <div class="sec-title">📊 ToolNex by the Numbers</div>
-      <div class="stats-strip">
-        <div class="stat-card">
-          <div class="stat-num">200+</div>
-          <div class="stat-lbl">Free Tools</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">7</div>
-          <div class="stat-lbl">Categories</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">10+</div>
-          <div class="stat-lbl">Languages</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">0</div>
-          <div class="stat-lbl">Sign-up Required</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">0</div>
-          <div class="stat-lbl">Data Sold</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">100%</div>
-          <div class="stat-lbl">Free Forever</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ VALUES ══ -->
-    <div>
-      <div class="sec-title">💎 Our Core Values</div>
-      <div class="values-grid">
-        <div class="value-card">
-          <span class="value-icon">🆓</span>
-          <div class="value-title">Always Free</div>
-          <div class="value-text">Every tool on ToolNex is and will always remain free. We believe access to useful tools is a right, not a privilege.</div>
-        </div>
-        <div class="value-card">
-          <span class="value-icon">🔒</span>
-          <div class="value-title">Privacy First</div>
-          <div class="value-text">We don't collect personal data, don't require registration, and process most tool operations entirely in your browser.</div>
-        </div>
-        <div class="value-card">
-          <span class="value-icon">⚡</span>
-          <div class="value-title">Speed & Performance</div>
-          <div class="value-text">Our tools are optimised to be blazing fast. No unnecessary loading, no bloated code — just instant results.</div>
-        </div>
-        <div class="value-card">
-          <span class="value-icon">🌍</span>
-          <div class="value-title">Accessible to All</div>
-          <div class="value-text">ToolNex works on any device — desktop, mobile or tablet. We support multiple languages to serve users worldwide.</div>
-        </div>
-        <div class="value-card">
-          <span class="value-icon">🤝</span>
-          <div class="value-title">User-Centred Design</div>
-          <div class="value-text">Every tool is designed with simplicity in mind. No confusing menus, no unnecessary steps — just clean, intuitive interfaces.</div>
-        </div>
-        <div class="value-card">
-          <span class="value-icon">🚀</span>
-          <div class="value-title">Continuous Improvement</div>
-          <div class="value-text">We constantly add new tools, fix bugs and listen to user feedback. ToolNex grows with the needs of its community.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ OUR STORY / TIMELINE ══ -->
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">📜 Our Story</div>
-      </div>
-      <div class="panel-body">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
-
-          <div class="story-text">
-            <p>
-              ToolNex started as a personal side project. The founder was constantly switching between dozens of different websites to perform basic tasks — compressing an image here, formatting JSON there, converting a PDF somewhere else.
-            </p>
-            <p>
-              The frustration of dealing with <strong>slow, ad-heavy, privacy-invasive tools</strong> on separate websites was the spark that created ToolNex. Why not build one place that has everything?
-            </p>
-            <p>
-              What began as a small collection of tools quickly grew. User feedback shaped new features. The AI Writer was added when AI became widely accessible. The Image to PDF tool got camera capture and smart crop. The BMI Calculator got calorie estimation and zodiac-style life stats.
-            </p>
-            <p>
-              Today, ToolNex offers <strong>200+ tools</strong> and continues to grow. Every feature is built with one goal: making your daily digital tasks faster and simpler.
-            </p>
-          </div>
-
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-left"><div class="tl-dot">💡</div><div class="tl-line"></div></div>
-              <div class="tl-right">
-                <div class="tl-year">2023 — The Idea</div>
-                <div class="tl-title">ToolNex is Born</div>
-                <div class="tl-text">Frustrated with fragmented online tools, we began building a unified, free toolbox for everyone.</div>
-              </div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-left"><div class="tl-dot">🛠️</div><div class="tl-line"></div></div>
-              <div class="tl-right">
-                <div class="tl-year">Early 2024</div>
-                <div class="tl-title">First 50 Tools Launched</div>
-                <div class="tl-text">Core calculators, converters, PDF tools and developer utilities went live. First users arrived.</div>
-              </div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-left"><div class="tl-dot">🤖</div><div class="tl-line"></div></div>
-              <div class="tl-right">
-                <div class="tl-year">Mid 2024</div>
-                <div class="tl-title">AI Writer Added</div>
-                <div class="tl-text">We integrated Claude AI (Anthropic) to power our AI Writer — generating articles, emails and more.</div>
-              </div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-left"><div class="tl-dot">📷</div><div class="tl-line"></div></div>
-              <div class="tl-right">
-                <div class="tl-year">Late 2024</div>
-                <div class="tl-title">Advanced Tools Launch</div>
-                <div class="tl-text">Camera scanning, smart crop, colour filters, live age counter, BMI with calorie calculation and more.</div>
-              </div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-left"><div class="tl-dot">🌍</div></div>
-              <div class="tl-right">
-                <div class="tl-year">2025 & Beyond</div>
-                <div class="tl-title">200+ Tools & Growing</div>
-                <div class="tl-text">Reaching users worldwide with 200+ tools, multilingual support and more features on the way.</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ TOOLS CATEGORIES ══ -->
-    <div>
-      <div class="sec-title">🗂️ What We Offer</div>
-      <div class="cat-showcase">
-        <a href="index.html#calc" class="cat-card">
-          <span class="cat-card-icon">🧮</span>
-          <div class="cat-card-name">Calculators</div>
-          <div class="cat-card-count">9+ tools</div>
-          <div class="cat-card-tools">Age, BMI, Loan, Interest, Percentage, Tip, Discount and more.</div>
-        </a>
-        <a href="index.html#text" class="cat-card">
-          <span class="cat-card-icon">✍️</span>
-          <div class="cat-card-name">Text Tools</div>
-          <div class="cat-card-count">8+ tools</div>
-          <div class="cat-card-tools">Word Counter, Grammar Checker, Text to Speech, Plagiarism Checker.</div>
-        </a>
-        <a href="index.html#image" class="cat-card">
-          <span class="cat-card-icon">🖼️</span>
-          <div class="cat-card-name">Image Tools</div>
-          <div class="cat-card-count">5+ tools</div>
-          <div class="cat-card-tools">Image Compressor, Image to PDF with Camera & Smart Crop.</div>
-        </a>
-        <a href="index.html#pdf" class="cat-card">
-          <span class="cat-card-icon">📑</span>
-          <div class="cat-card-name">PDF Tools</div>
-          <div class="cat-card-count">3+ tools</div>
-          <div class="cat-card-tools">PDF to Word, Word to PDF, Image to PDF converter.</div>
-        </a>
-        <a href="index.html#dev" class="cat-card">
-          <span class="cat-card-icon">💻</span>
-          <div class="cat-card-name">Developer Tools</div>
-          <div class="cat-card-count">10+ tools</div>
-          <div class="cat-card-tools">JSON Formatter, CSS/JS Minifier, Base64, QR Code, Hash Generator.</div>
-        </a>
-        <a href="index.html#seo" class="cat-card">
-          <span class="cat-card-icon">🔍</span>
-          <div class="cat-card-name">SEO Tools</div>
-          <div class="cat-card-count">5+ tools</div>
-          <div class="cat-card-tools">Meta Tag Generator, SEO Checker, Speed Test, IP Finder.</div>
-        </a>
-        <a href="index.html#ai" class="cat-card">
-          <span class="cat-card-icon">🤖</span>
-          <div class="cat-card-name">AI Tools</div>
-          <div class="cat-card-count">3+ tools</div>
-          <div class="cat-card-tools">AI Writer, Grammar Checker, Plagiarism Checker — AI powered.</div>
-        </a>
-      </div>
-    </div>
-
-    <!-- ══ TECH STACK ══ -->
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-title">⚙️ How ToolNex is Built</div>
-      </div>
-      <div class="panel-body">
-        <p style="font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.2rem;">
-          ToolNex is built with simplicity and performance in mind. We use lightweight, standards-based web technologies — no heavy frameworks, no unnecessary dependencies. Most tools work entirely in your browser, which means your data stays on your device.
-        </p>
-        <div class="tech-grid">
-          <span class="tech-chip">HTML5</span>
-          <span class="tech-chip">CSS3</span>
-          <span class="tech-chip">Vanilla JavaScript</span>
-          <span class="tech-chip">Canvas API</span>
-          <span class="tech-chip">File API</span>
-          <span class="tech-chip">Web Camera API</span>
-          <span class="tech-chip">jsPDF</span>
-          <span class="tech-chip">Claude AI (Anthropic)</span>
-          <span class="tech-chip">Google Fonts</span>
-          <span class="tech-chip">Cloudflare CDN</span>
-          <span class="tech-chip">Google Analytics</span>
-          <span class="tech-chip">Google AdSense</span>
-        </div>
-        <div class="highlight-box green" style="margin-top:1.2rem;">
-          🔒 <strong>Privacy by design:</strong> Tools like Image Compressor, BMI Calculator, Age Calculator, PDF converter and Image to PDF process all data locally in your browser. Nothing is uploaded to our servers.
-        </div>
-      </div>
-    </div>
-
-    <!-- MID AD -->
-    <div class="ad-mid-responsive">
-      <div class="ad-slot">
-        <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
-        📢 Responsive Ad · 728×90 → 468×60 → 320×50 (Auto)
-      </div>
-    </div>
-
-    <!-- ══ FAQ ══ -->
-    <div>
-      <div class="sec-title">❓ Frequently Asked Questions</div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Is ToolNex really free? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a"><p>Yes, 100% free. Every tool on ToolNex is free to use with no hidden charges, no premium plans and no subscription fees. We earn revenue through Google AdSense advertising to cover server and development costs.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Do I need to create an account? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a"><p>No account needed — ever. You can use every single tool on ToolNex without registering, signing in or providing any personal information. Just open the tool and use it.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Are my files and data safe? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a"><p>Yes. Most tools — including Image Compressor, Image to PDF, BMI Calculator and Age Calculator — process everything locally inside your browser. Your files are never sent to our servers. The only exception is the AI Writer, which sends your text prompt to Anthropic's Claude API.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Can I use ToolNex tools for commercial projects? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a"><p>Absolutely. You are free to use ToolNex for personal and commercial purposes. Generate content with the AI Writer, convert your business documents, compress product images — all free for commercial use. See our Terms of Use for full details.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How can I suggest a new tool? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a"><p>We love hearing from our users! Visit our Contact page and send us your suggestion. We read every message and prioritise the most-requested tools for our development roadmap.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Does ToolNex work on mobile? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a"><p>Yes! ToolNex is fully responsive and works great on smartphones and tablets. The Image to PDF tool even includes a camera capture feature designed specifically for mobile users to scan documents directly.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Who runs ToolNex? <span class="faq-arrow">▾</span></div>
-          <div class="faq-a"><p>ToolNex is an independent web project run by a small dedicated team of web developers passionate about building useful, free tools. We are not affiliated with any large corporation. For enquiries, contact us at hello@toolnex.site.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ CTA ══ -->
-    <div class="cta-box">
-      <div class="cta-title">🛠️ Ready to Use Our Free Tools?</div>
-      <div class="cta-sub">200+ free tools waiting for you — no sign-up, no subscription, no data collection. Just fast, reliable tools for everyday tasks.</div>
-      <div class="cta-btns">
-        <a href="index.html" class="btn-cta-primary">🚀 Explore All Tools</a>
-        <a href="contact.html" class="btn-cta-secondary">✉️ Contact Us</a>
-      </div>
-    </div>
-
-    <!-- RELATED LINKS -->
-    <div style="display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;">
-      <a href="privacy.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.6rem 1.2rem;font-family:'Cinzel',serif;font-size:.78rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">🔒 Privacy Policy</a>
-      <a href="terms.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.6rem 1.2rem;font-family:'Cinzel',serif;font-size:.78rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">📋 Terms of Use</a>
-      <a href="contact.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.6rem 1.2rem;font-family:'Cinzel',serif;font-size:.78rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">✉️ Contact Us</a>
-      <a href="index.html" style="background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:.6rem 1.2rem;font-family:'Cinzel',serif;font-size:.78rem;color:var(--muted);text-decoration:none;transition:all .2s;letter-spacing:.04em;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold2)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">🏠 Back to Home</a>
-    </div>
-
-  </div><!-- /main-wrap -->
-</div><!-- /page-body -->
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="brand-logo">🛠️ ToolNex</span>
-        <p>Free online tools for everyone. Fast, private, no registration required. Built with ♥</p>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">🏠 Home</a></li>
-          <li><a href="age-calculator.html">🎂 Age Calculator</a></li>
-          <li><a href="bmi-calculator.html">⚖️ BMI Calculator</a></li>
-          <li><a href="qr-code.html">📲 QR Generator</a></li>
-          <li><a href="ai-writer.html">🤖 AI Writer</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Tools</h4>
-        <ul>
-          <li><a href="pdf-to-word.html">PDF to Word</a></li>
-          <li><a href="image-to-pdf.html">Image to PDF</a></li>
-          <li><a href="image-compressor.html">Image Compressor</a></li>
-          <li><a href="json-formatter.html">JSON Formatter</a></li>
-          <li><a href="css-minifier.html">CSS Minifier</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">📖 About Us</a></li>
-          <li><a href="contact.html">✉️ Contact</a></li>
-          <li><a href="privacy.html">🔒 Privacy Policy</a></li>
-          <li><a href="terms.html">📋 Terms of Use</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 TOOLNEX · ALL RIGHTS RESERVED · MADE WITH ♥</div>
+<footer class="ftr">
+  <div class="ftr-in">
+    <span class="ftr-copy">© 2026 ToolNex · All Rights Reserved</span>
+    <div class="ftr-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
     </div>
   </div>
 </footer>
-
-<script>
-// FAQ accordion
-function toggleFaq(el) {
-  const item = el.parentElement;
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-
-// Scroll animations
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: .07 });
-
-document.querySelectorAll('.stat-card,.value-card,.cat-card,.tl-item,.faq-item').forEach((c, i) => {
-  c.style.opacity = '0';
-  c.style.transform = 'translateY(14px)';
-  c.style.transition = `opacity .45s ${i * .05}s ease, transform .45s ${i * .05}s ease`;
-  io.observe(c);
-});
-</script>
 </body>
 </html>
