@@ -1,0 +1,64 @@
+name: Add GA4 to all HTML files
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-ga4:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add correct GA4 to all HTML files
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          GA4 = "G-4K2LMKJLTV"
+
+          ga4_code = f'''<!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){{dataLayer.push(arguments);}}
+            gtag('js', new Date());
+            gtag('config', '{GA4}');
+          </script>'''
+
+          for path in Path(".").rglob("*.html"):
+              if ".git" in path.parts:
+                  continue
+
+              text = path.read_text(encoding="utf-8")
+
+              pattern = r'<script[^>]+src=["\']https://www\.googletagmanager\.com/gtag/js\?id=[^"\']+["\'][^>]*></script>\s*<script>.*?</script>'
+
+              text = re.sub(pattern, "", text, flags=re.S | re.I)
+
+              if "</head>" in text.lower():
+                  text = re.sub(
+                      r"</head>",
+                      ga4_code + "\n</head>",
+                      text,
+                      count=1,
+                      flags=re.I
+                  )
+
+                  path.write_text(text, encoding="utf-8")
+                  print("Updated:", path)
+
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git diff --cached --quiet || git commit -m "Add GA4 to all HTML pages"
+          git push
