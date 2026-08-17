@@ -1,4 +1,4 @@
-name: Add GA4 and AdSense to all HTML files
+name: Add GA4 and Adsterra to all HTML files
 
 on:
   workflow_dispatch:
@@ -14,14 +14,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Add GA4 and AdSense
+      - name: Add GA4 and Adsterra
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
 
           GA4 = "G-4K2LMKJLTV"
-          ADSENSE = "ca-pub-6743162164680988"
 
           ga4 = f'''<!-- Google tag (gtag.js) -->
           <script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script>
@@ -32,9 +31,61 @@ jobs:
             gtag('config', '{GA4}');
           </script>'''
 
-          adsense = f'''<!-- Google AdSense -->
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE}"
-               crossorigin="anonymous"></script>'''
+          for path in Path(".").rglob("*.html"):
+              if ".git" in path.parts:
+                  continue
+
+              text = path.read_text(encoding="utf-8")
+
+              # Remove old GA4 code
+              text = re.sub(
+                  r'<!-- Google tag \(gtag\.js\) -->.*?gtag\([\'"]config[\'"].*?</script>',
+                  '',
+                  text,
+                  flags=re.S
+              )
+
+              # Remove old AdSense site code
+              text = re.sub(
+                  r'<!-- Google AdSense -->.*?crossorigin=["\']anonymous["\']\s*></script>',
+                  '',
+                  text,
+                  flags=re.S
+              )
+
+              # Add GA4 before </head>
+              if re.search(r'</head>', text, re.I):
+                  text = re.sub(
+                      r'</head>',
+                      ga4 + '\n</head>',
+                      text,
+                      count=1,
+                      flags=re.I
+                  )
+
+              path.write_text(text, encoding="utf-8")
+              print("Updated:", path)
+
+          PY
+
+      - name: Add Adsterra top banner
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          adsterra = '''<!-- Adsterra Top Banner -->
+          <div class="adsterra-top-banner" style="width:100%; max-width:728px; margin:15px auto; text-align:center;">
+            <script>
+              atOptions = {
+                'key' : 'c61926a6cb30f528bfde6f4878bf66d7',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/c61926a6cb30f528bfde6f4878bf66d7/invoke.js"></script>
+          </div>'''
 
           for path in Path(".").rglob("*.html"):
               if ".git" in path.parts:
@@ -42,34 +93,22 @@ jobs:
 
               text = path.read_text(encoding="utf-8")
 
-              # Remove existing GA4 code
-              text = re.sub(
-                  r'<!-- Google tag \(gtag\.js\) -->.*?</script>\s*</script>',
-                  '',
-                  text,
-                  flags=re.S
-              )
+              # Remove previously inserted Adsterra top banner
+              text = text.replace(adsterra, "")
 
-              # Remove existing AdSense site code
-              text = re.sub(
-                  r'<!-- Google AdSense -->.*?crossorigin=["\']anonymous["\']></script>',
-                  '',
-                  text,
-                  flags=re.S
-              )
-
-              # Add both codes before </head>
-              if re.search(r'</head>', text, re.I):
+              # Put Adsterra after <body>
+              if "<body" in text.lower():
+                  import re
                   text = re.sub(
-                      r'</head>',
-                      ga4 + '\n' + adsense + '\n</head>',
+                      r'(<body[^>]*>)',
+                      r'\1\n' + adsterra,
                       text,
                       count=1,
                       flags=re.I
                   )
 
-                  path.write_text(text, encoding="utf-8")
-                  print("Updated:", path)
+              path.write_text(text, encoding="utf-8")
+              print("Adsterra added:", path)
 
           PY
 
@@ -78,5 +117,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add .
-          git diff --cached --quiet || git commit -m "Add GA4 and AdSense to all HTML pages"
+          git diff --cached --quiet || git commit -m "Add GA4 and Adsterra banner to all HTML pages"
           git push
