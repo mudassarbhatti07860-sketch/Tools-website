@@ -1,4 +1,4 @@
-name: Update GA4 and Adsterra Ads
+name: ToolNex - GA4 and Adsterra Ads
 
 on:
   workflow_dispatch:
@@ -11,20 +11,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+
+      # =========================
+      # CHECKOUT
+      # =========================
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Add GA4 and Adsterra ads
+      # =========================
+      # UPDATE HTML FILES
+      # =========================
+      - name: Add GA4 and Adsterra
+        shell: bash
         run: |
-          python3 - <<'PY'
+          python3 <<'PY'
           from pathlib import Path
           import re
 
           GA4_ID = "G-4K2LMKJLTV"
 
-          TOP_AD = r'''
-          <!-- Adsterra Top Banner -->
-          <div class="adsterra-top-banner">
+          # ==========================================
+          # GA4
+          # ==========================================
+
+          GA4_CODE = f'''
+          <!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){{dataLayer.push(arguments);}}
+            gtag('js', new Date());
+            gtag('config', '{GA4_ID}');
+          </script>
+          '''
+
+          # ==========================================
+          # TOP BANNER ADS TERRA
+          # 728x90
+          # ==========================================
+
+          TOP_AD = '''
+          <!-- TOOLNEX ADSTERRA TOP BANNER START -->
+          <div class="toolnex-adsterra-top">
             <script>
               atOptions = {
                 'key' : 'c61926a6cb30f528bfde6f4878bf66d7',
@@ -36,11 +64,17 @@ jobs:
             </script>
             <script src="https://www.highperformanceformat.com/c61926a6cb30f528bfde6f4878bf66d7/invoke.js"></script>
           </div>
+          <!-- TOOLNEX ADSTERRA TOP BANNER END -->
           '''
 
-          MID_AD = r'''
-          <!-- Adsterra Mid Banner -->
-          <div class="adsterra-mid-banner">
+          # ==========================================
+          # MID BANNER ADSTERRA
+          # 300x250
+          # ==========================================
+
+          MID_AD = '''
+          <!-- TOOLNEX ADSTERRA MID BANNER START -->
+          <div class="toolnex-adsterra-mid">
             <script>
               atOptions = {
                 'key' : '742caef2ced20e328dd6d44f4f0d2026',
@@ -52,169 +86,232 @@ jobs:
             </script>
             <script src="https://www.highperformanceformat.com/742caef2ced20e328dd6d44f4f0d2026/invoke.js"></script>
           </div>
+          <!-- TOOLNEX ADSTERRA MID BANNER END -->
           '''
 
-          GA4 = f'''
-          <!-- Google tag (gtag.js) -->
-          <script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){{dataLayer.push(arguments);}}
-            gtag('js', new Date());
-            gtag('config', '{GA4_ID}');
-          </script>
-          '''
+          # ==========================================
+          # FIND ALL HTML FILES
+          # ==========================================
 
-          for path in Path(".").rglob("*.html"):
+          html_files = [
+              p for p in Path(".").rglob("*.html")
+              if ".git" not in p.parts
+          ]
 
-              if ".git" in path.parts:
-                  continue
+          print("HTML files found:", len(html_files))
+
+          # ==========================================
+          # PROCESS EACH HTML FILE
+          # ==========================================
+
+          for path in html_files:
+
+              print("\nProcessing:", path)
 
               text = path.read_text(encoding="utf-8")
 
-              # -----------------------------------------
-              # 1. REMOVE GOOGLE ADSENSE
-              # -----------------------------------------
+              # --------------------------------------
+              # REMOVE ALL OLD ADS TERRA INSERTIONS
+              # --------------------------------------
 
               text = re.sub(
-                  r'<script[^>]*pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js[^>]*>.*?</script>',
+                  r'<!-- TOOLNEX ADSTERRA TOP BANNER START -->.*?<!-- TOOLNEX ADSTERRA TOP BANNER END -->',
                   '',
                   text,
-                  flags=re.I | re.S
+                  flags=re.S | re.I
               )
 
               text = re.sub(
-                  r'<meta[^>]*google-adsense-account[^>]*>',
+                  r'<!-- TOOLNEX ADSTERRA MID BANNER START -->.*?<!-- TOOLNEX ADSTERRA MID BANNER END -->',
                   '',
                   text,
-                  flags=re.I
+                  flags=re.S | re.I
               )
 
-              # Remove common AdSense blocks
-              text = re.sub(
-                  r'<!--\s*Google AdSense\s*-->.*?(?=<script|</head>|</body>)',
-                  '',
-                  text,
-                  flags=re.I | re.S
-              )
-
-              # -----------------------------------------
-              # 2. REMOVE OLD GA4
-              # -----------------------------------------
-
-              text = re.sub(
-                  r'<!--\s*Google tag \(gtag\.js\)\s*-->.*?'
-                  r'<\/script>\s*',
-                  '',
-                  text,
-                  flags=re.I | re.S
-              )
-
-              # -----------------------------------------
-              # 3. REMOVE OLD ADSTERRA INSERTIONS
-              # -----------------------------------------
-
-              text = re.sub(
-                  r'<!--\s*Adsterra Top Banner\s*-->.*?'
-                  r'<\/div>',
-                  '',
-                  text,
-                  flags=re.I | re.S
-              )
-
-              text = re.sub(
-                  r'<!--\s*Adsterra Mid Banner\s*-->.*?'
-                  r'<\/div>',
-                  '',
-                  text,
-                  flags=re.I | re.S
-              )
-
-              # Remove previous standalone Adsterra containers
+              # Remove old adsterra containers
               text = re.sub(
                   r'<div[^>]*class=["\']adsterra-top-banner["\'][^>]*>.*?</div>',
                   '',
                   text,
-                  flags=re.I | re.S
+                  flags=re.S | re.I
               )
 
               text = re.sub(
                   r'<div[^>]*class=["\']adsterra-mid-banner["\'][^>]*>.*?</div>',
                   '',
                   text,
-                  flags=re.I | re.S
+                  flags=re.S | re.I
               )
 
-              # -----------------------------------------
-              # 4. ADD GA4 BEFORE </head>
-              # -----------------------------------------
+              text = re.sub(
+                  r'<div[^>]*class=["\']toolnex-adsterra-top["\'][^>]*>.*?</div>',
+                  '',
+                  text,
+                  flags=re.S | re.I
+              )
 
-              if re.search(r'</head>', text, flags=re.I):
+              text = re.sub(
+                  r'<div[^>]*class=["\']toolnex-adsterra-mid["\'][^>]*>.*?</div>',
+                  '',
+                  text,
+                  flags=re.S | re.I
+              )
+
+              # --------------------------------------
+              # REMOVE GOOGLE ADSENSE
+              # --------------------------------------
+
+              text = re.sub(
+                  r'<script[^>]+pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js[^>]*>.*?</script>',
+                  '',
+                  text,
+                  flags=re.S | re.I
+              )
+
+              text = re.sub(
+                  r'<meta[^>]+google-adsense-account[^>]*>',
+                  '',
+                  text,
+                  flags=re.S | re.I
+              )
+
+              # --------------------------------------
+              # REMOVE OLD GA4
+              # --------------------------------------
+
+              text = re.sub(
+                  r'<!-- Google tag \(gtag\.js\) -->.*?'
+                  r'gtag\([\'"]config[\'"]\s*,\s*[\'"]G-[A-Z0-9]+[\'"]\s*\)\s*;'
+                  r'.*?</script>',
+                  '',
+                  text,
+                  flags=re.S | re.I
+              )
+
+              # --------------------------------------
+              # ADD GA4 ONCE
+              # --------------------------------------
+
+              if re.search(r'</head>', text, re.I):
 
                   text = re.sub(
                       r'</head>',
-                      GA4 + '\n</head>',
+                      GA4_CODE + '\n</head>',
                       text,
                       count=1,
                       flags=re.I
                   )
 
-              # -----------------------------------------
-              # 5. TOP AD INSIDE EXISTING TOP AD SPACE
-              # -----------------------------------------
+                  print("GA4 added")
 
-              top_pattern = (
+              # ======================================
+              # TOP AD SPACE
+              # ======================================
+
+              top_pattern = re.compile(
                   r'(<div\s+class=["\']ad-top["\'][^>]*>\s*'
                   r'<div\s+class=["\']adslot["\'][^>]*>)'
-                  r'.*?'
-                  r'(</div>\s*</div>)'
+                  r'(.*?)'
+                  r'(</div>\s*</div>)',
+                  flags=re.S | re.I
               )
 
-              if re.search(top_pattern, text, flags=re.I | re.S):
+              top_match = top_pattern.search(text)
 
-                  text = re.sub(
-                      top_pattern,
-                      lambda m: m.group(1) + TOP_AD + m.group(2),
-                      text,
-                      count=1,
-                      flags=re.I | re.S
+              if top_match:
+
+                  new_top = (
+                      top_match.group(1)
+                      + '\n'
+                      + TOP_AD
+                      + '\n'
+                      + top_match.group(3)
                   )
 
-                  print("Top Ad placed inside ad-top:", path)
+                  text = (
+                      text[:top_match.start()]
+                      + new_top
+                      + text[top_match.end():]
+                  )
+
+                  print("TOP AD INSERTED INSIDE .ad-top .adslot")
 
               else:
-                  print("Top ad space NOT found:", path)
+                  print("WARNING: TOP AD SPACE NOT FOUND")
 
-              # -----------------------------------------
-              # 6. MID AD INSIDE EXISTING MID AD SPACE
-              # -----------------------------------------
+              # ======================================
+              # MID AD SPACE
+              # ======================================
 
-              mid_pattern = (
+              mid_pattern = re.compile(
                   r'(<div\s+class=["\']ad-mid["\'][^>]*>\s*'
                   r'<div\s+class=["\']adslot["\'][^>]*>)'
-                  r'.*?'
-                  r'(</div>\s*</div>)'
+                  r'(.*?)'
+                  r'(</div>\s*</div>)',
+                  flags=re.S | re.I
               )
 
-              if re.search(mid_pattern, text, flags=re.I | re.S):
+              mid_match = mid_pattern.search(text)
 
-                  text = re.sub(
-                      mid_pattern,
-                      lambda m: m.group(1) + MID_AD + m.group(2),
-                      text,
-                      count=1,
-                      flags=re.I | re.S
+              if mid_match:
+
+                  new_mid = (
+                      mid_match.group(1)
+                      + '\n'
+                      + MID_AD
+                      + '\n'
+                      + mid_match.group(3)
                   )
 
-                  print("Mid Ad placed inside ad-mid:", path)
+                  text = (
+                      text[:mid_match.start()]
+                      + new_mid
+                      + text[mid_match.end():]
+                  )
+
+                  print("MID AD INSERTED INSIDE .ad-mid .adslot")
 
               else:
-                  print("Mid ad space NOT found:", path)
+                  print("WARNING: MID AD SPACE NOT FOUND")
+
+              # ======================================
+              # WRITE FILE
+              # ======================================
 
               path.write_text(text, encoding="utf-8")
 
+          print("\nFinished processing all HTML files.")
+
           PY
 
+      # =========================
+      # VERIFY ADS
+      # =========================
+      - name: Verify Adsterra placement
+        run: |
+          echo "Checking Adsterra placement..."
+
+          TOP_COUNT=$(grep -RIl "c61926a6cb30f528bfde6f4878bf66d7" --include="*.html" . | wc -l || true)
+          MID_COUNT=$(grep -RIl "742caef2ced20e328dd6d44f4f0d2026" --include="*.html" . | wc -l || true)
+
+          echo "Top Ad files: $TOP_COUNT"
+          echo "Mid Ad files: $MID_COUNT"
+
+          if [ "$TOP_COUNT" -eq 0 ]; then
+            echo "ERROR: Top Adsterra code was not found."
+            exit 1
+          fi
+
+          if [ "$MID_COUNT" -eq 0 ]; then
+            echo "ERROR: Mid Adsterra code was not found."
+            exit 1
+          fi
+
+          echo "Adsterra codes found successfully."
+
+      # =========================
+      # COMMIT
+      # =========================
       - name: Commit changes
         run: |
           git config user.name "github-actions"
@@ -223,7 +320,7 @@ jobs:
           git add .
 
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "No changes to commit."
           else
             git commit -m "Add Adsterra ads inside ad spaces"
             git push
